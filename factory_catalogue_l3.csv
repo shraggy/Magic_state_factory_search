@@ -1,197 +1,183 @@
-l,N,k,d,degree,decomposition,n,search
-3,14,1,2,1,T,4,two-group
-3,15,1,3,1,T,5,two-group
-3,30,1,2,1,T,5,two-group
-3,31,1,3,1,T,6,two-group
-3,62,1,2,1,T,6,two-group
-3,63,1,3,1,T,7,two-group
-3,126,1,2,1,T,7,two-group
-3,127,1,3,1,T,8,two-group
-3,135,1,5,1,T,9,two-group
-3,254,1,2,1,T,8,two-group
-3,255,1,3,1,T,9,two-group
-3,271,1,5,1,T,10,two-group
-3,510,1,2,1,T,9,two-group
-3,511,1,3,1,T,10,two-group
-3,527,1,5,1,T,11,two-group
-3,1022,1,2,1,T,10,two-group
-3,1023,1,3,1,T,11,two-group
-3,2046,1,2,1,T,11,two-group
-3,12,2,2,2,CS,4,"two-group, symmetry-free"
-3,14,2,2,1,2xT,5,"two-group, symmetry-free"
-3,28,2,2,2,CS,5,two-group
-3,30,2,2,1,2xT,6,two-group
-3,45,2,2,1,2xT,6,two-group
-3,46,2,2,1,2xT,7,two-group
-3,60,2,2,2,CS,6,two-group
-3,62,2,2,1,2xT,7,two-group
-3,93,2,2,1,2xT,7,two-group
-3,94,2,2,1,2xT,8,two-group
-3,124,2,2,2,CS,7,two-group
-3,126,2,2,1,2xT,8,two-group
-3,134,2,2,1,2xT,9,two-group
-3,189,2,2,1,2xT,8,two-group
-3,190,2,2,1,2xT,9,two-group
-3,252,2,2,2,CS,8,two-group
-3,254,2,2,1,2xT,9,two-group
-3,270,2,2,1,2xT,10,two-group
-3,381,2,2,1,2xT,9,two-group
-3,382,2,2,1,2xT,10,two-group
-3,406,2,2,1,2xT,11,two-group
-3,508,2,2,2,CS,9,two-group
-3,510,2,2,1,2xT,10,two-group
-3,526,2,2,1,2xT,11,two-group
-3,765,2,2,1,2xT,10,two-group
-3,766,2,2,1,2xT,11,two-group
-3,1020,2,2,2,CS,10,two-group
-3,1022,2,2,1,2xT,11,two-group
-3,1533,2,2,1,2xT,11,two-group
-3,2044,2,2,2,CS,11,two-group
-3,8,3,2,3,CCZ,4,"two-group, symmetry-free"
-3,12,3,2,3,CCZ,5,two-group
-3,20,3,2,2,CS+T,6,symmetry-free
-3,20,3,2,1,3xT,6,symmetry-free
-3,24,3,2,3,CCZ,5,two-group
-3,28,3,2,1,3xT,6,two-group
-3,28,3,2,3,CCZ,6,two-group
-3,29,3,2,1,3xT,7,two-group
-3,56,3,2,3,CCZ,6,two-group
-3,60,3,2,1,3xT,7,two-group
-3,60,3,2,3,CCZ,7,two-group
-3,61,3,2,1,3xT,8,two-group
-3,75,3,2,3,CCZ,7,two-group
-3,76,3,2,3,CCZ,8,two-group
-3,120,3,2,3,CCZ,7,two-group
-3,124,3,2,1,3xT,8,two-group
-3,124,3,2,3,CCZ,8,two-group
-3,125,3,2,1,3xT,9,two-group
-3,133,3,2,1,3xT,9,two-group
-3,155,3,2,3,CCZ,8,two-group
-3,156,3,2,3,CCZ,9,two-group
-3,248,3,2,3,CCZ,8,two-group
-3,252,3,2,1,3xT,9,two-group
-3,252,3,2,3,CCZ,9,two-group
-3,253,3,2,1,3xT,10,two-group
-3,269,3,2,1,3xT,10,two-group
-3,277,3,2,1,3xT,11,two-group
-3,315,3,2,3,CCZ,9,two-group
-3,316,3,2,3,CCZ,10,two-group
-3,504,3,2,3,CCZ,9,two-group
-3,508,3,2,1,3xT,10,two-group
-3,508,3,2,3,CCZ,10,two-group
-3,509,3,2,1,3xT,11,two-group
-3,525,3,2,1,3xT,11,two-group
-3,635,3,2,3,CCZ,10,two-group
-3,636,3,2,3,CCZ,11,two-group
-3,1016,3,2,3,CCZ,10,two-group
-3,1020,3,2,1,3xT,11,two-group
-3,1020,3,2,3,CCZ,11,two-group
-3,1275,3,2,3,CCZ,11,two-group
-3,2040,3,2,3,CCZ,11,two-group
-3,8,4,2,3,CCZ,5,two-group
-3,18,4,2,3,CCZ,6,two-group
-3,18,4,2,2,2xCS,6,symmetry-free
-3,20,4,2,1,4xT,7,two-group
-3,20,4,2,3,CCZ+T,7,symmetry-free
-3,22,4,2,2,CS+2xT,7,symmetry-free
-3,24,4,2,3,CCZ,6,two-group
-3,28,4,2,1,4xT,7,symmetry-free
-3,42,4,2,3,CCZ,7,two-group
-3,44,4,2,1,4xT,8,two-group
-3,56,4,2,3,CCZ,7,two-group
-3,75,4,2,1,4xT,8,two-group
-3,76,4,2,1,4xT,9,two-group
-3,90,4,2,3,CCZ,8,two-group
-3,92,4,2,1,4xT,9,two-group
-3,120,4,2,3,CCZ,8,two-group
-3,132,4,2,1,4xT,9,two-group
-3,135,4,2,3,CCZ,8,two-group
-3,136,4,2,3,CCZ,9,two-group
-3,155,4,2,1,4xT,9,two-group
-3,156,4,2,1,4xT,10,two-group
-3,186,4,2,3,CCZ,9,two-group
-3,188,4,2,1,4xT,10,two-group
-3,196,4,2,1,4xT,11,two-group
-3,248,4,2,3,CCZ,9,two-group
-3,268,4,2,1,4xT,10,two-group
-3,279,4,2,3,CCZ,9,two-group
-3,280,4,2,3,CCZ,10,two-group
-3,315,4,2,1,4xT,10,two-group
-3,316,4,2,1,4xT,11,two-group
-3,378,4,2,3,CCZ,10,two-group
-3,380,4,2,1,4xT,11,two-group
-3,504,4,2,3,CCZ,10,two-group
-3,524,4,2,1,4xT,11,two-group
-3,567,4,2,3,CCZ,10,two-group
-3,568,4,2,3,CCZ,11,two-group
-3,635,4,2,1,4xT,11,two-group
-3,762,4,2,3,CCZ,11,two-group
-3,1016,4,2,3,CCZ,11,two-group
-3,1143,4,2,3,CCZ,11,two-group
-3,18,5,2,3,CCZ+CS,7,symmetry-free
-3,20,5,2,3,CCZ+2xT,8,symmetry-free
-3,26,5,2,2,2xCS+T,8,symmetry-free
-3,26,5,2,1,5xT,8,symmetry-free
-3,30,5,2,2,CS+3xT,8,symmetry-free
-3,42,5,2,1,5xT,8,two-group
-3,43,5,2,1,5xT,9,two-group
-3,90,5,2,1,5xT,9,two-group
-3,91,5,2,1,5xT,10,two-group
-3,105,5,2,3,CCZ,9,two-group
-3,106,5,2,3,CCZ,10,two-group
-3,130,5,2,3,CCZ,9,two-group
-3,165,5,2,2,CS,9,two-group
-3,171,5,2,1,5xT,10,two-group
-3,186,5,2,1,5xT,10,two-group
-3,187,5,2,1,5xT,11,two-group
-3,217,5,2,3,CCZ,10,two-group
-3,218,5,2,3,CCZ,11,two-group
-3,266,5,2,3,CCZ,10,two-group
-3,341,5,2,2,CS,10,two-group
-3,347,5,2,1,5xT,11,two-group
-3,378,5,2,1,5xT,11,two-group
-3,441,5,2,3,CCZ,11,two-group
-3,522,5,2,3,CCZ,11,two-group
-3,693,5,2,2,CS,11,two-group
-3,14,6,2,3,2xCCZ,7,symmetry-free
-3,24,6,2,3,CCZ,8,two-group
-3,24,6,2,2,3xCS,8,symmetry-free
-3,26,6,2,1,6xT,9,two-group
-3,26,6,2,3,CCZ+CS+T,9,symmetry-free
-3,26,6,2,3,CCZ+3xT,9,symmetry-free
-3,28,6,2,2,2xCS+2xT,9,symmetry-free
-3,28,6,2,2,CS+4xT,9,symmetry-free
-3,42,6,2,1,6xT,9,symmetry-free
-3,56,6,2,3,CCZ,9,two-group
-3,58,6,2,1,6xT,10,two-group
-3,105,6,2,1,6xT,10,two-group
-3,106,6,2,1,6xT,11,two-group
-3,120,6,2,3,CCZ,10,two-group
-3,122,6,2,1,6xT,11,two-group
-3,124,6,2,3,CCZ,9,two-group
-3,154,6,2,3,CCZ,9,two-group
-3,170,6,2,1,6xT,10,two-group
-3,195,6,2,3,CCZ,10,two-group
-3,196,6,2,3,CCZ,11,two-group
-3,217,6,2,1,6xT,11,two-group
-3,248,6,2,3,CCZ,11,two-group
-3,260,6,2,3,CCZ,10,two-group
-3,330,6,2,3,CCZ,10,two-group
-3,346,6,2,1,6xT,11,two-group
-3,403,6,2,3,CCZ,11,two-group
-3,516,6,2,3,CCZ,11,two-group
-3,682,6,2,3,CCZ,11,two-group
-3,56,7,2,1,7xT,10,two-group
-3,57,7,2,1,7xT,11,two-group
-3,108,7,2,2,CS,9,two-group
-3,120,7,2,1,7xT,11,two-group
-3,132,7,2,3,CCZ,9,two-group
-3,135,7,2,3,CCZ,11,two-group
-3,168,7,2,3,CCZ,10,two-group
-3,225,7,2,2,CS,11,two-group
-3,244,7,2,2,CS,10,two-group
-3,308,7,2,3,CCZ,10,two-group
-3,344,7,2,3,CCZ,11,two-group
-3,435,7,2,2,CS,11,two-group
-3,500,7,2,2,CS,11,two-group
-3,660,7,2,3,CCZ,11,two-group
+l,N,k,d,degree,essential_dim,degree_note,t_count,t_count_note,decomposition,n,s_total,s_O,parts,search
+3,14,1,2,1,1,,1,,T,4,1,1,,two-group
+3,15,1,3,1,1,,1,,T,5,2,1,,two-group
+3,30,1,2,1,1,,1,,T,5,1,1,,two-group
+3,31,1,3,1,1,,1,,T,6,2,1,,two-group
+3,62,1,2,1,1,,1,,T,6,1,1,,two-group
+3,63,1,3,1,1,,1,,T,7,2,1,,two-group
+3,126,1,2,1,1,,1,,T,7,1,1,,two-group
+3,127,1,3,1,1,,1,,T,8,2,1,,two-group
+3,135,1,5,1,1,,1,,T,9,4,1,,two-group
+3,254,1,2,1,1,,1,,T,8,1,1,,two-group
+3,255,1,3,1,1,,1,,T,9,2,1,,two-group
+3,271,1,5,1,1,,1,,T,10,4,1,,two-group
+3,510,1,2,1,1,,1,,T,9,1,1,,two-group
+3,511,1,3,1,1,,1,,T,10,2,1,,two-group
+3,527,1,5,1,1,,1,,T,11,4,1,,two-group
+3,1022,1,2,1,1,,1,,T,10,1,1,,two-group
+3,1023,1,3,1,1,,1,,T,11,2,1,,two-group
+3,2046,1,2,1,1,,1,,T,11,1,1,,two-group
+3,12,2,2,2,2,,3,,CS,4,1,1,,two-group + symmetry-free
+3,14,2,2,1,2,,2,,2xT,5,2,1,,two-group + symmetry-free
+3,28,2,2,2,2,,3,,CS,5,1,1,,two-group
+3,30,2,2,1,2,,2,,2xT,6,2,1,,two-group
+3,45,2,2,1,2,,2,,2xT,6,1,2,,two-group
+3,46,2,2,1,2,,2,,2xT,7,2,2,,two-group
+3,60,2,2,2,2,,3,,CS,6,1,1,,two-group
+3,62,2,2,1,2,,2,,2xT,7,2,1,,two-group
+3,93,2,2,1,2,,2,,2xT,7,1,2,,two-group
+3,94,2,2,1,2,,2,,2xT,8,2,2,,two-group
+3,124,2,2,2,2,,3,,CS,7,1,1,,two-group
+3,126,2,2,1,2,,2,,2xT,8,2,1,,two-group
+3,134,2,2,1,2,,2,,2xT,9,4,1,,two-group
+3,189,2,2,1,2,,2,,2xT,8,1,2,,two-group
+3,190,2,2,1,2,,2,,2xT,9,2,2,,two-group
+3,252,2,2,2,2,,3,,CS,8,1,1,,two-group
+3,254,2,2,1,2,,2,,2xT,9,2,1,,two-group
+3,270,2,2,1,2,,2,,2xT,10,4,1,,two-group
+3,381,2,2,1,2,,2,,2xT,9,1,2,,two-group
+3,382,2,2,1,2,,2,,2xT,10,2,2,,two-group
+3,406,2,2,1,2,,2,,2xT,11,4,2,,two-group
+3,508,2,2,2,2,,3,,CS,9,1,1,,two-group
+3,510,2,2,1,2,,2,,2xT,10,2,1,,two-group
+3,526,2,2,1,2,,2,,2xT,11,4,1,,two-group
+3,765,2,2,1,2,,2,,2xT,10,1,2,,two-group
+3,766,2,2,1,2,,2,,2xT,11,2,2,,two-group
+3,1020,2,2,2,2,,3,,CS,10,1,1,,two-group
+3,1022,2,2,1,2,,2,,2xT,11,2,1,,two-group
+3,1533,2,2,1,2,,2,,2xT,11,1,2,,two-group
+3,2044,2,2,2,2,,3,,CS,11,1,1,,two-group
+3,8,3,2,3,3,,7,,CCZ,4,1,1,,two-group + symmetry-free
+3,12,3,2,2,3,,4,,CS,5,2,1,,two-group
+3,20,3,2,2,3,,4,,T+CS,6,,,2+1,symmetry-free
+3,24,3,2,3,3,,7,,CCZ,5,1,1,,two-group
+3,28,3,2,1,3,,3,,3xT,6,1,3,,two-group
+3,29,3,2,1,3,,3,,3xT,7,2,3,,two-group
+3,56,3,2,3,3,,7,,CCZ,6,1,1,,two-group
+3,60,3,2,1,3,,3,,3xT,7,1,3,,two-group
+3,61,3,2,1,3,,3,,3xT,8,2,3,,two-group
+3,75,3,2,2,3,,4,,CS,7,1,2,,two-group
+3,76,3,2,2,3,,4,,CS,8,2,2,,two-group
+3,120,3,2,3,3,,7,,CCZ,7,1,1,,two-group
+3,124,3,2,1,3,,3,,3xT,8,1,3,,two-group
+3,125,3,2,1,3,,3,,3xT,9,2,3,,two-group
+3,133,3,2,1,3,,3,,3xT,9,4,1,,two-group
+3,155,3,2,2,3,,4,,CS,8,1,2,,two-group
+3,156,3,2,2,3,,4,,CS,9,2,2,,two-group
+3,248,3,2,3,3,,7,,CCZ,8,1,1,,two-group
+3,252,3,2,1,3,,3,,3xT,9,1,3,,two-group
+3,253,3,2,1,3,,3,,3xT,10,2,3,,two-group
+3,269,3,2,1,3,,3,,3xT,10,4,1,,two-group
+3,277,3,2,1,3,,3,,3xT,11,4,3,,two-group
+3,315,3,2,2,3,,4,,CS,9,1,2,,two-group
+3,316,3,2,2,3,,4,,CS,10,2,2,,two-group
+3,504,3,2,3,3,,7,,CCZ,9,1,1,,two-group
+3,508,3,2,1,3,,3,,3xT,10,1,3,,two-group
+3,509,3,2,1,3,,3,,3xT,11,2,3,,two-group
+3,525,3,2,1,3,,3,,3xT,11,4,1,,two-group
+3,635,3,2,2,3,,4,,CS,10,1,2,,two-group
+3,636,3,2,2,3,,4,,CS,11,2,2,,two-group
+3,1016,3,2,3,3,,7,,CCZ,10,1,1,,two-group
+3,1020,3,2,1,3,,3,,3xT,11,1,3,,two-group
+3,1275,3,2,2,3,,4,,CS,11,1,2,,two-group
+3,2040,3,2,3,3,,7,,CCZ,11,1,1,,two-group
+3,8,4,2,3,3,,7,,CCZ,5,2,1,,two-group
+3,18,4,2,2,4,,5,,CS,6,1,3,,two-group
+3,18,4,2,2,4,,6,,2xCS,6,,,2+2,symmetry-free
+3,20,4,2,1,4,,4,,4xT,7,2,3,,two-group
+3,20,4,2,3,4,,7,,T+CCZ,7,,,3+1,symmetry-free
+3,22,4,2,2,4,,5,,2xT+CS,7,,,2+1+1,symmetry-free
+3,24,4,2,3,3,,7,,CCZ,6,2,1,,two-group
+3,28,4,2,1,4,,4,,4xT,7,,,1+1+1+1,symmetry-free
+3,42,4,2,2,4,,5,,CS,7,1,3,,two-group
+3,44,4,2,1,4,,4,,4xT,8,2,3,,two-group
+3,56,4,2,3,3,,7,,CCZ,7,2,1,,two-group
+3,75,4,2,1,4,,4,,4xT,8,1,4,,two-group
+3,76,4,2,1,4,,4,,4xT,9,2,4,,two-group
+3,90,4,2,2,4,,5,,CS,8,1,3,,two-group
+3,92,4,2,1,4,,4,,4xT,9,2,3,,two-group
+3,120,4,2,3,3,,7,,CCZ,8,2,1,,two-group
+3,132,4,2,1,4,,4,,4xT,9,4,1,,two-group
+3,135,4,2,3,3,,7,,CCZ,8,1,2,,two-group
+3,136,4,2,3,3,,7,,CCZ,9,2,2,,two-group
+3,155,4,2,1,4,,4,,4xT,9,1,4,,two-group
+3,156,4,2,1,4,,4,,4xT,10,2,4,,two-group
+3,186,4,2,2,4,,5,,CS,9,1,3,,two-group
+3,188,4,2,1,4,,4,,4xT,10,2,3,,two-group
+3,196,4,2,1,4,,4,,4xT,11,4,3,,two-group
+3,248,4,2,3,3,,7,,CCZ,9,2,1,,two-group
+3,268,4,2,1,4,,4,,4xT,10,4,1,,two-group
+3,279,4,2,3,3,,7,,CCZ,9,1,2,,two-group
+3,280,4,2,3,3,,7,,CCZ,10,2,2,,two-group
+3,315,4,2,1,4,,4,,4xT,10,1,4,,two-group
+3,316,4,2,1,4,,4,,4xT,11,2,4,,two-group
+3,378,4,2,2,4,,5,,CS,10,1,3,,two-group
+3,380,4,2,1,4,,4,,4xT,11,2,3,,two-group
+3,504,4,2,3,3,,7,,CCZ,10,2,1,,two-group
+3,524,4,2,1,4,,4,,4xT,11,4,1,,two-group
+3,567,4,2,3,3,,7,,CCZ,10,1,2,,two-group
+3,568,4,2,3,3,,7,,CCZ,11,2,2,,two-group
+3,635,4,2,1,4,,4,,4xT,11,1,4,,two-group
+3,762,4,2,2,4,,5,,CS,11,1,3,,two-group
+3,1016,4,2,3,3,,7,,CCZ,11,2,1,,two-group
+3,1143,4,2,3,3,,7,,CCZ,11,1,2,,two-group
+3,18,5,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",9,,CS+CCZ,7,,,3+2,symmetry-free
+3,20,5,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",8,,2xT+CCZ,8,,,3+1+1,symmetry-free
+3,26,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",7,,T+2xCS,8,,,2+2+1,symmetry-free
+3,30,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,3xT+CS,8,,,2+1+1+1,symmetry-free
+3,42,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,8,1,5,,two-group
+3,43,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,9,2,5,,two-group
+3,90,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,9,1,5,,two-group
+3,91,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,10,2,5,,two-group
+3,105,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,9,1,4,,two-group
+3,106,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,10,2,4,,two-group
+3,130,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,9,4,1,,two-group
+3,165,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",10,,CS,9,1,3,,two-group
+3,171,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,10,2,3,,two-group
+3,186,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,10,1,5,,two-group
+3,187,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,11,2,5,,two-group
+3,217,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,10,1,4,,two-group
+3,218,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,11,2,4,,two-group
+3,266,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,10,4,1,,two-group
+3,341,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",10,,CS,10,1,3,,two-group
+3,347,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,11,2,3,,two-group
+3,378,5,2,1,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",5,,5xT,11,1,5,,two-group
+3,441,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,11,1,4,,two-group
+3,522,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,CS,11,4,1,,two-group
+3,693,5,2,2,5,"essential_dim/degree is an UPPER BOUND: |GL(5,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",10,,CS,11,1,3,,two-group
+3,14,6,2,3,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",13,,2xCCZ,7,,,3+3,symmetry-free
+3,24,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",7,,CS,8,1,5,,two-group
+3,24,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",9,,3xCS,8,,,2+2+2,symmetry-free
+3,26,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,9,2,5,,two-group
+3,26,6,2,3,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",10,,T+CS+CCZ,9,,,3+2+1,symmetry-free
+3,28,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",8,,2xT+2xCS,9,,,2+2+1+1,symmetry-free
+3,42,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,9,,,1+1+1+1+1+1,symmetry-free
+3,56,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",7,,CS,9,1,5,,two-group
+3,58,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,10,2,5,,two-group
+3,105,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,10,1,6,,two-group
+3,106,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,11,2,6,,two-group
+3,120,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",7,,CS,10,1,5,,two-group
+3,122,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,11,2,5,,two-group
+3,124,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,9,4,1,,two-group
+3,154,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,T+CS,9,1,3,,two-group
+3,170,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,10,2,3,,two-group
+3,195,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,10,1,4,,two-group
+3,196,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,11,2,4,,two-group
+3,217,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,11,1,6,,two-group
+3,248,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",7,,CS,11,1,5,,two-group
+3,260,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,10,4,1,,two-group
+3,330,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,T+CS,10,1,3,,two-group
+3,346,6,2,1,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,6xT,11,2,3,,two-group
+3,403,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,11,1,4,,two-group
+3,516,6,2,3,5,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",11,,CCZ,11,4,1,,two-group
+3,682,6,2,2,6,"essential_dim/degree is an UPPER BOUND: |GL(6,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",6,,T+CS,11,1,3,,two-group
+3,56,7,2,1,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,7xT,10,1,7,,two-group
+3,57,7,2,1,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,7xT,11,2,7,,two-group
+3,120,7,2,1,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,7xT,11,1,7,,two-group
+3,132,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,9,1,3,,two-group
+3,135,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,11,1,6,,two-group
+3,168,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,10,2,3,,two-group
+3,225,7,2,2,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CS,11,1,5,,two-group
+3,308,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,10,1,3,,two-group
+3,344,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,11,2,3,,two-group
+3,660,7,2,3,7,"essential_dim/degree is an UPPER BOUND: |GL(7,2)| too large for exact enumeration; min over identity + up to 4,000 random frames",,exact T-count decoder only supports k<=6 (uint64 vector packing); this state touches 7 qubits,CCZ,11,1,3,,two-group

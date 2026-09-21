@@ -92,91 +92,82 @@ hits reduce to just the 3 ties above.
 
 ## Catalogue: every distance-2 factory found, by level
 
-The tables below give, for each `(l, k, output degree)` found by *any* of the three searches, the
-smallest `N` (i.e. the best known factory of that shape) among the three, which search found it,
-and — where I could verify it — its status in the prior literature. All entries below are
-distance `d = 2`.
+The factories themselves live in three CSV files, not in this README:
+[`factory_catalogue_l2.csv`](factory_catalogue_l2.csv),
+[`factory_catalogue_l3.csv`](factory_catalogue_l3.csv),
+[`factory_catalogue_l4.csv`](factory_catalogue_l4.csv) -- one file per Clifford-hierarchy level,
+each row a distinct `(N, k, decomposition)` recovered by the two-group search, the symmetry-free
+search, or both. Columns:
 
-Legend for the "output" column: `S`/`T`/`√T` = weight-1 (single-qubit) gate at that level;
-`CZ`/`CS`/`CT` = weight-2; `CCZ`/`CCS` = weight-3; `CCCZ` = weight-4 (see hierarchy table above).
+| column | meaning |
+|---|---|
+| `N`, `k`, `d` | the factory: `N` input magic states, `k` output qubits, distance `d` (always 2 here) |
+| `degree` | the Clifford-reduced genuine degree of the deposited state (minimized over output CNOT frames -- see [Classification](#classification-exact-t-count-and-clifford-reduced-degree) below) |
+| `essential_dim` | how many of the `k` output qubits actually carry genuine (non-Clifford) content in the best frame found; `essential_dim < k` means the factory is *padded* -- some output qubits are free |
+| `degree_note` | set only when `essential_dim`/`degree` is a documented upper bound from a random-frame search rather than an exact `GL(k,2)` enumeration (`k >= 5` here) |
+| `t_count` | the **exact** minimal T-count of the deposited state (Reed-Muller minimum-weight-coset decoder); only defined at `l = 3` |
+| `decomposition` | the deposited state's named gate content per separable component, e.g. `CS+CCZ` for a mixed-output factory |
+| `n` | total circuit qubits (`k` outputs + `n-k` checks) |
+| `s_total`, `s_O` | **two-group only**: the skip parameters passed to `Two_group.py`'s `build_gate_set(k, n-k, s_total, s_O)` that produced this row (`s_S` is fixed at 1) |
+| `parts` | **symmetry-free only**: the output block-size partition passed to `symfree_search.py`'s `solve_binding(parts, ncheck, l)` that produced this row |
+| `search` | which search(es) found this exact `(N, k, decomposition)` |
 
-### l = 2 (θ = π/4, S/CZ level)
-
-| `[[N,k,d]]` | output | search | known in literature |
-|---|---|---|---|
-| `[[6,1,2]]`  | `S`  | two-group | this work (all-weights construction, Sec. II) |
-| `[[6,2,2]]`  | `S`  | two-group *(tied by sequential)* | H-code, Jones 2013 |
-| `[[4,2,2]]`  | `CZ` | two-group | Iceberg code |
-| `[[8,3,2]]`  | `S`  | symmetry-free (3×`S`) | — |
-| `[[4,3,2]]`  | `CZ` | two-group | — |
-| `[[8,4,2]]`  | `S`  | two-group | — |
-| `[[6,4,2]]`  | `CZ` | two-group | — |
-| `[[10,5,2]]` | `S`  | symmetry-free (5×`S`) | — |
-| `[[10,5,2]]` | `CZ` | symmetry-free (2×`CZ`+`S`) | — |
-| `[[10,6,2]]` | `S`  | two-group | — |
-| `[[8,6,2]]`  | `CZ` | two-group | — |
-| `[[24,7,2]]` | `S`  | two-group | — |
-| `[[8,7,2]]`  | `CZ` | two-group | — |
-
-### l = 3 (θ = π/8, T/CS/CCZ level — where T lives)
-
-| `[[N,k,d]]` | output | search | known in literature |
-|---|---|---|---|
-| `[[14,1,2]]`  | `T`   | two-group | this work (all-weights construction, Sec. II) |
-| `[[14,2,2]]`  | `T`   | two-group *(tied by sequential)* | Bravyi–Haah 2012, `k=2` triorthogonal instance |
-| `[[12,2,2]]`  | `CS`  | two-group | this work (Sec. II derivative); independently matches the `CS(4)→CS(1)` AG-code factory (A. Gong, QEC 2026 oral presentation) |
-| `[[8,3,2]]`   | `CCZ` | two-group | "the cube": Bombín–Martín-Delgado 2007 3D color code |
-| `[[20,3,2]]`  | `T`   | symmetry-free (3×`T`) | — |
-| `[[18,4,2]]`  | `CS`  | symmetry-free (2×`CS`) | **newly found** — this paper's `T`-to-`CS` synthillation family, `[[6m+6,2m,2]]` |
-| `[[8,4,2]]`   | `CCZ` | two-group | — |
-| `[[26,5,2]]`  | `T`   | symmetry-free (5×`T`) | — |
-| `[[26,5,2]]`  | `CS`  | symmetry-free (2×`CS`+`T`) | — |
-| `[[18,5,2]]`  | `CCZ` | symmetry-free (mixed `CCZ`+`CS`) | **newly found** — one `CS` and one `CCZ` output from one factory; not in the synthillation literature |
-| `[[26,6,2]]`  | `T`   | two-group | Bravyi–Haah 2012, `k=6` instance |
-| `[[24,6,2]]`  | `CS`  | symmetry-free (3×`CS`) | — |
-| `[[14,6,2]]`  | `CCZ` | symmetry-free (2×`CCZ`) | Campbell–Howard `T`-to-`CCZ` synthillation family, `[[6m+2,3m,2]]`, `m=2` |
-| `[[56,7,2]]`  | `T`   | two-group | — |
-| `[[108,7,2]]` | `CS`  | two-group | — |
-| `[[132,7,2]]` | `CCZ` | two-group | — |
-
-### l = 4 (θ = π/16, √T/CT/CCS/CCCZ level)
-
-| `[[N,k,d]]` | output | search | known in literature |
-|---|---|---|---|
-| `[[30,1,2]]`  | `√T`   | two-group | this work (all-weights construction, Sec. II) |
-| `[[30,2,2]]`  | `√T`   | two-group *(tied by sequential)* | the `l=4` instance of the same closed-form `[[2^(l+1)-2,2,2]]` family that gives the H-code (`l=2`) and Bravyi–Haah's `k=2` code (`l=3`) — not independently named at `l=4` |
-| `[[28,2,2]]`  | `CT`   | two-group | — |
-| `[[44,3,2]]`  | `√T`   | symmetry-free (3×`√T`) | — |
-| `[[44,3,2]]`  | `CT`   | symmetry-free (`CT`+`√T`) | — |
-| `[[24,3,2]]`  | `CCS`  | two-group | — |
-| `[[44,4,2]]`  | `√T`   | two-group | — |
-| `[[42,4,2]]`  | `CT`   | symmetry-free (2×`CT`) | — |
-| `[[24,4,2]]`  | `CCS`  | two-group | — |
-| `[[16,4,2]]`  | `CCCZ` | two-group | — |
-| `[[66,5,2]]`  | `√T`   | symmetry-free (5×`√T`) | — |
-| `[[60,5,2]]`  | `CT`   | symmetry-free (2×`CT`+`√T`) | — |
-| `[[46,5,2]]`  | `CCS`  | symmetry-free (`CCS`+`CT`) | — |
-| `[[16,5,2]]`  | `CCCZ` | two-group | — |
-| `[[58,6,2]]`  | `√T`   | two-group | — |
-| `[[58,6,2]]`  | `CT`   | symmetry-free (3×`CT`) | — |
-| `[[42,6,2]]`  | `CCS`  | symmetry-free (2×`CCS`) | — |
-| `[[42,6,2]]`  | `CCCZ` | symmetry-free (`CCCZ`+`CT`) | — |
-| `[[120,7,2]]` | `√T`   | two-group | — |
-| `[[308,7,2]]` | `CCS`  | two-group | — |
-| `[[344,7,2]]` | `CCCZ` | two-group | — |
-
-Rows marked "this work" are recovered by the searches here but aren't (as far as I've checked)
-independently named in prior literature; rows with no entry in the last column simply haven't
-been cross-referenced yet — absence of a citation is not a claim of novelty. The full, unfiltered
-dump (every valid parameter tuple, not just the smallest-`N` representative per output type) is in
-[`factory_catalogue.csv`](factory_catalogue.csv) (two-group) and
-[`output_two_group.txt`](output_two_group.txt) / [`output_sequential.txt`](output_sequential.txt)
-(raw sweep logs).
+So every row carries back its own recipe: for a two-group row, `(l, n, k, s_total, s_O)` regenerates
+it via `Two_group.py`; for a symmetry-free row, `(l, parts, n-k)` regenerates it via
+`symfree_search.py`. See [Pipeline](#pipeline-regenerating-the-catalogues-and-explicit-circuits)
+below for the exact commands.
 
 There is also a separate, distance-**3** closed-form family (Theorem 3, `s=1` or `s=2` symmetric
-solutions) at every level: the quantum Reed–Muller code `[[2^(l+1)-1,1,3]]`, which specializes to
-the **Steane code** `[[7,1,3]]` at `l=2` and the classic **15→1 T-distillation** factory
-`[[15,1,3]]` (Bravyi–Kitaev) at `l=3`.
+solutions) at every level, not in the CSVs: the quantum Reed-Muller code `[[2^(l+1)-1,1,3]]`, which
+specializes to the **Steane code** `[[7,1,3]]` at `l=2` and the classic **15->1 T-distillation**
+factory `[[15,1,3]]` (Bravyi-Kitaev) at `l=3` -- verified by [`distance_check.py`](distance_check.py).
+
+## Classification: exact T-count and Clifford-reduced degree
+
+`classify.py` is the shared classifier both catalogue builders call. It is adapted from Shraddha
+Singh's own classification code in her `sj-magic-state-factory-searches` repository (used here with
+her permission), combining two independent pieces:
+
+- **Exact minimal T-count** ([`tcount.py`](tcount.py), copied verbatim): the Amy-Mosca /
+  Reed-Muller minimum-weight-coset decoder. Given the deposited phase polynomial, it finds the true
+  minimum number of T-gates needed, correctly identifying that different-looking gate strings can
+  be the same physical resource (e.g. `T1 T2 CS12` is Clifford-equivalent to a single `T`, not 3
+  separate gates). Exact and self-tested; only defined at `l = 3`.
+- **Clifford-reduced degree and essential dimension** (adapted from her `audit_flag2.py`): minimizes
+  `(essential_dim, degree)` over every output `CNOT` frame (`GL(k,2)`) -- a monomial of size `r` is
+  *genuine* only if its coefficient is nonzero mod `2^r`, not merely nonzero, and not merely odd
+  (both weaker tests give wrong answers -- the odd test alone misclassifies the real `[[4,2,2]]`
+  Iceberg code as Clifford, since its genuine `CZ` coefficient is 2). Exact for `k <= 4`
+  (`|GL(4,2)| = 20,160`); for `k >= 5` it is a documented upper bound from up to 60,000 random
+  frames (flagged in `degree_note`, and it can only ever *overstate* degree, never understate it).
+  This generalizes her `l=3`-only script to any level `l` used here.
+
+`decompose()` then reads the best frame's genuine monomials as connected components (qubits tied
+together by a shared genuine monomial are one component) and names each component by its weight --
+this is what produces mixed labels like `CS+CCZ` for a factory whose output splits into independent
+pieces.
+
+## Pipeline: regenerating the catalogues and explicit circuits
+
+1. **Sweep + classify.** The catalogue-build scripts sweep `Two_group.py`'s
+   `(l, n, k, s_total, s_O)` and `symfree_search.py`'s `(l, parts, ncheck)` parameter spaces,
+   reconstruct each valid factory's actual gate list, call `classify.classify(Gf, cf, O, l)` from
+   `classify.py`, and keep the distinct `(N, k, decomposition)` rows -- this is exactly what produced
+   `factory_catalogue_l{2,3,4}.csv` above. There is no single canned "rebuild" script yet; the sweep
+   loops are the same ones in `Two_group.py`'s `find_valid_signs`/`build_gate_set` and
+   `symfree_search.py`'s `search`/`solve_binding` -- wrap them with a call to `classify.classify` in
+   place of (or alongside) each script's own looser degree check to reproduce a catalogue row.
+2. **Get one factory's explicit circuit.** [`export_circuit.py`](export_circuit.py) takes a
+   catalogue row's own parameters and reconstructs the circuit as an explicit binary matrix (rows =
+   the `n` wires, columns = the `N` gates -- the same column convention as Shraddha Singh's
+   `master_catalog` catalogue: one qubit-support per `pi/2^l` parity rotation):
+   ```
+   python3 export_circuit.py two-group --l 3 --n 4 --k 2 --s_total 1 --s_O 1   # [[12,2,2]] CS
+   python3 export_circuit.py symfree   --l 3 --parts 3,2 --checks 2           # [[18,5,2]] CS+CCZ
+   ```
+   Each prints the gate list, the 0/1 matrix, and the row's classification (degree, essential
+   dimension, decomposition, exact T-count) as an independent check that the reconstructed circuit
+   matches the catalogue entry it came from.
 
 ## An active, extensible tool
 
@@ -191,27 +182,20 @@ a distance-2 factory at larger `k` is reachable by widening the sweep.
 
 ## What isn't found here
 
-The three searches above are all built around distance-2, and (with the exception of the
-diagonal-only sequential construction) they only reach circuits built from parity-phase (diagonal
-Clifford-hierarchy) gates. Concretely, out of scope for this repository as it stands:
+A prior audit of this repository (`SEQUENTIAL_SEARCH_AUDIT.md`, checked against a SAT/exhaustive
+classification) flagged five specific `l=3` distance-2 factories as reachable only by SAT search,
+not by any construction here. Re-checked against the rebuilt catalogues above (`degree`,
+`essential_dim`, `decomposition` from `classify.py`, matching that audit's own classifier):
 
-- **Non-CSS / catalytic factories that need Hadamard gates.** `[[10,2,2]]` (Meier–Eastin–Knill,
-  using a `[[4,2,2]]` code as an inner block) and `[[11,1,2]]` (introduced in the paper itself)
-  both require a catalytic conversion step with a non-diagonal (Hadamard) gate. None of the three
-  scripts here implement that extension — it's flagged in the paper as important future work
-  ("Adding Hadamard gates to the extended borrowed-identity formalism ... is equally important").
-- **Distance ≥ 3, multi-output factories.** This repo's searches target `d=2` (plus the
-  single-output, closed-form `d=3` Reed–Muller chain above). A concurrent, independent line of
-  work — H. Jacinto, X. Valcarce, V. Barizien, É. Gouzien, N. Sangouard,
-  ["Exploring the landscape of compact magic-state distillation factories"](https://arxiv.org/abs/2606.07734)
-  — uses a **SAT solver** to derive no-go theorems and new smallest-qubit-count protocols
-  specifically for `d ≥ 3` (e.g. new `d=4` and `d=5` T-to-T / T-to-CCZ protocols on 8–11 qubits).
-  That regime is outside what any of the three searches in this repo attempt.
-- **The full Nezami–Haah classification.** S. Nezami and J. Haah,
-  ["Classification of small triorthogonal codes,"](https://arxiv.org/abs/2107.09684) Phys. Rev. A
-  106, 012437 (2022), enumerates *every* affine-equivalence class of the relevant Reed–Muller
-  polynomials at `l=3` — a space of ~5×10^12 candidates for `N ≤ 38`, well beyond what a targeted
-  search like the ones here would ever enumerate directly. The two-group search recovers that
-  catalogue's distance-2 entries *at the largest `k` for each `N`*; entries at smaller `k` for the
-  same `N` (if they exist and are useful) are not reproduced by anything in this repo, and would
-  need either a similarly exhaustive enumeration or a SAT-based search to find.
+| factory | signature (essential_dim, degree, decomposition) | found here? |
+|---|---|---|
+| `[[12,3,2]]a` | 3, 2, `CS` | **found** — two-group, `l=3 n=5 k=3 s_total=2 s_O=1` (`factory_catalogue_l3.csv`) |
+| `[[16,4,2]]` | 4, 2, `CS` | not found |
+| `[[16,5,2]]` | 5, 2, `CS` | not found |
+| `[[12,6,2]]` | 5, 3, `CCZ` | not found |
+| `[[16,6,2]]` | 6, 3, `CCZ` | not found |
+
+So one of the five turns out to be a false negative from the earlier, looser classification, not a
+genuine gap: `[[12,3,2]]a` is in the two-group catalogue once classified correctly. The other four
+are genuinely absent from both searches here and, as far as I've checked, require either a SAT
+solver or an exhaustive enumeration to reach.

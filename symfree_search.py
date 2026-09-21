@@ -4,7 +4,7 @@ Solves the borrowed-identity condition directly for a chosen output (no symmetry
 plots the factories found at l=2,3,4 over the two-group catalogue.
 
 Run:    python3 symfree_search.py
-Reads:  ../two_group_search/factory_catalogue.csv   (gray background only)
+Reads:  factory_catalogue_l2.csv, factory_catalogue_l3.csv, factory_catalogue_l4.csv (gray background only)
 Writes: block_search_levels.png
 
 Self-contained: contains the borrowed-identity framework, the Z_{2^l} linear solver, the search,
@@ -241,10 +241,10 @@ if __name__ == "__main__":
         print("l=%d: %d factories" % (L, len(rows)))
 
     bg = {2: [], 3: [], 4: []}
-    with open(os.path.join(ROOT, "two_group_search", "factory_catalogue.csv")) as f:
-        for row in csv.DictReader(f):
-            if int(row["l"]) in bg:
-                bg[int(row["l"])].append((int(row["N"]), int(row["k"])))
+    for L in bg:
+        with open(os.path.join(ROOT, f"factory_catalogue_l{L}.csv")) as f:
+            for row in csv.DictReader(f):
+                bg[L].append((int(row["N"]), int(row["k"])))
 
     allN = [r["N"] for L in results for r in results[L]]
     allk = [r["k"] for L in results for r in results[L]]
