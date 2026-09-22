@@ -4,7 +4,7 @@ A borrowed-identity factory on n = k + r wires (k outputs 0..k-1, r checks
 k..n-1) is a list of N parity rotations; column j of the matrix is wire i's
 bit in gate j (row i, column j). This matches the column convention used
 throughout this project's classification code and in the columns field of
-Shraddha Singh's sj-magic-state-factory-searches/master_catalog catalogue.
+the `sj-magic-state-factory-searches` repository's `master_catalog` catalogue.
 
 Usage (from the repo root):
     python3 classification/export_circuit.py two-group --l 3 --n 4 --k 2 --s_total 1 --s_O 1

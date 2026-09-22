@@ -1,11 +1,12 @@
 """Output-state classification shared by the two-group and symmetry-free
-catalogue builders. Built directly on Shraddha Singh's own classification
-code (copied/adapted, with her permission to reuse it here):
+catalogue builders. Built directly on classification code from the
+`sj-magic-state-factory-searches` companion repository (its `l=3`-only
+distance-3 extension of this project), copied/adapted here:
 
   - `tcount.py`  (Amy-Mosca / Reed-Muller minimum-weight-coset decoder):
     the EXACT minimal T-count of the whole deposited state, at l=3 only.
-  - the "FLAG 2" GL(k,2) x shift reduction (`audit_flag2.py`, from her
-    other repo's `2_entangled_search/`, pasted directly into this module as
+  - the "FLAG 2" GL(k,2) x shift reduction (`audit_flag2.py`, from that
+    repo's `2_entangled_search/`, pasted directly into this module as
     `essential_and_reduced`/`separable_components`): the Clifford-reduced
     (genuine_degree, essential_dimension) of the deposited state, generalized
     here from l=3 (mod 8) to any l (mod 2^l), plus a decomposition into

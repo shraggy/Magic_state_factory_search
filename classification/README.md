@@ -2,10 +2,10 @@
 
 Turns a factory's raw gate list into the numbers and labels that appear in `outputs/*.csv`:
 `degree`, `essential_dim`, `t_count`, and a qubit-indexed `decomposition` string. Everything here
-is adapted from Shraddha Singh's own classification code in her
-`sj-magic-state-factory-searches` repository (used with her permission) — `tcount.py` and
-`degree.py` are copied verbatim; `classify.py` generalizes her `audit_flag2.py` from `l=3`-only to
-any level.
+is adapted from the classification code in the `sj-magic-state-factory-searches` companion
+repository (that project's `l=3`-only distance-3 extension of this one) — `tcount.py` and
+`degree.py` are copied verbatim; `classify.py` generalizes that repo's `audit_flag2.py` from
+`l=3`-only to any level.
 
 ## Why a dedicated classifier at all
 
@@ -23,8 +23,9 @@ minimizing over every output CNOT frame (`GL(k,2)`), not just reading off the id
 |---|---|
 | `tcount.py` | Exact minimal T-count via the Amy–Mosca / Reed–Muller minimum-weight-coset decoder. Given the deposited phase polynomial, finds the true minimum T-gate count, correctly identifying that different gate strings can be the same resource (`T1 T2 CS12` is Clifford-equivalent to a single `T`). Self-tested. Only defined at `l=3`; only valid to `k≤6` (packs `2^k-1` bits into a `uint64` — its own docstring says so, and `classify.py` guards the `k=7` overflow rather than crashing). |
 | `degree.py` | The general `l`, brute-force `GL(k,2)`-frame degree reduction this project's `classify.py` builds on (kept for reference; `classify.py` reimplements the same idea with the qubit-tracking needed for `decomposition`, adapted from `audit_flag2.py`). |
-| `metrics.py` | Singh's own caching/practical-budget wrapper around `degree.py` (kept for reference; not used directly by `classify.py`, which has its own budget — see below). |
+| `metrics.py` | A caching/practical-budget wrapper around `degree.py` from the companion repo (kept for reference; not used directly by `classify.py`, which has its own budget — see below). |
 | `classify.py` | The classifier both catalogue builders call: `classify.classify(Gf, cf, O, l)` → `dict(degree, essential_dim, degree_note, t_count, t_count_note, decomposition)`. |
+| `quirk.py` | Renders a gate list as an actual clickable [Quirk](https://algassert.com/quirk) circuit URL (CNOT-ladder-into-one-phase-gate encoding, no ancillas). Verified against the target diagonal unitary by direct simulation, not just asserted — see its module docstring. |
 | `export_circuit.py` | CLI: reconstruct one catalogue row's explicit circuit as a binary matrix and print its classification, as an independent check that the two agree. |
 
 ## `classify.classify(Gf, cf, O, l)`
@@ -34,8 +35,10 @@ minimizing over every output CNOT frame (`GL(k,2)`), not just reading off the id
 - Returns:
   - `degree`, `essential_dim`: minimized `(essential_dim, degree)` over `GL(k,2)` — exact for
     `k≤4` (`|GL(4,2)|=20,160`); a documented upper bound from a bounded random-frame search for
-    `k≥5` (`degree_note` explains this; it can only ever *overstate*, never understate, both
-    numbers).
+    `k≥5` (it can only ever *overstate*, never understate, both numbers). `degree_note` carries
+    that caveat as text when it applies; the catalogue CSVs don't include it as its own column,
+    since the exact/upper-bound distinction only ever affects `k≥5` rows and is documented once,
+    here, rather than repeated per row.
   - `t_count`: the exact answer from `tcount.py`, only at `l=3` and `k≤6` (`t_count_note` explains
     why otherwise, and this column doesn't exist at all in the `l=2`/`l=4` catalogues, where it's
     never defined).
@@ -61,4 +64,5 @@ python3 classification/export_circuit.py symfree   --l 3 --parts 3,2 --checks 2
 ```
 
 Each prints the gate list, the circuit as a 0/1 matrix (rows = wires, columns = gates — the same
-column convention as Singh's `master_catalog` catalogue), and its classification.
+column convention as the `sj-magic-state-factory-searches` companion repo's `master_catalog`
+catalogue), and its classification.
