@@ -204,22 +204,62 @@ def separable_components(g, qs):
     return list(comps.values())
 
 
+_DECOMP_TERM_CAP = 4   # per-component: list every genuine monomial up to this
+                       # many; a denser component (e.g. a fully-symmetric k=7
+                       # two-group state, which can have ~70 simultaneously
+                       # genuine monomials) gets a summary instead, since
+                       # listing all of them defeats the point of a readable
+                       # label -- the per-block essential_dim/degree numbers
+                       # still fully describe it either way.
+
+
 def decompose(g, touched, L):
-    """Named per-component decomposition string (e.g. "CS+CCZ") of the
-    best-frame genuine monomials `g` over qubits `touched`."""
+    """Qubit-indexed decomposition string (e.g. "CS01+CS02", "CCZ012") of the
+    best-frame genuine monomials `g`, one connected component at a time: one
+    term per genuine monomial in that component, named by its size and the
+    specific (best-frame) qubits it acts on -- not just an aggregate count,
+    so e.g. two CS terms sharing a qubit ("CS01+CS02", one 3-qubit essential
+    block) reads differently from two disjoint ones ("CS01+CS23", two
+    independent 2-qubit blocks). A component with more than
+    `_DECOMP_TERM_CAP` genuine monomials (a densely entangled block) is
+    summarized as its top-degree gate name over its touched qubits plus a
+    count, e.g. "CCZ0123456(35+21 terms)", rather than spelled out in full.
+
+    Qubit labels are 0-indexed positions in the REDUCED frame found by
+    `essential_and_reduced` (the touched qubits, renumbered in sorted order),
+    not necessarily the original circuit's physical output wires -- the whole
+    point of the frame search is that a CNOT change of basis on the outputs
+    can be needed to see the genuine content at all.
+    """
     if not g:
         return "trivial"
-    comps = separable_components(g, sorted(touched))
+    touched = sorted(touched)
+    relabel = {q: i for i, q in enumerate(touched)}
+    comps = separable_components(g, touched)
     parts = []
     for comp in comps:
         gc = {S: c for S, c in g.items() if S <= comp}
         if not gc:
             continue
-        d_c = max(len(S) for S in gc)
-        parts.append(GATE_BY_SIZE.get(L, {}).get(d_c, f"deg{d_c}"))
-    from collections import Counter
-    cnt = Counter(parts)
-    return "+".join(g if cnt[g] == 1 else f"{cnt[g]}x{g}" for g in sorted(cnt, reverse=True))
+        if len(gc) <= _DECOMP_TERM_CAP:
+            terms = []
+            for S in gc:
+                name = GATE_BY_SIZE.get(L, {}).get(len(S), f"deg{len(S)}")
+                qubits = "".join(str(relabel[q]) for q in sorted(S))
+                terms.append((len(S), qubits, f"{name}{qubits}"))
+            terms.sort(key=lambda t: (-t[0], t[1]))
+            parts.append((max(t[0] for t in terms), "+".join(t[2] for t in terms)))
+        else:
+            comp_qubits = "".join(str(relabel[q]) for q in sorted(comp))
+            top = max(len(S) for S in gc)
+            name = GATE_BY_SIZE.get(L, {}).get(top, f"deg{top}")
+            by_size = {}
+            for S in gc:
+                by_size[len(S)] = by_size.get(len(S), 0) + 1
+            counts = "+".join(str(by_size[sz]) for sz in sorted(by_size, reverse=True))
+            parts.append((top, f"{name}{comp_qubits}({counts} terms)"))
+    parts.sort(key=lambda p: (-p[0], p[1]))
+    return "+".join(p[1] for p in parts)
 
 
 # ------------------------------------------------------------------------- public entry point

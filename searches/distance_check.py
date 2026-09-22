@@ -10,7 +10,7 @@ logical errors.  (This is the paper's 'min # of gates with odd overlap on <=k qu
 """
 from math import comb
 from itertools import combinations
-from code_IV import build_gate_set, extract_factory, find_valid_signs
+from Two_group import build_gate_set, extract_factory, find_valid_signs
 
 def gate_supports(n, k, s_total, s_O):
     pairs, W_total, W_O = build_gate_set(k, n-k, s_total, s_O)

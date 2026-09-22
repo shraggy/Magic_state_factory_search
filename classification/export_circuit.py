@@ -6,16 +6,19 @@ bit in gate j (row i, column j). This matches the column convention used
 throughout this project's classification code and in the columns field of
 Shraddha Singh's sj-magic-state-factory-searches/master_catalog catalogue.
 
-Usage:
-    python3 export_circuit.py two-group  --l 3 --n 4 --k 2 --s_total 1 --s_O 1
-    python3 export_circuit.py symfree    --l 3 --k 5 --parts 3,2 --checks 3
+Usage (from the repo root):
+    python3 classification/export_circuit.py two-group --l 3 --n 4 --k 2 --s_total 1 --s_O 1
+    python3 classification/export_circuit.py symfree   --l 3 --parts 3,2 --checks 3
 
 Prints the circuit as one gate (qubit-support) per line, then the same
 circuit as an explicit 0/1 matrix (rows = wires, columns = gates).
 """
 import argparse
+import os
+import sys
 from itertools import combinations
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "searches"))
 import Two_group as tg
 import symfree_search as sym
 import classify

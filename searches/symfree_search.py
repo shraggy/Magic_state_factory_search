@@ -3,9 +3,9 @@
 Solves the borrowed-identity condition directly for a chosen output (no symmetry ansatz), then
 plots the factories found at l=2,3,4 over the two-group catalogue.
 
-Run:    python3 symfree_search.py
-Reads:  factory_catalogue_l2.csv, factory_catalogue_l3.csv, factory_catalogue_l4.csv (gray background only)
-Writes: block_search_levels.png
+Run:    python3 searches/symfree_search.py   (from the repo root)
+Reads:  outputs/factory_catalogue_l{2,3,4}.csv (gray background only)
+Writes: figures/block_search_levels.png
 
 Self-contained: contains the borrowed-identity framework, the Z_{2^l} linear solver, the search,
 and the plotting. N = top-level (pi/2^l, odd-coeff) magic count; Clifford (even-coeff) gates free;
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
     bg = {2: [], 3: [], 4: []}
     for L in bg:
-        with open(os.path.join(ROOT, f"factory_catalogue_l{L}.csv")) as f:
+        with open(os.path.join(ROOT, "outputs", f"factory_catalogue_l{L}.csv")) as f:
             for row in csv.DictReader(f):
                 bg[L].append((int(row["N"]), int(row["k"])))
 
@@ -282,5 +282,5 @@ if __name__ == "__main__":
     ax.grid(alpha=0.25, zorder=0)
     ax.legend(handles=handles, loc="lower right", fontsize=8, framealpha=0.95)
     fig.tight_layout()
-    out = os.path.join(HERE, "block_search_levels.png")
+    out = os.path.join(ROOT, "figures", "block_search_levels.png")
     fig.savefig(out, dpi=190); print("saved", out)
