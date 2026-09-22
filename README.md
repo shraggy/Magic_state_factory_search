@@ -20,8 +20,7 @@ the paper for the theory; this README covers what's here and what it found.
 | [`outputs/`](outputs/) | The factory catalogues (one CSV per level) and raw sweep logs. **[README](outputs/README.md)** |
 | [`figures/`](figures/) | Generated plots and Quirk circuit diagrams. **[README](figures/README.md)** |
 
-Nothing lives loose at the root except this file and repo config — start in whichever folder's
-README matches what you're trying to do.
+
 
 ## Main findings
 
