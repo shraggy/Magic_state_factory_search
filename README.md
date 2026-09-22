@@ -43,5 +43,5 @@ the paper for the theory; this README covers what's here and what it found.
 
 This repository is meant to keep being used, not just to reproduce the paper's figures. The
 borrowed-identity condition is written generically in `l`, so finding a `Z(π/2^l)`-to-any-`D_l`
-magic-state factory at a level or parameter range not yet swept is a matter of widening the sweep
-in the relevant script (see `searches/README.md`), not writing new theory.
+magic-state factory at a level or parameter range not yet swept can be done by widening the sweep
+(see `searches/README.md`).
