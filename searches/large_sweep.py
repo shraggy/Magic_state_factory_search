@@ -3,7 +3,8 @@
 Step 1 lists every parameter tuple satisfying the two-group condition (Theorem 5), which needs only binomial sums.
 Step 2 builds, verifies by brute force, and classifies one factory per (l, k, n) candidate, keeping the smallest n
 per output class. Verification costs 2^N, so it is the only part that grows; results stream to
-outputs/large_sweep.csv, and a rerun skips rows already written.
+outputs/large_sweep.csv, and a rerun skips rows already written. When the run ends the Quirk column is moved
+into outputs/large_sweep_with_quirk.csv.zip, so the CSV stays small.
 Run: python3 searches/large_sweep.py [N_max]
 """
 import os, sys, csv, time
@@ -58,4 +59,18 @@ for L, k, n, N, st, so in cand:
                 "quirk": us.quirk_url(f["gates"], N, L, k=k) if N <= 14 else ""})
     fh.flush(); verified += 1
     if verified % 20 == 0: print(f"  verified {verified}; last l={L} k={k} n={n} N={N} ({time.time() - t0:.0f}s)", flush=True)
-print(f"done: {verified} new factories verified in {time.time() - t0:.0f}s -> {OUT}", flush=True)
+fh.close()
+# publish: the CSV without Quirk links (small), and the full table with links zipped alongside
+import zipfile
+csv.field_size_limit(sys.maxsize)
+rows = list(csv.DictReader(open(OUT)))
+ZIP = OUT.replace(".csv", "_with_quirk.csv.zip")
+tmp = OUT.replace(".csv", "_with_quirk.csv")
+with open(tmp, "w", newline="") as f2:
+    w2 = csv.DictWriter(f2, fieldnames=F); w2.writeheader(); w2.writerows(rows)
+with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    z.write(tmp, os.path.basename(tmp))
+os.remove(tmp)
+with open(OUT, "w", newline="") as f2:
+    w2 = csv.DictWriter(f2, fieldnames=[x for x in F if x != "quirk"], extrasaction="ignore"); w2.writeheader(); w2.writerows(rows)
+print(f"done: {verified} new factories verified in {time.time() - t0:.0f}s -> {OUT} (+ {os.path.basename(ZIP)})", flush=True)

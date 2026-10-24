@@ -82,4 +82,5 @@ timed separately in `search_timing.json`, and is not needed to find a factory.
 |---|---|---|
 | `l3_k78_targets.csv` | `searches/large_k_sweep.py` | block gluing for every `l=3` target on `k=7,8` outputs |
 | `landscape_l3.json`, `landscape_l4.json` | `searches/synthillation_compare.py` | per-target comparison with distilling parts separately and with synthillation (Fig. 1) |
-| `large_sweep.csv` | `searches/large_sweep.py` | two-group stage to large `N`, one verified factory per `(l, k, n)` |
+| `large_sweep.csv` | `searches/large_sweep.py` | two-group stage up to `N=16` circuit qubits, `k<=8`: 1,453 verified factories, one per `(l, k, n)`, `n` up to 65,534 (about 2.5 h) |
+| `large_sweep_with_quirk.csv.zip` | `searches/large_sweep.py` | the same table with Quirk links for circuits of up to 14 qubits |

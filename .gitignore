@@ -9,5 +9,3 @@ figures/circuits/*.log
 outputs/my_run/
 figures/circuits/qk_*.tex
 
-# large sweep: written while the run is going; published as a small CSV + zip of Quirk links when it finishes
-outputs/large_sweep.csv
