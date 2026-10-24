@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or catalogue, please cite it as below."
+title: "Algebraic Magic State Factory Search"
+type: software
+authors:
+  - family-names: Singh
+    given-names: Shraddha
+    affiliation: Google Quantum AI
+  - family-names: Gidney
+    given-names: Craig
+    affiliation: Google Quantum AI
+  - family-names: Jones
+    given-names: Cody
+    affiliation: Google Quantum AI
+license: Apache-2.0
+repository-code: "https://github.com/shraggy/Magic_state_factory_search"

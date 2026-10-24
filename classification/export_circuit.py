@@ -55,8 +55,8 @@ def symfree_columns(l, parts, checks):
 
 
 def print_circuit(columns, signs, out, chk, n):
-    print(f"n={n} qubits: outputs={out} checks={chk}")
-    print(f"N={len(columns)} gates:")
+    print(f"N={n} circuit qubits: outputs={out} checks={chk}")
+    print(f"{len(columns)} gates:")
     for col, s in zip(columns, signs):
         sign_str = "+" if s > 0 else "-"
         print(f"  {sign_str} on qubits {col}")

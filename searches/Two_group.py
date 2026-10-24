@@ -123,3 +123,53 @@ def find_valid_signs(l, n, k, pairs):
         if is_borrowed_identity(l, n, k, sd):
             valid.append(dict(sd))
     return valid
+
+
+def factory_gates(k, n_minus_k, sigma_dict):
+    """Explicit check-touching rotations of the factory, as (output mask, check mask) bit pairs.
+    Gates with w_S = 0 act on the outputs alone and are removed when the factory is extracted."""
+    from itertools import combinations
+    gates = []
+    for (w_O, w_S), sigma in sigma_dict.items():
+        if w_S == 0 or sigma == 0:
+            continue
+        for A in combinations(range(k), w_O):
+            for B in combinations(range(n_minus_k), w_S):
+                gates.append((sum(1 << a for a in A), sum(1 << b for b in B)))
+    return gates
+
+
+def factory_distance(k, n_minus_k, sigma_dict, max_weight=4):
+    """True distance: the fewest input faults that leave every check unchanged but change the output.
+    A fault on a rotation flips the checks and outputs it touches; faults combine by XOR. Weights 3 and 4
+    are found by meet-in-the-middle on the check masks, so this stays fast for hundreds of rotations.
+    Returns an int, or max_weight + 1 when no harmful fault set of weight <= max_weight exists."""
+    g = factory_gates(k, n_minus_k, sigma_dict)
+    if any(c == 0 and o for o, c in g):
+        return 1
+    by_chk = {}
+    for o, c in g:
+        if c in by_chk and by_chk[c] != o:
+            return 2
+        by_chk.setdefault(c, o)
+    m = len(g)
+    if max_weight >= 3:
+        for i in range(m):
+            for j in range(i + 1, m):
+                c = g[i][1] ^ g[j][1]
+                o = g[i][0] ^ g[j][0]
+                if c in by_chk:
+                    for t, (o3, c3) in enumerate(g):
+                        if c3 == c and t != i and t != j and (o ^ o3):
+                            return 3
+    if max_weight >= 4:
+        pairs = {}
+        for i in range(m):
+            for j in range(i + 1, m):
+                c = g[i][1] ^ g[j][1]
+                o = g[i][0] ^ g[j][0]
+                for (a, b, o2) in pairs.get(c, ()):
+                    if len({a, b, i, j}) == 4 and (o ^ o2):
+                        return 4
+                pairs.setdefault(c, []).append((i, j, o))
+    return max_weight + 1

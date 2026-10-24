@@ -1,7 +1,7 @@
 # Classification
 
 Turns a factory's raw gate list into the numbers and labels that appear in `outputs/*.csv`:
-`degree`, `essential_dim`, `t_count`, and a qubit-indexed `decomposition` string. Adapted from the
+`essential_dim`, `zcount`, and the qubit-indexed `reduced` and `raw` decompositions. Adapted from the
 classification code in the `sj-magic-state-factory-searches` companion repository (that project's
 `l=3`-only distance-3 extension of this one): `tcount.py` and `degree.py` are copied verbatim;
 `classify.py` generalizes that repo's `audit_flag2.py` from `l=3`-only to any level.
@@ -24,7 +24,7 @@ output CNOT frame (`GL(k,2)`), not just reading off the identity frame.
 | `degree.py` | The general-`l`, brute-force `GL(k,2)`-frame degree reduction `classify.py` builds on (kept for reference; `classify.py` reimplements the same idea with the qubit-tracking needed for `decomposition`, adapted from `audit_flag2.py`). |
 | `metrics.py` | A caching/practical-budget wrapper around `degree.py` from the companion repo (kept for reference; not used directly by `classify.py`, which has its own budget, below). |
 | `classify.py` | The classifier both catalogue builders call: `classify.classify(Gf, cf, O, l)` → `dict(degree, essential_dim, degree_note, t_count, t_count_note, decomposition)`. |
-| `quirk.py` | Renders a gate list as a clickable [Quirk](https://algassert.com/quirk) circuit URL (CNOT-ladder-into-one-phase-gate encoding, no ancillas). Verified against the target diagonal unitary by direct simulation; see its module docstring. |
+| `quirk.py` | Renders a gate list as a clickable [Quirk](https://algassert.com/quirk) circuit URL in the paper's form (each gate one multi-qubit `Z(pi/2^l)` parity rotation; wraps `searches/unified_search.quirk_url`). |
 | `export_circuit.py` | CLI: reconstructs one catalogue row's explicit circuit as a binary matrix and prints its classification, an independent check that the two agree. |
 
 ## `classify.classify(Gf, cf, O, l)`
@@ -49,10 +49,10 @@ output qubit indices. Returns:
   `export_circuit.py` is for.
 
 The `GL(k,2)` sampling budget for `k≥5` is set low in `classify.py` (4,000 frames, not
-`audit_flag2.py`'s original 60,000) for practicality: sweeping the ~150 `k≥6` rows in the two-group
+`audit_flag2.py`'s original 60,000) for practicality: sweeping the `k≥6` rows of the
 catalogue at 60,000 samples each was projected to take over an hour; at 4,000 it takes minutes, and
-every anchor case checked against `audit_flag2.py`'s own reported numbers, including all five
-SAT-only targets in `outputs/README.md`, still matches exactly at this budget.
+every anchor case checked against `audit_flag2.py`'s own reported numbers, including the three
+SAT-only targets, still matches exactly at this budget.
 
 ## Usage
 

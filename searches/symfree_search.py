@@ -4,14 +4,15 @@ Solves the borrowed-identity condition directly for a chosen output (no symmetry
 plots the factories found at l=2,3,4 over the two-group catalogue.
 
 Run:    python3 searches/symfree_search.py   (from the repo root)
-Reads:  outputs/factory_catalogue_l{2,3,4}.csv (gray background only)
+Reads:  outputs/smallest_per_class.csv (gray background only)
 Writes: figures/block_search_levels.png
 
 Self-contained: contains the borrowed-identity framework, the Z_{2^l} linear solver, the search,
 and the plotting. N = top-level (pi/2^l, odd-coeff) magic count; Clifford (even-coeff) gates free;
 distance computed over the T-gates only.
 """
-import os, csv
+import os, csv, sys
+csv.field_size_limit(sys.maxsize)
 from itertools import combinations
 import matplotlib
 matplotlib.use("Agg")
@@ -20,9 +21,16 @@ from matplotlib.lines import Line2D
 
 
 # ===================================================== borrowed-identity framework
+def inputs(c, L):
+    """Z(pi/2^L) inputs a rotation of coefficient c consumes; only rotations that are Clifford at level L are free."""
+    base = 1 << max(L - 2, 1)
+    r = c % base
+    return min(r, base - r)
+
+
 def is_noncliff(c, L):
-    """Coeff c consumes a top-level (pi/2^L) magic state iff c is odd; even c is Clifford/free."""
-    return (c % 2) != 0
+    """True iff the rotation consumes at least one Z(pi/2^L) input (at L=4 the pi/8 rotations, c=2 mod 4, count)."""
+    return inputs(c, L) > 0
 
 
 def sigma(G, c, T):
@@ -62,7 +70,7 @@ def distance(Gf, O, N):
 def classify(Gf, cf, O, N, L):
     deg, _ = output_degree(Gf, cf, O, L)
     Tg = [s for s, c in zip(Gf, cf) if is_noncliff(c, L)]          # top-level magic gates only
-    return dict(k=len(O), N=len(Tg), gates=len(Gf), degree=deg, distance=distance(Tg, O, N))
+    return dict(k=len(O), N=sum(inputs(c, L) for c in cf), gates=len(Gf), degree=deg, distance=distance(Tg, O, N))
 
 
 GATE_BY_SIZE = {2: {1: "S", 2: "CZ"}, 3: {1: "T", 2: "CS", 3: "CCZ"},
@@ -137,7 +145,7 @@ def reduce_support(rs, ms, x, nulls, nvars, L, varlists):
             g = [((1 << b) if (v >> j) & 1 else 0) for j in range(nvars)]
             if _ok(zero, ms, g, varlists):
                 gens.append(g)
-    cost = lambda v: (sum(1 for t in v if is_noncliff(t % mod, L)), sum(1 for t in v if t % mod))
+    cost = lambda v: (sum(inputs(t % mod, L) for t in v), sum(1 for t in v if t % mod))
     improved = True
     while improved:
         improved = False
@@ -242,9 +250,11 @@ if __name__ == "__main__":
 
     bg = {2: [], 3: [], 4: []}
     for L in bg:
-        with open(os.path.join(ROOT, "outputs", f"factory_catalogue_l{L}.csv")) as f:
-            for row in csv.DictReader(f):
-                bg[L].append((int(row["N"]), int(row["k"])))
+        csv.field_size_limit(sys.maxsize)
+        with open(os.path.join(ROOT, "outputs", "smallest_per_class.csv")) as f:
+            for row in csv.DictReader(f):                 # n = input magic states in the CSV
+                if int(row["l"]) == L:
+                    bg[L].append((int(row["n"]), int(row["k"])))
 
     allN = [r["N"] for L in results for r in results[L]]
     allk = [r["k"] for L in results for r in results[L]]
@@ -254,10 +264,11 @@ if __name__ == "__main__":
     LOFF = {2: (0, 9), 3: (0, -15), 4: (0, 9)}                      # label offset per level
     bg_all = [(n, k) for L in (2, 3, 4) for (n, k) in bg[L]]
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    plt.rcParams.update({"font.size": 8})
+    fig, ax = plt.subplots(figsize=(3.4, 2.6))                     # printed at one column width
     ax.scatter([n for n, k in bg_all if xlo <= n <= xhi],
-               [k for n, k in bg_all if xlo <= n <= xhi], s=45, c="0.85", zorder=1)
-    handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor='0.85', markersize=9,
+               [k for n, k in bg_all if xlo <= n <= xhi], s=10, c="0.85", zorder=1)
+    handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor='0.85', markersize=5,
                       label='two-group catalogue')]
     for L in (2, 3, 4):
         rows = results[L]
@@ -266,21 +277,23 @@ if __name__ == "__main__":
         for r in rows:
             if r["k"] not in mink or r["N"] < mink[r["k"]]["N"]:
                 mink[r["k"]] = r
-        ax.scatter([r["N"] for r in rows], [r["k"] for r in rows], s=95, marker='o',
-                   c=COL[L], edgecolors="k", linewidths=0.5, zorder=3)
+        ax.scatter([r["N"] for r in rows], [r["k"] for r in rows], s=22, marker='o',
+                   c=COL[L], edgecolors="k", linewidths=0.4, zorder=3)
         handles.append(Line2D([0], [0], marker='o', color='w', markerfacecolor=COL[L],
-                              markeredgecolor='k', markersize=9, label="ℓ=%d  (%s)" % (L, fam)))
+                              markeredgecolor='k', markersize=5, label="ℓ=%d  (%s)" % (L, fam)))
         dx, dy = LOFF[L]
         for r in rows:
             if r is mink[r["k"]]:
                 ax.annotate("[[%d,%d,%d]]" % (r["N"], r["k"], r["distance"]),
-                            (r["N"], r["k"]), xytext=(dx, dy), textcoords="offset points",
-                            ha="center", fontsize=6.5, color=COL[L], fontweight="bold", zorder=5)
+                            (r["N"], r["k"]), xytext=(dx * 0.7, dy * 0.7), textcoords="offset points",
+                            ha="center", fontsize=6, color=COL[L], fontweight="bold", zorder=5)
     ax.set_xscale("log"); ax.set_xlim(xlo, xhi)
-    ax.set_yticks(range(1, 11)); ax.set_ylim(kmin - 0.6, kmax + 1.0)
-    ax.set_xlabel("N  (top-level magic states)"); ax.set_ylabel("k  (output qubits)")
+    ax.set_yticks(range(1, 8)); ax.set_ylim(kmin - 0.6, kmax + 1.0)
+    ax.set_xlabel("$n$ (input magic states)", fontsize=8); ax.set_ylabel("$k$ (output qubits)", fontsize=8)
+    ax.tick_params(labelsize=7)
     ax.grid(alpha=0.25, zorder=0)
-    ax.legend(handles=handles, loc="lower right", fontsize=8, framealpha=0.95)
+    ax.legend(handles=handles, loc="lower right", fontsize=6.5, framealpha=0.95, handletextpad=0.3,
+              borderpad=0.3, labelspacing=0.25)
     fig.tight_layout()
     out = os.path.join(ROOT, "figures", "block_search_levels.png")
-    fig.savefig(out, dpi=190); print("saved", out)
+    fig.savefig(out, dpi=300); print("saved", out)

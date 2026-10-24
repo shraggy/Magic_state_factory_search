@@ -1,1 +1,8 @@
 .DS_Store
+Magic_State_Factories_tex/
+searches/csrc/capped_minweight
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+figures/circuits/*.aux
+figures/circuits/*.log

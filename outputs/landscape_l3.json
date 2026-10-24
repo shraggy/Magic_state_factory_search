@@ -1,0 +1,362 @@
+[
+ {
+  "label": "CCZ",
+  "N": 8,
+  "k": 3,
+  "n": 4,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CS",
+  "N": 12,
+  "k": 2,
+  "n": 4,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "T",
+  "N": 14,
+  "k": 1,
+  "n": 4,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "TT",
+  "N": 14,
+  "k": 2,
+  "n": 5,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ CCZ",
+  "N": 14,
+  "k": 6,
+  "n": 7,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CS CS",
+  "N": 18,
+  "k": 4,
+  "n": 6,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ CS",
+  "N": 18,
+  "k": 5,
+  "n": 7,
+  "status": "matched",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CS T",
+  "N": 20,
+  "k": 3,
+  "n": 6,
+  "status": "new",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ T",
+  "N": 20,
+  "k": 4,
+  "n": 7,
+  "status": "matched",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "TTT",
+  "N": 20,
+  "k": 3,
+  "n": 6,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ TT",
+  "N": 20,
+  "k": 5,
+  "n": 8,
+  "status": "matched",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CS TT",
+  "N": 22,
+  "k": 4,
+  "n": 7,
+  "status": "matched",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CS CS CS",
+  "N": 24,
+  "k": 6,
+  "n": 8,
+  "status": "new",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CS CS T",
+  "N": 26,
+  "k": 5,
+  "n": 8,
+  "status": "new",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ CS T",
+  "N": 26,
+  "k": 6,
+  "n": 9,
+  "status": "new",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "T^4",
+  "N": 20,
+  "k": 4,
+  "n": 7,
+  "status": "known",
+  "proved": true,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ TTT",
+  "N": 26,
+  "k": 6,
+  "n": 9,
+  "status": "matched",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CS CS TT",
+  "N": 28,
+  "k": 6,
+  "n": 9,
+  "status": "matched",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CS TTT",
+  "N": 30,
+  "k": 5,
+  "n": 8,
+  "status": "new",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "T^5",
+  "N": 26,
+  "k": 5,
+  "n": 8,
+  "status": "known",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CS T^4",
+  "N": 28,
+  "k": 6,
+  "n": 9,
+  "status": "matched",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "T^6",
+  "N": 26,
+  "k": 6,
+  "n": 9,
+  "status": "known",
+  "proved": false,
+  "stage": "e1"
+ },
+ {
+  "label": "CCZ CCZ T",
+  "N": 26,
+  "k": 7,
+  "n": 10,
+  "status": "matched",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CS CS",
+  "N": 24,
+  "k": 7,
+  "n": 9,
+  "status": "matched",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CS TT",
+  "N": 28,
+  "k": 7,
+  "n": 10,
+  "status": "matched",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ T^4",
+  "N": 30,
+  "k": 7,
+  "n": 10,
+  "status": "matched_worse",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS CS T",
+  "N": 38,
+  "k": 7,
+  "n": 10,
+  "status": "new",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS TTT",
+  "N": 34,
+  "k": 7,
+  "n": 10,
+  "status": "matched",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS T^5",
+  "N": 36,
+  "k": 7,
+  "n": 10,
+  "status": "new",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CCZ CS",
+  "N": 24,
+  "k": 8,
+  "n": 10,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CCZ TT",
+  "N": 26,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CS CS T",
+  "N": 34,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ CS TTT",
+  "N": 34,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CCZ T^5",
+  "N": 34,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS CS CS",
+  "N": 36,
+  "k": 8,
+  "n": 10,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS CS TT",
+  "N": 36,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS T^4",
+  "N": 38,
+  "k": 8,
+  "n": 11,
+  "status": "open",
+  "proved": false,
+  "stage": "k78"
+ },
+ {
+  "label": "CS CS CS (SAT)",
+  "N": 16,
+  "k": 4,
+  "n": 6,
+  "status": "matched",
+  "proved": false,
+  "stage": "sat"
+ },
+ {
+  "label": "CS^4 (SAT)",
+  "N": 16,
+  "k": 5,
+  "n": 7,
+  "status": "matched",
+  "proved": false,
+  "stage": "sat"
+ },
+ {
+  "label": "CCZ^4 (SAT)",
+  "N": 12,
+  "k": 6,
+  "n": 7,
+  "status": "matched",
+  "proved": false,
+  "stage": "sat"
+ }
+]
