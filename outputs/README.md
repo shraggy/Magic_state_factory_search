@@ -2,18 +2,21 @@
 
 ## The catalogues
 
-Two files hold every factory, each row with a [Quirk](https://algassert.com/quirk) link. Every link is drawn
-the same way: all qubits start in `|0>` and get `H`; each factory gate is one multi-qubit `Z(pi/2^l)` parity
-rotation; the Clifford corrections return the checks to `|+>` (first row of Bloch spheres); then the
-output decomposition is undone and a final `H` returns every qubit to `|0>` (second row of Bloch spheres).
+Two tables hold every factory. Every Quirk link is drawn the same way, using only multi-qubit `Z(pi/2^l)`
+parity rotations (no CNOTs or controlled gates): all qubits start in `|0>` and get `H`; each factory gate is one
+parity rotation; the Clifford corrections, also written as parity rotations, return the checks to `|+>` (first
+row of Bloch spheres); then the output decomposition is undone and a final `H` returns every qubit to `|0>`
+(second row of Bloch spheres).
 
 | file | rows | what it lists |
 |---|---|---|
-| `smallest_per_class.csv` | 186 | the **smallest factory for each output class** (Clifford-reduced decomposition, per `k`), at `l=2,3,4`. These are the factories quoted in the paper; the paper's Tables SII(a-c) give representatives. |
-| `all_factories.csv` | 1,564 | **every distinct factory** the unified search finds (all `n`), at `l=2,3,4`. |
+| `smallest_per_class.csv` | 186 | the **smallest factory for each output class** (Clifford-reduced decomposition, per `k`), at `l=2,3,4`, with Quirk links. These are the factories quoted in the paper; the paper's Tables SII(a-c) give representatives. |
+| `all_factories.csv` | 1,564 | **every distinct factory** the unified search finds (all `n`), at `l=2,3,4`, **without** the Quirk column so it opens directly on GitHub. |
+| `all_factories_with_quirk.csv.zip` | 1,564 | the same table **with** a Quirk link per row (about 70 MB unzipped, 1.8 MB zipped). |
+| `search_timing.json` | | wall-clock seconds of every stage, and the parameters of the run |
+| `literature_refs.json` | | literature references for the paper's table rows, keyed `l,k,n,N`; fills the `reference` column |
 
-`factory_catalogue_l{2,3,4}.csv` are `smallest_per_class.csv` split by level, with plain-text decompositions
-and literature references.
+`n` is always the number of input magic states and `N` the number of circuit qubits, as in the paper's `[[n,k,d]]`.
 
 ### Clifford-equivalent factories are listed separately
 
@@ -70,4 +73,13 @@ timed separately in `search_timing.json`, and is not needed to find a factory.
 | `essential_dim` | output qubits carrying genuine content after Clifford reduction |
 | `clifford_padded` | `yes` when `essential_dim < k` |
 | `masks` | for `padding` rows, the CNOT relabeling (one bit-mask per new output wire) |
-| `quirk` | Quirk link of the circuit, drawn as described above |
+| `reference` | prior construction of the same factory, for the rows in the paper's tables (blank = none known to us) |
+| `quirk` | Quirk link of the circuit, drawn as described above (in `all_factories.csv` only inside the zip) |
+
+## Other files
+
+| file | from | what it is |
+|---|---|---|
+| `l3_k78_targets.csv` | `searches/large_k_sweep.py` | block gluing for every `l=3` target on `k=7,8` outputs |
+| `landscape_l3.json`, `landscape_l4.json` | `searches/synthillation_compare.py` | per-target comparison with distilling parts separately and with synthillation (Fig. 1) |
+| `large_sweep.csv` | `searches/large_sweep.py` | two-group stage to large `N`, one verified factory per `(l, k, n)` |

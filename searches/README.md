@@ -24,7 +24,7 @@ are written generically in `l`; the Clifford hierarchy level isn't hardcoded any
 
 | Search | Files | Purpose |
 |---|---|---|
-| **Unified** | `unified_search.py` | The recommended entry point. Three SAT-free stages plus an optional fourth (`--sat`): (i) two-group circuits, (ii) output blocks sharing one check register (2-adic linear solve, the synthillation family), (iii) CNOT relabeling of the output block, which adds output wires at the same `N`. Every circuit is re-verified by brute-force phase simulation, classified up to Clifford equivalence, and given an exact `Z(pi/2^l)` count and a Quirk link. Writes `../outputs/all_factories.csv` (every distinct factory) and `../outputs/smallest_per_class.csv` (smallest per output class), each row with its search stage (`two-group`, `gluing`, `padding`, `SAT`) and Quirk link, plus `search_timing.json`, for whatever range is passed on the command line (`--out-dir` to write elsewhere). The source of the paper's Tables SII(a-c). Output qubits are labeled from 1 (`T_{1}T_{2}`), as in the paper. |
+| **Unified** | `unified_search.py` | The recommended entry point. Three SAT-free stages plus an optional fourth (`--sat`): (i) two-group circuits, (ii) output blocks sharing one check register (2-adic linear solve, the synthillation family), (iii) CNOT relabeling of the output block, which adds output wires at the same `N`. Every circuit is re-verified by brute-force phase simulation, classified up to Clifford equivalence, and given an exact `Z(pi/2^l)` count and a Quirk link. Writes `../outputs/all_factories.csv` (every distinct factory; Quirk links zipped alongside in `all_factories_with_quirk.csv.zip`) and `../outputs/smallest_per_class.csv` (smallest per output class), each row with its search stage (`two-group`, `gluing`, `padding`, `SAT`) and Quirk link, plus `search_timing.json`, for whatever range is passed on the command line (`--out-dir` to write elsewhere). The source of the paper's Tables SII(a-c). Output qubits are labeled from 1 (`T_{1}T_{2}`), as in the paper. |
 | **Two-group** (App. S5) | `Two_group.py`, `two_group.ipynb` | Stage (i). Partitions the `N` circuit qubits into `k` output qubits and `N-k` check qubits, with gate weights compatible with the output/check symmetry (three skip parameters `s_total`, `s_O`, `s_S=1`). Recovers all 21,920 valid `[[n,k,2]]` (parameter-tuple, sign) configurations for `l∈{2,3,4}`, `k≤7`, `N≤11`, in well under a second. |
 | **Block gluing** (App. S5) | `symfree_search.py` | Stage (ii). Solves the borrowed-identity condition directly for a chosen output block-size partition. Reaches multi-block and mixed-output states, one `CS` block and one `CCZ` block from the same factory, that the symmetric ansatz cannot produce. At `l=4` it charges `pi/8` rotations as inputs (they are not Clifford at that level). |
 | **Sequential / malleable** (App. S6) | `sequential.ipynb` | Builds a circuit one step at a time, as in the paper's Definition: step `j` anchors qubit `q_j` and applies every gate on `q_j` plus a `(w-1)`-subset of the later qubits, for `w` in `W_j` (the anchor counts toward the weight). Validity is checked by brute-force phase simulation. This is the construction behind the paper's malleable circuits. |
@@ -32,23 +32,19 @@ are written generically in `l`; the Clifford hierarchy level isn't hardcoded any
 | Capped exact prover | `capped_certify.py`, `csrc/capped_minweight.c` | Proves "no factory with `n<n*` on `N` qubits" by a Brouwer–Zimmermann decision over disjoint information sets, with a compiled inner loop (vectors up to 256 coordinates). Source of the `N=7` minimality results; build with `cc -O3 -o searches/csrc/capped_minweight searches/csrc/capped_minweight.c -lpthread`. |
 | SAT certifier | `sat_certify.py` | z3 version of the same question over all parity rotations, with lex-leader symmetry breaking on check qubits. Used by the optional `--sat` stage of `unified_search.py`. |
 | Synthillation comparison | `synthillation_compare.py` | Builds the synthillation template for every `l=3` target with `k<=6` and checks it with the borrowed-identity condition. Source of the synthillation comparison in Fig. 1 and `outputs/landscape_l3.json`. |
-| Large-`k` sweep | `large_k_sweep.py` | Block gluing for every `l=3` target on `k=7,8` outputs (about 20 min). Writes `outputs/l3_k78_targets.{csv,json}`. |
-| Synthillation for any target | `synthillation_any_target.py` | The same synthillation build-and-check as `synthillation_compare.py`, for an arbitrary target (used for `k=7,8`). |
+| Large-`k` sweep | `large_k_sweep.py` | Block gluing for every `l=3` target on `k=7,8` outputs (about 20 min). Writes `outputs/l3_k78_targets.csv`. |
 | Large sweep | `large_sweep.py` | Two-group stage to large `N` (default `N<=14`): one verified factory per `(l, k, n)`, resumable; writes `outputs/large_sweep.csv` (Quirk links for `N<=14`). Shows how far the closed form reaches. |
-| Figures | `plot_new_factories.py`, `plot_literature.py`, `plot_stages.py`, `plot_landscape.py`, `plot_supp_figures.py` | Fig. 1, Fig. E1, Fig. S1, `figures/landscape_l3.png`, and the two-group background points, from the CSV/JSON files in `outputs/`. |
-| Landscape figure | `plot_landscape.py` | Fig. E1, from `outputs/landscape_l3.json` and `outputs/landscape_l4.json`. |
+| Figures | `plot_new_factories.py`, `plot_literature.py`, `plot_stages.py`, `plot_supp_figures.py` | Fig. 1, Fig. E1, Fig. S1, Fig. S2, and the two-group background points, from the CSV/JSON files in `outputs/`. |
 | Figures | `plot_supp_figures.py` | Regenerates Fig. 1, Fig. S1 and Fig. S2 from the notebook searches. Two-group distances are computed by enumerating fault sets (`Two_group.factory_distance`). |
-| Closed-form family (Theorem 3) | `distance_check.py` | Not a search: verifies the true GF(2) distance of the analytic `s=1`/`s=2` symmetric family (`[[2^(l+1)-2,1,2]]`, `[[2^(l+1)-1,1,3]]`) by brute force against the claimed values. |
 
 ## Running them
 
 ```
-python3 searches/unified_search.py   # writes ../outputs/{all_factories,smallest_per_class}.csv + search_timing.json; ~40 min at the full range
+python3 searches/unified_search.py   # writes ../outputs/{all_factories,smallest_per_class}.csv, all_factories_with_quirk.csv.zip, search_timing.json; ~40 min at the full range
 python3 searches/Two_group.py        # library module; run via two_group.ipynb, or import directly
 jupyter notebook searches/two_group.ipynb
 jupyter notebook searches/sequential.ipynb   # ~30 s; writes ../figures/sequential.png
-python3 searches/symfree_search.py   # writes ../figures/block_search_levels.png, reads ../outputs/factory_catalogue_l{2,3,4}.csv
-python3 searches/distance_check.py
+python3 searches/symfree_search.py   # prints the smallest block-gluing factory per k at l=2,3,4
 ```
 
 To widen any search past its current swept range, pass `--kmax`, `--nmax`, `--rmax` to

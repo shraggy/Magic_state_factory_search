@@ -3,7 +3,7 @@
 Turns a factory's raw gate list into the numbers and labels that appear in `outputs/*.csv`:
 `essential_dim`, `zcount`, and the qubit-indexed `reduced` and `raw` decompositions. Adapted from the
 classification code in the `sj-magic-state-factory-searches` companion repository (that project's
-`l=3`-only distance-3 extension of this one): `tcount.py` and `degree.py` are copied verbatim;
+`l=3`-only distance-3 extension of this one): `tcount.py` is copied verbatim;
 `classify.py` generalizes that repo's `audit_flag2.py` from `l=3`-only to any level.
 
 ## Why a dedicated classifier
@@ -21,8 +21,6 @@ output CNOT frame (`GL(k,2)`), not just reading off the identity frame.
 | file | role |
 |---|---|
 | `tcount.py` | Exact minimal T-count via the Amy–Mosca / Reed–Muller minimum-weight-coset decoder. Given the deposited phase polynomial, finds the true minimum T-gate count, correctly identifying that different gate strings can be the same resource (`T1 T2 CS12` is Clifford-equivalent to a single `T`). Self-tested. Only defined at `l=3`; only valid to `k≤6` (packs `2^k-1` bits into a `uint64`, per its own docstring; `classify.py` guards the `k=7` overflow rather than crashing). |
-| `degree.py` | The general-`l`, brute-force `GL(k,2)`-frame degree reduction `classify.py` builds on (kept for reference; `classify.py` reimplements the same idea with the qubit-tracking needed for `decomposition`, adapted from `audit_flag2.py`). |
-| `metrics.py` | A caching/practical-budget wrapper around `degree.py` from the companion repo (kept for reference; not used directly by `classify.py`, which has its own budget, below). |
 | `classify.py` | The classifier both catalogue builders call: `classify.classify(Gf, cf, O, l)` → `dict(degree, essential_dim, degree_note, t_count, t_count_note, decomposition)`. |
 | `quirk.py` | Renders a gate list as a clickable [Quirk](https://algassert.com/quirk) circuit URL in the paper's form (each gate one multi-qubit `Z(pi/2^l)` parity rotation; wraps `searches/unified_search.quirk_url`). |
 | `export_circuit.py` | CLI: reconstructs one catalogue row's explicit circuit as a binary matrix and prints its classification, an independent check that the two agree. |

@@ -71,7 +71,7 @@ for ax, L in zip(axes, (2, 3, 4)):
                 ax.annotate(lab, (N, yk), xytext=(dx, dy), textcoords="offset points", fontsize=5.8, ha="center", va="center", zorder=5,
                             arrowprops=dict(arrowstyle="-", color="#999999", lw=0.5, shrinkA=0, shrinkB=3.5))
                 break
-    ax.set_ylim(0.4, 7.6); ax.set_yticks(range(1, 8)); ax.set_xlabel("$n$ (input magic states)", fontsize=8)
+    ax.set_ylim(0.4, 7.6); ax.set_yticks(range(1, 8)); ax.set_xlabel("$n$, number of input magic states", fontsize=8)
     ax.text(0.015, 0.95, rf"$\ell={L}$", transform=ax.transAxes, fontsize=9, va="top")
     ax.grid(True, ls=":", lw=0.4, alpha=0.6); ax.tick_params(labelsize=7.5)
     for sp in ("top", "right"): ax.spines[sp].set_visible(False)
@@ -80,7 +80,7 @@ axes[1].annotate("[[15,1,3]]", (15, 1 + OFF[(3, 15, 1)]), xytext=(40, -9), textc
 for (N, k, lab, dx, dy) in ((28, 2, "[[28,2,2]]", -30, 10), (30, 2, "[[30,2,2]]", 34, 10), (30, 1, "[[30,1,2]]", -34, -2), (31, 1, "[[31,1,3]]", 36, -2)):
     axes[2].annotate(lab, (N, k), xytext=(dx, dy), textcoords="offset points", fontsize=5.8, ha="center", va="center", zorder=5,
                      arrowprops=dict(arrowstyle="-", color="#999999", lw=0.5, shrinkA=0, shrinkB=3.5))
-axes[0].set_ylabel("$k$ (output qubits)", fontsize=8)
+axes[0].set_ylabel("$k$, number of output qubits", fontsize=8)
 h = [Line2D([0], [0], marker=m, color="w", markerfacecolor=c, markersize=6, label=f) for f, (c, m) in FAM.items()]
 h.append(Line2D([0], [0], marker="o", color="w", markerfacecolor="#d6d5d1", markersize=5, label="all other factories found"))
 h.append(plt.Rectangle((0, 0), 1, 1, fc="#f1f0ed", label=r"$n\leq100$"))

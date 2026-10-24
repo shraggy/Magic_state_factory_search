@@ -48,7 +48,7 @@ for L, N, k, st in lab:
             ax.annotate(f"[[{N},{k},2]]", (N, y), xytext=(dx, dy), textcoords="offset points", fontsize=4.9, ha="center", va="center", color=COL[L],
                         arrowprops=dict(arrowstyle="-", color="#999999", lw=0.4, shrinkA=0, shrinkB=3))
             break
-ax.set_xlabel("$n$ (input magic states)", fontsize=8); ax.set_ylabel("$k$ (output qubits)", fontsize=8)
+ax.set_xlabel("$n$, number of input magic states", fontsize=8); ax.set_ylabel("$k$, number of output qubits", fontsize=8)
 ax.grid(True, ls=":", lw=0.4, alpha=0.6); ax.tick_params(labelsize=7.5)
 for sp in ("top", "right"): ax.spines[sp].set_visible(False)
 h = [Line2D([0], [0], marker="o", color="w", markerfacecolor=COL[L], markersize=6, label=rf"$\ell={L}$") for L in ("2", "3", "4")]

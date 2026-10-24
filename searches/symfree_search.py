@@ -1,23 +1,15 @@
 """Symmetry-free, targeted-output distillation-factory search — SINGLE FILE.
 
-Solves the borrowed-identity condition directly for a chosen output (no symmetry ansatz), then
-plots the factories found at l=2,3,4 over the two-group catalogue.
+Solves the borrowed-identity condition directly for a chosen output (no symmetry ansatz); stage (ii), block
+gluing, of unified_search.py. Run on its own it prints the smallest factory per k at l=2,3,4.
 
 Run:    python3 searches/symfree_search.py   (from the repo root)
-Reads:  outputs/smallest_per_class.csv (gray background only)
-Writes: figures/block_search_levels.png
 
 Self-contained: contains the borrowed-identity framework, the Z_{2^l} linear solver, the search,
-and the plotting. N = top-level (pi/2^l, odd-coeff) magic count; Clifford (even-coeff) gates free;
+N = top-level (pi/2^l, odd-coeff) magic count; Clifford (even-coeff) gates free;
 distance computed over the T-gates only.
 """
-import os, csv, sys
-csv.field_size_limit(sys.maxsize)
 from itertools import combinations
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
 
 
 # ===================================================== borrowed-identity framework
@@ -237,63 +229,10 @@ def _comp(parts, gate_by_size):
 
 
 if __name__ == "__main__":
-    HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-    results = {}
+    # standalone run: list the smallest block-gluing factory per k at each level
     for L in (2, 3, 4):
-        rows, seen = [], set()
-        for r in sorted(search(L), key=lambda r: (r["k"], r["N"])):
-            if (r["N"], r["k"]) in seen:                 # dedup by position
-                continue
-            seen.add((r["N"], r["k"])); rows.append(r)
-        results[L] = rows
-        print("l=%d: %d factories" % (L, len(rows)))
-
-    bg = {2: [], 3: [], 4: []}
-    for L in bg:
-        csv.field_size_limit(sys.maxsize)
-        with open(os.path.join(ROOT, "outputs", "smallest_per_class.csv")) as f:
-            for row in csv.DictReader(f):                 # n = input magic states in the CSV
-                if int(row["l"]) == L:
-                    bg[L].append((int(row["n"]), int(row["k"])))
-
-    allN = [r["N"] for L in results for r in results[L]]
-    allk = [r["k"] for L in results for r in results[L]]
-    xlo, xhi = min(allN) / 1.5, max(allN) * 1.5
-    kmin, kmax = min(allk), max(allk)
-    COL = {2: "#27ae60", 3: "#c0392b", 4: "#8e44ad"}
-    LOFF = {2: (0, 9), 3: (0, -15), 4: (0, 9)}                      # label offset per level
-    bg_all = [(n, k) for L in (2, 3, 4) for (n, k) in bg[L]]
-
-    plt.rcParams.update({"font.size": 8})
-    fig, ax = plt.subplots(figsize=(3.4, 2.6))                     # printed at one column width
-    ax.scatter([n for n, k in bg_all if xlo <= n <= xhi],
-               [k for n, k in bg_all if xlo <= n <= xhi], s=10, c="0.85", zorder=1)
-    handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor='0.85', markersize=5,
-                      label='two-group catalogue')]
-    for L in (2, 3, 4):
-        rows = results[L]
-        fam = "/".join(GATE_BY_SIZE[L][s] for s in sorted(GATE_BY_SIZE[L]))
-        mink = {}
-        for r in rows:
-            if r["k"] not in mink or r["N"] < mink[r["k"]]["N"]:
-                mink[r["k"]] = r
-        ax.scatter([r["N"] for r in rows], [r["k"] for r in rows], s=22, marker='o',
-                   c=COL[L], edgecolors="k", linewidths=0.4, zorder=3)
-        handles.append(Line2D([0], [0], marker='o', color='w', markerfacecolor=COL[L],
-                              markeredgecolor='k', markersize=5, label="ℓ=%d  (%s)" % (L, fam)))
-        dx, dy = LOFF[L]
-        for r in rows:
-            if r is mink[r["k"]]:
-                ax.annotate("[[%d,%d,%d]]" % (r["N"], r["k"], r["distance"]),
-                            (r["N"], r["k"]), xytext=(dx * 0.7, dy * 0.7), textcoords="offset points",
-                            ha="center", fontsize=6, color=COL[L], fontweight="bold", zorder=5)
-    ax.set_xscale("log"); ax.set_xlim(xlo, xhi)
-    ax.set_yticks(range(1, 8)); ax.set_ylim(kmin - 0.6, kmax + 1.0)
-    ax.set_xlabel("$n$ (input magic states)", fontsize=8); ax.set_ylabel("$k$ (output qubits)", fontsize=8)
-    ax.tick_params(labelsize=7)
-    ax.grid(alpha=0.25, zorder=0)
-    ax.legend(handles=handles, loc="lower right", fontsize=6.5, framealpha=0.95, handletextpad=0.3,
-              borderpad=0.3, labelspacing=0.25)
-    fig.tight_layout()
-    out = os.path.join(ROOT, "figures", "block_search_levels.png")
-    fig.savefig(out, dpi=300); print("saved", out)
+        best = {}
+        for r in search(L):
+            if r["k"] not in best or r["N"] < best[r["k"]]["N"]:
+                best[r["k"]] = r
+        print("l=%d: " % L + ", ".join("[[%d,%d,%d]]" % (r["N"], r["k"], r["distance"]) for k, r in sorted(best.items())))

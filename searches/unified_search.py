@@ -321,16 +321,18 @@ def quirk_url(gates, n, L, k=None):
         out = set(range(k))
 
         def mono(T, a):
-            # e^{2 pi i a prod x / 2^L}: controls on T minus one qubit, Z^(2a/2^L) on the last
+            # e^{2 pi i a prod_{q in T} x_q / 2^L} as parity rotations only (one "zpar" column each), using
+            # prod x = 2^{1-|T|} sum_{nonempty S in T} (-1)^{|S|+1} parity(S): angle (-1)^{|S|+1} a / (2^L 2^{|T|-1})
             T = sorted(T)
-            for sign, u in _units(a, L):
-                d = mod // (2 * u) if 2 * u <= mod else 1
-                col = [1] * (n + 1)
-                for q in T[:-1]:
-                    col[q] = "•"
-                g = _ZPOW[max(d, 1)]
-                col[T[-1]] = g if sign > 0 or g == "Z" else g.replace("^", "^-")
-                cols.append(col)
+            LL = L + len(T) - 1
+            for r in range(1, len(T) + 1):
+                for S in combinations(T, r):
+                    for sign, u in _units((-1) ** (r + 1) * a, LL):
+                        col = [1] * (n + 1)
+                        for q in S:
+                            col[q] = "zpar"
+                        col[ph] = _global_phase_gate((1 << LL) // u, sign)
+                        cols.append(col)
 
         for T, a in sorted(P.items(), key=lambda t: (len(t[0]), sorted(t[0]))):
             if not T <= out:
@@ -483,7 +485,10 @@ def smallest_per_class(rows):
 STAGE_NAME = {"two-group": "two-group", "gluing": "gluing", "two-group+relabel": "padding",
               "gluing+relabel": "padding", "sat": "SAT"}
 FIELDS = ["clifford_class", "l", "k", "n", "N", "d", "search_stage", "padded_from", "params", "reduced", "raw",
-          "zcount", "essential_dim", "clifford_padded", "masks", "quirk"]
+          "zcount", "essential_dim", "clifford_padded", "masks", "reference", "quirk"]
+# literature references for the rows of the paper's Tables SII(a-c), keyed "l,k,n,N"; blank = none known to us
+_REFS_PATH = os.path.join(ROOT, "outputs", "literature_refs.json")
+REFS = json.load(open(_REFS_PATH)) if os.path.exists(_REFS_PATH) else {}
 
 
 def catalogue_rows(rows):
@@ -510,20 +515,34 @@ def catalogue_rows(rows):
                  padded_from=r["stage"].split("+")[0] if r["stage"].endswith("+relabel") else "",
                  params=r["params"], reduced=r["reduced"], raw=r["raw"], zcount=r["zcount"],
                  essential_dim=r["essential_dim"], clifford_padded="yes" if r["essential_dim"] < r["k"] else "no",
-                 masks=r.get("masks", ""), quirk=r["quirk"]) for r in out]
+                 masks=r.get("masks", ""), reference=REFS.get(f'{r["l"]},{r["k"]},{r["N"]},{r["n"]}', ""),
+                 quirk=r["quirk"]) for r in out]
 
 
-def write_csv(path, rows):
+def write_csv(path, rows, fields=FIELDS):
     with open(path, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=FIELDS)
+        w = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
 
 
+def write_all_factories(out_dir, rows):
+    """all_factories.csv without the Quirk column (small enough to browse on GitHub), and the same table with Quirk
+    links as all_factories_with_quirk.csv.zip (the links make the full table ~70 MB)."""
+    import zipfile
+    write_csv(os.path.join(out_dir, "all_factories.csv"), rows, [f for f in FIELDS if f != "quirk"])
+    tmp = os.path.join(out_dir, "all_factories_with_quirk.csv")
+    write_csv(tmp, rows)
+    with zipfile.ZipFile(tmp + ".zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        z.write(tmp, "all_factories_with_quirk.csv")
+    os.remove(tmp)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Unified distance-2 factory search. Writes all_factories.csv (every "
-                                             "distinct factory) and smallest_per_class.csv (smallest per output class), "
-                                             "both with search stage and Quirk links, for whatever range is given.")
+                                             "distinct factory; its Quirk links are in all_factories_with_quirk.csv.zip) and "
+                                             "smallest_per_class.csv (smallest per output class, with Quirk links), both with "
+                                             "search stage, for whatever range is given.")
     ap.add_argument("--levels", type=int, nargs="+", default=[2, 3, 4])
     ap.add_argument("--kmax", type=int, default=6)
     ap.add_argument("--nmax", type=int, default=11, help="max circuit qubits in the two-group stage")
@@ -550,9 +569,9 @@ if __name__ == "__main__":
         if key not in keep or keep[key] is None or (r["n"], r["N"]) < (keep[key]["n"], keep[key]["N"]):
             keep[key] = r
     small = sorted(keep.values(), key=lambda r: (r["l"], r["k"], r["n"]))
-    write_csv(os.path.join(a.out_dir, "all_factories.csv"), full)
+    write_all_factories(a.out_dir, full)
     write_csv(os.path.join(a.out_dir, "smallest_per_class.csv"), small)
     with open(os.path.join(a.out_dir, "search_timing.json"), "w") as fh:
         json.dump(dict(args=vars(a), seconds=timings), fh, indent=1)
-    print(f"{len(full)} factories -> {a.out_dir}/all_factories.csv; {len(small)} smallest per class -> "
+    print(f"{len(full)} factories -> {a.out_dir}/all_factories.csv (+ _with_quirk.csv.zip); {len(small)} smallest per class -> "
           f"{a.out_dir}/smallest_per_class.csv; per-stage times -> {a.out_dir}/search_timing.json")

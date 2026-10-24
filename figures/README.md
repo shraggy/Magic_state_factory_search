@@ -7,9 +7,6 @@
 | `stages.png` | Fig. S1: factories by search stage (color = level `l`, shape = stage) | `searches/plot_stages.py` |
 | `sequential.png` | Fig. S2: sequential search results, `l=2,3,4` | `searches/plot_supp_figures.py` (or `searches/sequential.ipynb`) |
 | `circuits/qk_*.pdf` | Figs. S3-S4: annotated parent circuits, drawn from the paper's Quirk links (each `Z(pi/2^l)` parity rotation one box, angle on top) | `figures/circuits/make_all.py` (`litinski.py`), then `pdflatex` each `qk_*.tex` |
-| `two_group.{png,pdf}`, `two_group_ext.png` | Two-group search results in the `(n, k)` plane (not in the paper) | `searches/plot_supp_figures.py` |
-| `block_search_levels.png` | Block-gluing results over the two-group catalogue (not in the paper) | `searches/symfree_search.py` |
-| `landscape_l3.png` | Smallest factory per `l=3` target, by relation to prior work (not in the paper) | `searches/plot_landscape.py` |
 
 All scripts run from the repo root, e.g. `python3 searches/plot_stages.py`. For the circuits:
 `cd figures/circuits && python3 make_all.py && for f in qk_*.tex; do pdflatex $f; done`.

@@ -40,7 +40,7 @@ for i, (lab, N, Np, kind, L, proved) in enumerate(rows):
     y += 1
 ax.set_yticks(ys); ax.set_yticklabels([f"[[{r[1]},{KS[j]},2]]  $N={NS[j]}$" for j, r in enumerate(rows)], fontsize=6.6)
 ax.invert_yaxis()
-ax.set_xlabel(r"$n$ (input $T$ states at $\ell=3$, $\sqrt{T}$ at $\ell=4$)", fontsize=7.5)
+ax.set_xlabel(r"$n$, number of input $T$ ($\ell=3$) or $\sqrt{T}$ ($\ell=4$) states", fontsize=7.5)
 ax.set_xticks([20, 40, 60, 80])
 ax.set_xlim(-22, 90); ax.tick_params(axis="x", labelsize=7)
 ax.grid(True, axis="x", ls=":", lw=0.4, alpha=0.7)

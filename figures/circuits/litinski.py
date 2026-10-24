@@ -6,6 +6,20 @@ every wire in S (wires inside the span but not in S pass through), and the angle
 Clifford gates are plain boxes; post-selected X measurements end their wire. Pure TikZ, no quantikz."""
 ROT_FILL, ROT_EDGE = "orange!18", "orange!70!black"
 DEFAULT = r"\frac{\pi}{8}"
+def _draw_rot(out, op, x, y):
+    S = sorted(op[1]); lo, hi = S[0], S[-1]
+    w = 0.42; top = y(lo) + 0.2; bot = y(hi) - 0.2
+    out.append(r"\draw[fill=%s,draw=%s,rounded corners=1pt] (%.2f,%.2f) rectangle (%.2f,%.2f);" % (ROT_FILL, ROT_EDGE, x - w/2, bot, x + w/2, top))
+    for q in range(lo, hi + 1):
+        if q in S: out.append(r"\node at (%.2f,%.2f) {$Z$};" % (x, y(q)))
+        else: out.append(r"\draw (%.2f,%.2f) -- (%.2f,%.2f);" % (x - w/2, y(q), x + w/2, y(q)))
+    # semicircular tab on top of the box carries the rotation angle (Litinski-style rotation, not a Pauli)
+    r = w / 2 + (0.1 if op[2].startswith("-") or "16" in op[2] else 0.05)
+    out.append(r"\draw[fill=%s,draw=%s] (%.2f,%.2f) arc (180:0:%.2f) -- cycle;" % (ROT_FILL, ROT_EDGE, x - r, top, r))
+    lab = re.sub(r"\\frac\{\\pi\}\{(\d+)\}", r"\\pi/\1", op[2])
+    out.append(r"\node[font=\fontsize{4.5}{5}\selectfont,inner sep=0pt] at (%.2f,%.2f) {$%s$};" % (x, top + r * 0.42, lab))
+
+
 def tikz(nq, ops, labels=None, outs=None, cuts=None, dx=0.62, dy=0.5, title=None):
     """ops: ("H", qubits) | ("rot", support, angle_tex) | ("gate", q, tex) | ("cnot", c, targets) |
             ("xctrl", c, targets, target_tex) | ("meas", qubits) | ("cut", label)"""
@@ -19,18 +33,14 @@ def tikz(nq, ops, labels=None, outs=None, cuts=None, dx=0.62, dy=0.5, title=None
             for q in op[1]: out.append(r"\node[draw,fill=white,minimum size=0.36cm,inner sep=0pt] at (%.2f,%.2f) {$H$};" % (x, y(q)))
             x += dx
         elif k == "rot":
-            S = sorted(op[1]); lo, hi = S[0], S[-1]
-            w = 0.42; top = y(lo) + 0.2; bot = y(hi) - 0.2
-            out.append(r"\draw[fill=%s,draw=%s,rounded corners=1pt] (%.2f,%.2f) rectangle (%.2f,%.2f);" % (ROT_FILL, ROT_EDGE, x - w/2, bot, x + w/2, top))
-            for q in range(lo, hi + 1):
-                if q in S: out.append(r"\node at (%.2f,%.2f) {$Z$};" % (x, y(q)))
-                else: out.append(r"\draw (%.2f,%.2f) -- (%.2f,%.2f);" % (x - w/2, y(q), x + w/2, y(q)))
-            # semicircular tab on top of the box carries the rotation angle (Litinski-style rotation, not a Pauli)
-            r = w / 2 + (0.1 if op[2].startswith("-") or "16" in op[2] else 0.05)
-            out.append(r"\draw[fill=%s,draw=%s] (%.2f,%.2f) arc (180:0:%.2f) -- cycle;" % (ROT_FILL, ROT_EDGE, x - r, top, r))
-            lab = re.sub(r"\\frac\{\\pi\}\{(\d+)\}", r"\\pi/\1", op[2])
-            out.append(r"\node[font=\fontsize{4.5}{5}\selectfont,inner sep=0pt] at (%.2f,%.2f) {$%s$};" % (x, top + r * 0.42, lab))
+            _draw_rot(out, op, x, y)
             x += dx * 0.9
+        elif k == "rots":
+            x0 = x
+            for sub in op[1]:
+                x = x0
+                _draw_rot(out, ("rot",) + tuple(sub), x, y)
+            x = x0 + dx * 0.9
         elif k == "gates":
             for q, t in op[1].items():
                 out.append(r"\node[draw,fill=white,minimum size=0.36cm,inner sep=1pt] at (%.2f,%.2f) {$%s$};" % (x, y(q), t))
@@ -58,6 +68,8 @@ def tikz(nq, ops, labels=None, outs=None, cuts=None, dx=0.62, dy=0.5, title=None
         elif k == "cut":
             out.append(r"\draw[blue!65,dashed,thick] (%.2f,%.2f) -- (%.2f,%.2f);" % (x - dx/2, 0.52, x - dx/2, y(nq - 1) - 0.3))
             out.append(r"\node[blue!65!black,font=\tiny] at (%.2f,%.2f) {$%s$};" % (x - dx/2, 0.64, op[1]))
+            if len(op) > 2:   # optional note under the cut: the state that factory delivers
+                out.append(r"\node[blue!65!black,font=\tiny,align=center,anchor=north] at (%.2f,%.2f) {%s};" % (x - dx/2, y(nq - 1) - 0.34, op[2]))
     xend = x - dx * 0.4
     for q in range(nq):
         e = ends.get(q, xend)
