@@ -41,7 +41,7 @@ combined across `l=2,3,4`.
   `outputs/README.md`). Each row has its Clifford-reduced decomposition into `T`/`CS`/`CCZ`-type
   generators, an exact `Z(π/2^l)` count, and the **search stage** that found it (`two-group`, `gluing`,
   `padding`, `SAT`). The two-group stage runs in seconds; the full pipeline, including the optional
-  classification of every output, takes under an hour on a laptop.
+  classification of every output, takes about 30 minutes on a laptop (about 10 of them the search itself).
 - **Regenerate for any range.** `python3 searches/unified_search.py [--levels ... --kmax ... --nmax ...
   --rmax ... --relabel ... --sat] [--out-dir DIR]` writes both CSVs (with Quirk links and search stage)
   and `search_timing.json` (wall-clock per stage) for whatever parameter range you choose.
@@ -50,7 +50,7 @@ combined across `l=2,3,4`.
   the two-group stage gives 534 distinct factories directly, and 902 more after Clifford padding.
 - **Mixed-output factories beat distilling their parts separately.** At `l=3`, from `T` inputs,
   one factory delivers `CCZ123 CS45` in `n=18` inputs (`[[18,5,2]]`) instead of `8+12=20`, `CS12 T3` in
-  `n=20` instead of `26`, and `CCZ123 CS45 T6` in `n=26` instead of `34`; all 14 mixed targets with
+  `n=20` instead of `26`, and `CCZ123 CS45 T6` in `n=26` instead of `32`; all 11 mixed targets with
   `k<=6` save inputs. `searches/synthillation_compare.py` checks every target against synthillation.
 - **Exact minimality.** `searches/coset_certify.py` proves the smallest `n` for a target on a fixed
   number `N` of circuit qubits (exact up to `N=7`); 12 targets are proved smallest.

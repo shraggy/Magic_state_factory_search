@@ -45,7 +45,7 @@ are written generically in `l`; the Clifford hierarchy level isn't hardcoded any
 ## Running them
 
 ```
-python3 searches/unified_search.py   # writes ../outputs/{all_factories,smallest_per_class}.csv, all_factories_with_quirk.csv.zip, search_timing.json; ~40 min at the full range
+python3 searches/unified_search.py   # writes ../outputs/{all_factories,smallest_per_class}.csv, all_factories_with_quirk.csv.zip, search_timing.json; ~30 min at the full range (about 10 min of search, the rest optional classification and Quirk links)
 python3 searches/Two_group.py        # library module; run via two_group.ipynb, or import directly
 jupyter notebook searches/two_group.ipynb
 jupyter notebook searches/sequential.ipynb   # ~30 s; writes ../figures/sequential.png

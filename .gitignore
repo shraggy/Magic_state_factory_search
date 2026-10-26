@@ -9,3 +9,4 @@ figures/circuits/*.log
 outputs/my_run/
 figures/circuits/qk_*.tex
 
+outputs/large_unified/

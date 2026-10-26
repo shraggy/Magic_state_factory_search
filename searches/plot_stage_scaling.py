@@ -10,7 +10,7 @@ D = json.load(open(os.path.join(ROOT, "outputs", "stage_scaling.json")))
 STAGES = [("two_group", "two-group"), ("gluing", "shared-check gluing"), ("padding", "Clifford padding"),
           ("classification", "classification (optional)")]
 COL = {4: "#9ec5ef", 6: "#2a78d6", 8: "#0b3d7a"}         # one sequential hue, light to dark with k_max
-fig, axes = plt.subplots(1, 4, figsize=(7.0, 2.2), sharey=True, constrained_layout=True)
+fig, axes = plt.subplots(1, 4, figsize=(7.0, 1.85), sharey=True, constrained_layout=True)
 for ax, (key, title) in zip(axes, STAGES):
     for k in (4, 6, 8):
         P = sorted((p["N_max"], max(p["seconds"][key], 0.05)) for p in D if p["k_max"] == k)
