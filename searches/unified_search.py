@@ -1,9 +1,9 @@
-"""SAT-free unified distance-2 search: two-group, shared-check block gluing, and CNOT relabeling of the output block.
+"""SAT-free unified distance-2 search: two-group, shared-check gluing, and CNOT relabeling of the output block.
 
 At distance 2 every gate touching a check qubit is detected, so a factory is fixed by what it deposits on the
 output block. Three closed-form or linear stages choose that deposit:
   1. two-group     -- full output symmetry S_k (closed form, Two_group.py)
-  2. block gluing  -- output blocks sharing one check register (2-adic linear solve, symfree_search.py)
+  2. shared-check gluing  -- output blocks sharing one check register (2-adic linear solve, symfree_search.py)
   3. relabeling    -- extra output wires carrying XORs of existing ones (no solve)
 Every circuit is built only from Z(pi/2^l) parity rotations and is re-verified by brute-force phase simulation.
 """
@@ -69,7 +69,7 @@ def stage_two_group(L, k_max, n_max):
                                    params=f"s_total={st},s_O={so}")
 
 
-# ----------------------------------------------------------------- stage 2: shared-check block gluing
+# ----------------------------------------------------------------- stage 2: shared-check gluing
 def stage_gluing(L, k_max, r_max):
     for k in range(1, k_max + 1):
         for parts in _partitions(k, L):

@@ -53,7 +53,7 @@ the two-group stage; `--rmax` the check qubits in the gluing stage; `--relabel` 
 added by Clifford padding; `--sat` adds the optional SAT stage.
 
 The stages: (i) two-group circuits (`Two_group.py`, `s_total, s_O <= 7`; all signs `+1` at `l<=3`, every
-check-only sign pattern at `l=4`); (ii) block gluing, output blocks sharing one check register
+check-only sign pattern at `l=4`); (ii) shared-check gluing, output blocks sharing one check register
 (`symfree_search.py`'s 2-adic linear solve); (iii) Clifford padding, CNOT relabeling of the output block at
 the same `N`; (iv) optional SAT. Classifying each output (Clifford class, distance, z-count) is bookkeeping,
 timed separately in `search_timing.json`, and is not needed to find a factory.
@@ -64,8 +64,9 @@ timed separately in `search_timing.json`, and is not needed to find a factory.
 |---|---|
 | `clifford_class` | output class label, e.g. `L3-007`; rows sharing it have Clifford-equivalent outputs |
 | `l`, `k`, `n`, `N`, `d` | level, output qubits, input magic states, circuit qubits, distance |
-| `search_stage` | the stage that found the factory: `two-group`, `gluing`, `padding` or `SAT` |
+| `search_stage` | the stage that found the factory: `two-group`, `gluing` (shared-check gluing), `padding` (Clifford padding) or `SAT` |
 | `padded_from` | for `padding` rows, the stage of the circuit that was relabeled (`two-group` or `gluing`) |
+| | for `padding` rows, `reduced`, `zcount` and `essential_dim` are those of the circuit that was relabeled: a CNOT relabeling preserves the Clifford class, and the parent's smaller frame is searched exactly. `raw` is the gate the padded factory itself deposits. |
 | `params` | stage parameters (`s_total,s_O` for two-group; block partition for gluing; target for SAT) |
 | `reduced` | the output up to Clifford equivalence, as a product of generators |
 | `raw` | the gate the circuit actually deposits on its outputs |
@@ -80,7 +81,9 @@ timed separately in `search_timing.json`, and is not needed to find a factory.
 
 | file | from | what it is |
 |---|---|---|
-| `l3_k78_targets.csv` | `searches/large_k_sweep.py` | block gluing for every `l=3` target on `k=7,8` outputs |
+| `l3_k78_targets.csv` | `searches/large_k_sweep.py` | shared-check gluing for every `l=3` target on `k=7,8` outputs |
 | `landscape_l3.json`, `landscape_l4.json` | `searches/synthillation_compare.py` | per-target comparison with distilling parts separately and with synthillation (Fig. 1) |
 | `large_sweep.csv` | `searches/large_sweep.py` | two-group stage up to `N=16` circuit qubits, `k<=8`: 1,453 verified factories, one per `(l, k, n)`, `n` up to 65,534 (about 2.5 h) |
 | `large_sweep_with_quirk.csv.zip` | `searches/large_sweep.py` | the same table with Quirk links for circuits of up to 14 qubits |
+| `stage_scaling.json` | `searches/stage_scaling.py` | wall-clock seconds of each stage at `l=3` for `k_max` in {4,6,8} and `N_max` from 6 to 16, with the number of factories per stage (Fig. S2) |
+| `error_coefficients.json` | `searches/error_coefficients.py` | for each Fig. 1 target: our `n` and output-error coefficient `c`, and those of the cheapest prior construction, with how it is built (Fig. 1) |

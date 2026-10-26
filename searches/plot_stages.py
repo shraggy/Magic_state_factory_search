@@ -14,7 +14,7 @@ plt.rcParams.update({"font.size": 8})
 rows = list(csv.DictReader(open(os.path.join(ROOT, "outputs", "smallest_per_class.csv"))))
 COL = {"2": "#2a78d6", "3": "#eb6834", "4": "#1baf7a"}          # reference palette slots 1-3 (all-pairs validated)
 MK = {"two-group": "o", "gluing": "s", "padding": "^", "sat": "D"}
-NAME = {"two-group": "two-group", "gluing": "block gluing", "padding": "Clifford padding", "sat": "SAT"}
+NAME = {"two-group": "two-group", "gluing": "shared-check gluing", "padding": "Clifford padding", "sat": "SAT"}
 LJ = {"2": -0.2, "3": 0.0, "4": 0.2}
 def stage(r):
     # search_stage column of unified_search.py: two-group, gluing, padding, SAT

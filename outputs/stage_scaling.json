@@ -1,0 +1,553 @@
+[
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 6,
+  "seconds": {
+   "two_group": 0.006476879119873047,
+   "gluing": 0.03323817253112793,
+   "classification": 45.265119552612305,
+   "padding": 0.019956588745117188,
+   "quirk": 0.043328046798706055,
+   "total": 45.36914896965027
+  },
+  "factories": 43,
+  "per_stage": {
+   "two-group": 20,
+   "padding": 22,
+   "gluing": 1
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 7,
+  "seconds": {
+   "two_group": 0.013210058212280273,
+   "gluing": 0.7791550159454346,
+   "classification": 31.666215181350708,
+   "padding": 0.13366007804870605,
+   "quirk": 0.19759798049926758,
+   "total": 32.792442083358765
+  },
+  "factories": 101,
+  "per_stage": {
+   "two-group": 38,
+   "padding": 56,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 7,
+  "seconds": {
+   "two_group": 0.014996051788330078,
+   "gluing": 0.08129620552062988,
+   "classification": 106.29424285888672,
+   "padding": 0.10152935981750488,
+   "quirk": 0.16271471977233887,
+   "total": 106.65715789794922
+  },
+  "factories": 84,
+  "per_stage": {
+   "two-group": 40,
+   "padding": 43,
+   "gluing": 1
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 8,
+  "seconds": {
+   "two_group": 0.028502225875854492,
+   "gluing": 0.8321168422698975,
+   "classification": 16.97737956047058,
+   "padding": 0.32049560546875,
+   "quirk": 0.5214254856109619,
+   "total": 18.686614990234375
+  },
+  "factories": 149,
+  "per_stage": {
+   "two-group": 59,
+   "padding": 83,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 8,
+  "seconds": {
+   "two_group": 0.041845083236694336,
+   "gluing": 1.1619560718536377,
+   "classification": 94.91469383239746,
+   "padding": 0.2799546718597412,
+   "quirk": 0.5014955997467041,
+   "total": 96.90688896179199
+  },
+  "factories": 141,
+  "per_stage": {
+   "two-group": 65,
+   "padding": 72,
+   "gluing": 4
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 9,
+  "seconds": {
+   "two_group": 0.06481623649597168,
+   "gluing": 0.8092358112335205,
+   "classification": 17.258941411972046,
+   "padding": 0.8503727912902832,
+   "quirk": 1.3533258438110352,
+   "total": 20.351111888885498
+  },
+  "factories": 209,
+  "per_stage": {
+   "two-group": 85,
+   "padding": 117,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 9,
+  "seconds": {
+   "two_group": 0.05611896514892578,
+   "gluing": 28.705947875976562,
+   "classification": 118.85841178894043,
+   "padding": 0.8343470096588135,
+   "quirk": 1.5415947437286377,
+   "total": 150.01660013198853
+  },
+  "factories": 237,
+  "per_stage": {
+   "two-group": 101,
+   "padding": 117,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 9,
+  "seconds": {
+   "two_group": 0.0704200267791748,
+   "gluing": 0.1832571029663086,
+   "classification": 958.1659786701202,
+   "padding": 0.8504452705383301,
+   "quirk": 1.4086623191833496,
+   "total": 960.6933996677399
+  },
+  "factories": 207,
+  "per_stage": {
+   "two-group": 102,
+   "padding": 104,
+   "gluing": 1
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 10,
+  "seconds": {
+   "two_group": 0.12088608741760254,
+   "gluing": 0.7579021453857422,
+   "classification": 16.586375951766968,
+   "padding": 2.2969186305999756,
+   "quirk": 3.661414623260498,
+   "total": 23.461066007614136
+  },
+  "factories": 272,
+  "per_stage": {
+   "two-group": 112,
+   "padding": 153,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 10,
+  "seconds": {
+   "two_group": 0.1955420970916748,
+   "gluing": 25.98509192466736,
+   "classification": 40.24030017852783,
+   "padding": 2.2523322105407715,
+   "quirk": 3.825883150100708,
+   "total": 72.53237414360046
+  },
+  "factories": 314,
+  "per_stage": {
+   "two-group": 142,
+   "padding": 153,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 10,
+  "seconds": {
+   "two_group": 0.1774308681488037,
+   "gluing": 26.23743224143982,
+   "classification": 1024.5455181598663,
+   "padding": 2.291969060897827,
+   "quirk": 3.871458053588867,
+   "total": 1057.1617159843445
+  },
+  "factories": 296,
+  "per_stage": {
+   "two-group": 147,
+   "padding": 142,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 11,
+  "seconds": {
+   "two_group": 0.3429112434387207,
+   "gluing": 0.7582459449768066,
+   "classification": 15.481196403503418,
+   "padding": 8.52961015701294,
+   "quirk": 11.61536455154419,
+   "total": 36.80393385887146
+  },
+  "factories": 341,
+  "per_stage": {
+   "two-group": 141,
+   "padding": 193,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 11,
+  "seconds": {
+   "two_group": 0.47811174392700195,
+   "gluing": 26.047653198242188,
+   "classification": 32.03692817687988,
+   "padding": 7.518081903457642,
+   "quirk": 11.499596357345581,
+   "total": 77.65731906890869
+  },
+  "factories": 401,
+  "per_stage": {
+   "two-group": 189,
+   "padding": 193,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 11,
+  "seconds": {
+   "two_group": 0.5406651496887207,
+   "gluing": 723.3322968482971,
+   "classification": 1391.7839591503143,
+   "padding": 7.535864591598511,
+   "quirk": 11.750634670257568,
+   "total": 2135.0320410728455
+  },
+  "factories": 432,
+  "per_stage": {
+   "two-group": 202,
+   "padding": 193,
+   "gluing": 37
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 12,
+  "seconds": {
+   "two_group": 1.2844250202178955,
+   "gluing": 0.847679853439331,
+   "classification": 12.908148765563965,
+   "padding": 29.366212606430054,
+   "quirk": 40.4568190574646,
+   "total": 85.01161408424377
+  },
+  "factories": 410,
+  "per_stage": {
+   "two-group": 170,
+   "padding": 233,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 12,
+  "seconds": {
+   "two_group": 1.4395852088928223,
+   "gluing": 28.956544637680054,
+   "classification": 40.52188682556152,
+   "padding": 26.84360671043396,
+   "quirk": 39.3547728061676,
+   "total": 137.29823899269104
+  },
+  "factories": 492,
+  "per_stage": {
+   "two-group": 240,
+   "padding": 233,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 12,
+  "seconds": {
+   "two_group": 1.8574116230010986,
+   "gluing": 746.3271172046661,
+   "classification": 374.03311109542847,
+   "padding": 26.47438335418701,
+   "quirk": 40.01035404205322,
+   "total": 1188.9296879768372
+  },
+  "factories": 537,
+  "per_stage": {
+   "two-group": 267,
+   "padding": 233,
+   "gluing": 37
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 13,
+  "seconds": {
+   "two_group": 3.1532480716705322,
+   "gluing": 0.7978711128234863,
+   "classification": 44.89006590843201,
+   "padding": 95.75475358963013,
+   "quirk": 127.54371690750122,
+   "total": 272.4536440372467
+  },
+  "factories": 479,
+  "per_stage": {
+   "two-group": 199,
+   "padding": 273,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 13,
+  "seconds": {
+   "two_group": 3.75372314453125,
+   "gluing": 27.184765815734863,
+   "classification": 86.70340204238892,
+   "padding": 93.62469005584717,
+   "quirk": 135.7067003250122,
+   "total": 347.3281331062317
+  },
+  "factories": 587,
+  "per_stage": {
+   "two-group": 295,
+   "padding": 273,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 13,
+  "seconds": {
+   "two_group": 4.746435165405273,
+   "gluing": 755.38085770607,
+   "classification": 428.19089436531067,
+   "padding": 94.65035581588745,
+   "quirk": 141.638117313385,
+   "total": 1425.0698072910309
+  },
+  "factories": 651,
+  "per_stage": {
+   "two-group": 341,
+   "padding": 273,
+   "gluing": 37
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 14,
+  "seconds": {
+   "two_group": 6.297131061553955,
+   "gluing": 0.7964160442352295,
+   "classification": 150.03902220726013,
+   "padding": 358.7144224643707,
+   "quirk": 471.2783269882202,
+   "total": 987.8266088962555
+  },
+  "factories": 548,
+  "per_stage": {
+   "two-group": 228,
+   "padding": 313,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 14,
+  "seconds": {
+   "two_group": 9.133909940719604,
+   "gluing": 27.744203090667725,
+   "classification": 225.08243870735168,
+   "padding": 347.2858006954193,
+   "quirk": 493.4210743904114,
+   "total": 1103.518707036972
+  },
+  "factories": 681,
+  "per_stage": {
+   "two-group": 349,
+   "padding": 313,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 14,
+  "seconds": {
+   "two_group": 9.932025909423828,
+   "gluing": 732.3721179962158,
+   "classification": 386.36917209625244,
+   "padding": 344.38111448287964,
+   "quirk": 506.47475600242615,
+   "total": 1980.539165019989
+  },
+  "factories": 766,
+  "per_stage": {
+   "two-group": 416,
+   "padding": 313,
+   "gluing": 37
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 15,
+  "seconds": {
+   "two_group": 15.307716131210327,
+   "gluing": 0.7253198623657227,
+   "classification": 552.5589427947998,
+   "padding": 1360.2187707424164,
+   "quirk": 1757.8951840400696,
+   "total": 3688.1805970668793
+  },
+  "factories": 617,
+  "per_stage": {
+   "two-group": 257,
+   "padding": 353,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 15,
+  "seconds": {
+   "two_group": 18.72450280189514,
+   "gluing": 25.3999981880188,
+   "classification": 799.6830666065216,
+   "padding": 1367.8266379833221,
+   "quirk": 1891.6769785881042,
+   "total": 4105.10365319252
+  },
+  "factories": 775,
+  "per_stage": {
+   "two-group": 403,
+   "padding": 353,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 15,
+  "seconds": {
+   "two_group": 22.419154167175293,
+   "gluing": 699.5823700428009,
+   "classification": 1276.1463327407837,
+   "padding": 1292.6626405715942,
+   "quirk": 1870.3385615348816,
+   "total": 5163.15530705452
+  },
+  "factories": 884,
+  "per_stage": {
+   "two-group": 494,
+   "padding": 353,
+   "gluing": 37
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 4,
+  "N_max": 16,
+  "seconds": {
+   "two_group": 28.451833963394165,
+   "gluing": 0.7076859474182129,
+   "classification": 2115.0487270355225,
+   "padding": 5625.555018663406,
+   "quirk": 7201.150444030762,
+   "total": 14974.165754079819
+  },
+  "factories": 695,
+  "per_stage": {
+   "two-group": 290,
+   "padding": 398,
+   "gluing": 7
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 6,
+  "N_max": 16,
+  "seconds": {
+   "two_group": 38.447896003723145,
+   "gluing": 23.794014930725098,
+   "classification": 1947.3098351955414,
+   "padding": 3365.866420507431,
+   "quirk": 4720.5997631549835,
+   "total": 10099.381541013718
+  },
+  "factories": 880,
+  "per_stage": {
+   "two-group": 463,
+   "padding": 398,
+   "gluing": 19
+  }
+ },
+ {
+  "l": 3,
+  "k_max": 8,
+  "N_max": 16,
+  "seconds": {
+   "two_group": 29.873666048049927,
+   "gluing": 396.13600897789,
+   "classification": 2045.3573722839355,
+   "padding": 3087.22057390213,
+   "quirk": 4414.384390830994,
+   "total": 9975.888974905014
+  },
+  "factories": 1015,
+  "per_stage": {
+   "two-group": 580,
+   "padding": 398,
+   "gluing": 37
+  }
+ }
+]
