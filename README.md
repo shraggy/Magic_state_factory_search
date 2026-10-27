@@ -34,11 +34,11 @@ combined across `l=2,3,4`.
   two-group circuits, output blocks sharing one check register (the synthillation family) and
   CNOT relabeling of the output block, plus an optional fourth SAT stage (`--sat`) used only as a
   last resort. At `l<=3` no sign search is needed: a sign flip is a Clifford correction on the checks. Over `l∈{2,3,4}`, `k≤6`, circuits of `N≤11` qubits and up to 4 check
-  qubits it finds **1,564 distinct verified factories in 186 output classes**. Both lists are in
-  `outputs/`: `smallest_per_class.csv` (186 rows, with Quirk links) and `all_factories.csv` (1,564 rows, Quirk links
-  in `all_factories_with_quirk.csv.zip`;
-  Clifford-equivalent factories grouped by `clifford_class` but kept as separate rows; see
-  `outputs/README.md`). Each row has its Clifford-reduced decomposition into `T`/`CS`/`CCZ`-type
+  qubits it finds **591 distinct verified factories in 86 output classes**, plus 973
+  Clifford-padded variants (CNOT relabelings that add output wires; they add no output class and are counted
+  separately). Both lists are in `outputs/`: `smallest_per_class.csv` (with Quirk links) and
+  `all_factories.csv` (all 1,564 rows; the `search_stage` column separates the 591 from the padded variants;
+  Quirk links in `all_factories_with_quirk.csv.zip`; see `outputs/README.md`). Each row has its Clifford-reduced decomposition into `T`/`CS`/`CCZ`-type
   generators, an exact `Z(π/2^l)` count, and the **search stage** that found it (`two-group`, `gluing`,
   `padding`, `SAT`). The two-group stage runs in seconds; the full pipeline, including the optional
   classification of every output, takes about 30 minutes on a laptop (about 10 of them the search itself).

@@ -239,10 +239,13 @@ def certify(target, k, n, N_star=None, log=print):
 
 
 def parse_target(spec, L=3):
-    GEN = {"T": 1, "CS": 2, "CCZ": 4}
+    """'CS01,T2' -> phase-polynomial coefficients mod 2^L. Gate names: T, CS, CCZ at l=3; sT (sqrt T), CT, CCS at l=4."""
+    GEN = {"T": 1, "CS": 2, "CCZ": 4} if L == 3 else {"sT": 1, "CT": 2, "CCS": 4, "CCCZ": 8}
     tgt = {}
     for tok in spec.split(","):
         name = tok.rstrip("0123456789")
+        if name not in GEN:
+            raise ValueError(f"gate {name} is not defined at level {L}")
         qs = frozenset(int(ch) for ch in tok[len(name):])
         tgt[qs] = (tgt.get(qs, 0) + GEN[name]) % (1 << L)
     return tgt

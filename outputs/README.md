@@ -11,7 +11,7 @@ row of Bloch spheres); then the output decomposition is undone and a final `H` r
 | file | rows | what it lists |
 |---|---|---|
 | `smallest_per_class.csv` | 186 | the **smallest factory for each output class** (Clifford-reduced decomposition, per `k`), at `l=2,3,4`, with Quirk links. These are the factories quoted in the paper; the paper's Tables SII(a-c) give representatives. |
-| `all_factories.csv` | 1,564 | **every distinct factory** the unified search finds (all `n`), at `l=2,3,4`, **without** the Quirk column so it opens directly on GitHub. |
+| `all_factories.csv` | 1,564 | **every distinct factory**: the 591 the search finds (`search_stage` two-group, gluing or SAT) and 973 Clifford-padded variants (`search_stage = padding`), all `n`, at `l=2,3,4`, **without** the Quirk column so it opens directly on GitHub. |
 | `all_factories_with_quirk.csv.zip` | 1,564 | the same table **with** a Quirk link per row (about 70 MB unzipped, 1.8 MB zipped). |
 | `search_timing.json` | | wall-clock seconds of every stage, and the parameters of the run |
 | `literature_refs.json` | | literature references for the paper's table rows, keyed `l,k,n,N`; fills the `reference` column |

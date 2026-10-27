@@ -49,14 +49,17 @@ def two_group_gates(k, r, sigma):
 SIGN_FREE_MAX_L = 3
 
 
-def stage_two_group(L, k_max, n_max):
+S_MAX = 7                                      # largest skip parameter s_total, s_O tried (--smax)
+
+
+def stage_two_group(L, k_max, n_max, k_min=1):
     """At l<=3 every gate carries +theta: a sign flip changes a rotation by Z(-2 theta), a Clifford there, so it is
     absorbed into the Clifford correction on the checks. At l>=4 Z(-2 theta) is non-Clifford and signs are enumerated."""
-    for k in range(1, k_max + 1):
+    for k in range(k_min, k_max + 1):
         for n in range(k + 1, n_max + 1):
             r = n - k
-            for st in range(1, 8):
-                for so in range(1, 8):
+            for st in range(1, S_MAX + 1):
+                for so in range(1, S_MAX + 1):
                     pairs, _, _ = build_gate_set(k, r, st, so)
                     if not pairs:
                         continue
@@ -70,8 +73,8 @@ def stage_two_group(L, k_max, n_max):
 
 
 # ----------------------------------------------------------------- stage 2: shared-check gluing
-def stage_gluing(L, k_max, r_max):
-    for k in range(1, k_max + 1):
+def stage_gluing(L, k_max, r_max, k_min=1):
+    for k in range(k_min, k_max + 1):
         for parts in _partitions(k, L):
             for r in range(1, r_max + 1):
                 sol = solve_binding(parts, r, L)
@@ -127,14 +130,29 @@ def poly_from_table(tab, k, mod):
     return {frozenset(i for i in range(k) if x >> i & 1): a[x] for x in range(1, 1 << k) if a[x]}
 
 
-def is_factory(f, L):
-    """Brute force: every phase monomial touching a check is Clifford, so the checks return to |+> after a
-    propagated diagonal Clifford correction and the output carries the magic state."""
+def is_factory(f, L, brute_force=False):
+    """Borrowed-identity condition in the paper's monomial form (App. S5): every Newton coefficient on a support T
+    that touches a check, a_T = (-1)^{|T|+1} 2^{|T|-1} sum_{S >= T} c_S, must vanish modulo 2^{cliff_exp(|T|)}, so the
+    checks return to |+> after a diagonal Clifford correction. Only |T| <= L matters: higher coefficients are
+    multiples of 2^L. Exact, and polynomial in N (no 2^N phase table). brute_force=True instead evaluates the
+    phase table on all 2^N basis states, as an independent cross-check."""
     k, r = f["k"], f["r"]
     n = k + r
-    P = poly_from_table(list(phases(f["gates"], n, L)), n, 1 << L)
     out = set(range(k))
-    return all(c % (1 << cliff_exp(len(T), L)) == 0 for T, c in P.items() if not T <= out)
+    if brute_force:
+        P = poly_from_table(list(phases(f["gates"], n, L)), n, 1 << L)
+        return all(c % (1 << cliff_exp(len(T), L)) == 0 for T, c in P.items() if not T <= out)
+    gates = [(frozenset(S), c) for S, c in f["gates"]]
+    for t in range(1, min(L, n) + 1):
+        m = 1 << cliff_exp(t, L)
+        for T in combinations(range(n), t):
+            Ts = frozenset(T)
+            if Ts <= out:
+                continue
+            s_ = sum(c for S, c in gates if Ts <= S)
+            if ((-1) ** (t + 1) * 2 ** (t - 1) * s_) % m:
+                return False
+    return True
 
 
 def distance(f, L):
@@ -153,6 +171,8 @@ def distance(f, L):
     for w in (3, 4):
         if len(mg) > 40 and w == 4:
             return ">=4"
+        if len(mg) > 400:                      # distance >= 3 established; deeper search too costly
+            return ">=3"
         for E in combinations(range(len(mg)), w):
             cc, oo = frozenset(), frozenset()
             for g in E:
@@ -317,7 +337,15 @@ def quirk_url(gates, n, L, k=None):
             col[ph] = _global_phase_gate(mod // u, sign)
             cols.append(col)
     if k is not None:
-        P = poly_from_table(list(phases(gates, n, L)), n, mod)
+        # phase polynomial on all n qubits from the Newton coefficients (no 2^n table): a_T for |T| <= L
+        P = {}
+        G = [(frozenset(S), c) for S, c in gates]
+        for t in range(1, min(L, n) + 1):
+            for T in combinations(range(n), t):
+                Ts = frozenset(T)
+                a = ((-1) ** (t + 1) * 2 ** (t - 1) * sum(c for S, c in G if Ts <= S)) % mod
+                if a:
+                    P[Ts] = a
         out = set(range(k))
 
         def mono(T, a):
@@ -350,16 +378,16 @@ def quirk_url(gates, n, L, k=None):
 
 
 # ----------------------------------------------------------------- the sweep
-def run(L, k_max, n_max, r_max, relabel_max, log=print, timing=None):
+def run(L, k_max, n_max, r_max, relabel_max, log=print, timing=None, k_min=1):
     """All verified factories at level L. `timing`, if given, receives the wall-clock seconds of each stage:
     two-group, gluing, classification (output class, distance and z-count of every seed; optional bookkeeping, not
     needed to find a factory), padding (CNOT relabeling and its verification) and quirk (writing the links)."""
     T = dict(two_group=0.0, gluing=0.0, classification=0.0, padding=0.0, quirk=0.0)
     seeds, t0 = [], time.time()
-    for f in stage_two_group(L, k_max, n_max):
+    for f in stage_two_group(L, k_max, n_max, k_min):
         seeds.append(f)
     t1 = time.time()
-    for f in stage_gluing(L, k_max, r_max):
+    for f in stage_gluing(L, k_max, r_max, k_min):
         seeds.append(f)
     t2 = time.time()
     T["two_group"], T["gluing"] = t1 - t0, t2 - t1
@@ -544,7 +572,9 @@ if __name__ == "__main__":
                                              "smallest_per_class.csv (smallest per output class, with Quirk links), both with "
                                              "search stage, for whatever range is given.")
     ap.add_argument("--levels", type=int, nargs="+", default=[2, 3, 4])
+    ap.add_argument("--kmin", type=int, default=1, help="smallest k (to split a large run across processes)")
     ap.add_argument("--kmax", type=int, default=6)
+    ap.add_argument("--smax", type=int, default=7, help="largest skip parameter s_total, s_O in the two-group stage")
     ap.add_argument("--nmax", type=int, default=11, help="max circuit qubits in the two-group stage")
     ap.add_argument("--rmax", type=int, default=4, help="max check qubits in the gluing stage")
     ap.add_argument("--relabel", type=int, default=4, help="max extra output wires added by CNOT relabeling")
@@ -552,11 +582,12 @@ if __name__ == "__main__":
     ap.add_argument("--sat-time", type=float, default=30.0, help="per-target SAT time limit in seconds")
     ap.add_argument("--out-dir", default=os.path.join(ROOT, "outputs"), help="where the two CSVs are written")
     a = ap.parse_args()
+    S_MAX = a.smax
     os.makedirs(a.out_dir, exist_ok=True)
     allrows, timings = [], {}
     for L in a.levels:
         timings[L] = {}
-        rows = run(L, a.kmax, a.nmax, a.rmax, a.relabel, timing=timings[L])
+        rows = run(L, a.kmax, a.nmax, a.rmax, a.relabel, timing=timings[L], k_min=a.kmin)
         if a.sat and SAT_TARGETS.get(L):
             t = time.time()
             rows += stage_sat(L, rows, SAT_TARGETS[L], a.sat_time)
