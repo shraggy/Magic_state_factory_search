@@ -1,0 +1,66 @@
+[
+ {
+  "target": "CCZ123",
+  "k": 3,
+  "N": 4,
+  "n_ours": 8,
+  "after": {
+   "result": "unsat",
+   "seconds": 0.0
+  },
+  "alone": {
+   "found_min": 8,
+   "queries": 2,
+   "seconds": 0.0,
+   "status": "ok"
+  }
+ },
+ {
+  "target": "CS12",
+  "k": 2,
+  "N": 4,
+  "n_ours": 12,
+  "after": {
+   "result": "unsat",
+   "seconds": 0.0
+  },
+  "alone": {
+   "found_min": 12,
+   "queries": 2,
+   "seconds": 0.0,
+   "status": "ok"
+  }
+ },
+ {
+  "target": "CS12 T3",
+  "k": 3,
+  "N": 6,
+  "n_ours": 20,
+  "after": {
+   "result": "unsat",
+   "seconds": 2.2
+  },
+  "alone": {
+   "found_min": 20,
+   "queries": 4,
+   "seconds": 2.9,
+   "status": "ok"
+  }
+ },
+ {
+  "target": "CCZ123 T4",
+  "k": 4,
+  "N": 7,
+  "n_ours": 20,
+  "after": {
+   "result": "unknown",
+   "seconds": 900.1
+  },
+  "alone": {
+   "found_min": 20,
+   "queries": 6,
+   "seconds": 900.1,
+   "status": "timeout"
+  }
+ }
+]

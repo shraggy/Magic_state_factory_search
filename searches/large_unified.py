@@ -33,7 +33,7 @@ def slice_job(L, k, nmax, smax, rmax, glue_kmax=99):
             lines = lines[:-1]                      # a row cut off mid-write
         open(path, "w").writelines(lines)
     t0 = time.time(); seen = set(); n = 0
-    t_tg = time.time(); seeds = list(us.stage_two_group(L, k, nmax, k)); t_tg = time.time() - t_tg
+    t_tg = time.time(); seeds = list(us.stage_two_group(L, k, nmax, k, one_sign=True)); t_tg = time.time() - t_tg
     t_gl = time.time()
     if k <= glue_kmax:
         seeds += list(us.stage_gluing(L, k, rmax, k))

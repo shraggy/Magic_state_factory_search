@@ -44,10 +44,32 @@ def circuit(r):
     return [(frozenset(S), c % (1 << L)) for S, c in sol["gates"]] if sol else None
 
 
+QUIRK_NMAX = 14                                  # Quirk links only up to this many circuit qubits (larger ones are
+                                                 # megabyte URLs Quirk cannot display); every factory gets a gate list
+
+
 def quirk(r):
     import unified_search as us
+    if int(r["N"]) > QUIRK_NMAX:
+        return ""
     g = circuit(r)
     return us.quirk_url(g, int(r["N"]), int(r["l"]), k=int(r["k"])) if g else ""
+
+
+def write_gate_lists(rows, L):
+    """outputs/large_unified_l{L}_circuits.zip: every factory as an explicit list of parity rotations, one block per
+    CSV row, '# id l k n N stage params' then one line per rotation 'q,q,...:c' meaning Z(c*pi/2^l) on those qubits
+    (outputs are qubits 0..k-1)."""
+    path = os.path.join(OUTD, f"large_unified_l{L}_circuits.txt")
+    with open(path, "w") as fh:
+        for i, r in enumerate(rows):
+            g = circuit(r)
+            fh.write(f"# {i} l={r['l']} k={r['k']} n={r['n']} N={r['N']} {r['search_stage']} {r['params']}\n")
+            for S, c in (g or []):
+                fh.write(",".join(map(str, sorted(S))) + f":{c}\n")
+    with zipfile.ZipFile(path + ".zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        z.write(path, os.path.basename(path))
+    os.remove(path)
 
 
 def write(path, rows, fields):
@@ -69,6 +91,7 @@ def main(with_quirk=True, quirk_levels=("2", "3", "4")):
                 continue                            # same factory reached by another l=4 sign pattern
             seen.add(key)
             r["stages_run"] = "two-group+gluing" if k <= GLUE_KMAX else "two-group only"
+            r["gate_list_id"] = ""
             rows.append({x: r.get(x, "") for x in F})
     rows.sort(key=lambda r: (int(r["l"]), int(r["k"]), int(r["n"]), int(r["N"])))
     best = {}
@@ -89,8 +112,8 @@ def main(with_quirk=True, quirk_levels=("2", "3", "4")):
             known = {(c["l"], c["k"], c["n"], c["N"], c["search_stage"], c["params"], c["raw"]): c["quirk"] for c in csv.DictReader(open(cache))}
         for r in rows:
             key = (r["l"], r["k"], r["n"], r["N"], r["search_stage"], r["params"], r["raw"])
-            if r["l"] not in quirk_levels:
-                r["quirk"] = known.get(key, "")
+            if r["l"] not in quirk_levels or int(r["N"]) > QUIRK_NMAX:
+                r["quirk"] = known.get(key, "") if int(r["N"]) <= QUIRK_NMAX else ""
                 continue
             r["quirk"] = known.get(key) or quirk(r)
             known[key] = r["quirk"]
@@ -102,6 +125,8 @@ def main(with_quirk=True, quirk_levels=("2", "3", "4")):
             z.write(tmp, os.path.basename(tmp))
         os.remove(tmp)
         write(os.path.join(OUTD, "large_unified_smallest.csv"), small, F + ["quirk"])
+        for L in quirk_levels:
+            write_gate_lists([r for r in rows if r["l"] == L], L)
         for L in quirk_levels:                       # one file per level with its Quirk links
             tmp = os.path.join(OUTD, f"large_unified_l{L}_with_quirk.csv")
             write(tmp, [r for r in rows if r["l"] == L], F + ["quirk"])

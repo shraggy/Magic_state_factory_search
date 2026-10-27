@@ -10,3 +10,6 @@ outputs/my_run/
 figures/circuits/qk_*.tex
 
 outputs/large_unified/
+
+# raw gate-list text (zipped versions are kept; large two-group circuits are regenerated from params)
+outputs/*_circuits.txt

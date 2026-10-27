@@ -52,7 +52,7 @@ SIGN_FREE_MAX_L = 3
 S_MAX = 7                                      # largest skip parameter s_total, s_O tried (--smax)
 
 
-def stage_two_group(L, k_max, n_max, k_min=1):
+def stage_two_group(L, k_max, n_max, k_min=1, one_sign=False):
     """At l<=3 every gate carries +theta: a sign flip changes a rotation by Z(-2 theta), a Clifford there, so it is
     absorbed into the Clifford correction on the checks. At l>=4 Z(-2 theta) is non-Clifford and signs are enumerated."""
     for k in range(k_min, k_max + 1):
@@ -67,6 +67,10 @@ def stage_two_group(L, k_max, n_max, k_min=1):
                         sigmas = [{p: 1 for p in pairs}]
                     else:
                         sigmas = find_valid_signs(L, n, k, pairs)
+                        if one_sign:
+                            # signs only flip check-only rotations, which do not touch the outputs: every valid
+                            # pattern gives the same output, n and N, so one representative suffices
+                            sigmas = sigmas[:1]
                     for sigma in sigmas:
                         yield dict(stage="two-group", k=k, r=r, gates=two_group_gates(k, r, sigma),
                                    params=f"s_total={st},s_O={so}")
