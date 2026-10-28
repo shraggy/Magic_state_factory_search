@@ -85,5 +85,48 @@ timed separately in `search_timing.json`, and is not needed to find a factory.
 | `landscape_l3.json`, `landscape_l4.json` | `searches/synthillation_compare.py` | per-target comparison with distilling parts separately and with synthillation (Fig. 1) |
 | `large_sweep.csv` | `searches/large_sweep.py` | two-group stage up to `N=16` circuit qubits, `k<=8`: 1,453 verified factories, one per `(l, k, n)`, `n` up to 65,534 (about 2.5 h) |
 | `large_sweep_with_quirk.csv.zip` | `searches/large_sweep.py` | the same table with Quirk links for circuits of up to 14 qubits |
+| `large_unified_factories.csv` | `searches/large_unified.py` + `merge_large_unified.py` | the unified search over a larger range: every distinct factory, `l=2,3,4`, no Quirk links (see "Larger unified search" below) |
+| `large_unified_factories_l3.csv` | same | the `l=3` rows alone |
+| `large_unified_with_quirk.csv.zip`, `large_unified_l{2,3,4}_with_quirk.csv.zip` | same | the same rows with a Quirk link for every circuit of up to 14 qubits |
+| `large_unified_smallest.csv` | same | the smallest factory for each output class, with its search stage and Quirk link |
+| `large_unified_l{2,3,4}_circuits.txt.zip` | same | explicit gate lists (see below) |
 | `stage_scaling.json` | `searches/stage_scaling.py` | wall-clock seconds of each stage at `l=3` for `k_max` in {4,6,8} and `N_max` from 6 to 16, with the number of factories per stage (Fig. S2) |
 | `error_coefficients.json` | `searches/error_coefficients.py` | for each Fig. 1 target: our `n` and output-error coefficient `c`, and those of the cheapest prior construction, with how it is built (Fig. 1) |
+
+## Larger unified search
+
+`searches/large_unified.py` runs the two search stages (two-group and shared-check gluing; no Clifford padding)
+over a larger range, one `(l, k)` slice per process, resumable after an interruption:
+
+| level | outputs `k` | circuit qubits `N` | stages |
+|---|---|---|---|
+| `l=2`, `l=3` | `k<=9` | `N<=18` | two-group + gluing |
+| `l=2`, `l=3` | `k=10..12` | `N<=18` | two-group only |
+| `l=4` | `k<=8` | `N<=16` | two-group + gluing |
+
+Gluing stops at `k=9` (at `l=4`, `k=8`) because its linear solve grows exponentially with `k`; the two-group
+stage could be run further. Every factory is verified with the monomial form of the borrowed-identity condition
+(polynomial in `N`, and identical to brute-force evaluation of the phase table on every circuit tested). The
+`stages_run` column says which stages ran for that row's `k`, and `search_stage` which one found it.
+
+The output class (`reduced`) is exact for `k<=4`. For `5<=k<=10` it is the best of 4,000 random CNOT frames, an
+upper bound (`frame_exact = False`); for `k>=11` no frame search is done and the class is the output as
+deposited. Two rows with different labels at `k>=5` may therefore still be Clifford-equivalent.
+
+**Quirk links and gate lists for large circuits.** A Quirk link holds one column per rotation, so a large circuit
+gives a URL of megabytes that Quirk cannot display: the 18-qubit factories have up to 88,063 rotations. Quirk
+links are therefore given for every circuit of up to 14 qubits. The gate-list files
+`large_unified_l{2,3,4}_circuits.txt.zip` store every gluing circuit and every two-group circuit of up to 14
+qubits, one block per row: a `#` line with the row's parameters, then one line `q,q,...:c` per rotation,
+meaning `Z(c*pi/2^l)` on those qubits (outputs are qubits `0..k-1`). Larger two-group circuits are not stored:
+they are fixed by `(k, N, s_total, s_O)`, which are in the `k`, `N` and `params` columns, and are regenerated
+exactly by
+
+```python
+import sys; sys.path.insert(0, "searches")
+from merge_large_unified import regenerate_circuit
+gates = regenerate_circuit(l=3, k=6, N=18, params="s_total=2,s_O=3")   # list of (support, coefficient)
+```
+
+At `l=4`, where the two-group stage enumerates sign patterns, one pattern is kept per circuit: signs only change
+rotations on the check qubits, and every valid pattern was checked to give the same output and input count.

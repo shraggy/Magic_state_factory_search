@@ -239,8 +239,8 @@ def certify(target, k, n, N_star=None, log=print):
 
 
 def parse_target(spec, L=3):
-    """'CS01,T2' -> phase-polynomial coefficients mod 2^L. Gate names: T, CS, CCZ at l=3; sT (sqrt T), CT, CCS at l=4."""
-    GEN = {"T": 1, "CS": 2, "CCZ": 4} if L == 3 else {"sT": 1, "CT": 2, "CCS": 4, "CCCZ": 8}
+    """'CS01,T2' -> phase-polynomial coefficients mod 2^L. Gate names: S, CZ at l=2; T, CS, CCZ at l=3; sT (sqrt T), CT, CCS, CCCZ at l=4."""
+    GEN = {2: {"S": 1, "CZ": 2}, 3: {"T": 1, "CS": 2, "CCZ": 4}, 4: {"sT": 1, "CT": 2, "CCS": 4, "CCCZ": 8}}[L]
     tgt = {}
     for tok in spec.split(","):
         name = tok.rstrip("0123456789")
