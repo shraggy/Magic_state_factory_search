@@ -1,0 +1,28 @@
+{
+ "l": 3,
+ "k": 2,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 3,
+   "spec": "T0"
+  },
+  {
+   "orbit": 3,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 3,
+   "spec": "T0,T1"
+  },
+  {
+   "orbit": 4,
+   "genuine": true,
+   "gates": 1,
+   "orbit_size": 1,
+   "spec": "CS01"
+  }
+ ],
+ "seconds": 0.0
+}

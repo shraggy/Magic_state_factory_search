@@ -1,0 +1,77 @@
+{
+ "l": 4,
+ "k": 2,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 6,
+   "spec": "sT0"
+  },
+  {
+   "orbit": 2,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 3,
+   "spec": "sT0,sT0"
+  },
+  {
+   "orbit": 5,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 12,
+   "spec": "sT0,sT1"
+  },
+  {
+   "orbit": 6,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 12,
+   "spec": "sT0,sT0,sT1"
+  },
+  {
+   "orbit": 10,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 3,
+   "spec": "sT0,sT0,sT1,sT1"
+  },
+  {
+   "orbit": 16,
+   "genuine": true,
+   "gates": 1,
+   "orbit_size": 4,
+   "spec": "CT01"
+  },
+  {
+   "orbit": 17,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 12,
+   "spec": "sT0,CT01"
+  },
+  {
+   "orbit": 18,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 4,
+   "spec": "sT0,sT0,CT01"
+  },
+  {
+   "orbit": 21,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 6,
+   "spec": "sT0,sT1,CT01"
+  },
+  {
+   "orbit": 32,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 1,
+   "spec": "CT01,CT01"
+  }
+ ],
+ "seconds": 0.0
+}

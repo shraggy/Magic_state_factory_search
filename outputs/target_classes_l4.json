@@ -1,0 +1,38 @@
+{
+ "l4_k1": {
+  "l": 4,
+  "k": 1,
+  "group_size_log2": 2,
+  "orbits": 3,
+  "genuine": 2,
+  "brute_force": 3,
+  "seconds": 0.0
+ },
+ "l4_k2": {
+  "l": 4,
+  "k": 2,
+  "group_size_log2": 6,
+  "orbits": 11,
+  "genuine": 8,
+  "brute_force": 11,
+  "seconds": 0.0
+ },
+ "l4_k3": {
+  "l": 4,
+  "k": 3,
+  "group_size_log2": 14,
+  "orbits": 86,
+  "genuine": 75,
+  "brute_force": 86,
+  "seconds": 0.01
+ },
+ "l4_k4": {
+  "l": 4,
+  "k": 4,
+  "group_size_log2": 29,
+  "orbits": 4168,
+  "genuine": 4082,
+  "brute_force": null,
+  "seconds": 0.1
+ }
+}

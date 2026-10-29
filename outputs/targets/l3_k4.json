@@ -1,0 +1,161 @@
+{
+ "l": 3,
+ "k": 4,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 15,
+   "spec": "T0"
+  },
+  {
+   "orbit": 3,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 105,
+   "spec": "T0,T1"
+  },
+  {
+   "orbit": 7,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 420,
+   "spec": "T0,T1,T2"
+  },
+  {
+   "orbit": 15,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 840,
+   "spec": "T0,T1,T2,T3"
+  },
+  {
+   "orbit": 16,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 35,
+   "spec": "CS01"
+  },
+  {
+   "orbit": 20,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 420,
+   "spec": "T2,CS01"
+  },
+  {
+   "orbit": 28,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 1680,
+   "spec": "T2,T3,CS01"
+  },
+  {
+   "orbit": 48,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 105,
+   "spec": "CS01,CS02"
+  },
+  {
+   "orbit": 49,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 315,
+   "spec": "T0,CS01,CS02"
+  },
+  {
+   "orbit": 56,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 840,
+   "spec": "T3,CS01,CS02"
+  },
+  {
+   "orbit": 57,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 2520,
+   "spec": "T0,T3,CS01,CS02"
+  },
+  {
+   "orbit": 112,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 420,
+   "spec": "CS03,CCZ012"
+  },
+  {
+   "orbit": 113,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 420,
+   "spec": "T0,CS03,CCZ012"
+  },
+  {
+   "orbit": 183,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 105,
+   "spec": "T0,CCZ012"
+  },
+  {
+   "orbit": 191,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 840,
+   "spec": "T0,T3,CCZ012"
+  },
+  {
+   "orbit": 192,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 280,
+   "spec": "CS03,CS12"
+  },
+  {
+   "orbit": 208,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 168,
+   "spec": "CS01,CS03,CS12"
+  },
+  {
+   "orbit": 209,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 1680,
+   "spec": "T0,CS01,CS03,CS12"
+  },
+  {
+   "orbit": 211,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 2520,
+   "spec": "T0,T1,CS01,CS03,CS12"
+  },
+  {
+   "orbit": 246,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 2520,
+   "spec": "T1,CS03,CCZ012"
+  },
+  {
+   "orbit": 1024,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 15,
+   "spec": "CCZ012"
+  },
+  {
+   "orbit": 1032,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 120,
+   "spec": "T3,CCZ012"
+  }
+ ],
+ "seconds": 0.08
+}

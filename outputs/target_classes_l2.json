@@ -1,0 +1,56 @@
+{
+ "l2_k1": {
+  "l": 2,
+  "k": 1,
+  "group_size_log2": 1,
+  "orbits": 2,
+  "genuine": 1,
+  "brute_force": 2,
+  "seconds": 0.0
+ },
+ "l2_k2": {
+  "l": 2,
+  "k": 2,
+  "group_size_log2": 3,
+  "orbits": 4,
+  "genuine": 2,
+  "brute_force": 4,
+  "seconds": 0.0
+ },
+ "l2_k3": {
+  "l": 2,
+  "k": 3,
+  "group_size_log2": 6,
+  "orbits": 5,
+  "genuine": 1,
+  "brute_force": 5,
+  "seconds": 0.0
+ },
+ "l2_k4": {
+  "l": 2,
+  "k": 4,
+  "group_size_log2": 10,
+  "orbits": 7,
+  "genuine": 2,
+  "brute_force": null,
+  "seconds": 0.04
+ },
+ "l2_k5": {
+  "l": 2,
+  "k": 5,
+  "group_size_log2": 15,
+  "orbits": 8,
+  "genuine": 1,
+  "brute_force": null,
+  "seconds": 0.41
+ },
+ "l2_k6": {
+  "l": 2,
+  "k": 6,
+  "group_size_log2": 21,
+  "orbits": 10,
+  "genuine": 2,
+  "brute_force": null,
+  "seconds": 4.34
+ }
+}

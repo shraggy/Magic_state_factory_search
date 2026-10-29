@@ -1,0 +1,602 @@
+{
+ "l": 4,
+ "k": 3,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 14,
+   "spec": "sT0"
+  },
+  {
+   "orbit": 2,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 7,
+   "spec": "sT0,sT0"
+  },
+  {
+   "orbit": 5,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 84,
+   "spec": "sT0,sT1"
+  },
+  {
+   "orbit": 6,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 84,
+   "spec": "sT0,sT0,sT1"
+  },
+  {
+   "orbit": 10,
+   "genuine": false,
+   "gates": 4,
+   "orbit_size": 21,
+   "spec": "sT0,sT0,sT1,sT1"
+  },
+  {
+   "orbit": 21,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 224,
+   "spec": "sT0,sT1,sT2"
+  },
+  {
+   "orbit": 22,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT1,sT2"
+  },
+  {
+   "orbit": 26,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,sT1,sT1,sT2"
+  },
+  {
+   "orbit": 42,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 28,
+   "spec": "sT0,sT0,sT1,sT1,sT2,sT2"
+  },
+  {
+   "orbit": 64,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 28,
+   "spec": "CT01"
+  },
+  {
+   "orbit": 65,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 84,
+   "spec": "sT0,CT01"
+  },
+  {
+   "orbit": 66,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 28,
+   "spec": "sT0,sT0,CT01"
+  },
+  {
+   "orbit": 69,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 42,
+   "spec": "sT0,sT1,CT01"
+  },
+  {
+   "orbit": 80,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 224,
+   "spec": "sT2,CT01"
+  },
+  {
+   "orbit": 81,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 672,
+   "spec": "sT0,sT2,CT01"
+  },
+  {
+   "orbit": 82,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 224,
+   "spec": "sT0,sT0,sT2,CT01"
+  },
+  {
+   "orbit": 85,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT0,sT1,sT2,CT01"
+  },
+  {
+   "orbit": 96,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 112,
+   "spec": "sT2,sT2,CT01"
+  },
+  {
+   "orbit": 97,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT0,sT2,sT2,CT01"
+  },
+  {
+   "orbit": 98,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 112,
+   "spec": "sT0,sT0,sT2,sT2,CT01"
+  },
+  {
+   "orbit": 101,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 168,
+   "spec": "sT0,sT1,sT2,sT2,CT01"
+  },
+  {
+   "orbit": 128,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 7,
+   "spec": "CT01,CT01"
+  },
+  {
+   "orbit": 144,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 56,
+   "spec": "sT2,CT01,CT01"
+  },
+  {
+   "orbit": 160,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 28,
+   "spec": "sT2,sT2,CT01,CT01"
+  },
+  {
+   "orbit": 320,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 168,
+   "spec": "CT01,CT02"
+  },
+  {
+   "orbit": 321,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 168,
+   "spec": "sT0,CT01,CT02"
+  },
+  {
+   "orbit": 322,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 56,
+   "spec": "sT0,sT0,CT01,CT02"
+  },
+  {
+   "orbit": 323,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,sT0,CT01,CT02"
+  },
+  {
+   "orbit": 324,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 672,
+   "spec": "sT1,CT01,CT02"
+  },
+  {
+   "orbit": 325,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 672,
+   "spec": "sT0,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 326,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 224,
+   "spec": "sT0,sT0,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 327,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 672,
+   "spec": "sT0,sT0,sT0,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 328,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 168,
+   "spec": "sT1,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 329,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 336,
+   "spec": "sT0,sT1,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 330,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 56,
+   "spec": "sT0,sT0,sT1,sT1,CT01,CT02"
+  },
+  {
+   "orbit": 340,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT1,sT2,CT01,CT02"
+  },
+  {
+   "orbit": 341,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 672,
+   "spec": "sT0,sT1,sT2,CT01,CT02"
+  },
+  {
+   "orbit": 342,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 168,
+   "spec": "sT0,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 384,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 168,
+   "spec": "CT01,CT01,CT02"
+  },
+  {
+   "orbit": 386,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 387,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,sT0,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 400,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT2,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 401,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 56,
+   "spec": "sT0,sT2,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 403,
+   "genuine": true,
+   "gates": 7,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,sT0,sT2,CT01,CT01,CT02"
+  },
+  {
+   "orbit": 640,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 7,
+   "spec": "CT01,CT01,CT02,CT02"
+  },
+  {
+   "orbit": 641,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 42,
+   "spec": "sT0,CT01,CT01,CT02,CT02"
+  },
+  {
+   "orbit": 642,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 21,
+   "spec": "sT0,sT0,CT01,CT01,CT02,CT02"
+  },
+  {
+   "orbit": 1344,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 112,
+   "spec": "CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1345,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 672,
+   "spec": "sT0,CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1349,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 336,
+   "spec": "sT0,sT1,CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1351,
+   "genuine": true,
+   "gates": 7,
+   "orbit_size": 672,
+   "spec": "sT0,sT0,sT0,sT1,CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1365,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 56,
+   "spec": "sT0,sT0,sT0,CCS012"
+  },
+  {
+   "orbit": 1367,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT0,sT1,sT1,CCS012"
+  },
+  {
+   "orbit": 1408,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 168,
+   "spec": "CT01,CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1410,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 168,
+   "spec": "sT0,sT0,CT01,CT01,CT02,CT12"
+  },
+  {
+   "orbit": 1411,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 672,
+   "spec": "sT0,sT0,sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 1423,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT1,sT2,CCS012,CCS012"
+  },
+  {
+   "orbit": 1434,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT1,CT01,CCS012"
+  },
+  {
+   "orbit": 1435,
+   "genuine": true,
+   "gates": 6,
+   "orbit_size": 672,
+   "spec": "sT0,sT0,sT1,sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 1439,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 224,
+   "spec": "sT2,sT2,sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 1482,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 112,
+   "spec": "sT1,sT1,CT01,CT02,CCS012"
+  },
+  {
+   "orbit": 1493,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 56,
+   "spec": "sT0,CT01,CT01,CCS012"
+  },
+  {
+   "orbit": 1725,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 84,
+   "spec": "sT0,CT01,CT02,CCS012"
+  },
+  {
+   "orbit": 1726,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 84,
+   "spec": "sT0,sT0,sT1,CCS012,CCS012"
+  },
+  {
+   "orbit": 2730,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 7,
+   "spec": "sT0,sT0,CCS012,CCS012"
+  },
+  {
+   "orbit": 4096,
+   "genuine": true,
+   "gates": 1,
+   "orbit_size": 8,
+   "spec": "CCS012"
+  },
+  {
+   "orbit": 4097,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 56,
+   "spec": "sT0,CCS012"
+  },
+  {
+   "orbit": 4098,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 56,
+   "spec": "sT0,sT0,CCS012"
+  },
+  {
+   "orbit": 4101,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 168,
+   "spec": "sT0,sT1,CCS012"
+  },
+  {
+   "orbit": 4102,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT1,CCS012"
+  },
+  {
+   "orbit": 4106,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 56,
+   "spec": "sT0,sT0,sT1,sT1,CCS012"
+  },
+  {
+   "orbit": 4117,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 224,
+   "spec": "sT0,sT1,sT2,CCS012"
+  },
+  {
+   "orbit": 4118,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 336,
+   "spec": "sT0,sT0,sT1,sT2,CCS012"
+  },
+  {
+   "orbit": 4160,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 56,
+   "spec": "CT01,CCS012"
+  },
+  {
+   "orbit": 4161,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 168,
+   "spec": "sT0,CT01,CCS012"
+  },
+  {
+   "orbit": 4165,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 56,
+   "spec": "sT0,sT1,CT01,CCS012"
+  },
+  {
+   "orbit": 4176,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 224,
+   "spec": "sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 4177,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 224,
+   "spec": "sT0,sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 4192,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 56,
+   "spec": "sT2,sT2,CT01,CCS012"
+  },
+  {
+   "orbit": 4224,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 8,
+   "spec": "CT01,CT01,CCS012"
+  },
+  {
+   "orbit": 4416,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 28,
+   "spec": "CT01,CT02,CCS012"
+  },
+  {
+   "orbit": 4418,
+   "genuine": true,
+   "gates": 5,
+   "orbit_size": 28,
+   "spec": "sT0,sT0,CT01,CT02,CCS012"
+  },
+  {
+   "orbit": 4419,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 84,
+   "spec": "sT0,sT1,CCS012,CCS012"
+  },
+  {
+   "orbit": 5503,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 14,
+   "spec": "sT0,CCS012,CCS012"
+  },
+  {
+   "orbit": 8192,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 1,
+   "spec": "CCS012,CCS012"
+  }
+ ],
+ "seconds": 0.01
+}

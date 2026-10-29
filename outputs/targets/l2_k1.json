@@ -1,0 +1,14 @@
+{
+ "l": 2,
+ "k": 1,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": true,
+   "gates": 1,
+   "orbit_size": 1,
+   "spec": "S0"
+  }
+ ],
+ "seconds": 0.0
+}

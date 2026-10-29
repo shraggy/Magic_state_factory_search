@@ -1,0 +1,70 @@
+{
+ "l": 3,
+ "k": 3,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 7,
+   "spec": "T0"
+  },
+  {
+   "orbit": 3,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 21,
+   "spec": "T0,T1"
+  },
+  {
+   "orbit": 7,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 28,
+   "spec": "T0,T1,T2"
+  },
+  {
+   "orbit": 8,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 7,
+   "spec": "CS01"
+  },
+  {
+   "orbit": 12,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 28,
+   "spec": "T2,CS01"
+  },
+  {
+   "orbit": 24,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 7,
+   "spec": "CS01,CS02"
+  },
+  {
+   "orbit": 25,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 21,
+   "spec": "T0,CS01,CS02"
+  },
+  {
+   "orbit": 63,
+   "genuine": true,
+   "gates": 2,
+   "orbit_size": 7,
+   "spec": "T0,CCZ012"
+  },
+  {
+   "orbit": 64,
+   "genuine": true,
+   "gates": 1,
+   "orbit_size": 1,
+   "spec": "CCZ012"
+  }
+ ],
+ "seconds": 0.01
+}

@@ -1,0 +1,70 @@
+{
+ "l": 2,
+ "k": 6,
+ "classes": [
+  {
+   "orbit": 1,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 63,
+   "spec": "S0"
+  },
+  {
+   "orbit": 3,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 1953,
+   "spec": "S0,S1"
+  },
+  {
+   "orbit": 7,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 39060,
+   "spec": "S2,CZ01"
+  },
+  {
+   "orbit": 15,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 273420,
+   "spec": "S2,S3,CZ01"
+  },
+  {
+   "orbit": 31,
+   "genuine": false,
+   "gates": 3,
+   "orbit_size": 874944,
+   "spec": "S4,CZ03,CZ12"
+  },
+  {
+   "orbit": 63,
+   "genuine": true,
+   "gates": 4,
+   "orbit_size": 874944,
+   "spec": "S4,S5,CZ03,CZ12"
+  },
+  {
+   "orbit": 64,
+   "genuine": false,
+   "gates": 1,
+   "orbit_size": 651,
+   "spec": "CZ01"
+  },
+  {
+   "orbit": 2304,
+   "genuine": false,
+   "gates": 2,
+   "orbit_size": 18228,
+   "spec": "CZ03,CZ12"
+  },
+  {
+   "orbit": 41984,
+   "genuine": true,
+   "gates": 3,
+   "orbit_size": 13888,
+   "spec": "CZ05,CZ14,CZ23"
+  }
+ ],
+ "seconds": 5.27
+}

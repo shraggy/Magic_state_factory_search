@@ -131,23 +131,40 @@ def _ok(rs, ms, x, varlists):
 
 def reduce_support(rs, ms, x, nulls, nvars, L, varlists):
     """Greedily subtract homogeneous kernel vectors to minimize the T-count (then total gates)."""
-    mod = 1 << L; zero = [0] * len(varlists); gens = []
+    import numpy as np
+    mod = 1 << L; gens = []
+    # incidence of constraints on variables, to test every candidate generator against the homogeneous system at once
+    inc = np.zeros((len(varlists), nvars), dtype=np.int64)
+    for i, vl in enumerate(varlists):
+        inc[i, vl] = 1
+    mmask = np.array([(1 << m) - 1 for m in ms], dtype=np.int64)
     for b, NS in enumerate(nulls):
-        for v in NS:
-            g = [((1 << b) if (v >> j) & 1 else 0) for j in range(nvars)]
-            if _ok(zero, ms, g, varlists):
-                gens.append(g)
-    cost = lambda v: (sum(inputs(t % mod, L) for t in v), sum(1 for t in v if t % mod))
+        if not NS:
+            continue
+        G = np.array([[((1 << b) if (v >> j) & 1 else 0) for j in range(nvars)] for v in NS], dtype=np.int64)
+        ok = ~((inc @ G.T) & mmask.reshape(-1, 1)).any(axis=0)
+        gens += [list(map(int, G[i])) for i in np.flatnonzero(ok)]
+    # Each generator solves the homogeneous system, so x + a*g stays a solution for every a: only the cost changes,
+    # and only on the support of g. Same greedy order (first improving (g, a), then restart) as a full re-evaluation.
+    x = [t % mod for t in x]
+    supp = [[j for j in range(nvars) if g[j] % mod] for g in gens]
+    cost1 = lambda t: (inputs(t, L), 1 if t else 0)
     improved = True
     while improved:
         improved = False
-        for g in gens:
+        for g, sj in zip(gens, supp):
             for a in range(1, mod):
-                cand = [(x[j] + a * g[j]) % mod for j in range(nvars)]
-                if cost(cand) < cost(x) and _ok(rs, ms, cand, varlists):
-                    x = cand; improved = True; break
+                d0 = d1 = 0
+                for j in sj:
+                    o, nw = cost1(x[j]), cost1((x[j] + a * g[j]) % mod)
+                    d0 += nw[0] - o[0]; d1 += nw[1] - o[1]
+                if (d0, d1) < (0, 0):
+                    for j in sj:
+                        x[j] = (x[j] + a * g[j]) % mod
+                    improved = True; break
             if improved:
                 break
+    assert _ok(rs, ms, x, varlists)
     return x
 
 
