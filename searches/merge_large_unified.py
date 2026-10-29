@@ -19,7 +19,7 @@ csv.field_size_limit(sys.maxsize)
 GLUE_KMAX = 9
 NMAX = {2: 18, 3: 18, 4: 16}
 KMAX = 12
-KMAX_LEVEL = {2: 12, 3: 12, 4: 8}               # l=4 stops at k=8: at k=9 its gluing stage (4 check qubits) does not finish
+KMAX_LEVEL = {2: 12, 3: 12, 4: 9}               # l=4 stops at k=9 (two-group N<=16; gluing finishes at k=9 after the faster support reduction)
 F = ["l", "k", "n", "N", "d", "search_stage", "stages_run", "params", "reduced", "raw", "zcount", "essential_dim", "frame_exact"]
 
 

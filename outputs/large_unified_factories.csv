@@ -3294,3 +3294,59 @@ l,k,n,N,d,search_stage,stages_run,params,reduced,raw,zcount,essential_dim,frame_
 4,8,11049,15,2,two-group,two-group+gluing,"s_total=1,s_O=3",106\ \text{terms},106\ \text{terms},,8,False
 4,8,11120,16,2,two-group,two-group+gluing,"s_total=2,s_O=3",56\ \text{terms},56\ \text{terms},,8,False
 4,8,22185,16,2,two-group,two-group+gluing,"s_total=1,s_O=3",106\ \text{terms},106\ \text{terms},,8,False
+4,9,58,13,2,gluing,two-group+gluing,blocks=4+4+1,\mathrm{CCCZ}_{1234}\mathrm{CCCZ}_{5678}\mathrm{\sqrt{T}}_{9},\mathrm{CCCZ}_{1234}\mathrm{CCCZ}_{5678}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,62,11,2,gluing,two-group+gluing,blocks=3+3+3,\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{CCS}_{789},\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{CCS}_{789},,9,False
+4,9,62,12,2,gluing,two-group+gluing,blocks=4+3+2,\mathrm{CCCZ}_{1234}\mathrm{CCS}_{567}\mathrm{CT}_{89},\mathrm{CCCZ}_{1234}\mathrm{CCS}_{567}\mathrm{CT}_{89},,9,False
+4,9,66,13,2,gluing,two-group+gluing,blocks=4+3+1+1,\mathrm{CCCZ}_{1234}\mathrm{CCS}_{567}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCCZ}_{1234}\mathrm{CCS}_{567}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,80,13,2,gluing,two-group+gluing,blocks=4+1+1+1+1+1,\mathrm{CCCZ}_{1234}\mathrm{\sqrt{T}}_{5}\mathrm{\sqrt{T}}_{6}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCCZ}_{1234}\mathrm{\sqrt{T}}_{5}\mathrm{\sqrt{T}}_{6}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,82,13,2,gluing,two-group+gluing,blocks=4+2+2+1,\mathrm{CCCZ}_{1234}\mathrm{CT}_{56}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},\mathrm{CCCZ}_{1234}\mathrm{CT}_{56}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,82,13,2,gluing,two-group+gluing,blocks=4+2+1+1+1,\mathrm{CCCZ}_{1234}\mathrm{CT}_{56}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCCZ}_{1234}\mathrm{CT}_{56}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,84,12,2,gluing,two-group+gluing,blocks=3+2+2+2,\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{CT}_{67}\mathrm{CT}_{89},\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{CT}_{67}\mathrm{CT}_{89},,9,False
+4,9,86,13,2,gluing,two-group+gluing,blocks=3+3+1+1+1,\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,88,13,2,gluing,two-group+gluing,blocks=3+3+2+1,\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},\mathrm{CCS}_{123}\mathrm{CCS}_{456}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,94,13,2,gluing,two-group+gluing,blocks=3+2+2+1+1,\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{CT}_{67}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{CT}_{67}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,96,13,2,gluing,two-group+gluing,blocks=3+2+1+1+1+1,\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{\sqrt{T}}_{6}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CCS}_{123}\mathrm{CT}_{45}\mathrm{\sqrt{T}}_{6}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,100,13,2,gluing,two-group+gluing,blocks=3+1+1+1+1+1+1,7\ \text{terms},7\ \text{terms},,9,False
+4,9,102,13,2,gluing,two-group+gluing,blocks=2+2+2+2+1,\mathrm{CT}_{12}\mathrm{CT}_{34}\mathrm{CT}_{56}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},\mathrm{CT}_{12}\mathrm{CT}_{34}\mathrm{CT}_{56}\mathrm{CT}_{78}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,104,13,2,gluing,two-group+gluing,blocks=2+2+2+1+1+1,\mathrm{CT}_{12}\mathrm{CT}_{34}\mathrm{CT}_{56}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},\mathrm{CT}_{12}\mathrm{CT}_{34}\mathrm{CT}_{56}\mathrm{\sqrt{T}}_{7}\mathrm{\sqrt{T}}_{8}\mathrm{\sqrt{T}}_{9},,9,False
+4,9,108,13,2,gluing,two-group+gluing,blocks=2+2+1+1+1+1+1,7\ \text{terms},7\ \text{terms},,9,False
+4,9,112,13,2,gluing,two-group+gluing,blocks=2+1+1+1+1+1+1+1,8\ \text{terms},8\ \text{terms},,9,False
+4,9,114,13,2,gluing,two-group+gluing,blocks=1+1+1+1+1+1+1+1+1,9\ \text{terms},9\ \text{terms},,9,False
+4,9,150,13,2,two-group,two-group+gluing,"s_total=1,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,151,14,2,two-group,two-group+gluing,"s_total=2,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,310,14,2,two-group,two-group+gluing,"s_total=1,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,311,15,2,two-group,two-group+gluing,"s_total=2,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,341,14,2,two-group,two-group+gluing,"s_total=1,s_O=8",246\ \text{terms},246\ \text{terms},,9,False
+4,9,342,15,2,two-group,two-group+gluing,"s_total=2,s_O=8",246\ \text{terms},246\ \text{terms},,9,False
+4,9,589,14,2,two-group,two-group+gluing,"s_total=1,s_O=7",171\ \text{terms},171\ \text{terms},,9,False
+4,9,599,15,2,two-group,two-group+gluing,"s_total=2,s_O=7",9\ \text{terms},9\ \text{terms},,9,False
+4,9,630,15,2,two-group,two-group+gluing,"s_total=1,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,631,16,2,two-group,two-group+gluing,"s_total=2,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,690,13,2,two-group,two-group+gluing,"s_total=1,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,691,14,2,two-group,two-group+gluing,"s_total=2,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,693,15,2,two-group,two-group+gluing,"s_total=1,s_O=8",246\ \text{terms},246\ \text{terms},,9,False
+4,9,694,16,2,two-group,two-group+gluing,"s_total=2,s_O=8",246\ \text{terms},246\ \text{terms},,9,False
+4,9,1197,15,2,two-group,two-group+gluing,"s_total=1,s_O=7",171\ \text{terms},171\ \text{terms},,9,False
+4,9,1207,16,2,two-group,two-group+gluing,"s_total=2,s_O=7",9\ \text{terms},9\ \text{terms},,9,False
+4,9,1270,16,2,two-group,two-group+gluing,"s_total=1,s_O=9",9\ \text{terms},9\ \text{terms},,9,False
+4,9,1397,16,2,two-group,two-group+gluing,"s_total=1,s_O=8",246\ \text{terms},246\ \text{terms},,9,False
+4,9,1410,13,2,two-group,two-group+gluing,"s_total=1,s_O=5",45\ \text{terms},45\ \text{terms},,9,False
+4,9,1426,14,2,two-group,two-group+gluing,"s_total=1,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,1427,15,2,two-group,two-group+gluing,"s_total=2,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,1495,14,2,two-group,two-group+gluing,"s_total=2,s_O=5",9\ \text{terms},9\ \text{terms},,9,False
+4,9,2413,16,2,two-group,two-group+gluing,"s_total=1,s_O=7",171\ \text{terms},171\ \text{terms},,9,False
+4,9,2580,13,2,two-group,two-group+gluing,"s_total=1,s_O=3",219\ \text{terms},219\ \text{terms},,9,False
+4,9,2707,14,2,two-group,two-group+gluing,"s_total=2,s_O=3",129\ \text{terms},129\ \text{terms},,9,False
+4,9,2898,15,2,two-group,two-group+gluing,"s_total=1,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,2899,16,2,two-group,two-group+gluing,"s_total=2,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,2914,14,2,two-group,two-group+gluing,"s_total=1,s_O=5",45\ \text{terms},45\ \text{terms},,9,False
+4,9,2999,15,2,two-group,two-group+gluing,"s_total=2,s_O=5",9\ \text{terms},9\ \text{terms},,9,False
+4,9,5332,14,2,two-group,two-group+gluing,"s_total=1,s_O=3",219\ \text{terms},219\ \text{terms},,9,False
+4,9,5459,15,2,two-group,two-group+gluing,"s_total=2,s_O=3",129\ \text{terms},129\ \text{terms},,9,False
+4,9,5842,16,2,two-group,two-group+gluing,"s_total=1,s_O=6",129\ \text{terms},129\ \text{terms},,9,False
+4,9,5922,15,2,two-group,two-group+gluing,"s_total=1,s_O=5",45\ \text{terms},45\ \text{terms},,9,False
+4,9,6007,16,2,two-group,two-group+gluing,"s_total=2,s_O=5",9\ \text{terms},9\ \text{terms},,9,False
+4,9,10836,15,2,two-group,two-group+gluing,"s_total=1,s_O=3",219\ \text{terms},219\ \text{terms},,9,False
+4,9,10963,16,2,two-group,two-group+gluing,"s_total=2,s_O=3",129\ \text{terms},129\ \text{terms},,9,False
+4,9,11938,16,2,two-group,two-group+gluing,"s_total=1,s_O=5",45\ \text{terms},45\ \text{terms},,9,False
+4,9,21844,16,2,two-group,two-group+gluing,"s_total=1,s_O=3",219\ \text{terms},219\ \text{terms},,9,False
