@@ -1,0 +1,467 @@
+[
+ {
+  "target": "CS12 T3",
+  "l": 3,
+  "n": 20,
+  "c": 22,
+  "prior": "factory(CS) + factory(T)",
+  "prior_n": 26,
+  "prior_c": 25,
+  "per_output": [
+   12,
+   12,
+   13
+  ],
+  "N": 6,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.98,
+    "error": 2.2e-05,
+    "time_rate": 0.049,
+    "volume_rate": 0.008166666666666666
+   },
+   "prior_error": 2.5e-05,
+   "prior_time_rate": 0.03746153846153846
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.99998,
+    "error": 2.1999999999999998e-11,
+    "time_rate": 0.049999,
+    "volume_rate": 0.008333166666666666
+   },
+   "prior_error": 2.4999999999999998e-11,
+   "prior_time_rate": 0.03846053846153846
+  }
+ },
+ {
+  "target": "CS12 CS34 CS56",
+  "l": 3,
+  "n": 24,
+  "c": 84,
+  "prior": "synth(CSCSCS)",
+  "prior_n": 26,
+  "prior_c": 101,
+  "per_output": [
+   36,
+   36,
+   36,
+   36,
+   36,
+   36
+  ],
+  "N": 8,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.976,
+    "error": 8.400000000000001e-05,
+    "time_rate": 0.04066666666666666,
+    "volume_rate": 0.005083333333333333
+   },
+   "prior_error": 0.000101,
+   "prior_time_rate": 0.03746153846153846
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999976,
+    "error": 8.4e-11,
+    "time_rate": 0.04166566666666666,
+    "volume_rate": 0.005208208333333333
+   },
+   "prior_error": 1.01e-10,
+   "prior_time_rate": 0.03846053846153846
+  }
+ },
+ {
+  "target": "CS12 CS34 T5",
+  "l": 3,
+  "n": 26,
+  "c": 49,
+  "prior": "synth(CSCST)",
+  "prior_n": 28,
+  "prior_c": 62,
+  "per_output": [
+   24,
+   24,
+   24,
+   24,
+   19
+  ],
+  "N": 8,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.974,
+    "error": 4.9000000000000005e-05,
+    "time_rate": 0.03746153846153846,
+    "volume_rate": 0.004682692307692308
+   },
+   "prior_error": 6.2e-05,
+   "prior_time_rate": 0.03471428571428571
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999974,
+    "error": 4.9e-11,
+    "time_rate": 0.03846053846153846,
+    "volume_rate": 0.004807567307692308
+   },
+   "prior_error": 6.2e-11,
+   "prior_time_rate": 0.03571328571428571
+  }
+ },
+ {
+  "target": "CCZ123 CS45 T6",
+  "l": 3,
+  "n": 26,
+  "c": 61,
+  "prior": "factory(CS) + synth(CCZT)",
+  "prior_n": 32,
+  "prior_c": 52,
+  "per_output": [
+   24,
+   24,
+   24,
+   24,
+   24,
+   31
+  ],
+  "N": 9,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.974,
+    "error": 6.1e-05,
+    "time_rate": 0.03746153846153846,
+    "volume_rate": 0.004162393162393163
+   },
+   "prior_error": 5.2000000000000004e-05,
+   "prior_time_rate": 0.03025
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999974,
+    "error": 6.1e-11,
+    "time_rate": 0.03846053846153846,
+    "volume_rate": 0.004273393162393163
+   },
+   "prior_error": 5.1999999999999995e-11,
+   "prior_time_rate": 0.031249
+  }
+ },
+ {
+  "target": "CS12 T3 T4 T5",
+  "l": 3,
+  "n": 30,
+  "c": 55,
+  "prior": "factory(CS) + factory(TTT)",
+  "prior_n": 32,
+  "prior_c": 40,
+  "per_output": [
+   28,
+   20,
+   27,
+   23,
+   23
+  ],
+  "N": 8,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.97,
+    "error": 5.5e-05,
+    "time_rate": 0.03233333333333333,
+    "volume_rate": 0.0040416666666666665
+   },
+   "prior_error": 4e-05,
+   "prior_time_rate": 0.03025
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.99997,
+    "error": 5.499999999999999e-11,
+    "time_rate": 0.03333233333333333,
+    "volume_rate": 0.0041665416666666665
+   },
+   "prior_error": 4e-11,
+   "prior_time_rate": 0.031249
+  }
+ },
+ {
+  "target": "CS12 T3...T7",
+  "l": 3,
+  "n": 36,
+  "c": 86,
+  "prior": "factory(CS) + factory(TTTTT)",
+  "prior_n": 38,
+  "prior_c": 59,
+  "N": null,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.964,
+    "error": 8.6e-05,
+    "time_rate": 0.026777777777777775,
+    "volume_rate": 0.026777777777777775
+   },
+   "prior_error": 5.9000000000000004e-05,
+   "prior_time_rate": 0.025315789473684208
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999964,
+    "error": 8.599999999999999e-11,
+    "time_rate": 0.027776777777777775,
+    "volume_rate": 0.027776777777777775
+   },
+   "prior_error": 5.899999999999999e-11,
+   "prior_time_rate": 0.02631478947368421
+  }
+ },
+ {
+  "target": "CS12 CS34 CS56 T7",
+  "l": 3,
+  "n": 38,
+  "c": 139,
+  "prior": "factory(CSCSCS) + factory(T)",
+  "prior_n": 38,
+  "prior_c": 91,
+  "N": null,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.962,
+    "error": 0.00013900000000000002,
+    "time_rate": 0.025315789473684208,
+    "volume_rate": 0.025315789473684208
+   },
+   "prior_error": 9.1e-05,
+   "prior_time_rate": 0.025315789473684208
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999962,
+    "error": 1.3899999999999999e-10,
+    "time_rate": 0.02631478947368421,
+    "volume_rate": 0.02631478947368421
+   },
+   "prior_error": 9.099999999999998e-11,
+   "prior_time_rate": 0.02631478947368421
+  }
+ },
+ {
+  "target": "CT12 sT3",
+  "l": 4,
+  "n": 44,
+  "c": 50,
+  "prior": "factory(CT) + factory(sT)",
+  "prior_n": 58,
+  "prior_c": 57,
+  "per_output": [
+   28,
+   28,
+   29
+  ],
+  "N": 7,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.956,
+    "error": 5e-05,
+    "time_rate": 0.021727272727272727,
+    "volume_rate": 0.0031038961038961036
+   },
+   "prior_error": 5.7e-05,
+   "prior_time_rate": 0.016241379310344826
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999956,
+    "error": 4.9999999999999995e-11,
+    "time_rate": 0.022726272727272727,
+    "volume_rate": 0.0032466103896103896
+   },
+   "prior_error": 5.699999999999999e-11,
+   "prior_time_rate": 0.017240379310344826
+  }
+ },
+ {
+  "target": "CCS123 sT4",
+  "l": 4,
+  "n": 48,
+  "c": 96,
+  "prior": "factory(CCS) + factory(sT)",
+  "prior_n": 54,
+  "prior_c": 99,
+  "per_output": [
+   48,
+   48,
+   48,
+   33
+  ],
+  "N": 8,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.952,
+    "error": 9.6e-05,
+    "time_rate": 0.01983333333333333,
+    "volume_rate": 0.0024791666666666664
+   },
+   "prior_error": 9.900000000000001e-05,
+   "prior_time_rate": 0.017518518518518517
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999952,
+    "error": 9.6e-11,
+    "time_rate": 0.02083233333333333,
+    "volume_rate": 0.0026040416666666664
+   },
+   "prior_error": 9.9e-11,
+   "prior_time_rate": 0.01851751851851852
+  }
+ },
+ {
+  "target": "CT12 sT3 sT4",
+  "l": 4,
+  "n": 50,
+  "c": 77,
+  "prior": "factory(CT) + factory(sTsT)",
+  "prior_n": 58,
+  "prior_c": 57,
+  "per_output": [
+   40,
+   40,
+   35,
+   35
+  ],
+  "N": 8,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.95,
+    "error": 7.7e-05,
+    "time_rate": 0.019,
+    "volume_rate": 0.002375
+   },
+   "prior_error": 5.7e-05,
+   "prior_time_rate": 0.016241379310344826
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.99995,
+    "error": 7.699999999999999e-11,
+    "time_rate": 0.019999,
+    "volume_rate": 0.002499875
+   },
+   "prior_error": 5.699999999999999e-11,
+   "prior_time_rate": 0.017240379310344826
+  }
+ },
+ {
+  "target": "CT12 CT34 sT5",
+  "l": 4,
+  "n": 68,
+  "c": 174,
+  "prior": "factory(CTCT) + factory(sT)",
+  "prior_n": 78,
+  "prior_c": 156,
+  "per_output": [
+   76,
+   76,
+   84,
+   76,
+   53
+  ],
+  "N": 9,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.9319999999999999,
+    "error": 0.00017400000000000003,
+    "time_rate": 0.013705882352941175,
+    "volume_rate": 0.001522875816993464
+   },
+   "prior_error": 0.000156,
+   "prior_time_rate": 0.011820512820512821
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999932,
+    "error": 1.74e-10,
+    "time_rate": 0.014704882352941177,
+    "volume_rate": 0.0016338758169934641
+   },
+   "prior_error": 1.5599999999999998e-10,
+   "prior_time_rate": 0.01281951282051282
+  }
+ },
+ {
+  "target": "CCS123 CT45 sT6",
+  "l": 4,
+  "n": 68,
+  "c": 228,
+  "prior": "factory(CCS) + factory(CT) + factory(sT)",
+  "prior_n": 82,
+  "prior_c": 141,
+  "per_output": [
+   96,
+   96,
+   96,
+   76,
+   76,
+   101
+  ],
+  "N": 10,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.9319999999999999,
+    "error": 0.000228,
+    "time_rate": 0.013705882352941175,
+    "volume_rate": 0.0013705882352941176
+   },
+   "prior_error": 0.000141,
+   "prior_time_rate": 0.011195121951219513
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.999932,
+    "error": 2.2799999999999996e-10,
+    "time_rate": 0.014704882352941177,
+    "volume_rate": 0.0014704882352941178
+   },
+   "prior_error": 1.4099999999999998e-10,
+   "prior_time_rate": 0.012194121951219512
+  }
+ },
+ {
+  "target": "CT12 CT34 sT5 sT6",
+  "l": 4,
+  "n": 70,
+  "c": 194,
+  "prior": "factory(CTCT) + factory(sTsT)",
+  "prior_n": 78,
+  "prior_c": 156,
+  "per_output": [
+   80,
+   80,
+   88,
+   80,
+   55,
+   55
+  ],
+  "N": 10,
+  "p=0.001": {
+   "ours": {
+    "acceptance": 0.9299999999999999,
+    "error": 0.000194,
+    "time_rate": 0.013285714285714284,
+    "volume_rate": 0.0013285714285714285
+   },
+   "prior_error": 0.000156,
+   "prior_time_rate": 0.011820512820512821
+  },
+  "p=1e-06": {
+   "ours": {
+    "acceptance": 0.99993,
+    "error": 1.94e-10,
+    "time_rate": 0.014284714285714286,
+    "volume_rate": 0.0014284714285714285
+   },
+   "prior_error": 1.5599999999999998e-10,
+   "prior_time_rate": 0.01281951282051282
+  }
+ }
+]

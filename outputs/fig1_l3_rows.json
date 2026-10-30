@@ -1,0 +1,68 @@
+[
+ {
+  "target": "CS01,CS02",
+  "l": 3,
+  "k": 3,
+  "n": 12,
+  "N": 5,
+  "c": 18,
+  "prior_n": 16,
+  "prior_c": 56,
+  "stage": "two-group"
+ },
+ {
+  "target": "CS01,CS03,CS12",
+  "l": 3,
+  "k": 4,
+  "n": 18,
+  "N": 6,
+  "c": 45,
+  "prior_n": 24,
+  "prior_c": 84,
+  "stage": "two-group"
+ },
+ {
+  "target": "CS03,CS04,CCZ012",
+  "l": 3,
+  "k": 5,
+  "n": 16,
+  "N": 7,
+  "c": 40,
+  "prior_n": 24,
+  "prior_c": 84,
+  "stage": "quick-sat"
+ },
+ {
+  "target": "CS02,CS04,CS12,CS13",
+  "l": 3,
+  "k": 5,
+  "n": 18,
+  "N": 7,
+  "c": 45,
+  "prior_n": 30,
+  "prior_c": 54,
+  "stage": "quick-sat"
+ },
+ {
+  "target": "CS03,CS34,CCZ012",
+  "l": 3,
+  "k": 5,
+  "n": 18,
+  "N": 7,
+  "c": 57,
+  "prior_n": 24,
+  "prior_c": 84,
+  "stage": "quick-sat"
+ },
+ {
+  "target": "CS01,CS13,CS24,CCZ014,CCZ023",
+  "l": 3,
+  "k": 5,
+  "n": 24,
+  "N": 7,
+  "c": 84,
+  "prior_n": 32,
+  "prior_c": 112,
+  "stage": "quick-sat"
+ }
+]
