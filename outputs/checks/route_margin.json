@@ -1,0 +1,127 @@
+{
+ "all": {
+  "classes": 766,
+  "factory_fewer": 659,
+  "median_margin": 10,
+  "median_share_of_route": 0.273,
+  "margin_histogram": {
+   "2": 55,
+   "4": 54,
+   "6": 96,
+   "8": 58,
+   "10": 82,
+   "12": 102,
+   "14": 65,
+   "16": 69,
+   "18": 37,
+   "20": 25,
+   "22": 10,
+   "24": 5,
+   "30": 1
+  },
+  "median_margin_all": 10.0
+ },
+ "below_synthillation": {
+  "classes": 330,
+  "factory_fewer": 314,
+  "median_margin": 12.0,
+  "median_share_of_route": 0.297,
+  "margin_histogram": {
+   "2": 13,
+   "4": 13,
+   "6": 39,
+   "8": 29,
+   "10": 33,
+   "12": 51,
+   "14": 40,
+   "16": 34,
+   "18": 29,
+   "20": 20,
+   "22": 7,
+   "24": 5,
+   "30": 1
+  },
+  "median_margin_all": 12.0
+ },
+ "by_k": {
+  "1": {
+   "classes": 1,
+   "factory_fewer": 0,
+   "median_margin": null,
+   "median_share_of_route": null,
+   "margin_histogram": {},
+   "median_margin_all": -10
+  },
+  "2": {
+   "classes": 2,
+   "factory_fewer": 0,
+   "median_margin": null,
+   "median_share_of_route": null,
+   "margin_histogram": {},
+   "median_margin_all": -5.0
+  },
+  "3": {
+   "classes": 6,
+   "factory_fewer": 1,
+   "median_margin": 2,
+   "median_share_of_route": 0.143,
+   "margin_histogram": {
+    "2": 1
+   },
+   "median_margin_all": -3.0
+  },
+  "4": {
+   "classes": 13,
+   "factory_fewer": 3,
+   "median_margin": 2,
+   "median_share_of_route": 0.1,
+   "margin_histogram": {
+    "2": 2,
+    "4": 1
+   },
+   "median_margin_all": -4
+  },
+  "5": {
+   "classes": 65,
+   "factory_fewer": 37,
+   "median_margin": 4,
+   "median_share_of_route": 0.143,
+   "margin_histogram": {
+    "2": 13,
+    "4": 10,
+    "6": 6,
+    "8": 4,
+    "10": 4
+   },
+   "median_margin_all": 2
+  },
+  "6": {
+   "classes": 679,
+   "factory_fewer": 618,
+   "median_margin": 12.0,
+   "median_share_of_route": 0.278,
+   "margin_histogram": {
+    "2": 39,
+    "4": 43,
+    "6": 90,
+    "8": 54,
+    "10": 78,
+    "12": 102,
+    "14": 65,
+    "16": 69,
+    "18": 37,
+    "20": 25,
+    "22": 10,
+    "24": 5,
+    "30": 1
+   },
+   "median_margin_all": 10
+  }
+ },
+ "totals": {
+  "route": 28074,
+  "factory": 21364,
+  "cheaper_of_both": 21114,
+  "saving_vs_route": 0.248
+ }
+}

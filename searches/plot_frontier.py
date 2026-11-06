@@ -171,14 +171,19 @@ def row_k6(lab, S):
     return (lab, len(S), dict(same=len(S) - w, fewer=w))
 S4 = [r for r in R if r["k"] <= 4]
 rows = [row_k6(r"$l=3$, $k\le4$", S4), row_k6(r"$l=3$, $k=5,6$", [r for r in R if r["k"] in (5, 6)])]   # rows merged (user)
-TK = [r for r in T78 if r["k"] in (7, 8)]                  # 'more' split by whether the T-count is decided
-rows.append((r"$l=3$, $k=7,8$", len(TK),
-             dict(collections.Counter(r["verdict"] + ("" if r["verdict"] != "more" or r["lo"] == r["hi"] else "_ub") for r in TK))))
+for K in (7, 8):                                           # one row per k: k = 7 has every T-count exact, k = 8 mostly an upper bound
+    TK = [r for r in T78 if r["k"] == K]
+    rows.append((rf"$l=3$, $k={K}$", len(TK),
+                 dict(collections.Counter(r["verdict"] + ("" if r["verdict"] != "more" or r["lo"] == r["hi"] else "_ub") for r in TK))))
 rows.append((r"$l=4$, $k\le4$", sum(r["l"] == 4 and not r["third_level_target"] for r in SB), None))   # the 22 third-level targets left out
 ORDER = [("same", GRAYBAR, None), ("open", GRAYBAR, "......"), ("more", MORE, None), ("more_ub", MORE, "......"),
          ("fewer_than_built", ORANGE, "......"), ("fewer", ORANGE, None)]
 WMIN = 2.0                                                 # segments below WMIN % drawn at WMIN %, the excess taken from the widest
-y = [4.4, 3.4, 2.1, 0.9]                                     # gaps: classes (k <= 6) | targets (k = 7, 8) | l = 4
+SHORT = dict(same="same", open="same, bound", more="more", more_ub="more, bound", fewer_than_built="fewer, bound", fewer="fewer")
+PCT_PER_CHAR = 3.6                                         # width of one 7-8 pt digit in panel (b), in percent of the axis (about 3.4 in wide)
+def textw_pct(t):
+    return PCT_PER_CHAR * len(t.replace(",", "")) + 1.0
+y = [5.3, 4.4, 3.1, 2.2, 0.9]                                # gaps: classes (k <= 6) | targets (k = 7, 8) | l = 4
 H = 0.7
 plt.rcParams["hatch.linewidth"] = 0.8
 for yi, (lab, t, parts) in zip(y, rows):
@@ -195,17 +200,18 @@ for yi, (lab, t, parts) in zip(y, rows):
             if v not in w: continue
             wdt = w[v]
             bx.barh(yi, wdt, left=left, color=col, height=H, edgecolor=SURF if hat is None else "white", linewidth=0.0 if hat else 1.0, hatch=hat)
-            if v == "fewer" and wdt > 12:                   # the orange count inside its segment where it fits
-                bx.text(left + wdt / 2, yi, f"{parts[v]}", va="center_baseline", ha="center", color="white")
-            elif v == "fewer":
-                side.append(f"{parts[v]}")
-            elif v == "fewer_than_built":                  # upper-bound comparison: marked with an asterisk
-                side.append(rf"{parts[v]}$^{{\ast}}$")
+            lab_ = rf"{parts[v]:,}"                         # every count inside its own segment; dark ink on light fills
+            if wdt >= 0.75 * textw_pct(lab_):
+                bx.text(left + wdt / 2, yi, lab_, va="center_baseline", ha="center",
+                        color="white" if col in (ORANGE, MORE) else INK, fontsize=FS - 1 if wdt < 12 else FS, zorder=6,
+                        bbox=None if hat is None else dict(fc=col, ec="none", pad=0.4))
+            elif v in ("fewer", "fewer_than_built"):       # too narrow: only the fewer counts are named beside the bar
+                side.append(rf"{parts[v]:,}" + ("" if v == "fewer" else r"$^{\ast}$"))
             left += wdt
         assert abs(left - 100) < 1e-9, lab
     bx.text(101.5, yi, " ".join(side + [f"({t:,})"]), va="center", ha="left", color=INK)
 bx.set_yticks(y); bx.set_yticklabels([r[0] for r in rows], color=INK)
-bx.set_xlim(0, 121); bx.set_ylim(0.35, 4.95)
+bx.set_xlim(0, 121); bx.set_ylim(0.35, 5.85)
 bx.set_xticks([0, 50, 100]); bx.set_xticklabels([r"0", r"50", r"100"])
 bx.set_xlabel(r"share (\%), with the total", color=INK, labelpad=1)
 bx.annotate("(b)", (0.005, 1.0), xycoords=("figure fraction", "axes fraction"), color=INK, va="top")
