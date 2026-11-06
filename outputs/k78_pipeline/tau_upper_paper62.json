@@ -1,0 +1,2557 @@
+{
+ "settings": {
+  "run": "paper62",
+  "isd": 0,
+  "p": 2,
+  "only": ""
+ },
+ "rows": [
+  {
+   "id": "front_k7_0",
+   "k": 7,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     3,
+     5,
+     6
+    ],
+    [
+     4,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 16,
+   "N": 8,
+   "synthesis_weight": 16,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 15,
+   "floor": 15,
+   "ref_n": 16,
+   "ref_tcount": 15,
+   "tau_upper": 15
+  },
+  {
+   "id": "front_k8_6",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     1,
+     4,
+     7
+    ],
+    [
+     2,
+     3,
+     6
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_13",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     1,
+     2,
+     6
+    ],
+    [
+     1,
+     2,
+     7
+    ],
+    [
+     1,
+     3,
+     7
+    ],
+    [
+     1,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_20",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_27",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_34",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     3,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_41",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     7
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_48",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     5,
+     7
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     2,
+     3,
+     4
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_55",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_0",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     0,
+     4,
+     7
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     2,
+     3,
+     4
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_7",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     3,
+     4,
+     7
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_14",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     1,
+     5,
+     7
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_21",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     2,
+     4,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_28",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     1,
+     4,
+     7
+    ],
+    [
+     2,
+     3,
+     4
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_35",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_42",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_49",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "row_k7_n20",
+   "k": 7,
+   "ccz": [
+    [
+     0,
+     1,
+     4
+    ],
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     1,
+     3,
+     6
+    ],
+    [
+     2,
+     3,
+     5
+    ]
+   ],
+   "factory_n": 20,
+   "N": 8,
+   "synthesis_weight": 19,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 19,
+   "floor": 15,
+   "ref_n": 20,
+   "ref_tcount": 19,
+   "tau_upper": 19
+  },
+  {
+   "id": "front_k8_1",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     3,
+     4
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_8",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_15",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     4,
+     7
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     2,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_22",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     3,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_29",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_36",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     0,
+     1,
+     4
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_43",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     3,
+     4
+    ],
+    [
+     2,
+     3,
+     5
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_50",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     3
+    ],
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     4,
+     7
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "row_k7_n22",
+   "k": 7,
+   "ccz": [
+    [
+     0,
+     1,
+     4
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     6
+    ]
+   ],
+   "factory_n": 20,
+   "N": 8,
+   "synthesis_weight": 20,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 21,
+   "floor": 15,
+   "ref_n": 22,
+   "ref_tcount": 21,
+   "tau_upper": 20
+  },
+  {
+   "id": "front_k8_2",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     0,
+     5,
+     7
+    ],
+    [
+     1,
+     5,
+     6
+    ],
+    [
+     2,
+     3,
+     4
+    ],
+    [
+     3,
+     4,
+     5
+    ],
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_9",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     4,
+     7
+    ],
+    [
+     1,
+     3,
+     6
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     3,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_16",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     3,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_23",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     0,
+     1,
+     4
+    ],
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     5,
+     7
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_30",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     3,
+     7
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     4,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_37",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_44",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     2,
+     3,
+     6
+    ],
+    [
+     2,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_51",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     2,
+     3,
+     6
+    ],
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "row_k8_n20",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     2,
+     5,
+     6
+    ],
+    [
+     2,
+     6,
+     7
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     4,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 18,
+   "floor": 17,
+   "ref_n": 20,
+   "ref_tcount": 18,
+   "tau_upper": 18
+  },
+  {
+   "id": "front_k8_3",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     5,
+     6
+    ],
+    [
+     4,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_10",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     0,
+     5,
+     7
+    ],
+    [
+     1,
+     3,
+     4
+    ],
+    [
+     2,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_17",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     3,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_24",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     3
+    ],
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_31",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     2,
+     3,
+     6
+    ],
+    [
+     2,
+     4,
+     6
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_38",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     3,
+     5,
+     7
+    ],
+    [
+     3,
+     6,
+     7
+    ],
+    [
+     4,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_45",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     2,
+     5,
+     6
+    ],
+    [
+     2,
+     6,
+     7
+    ],
+    [
+     4,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_52",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     7
+    ],
+    [
+     1,
+     2,
+     6
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     1,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "row_k8_n22",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     1,
+     4,
+     7
+    ],
+    [
+     1,
+     5,
+     7
+    ],
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     3,
+     5,
+     7
+    ],
+    [
+     4,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 20,
+   "N": 9,
+   "synthesis_weight": 20,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 20,
+   "floor": 17,
+   "ref_n": 22,
+   "ref_tcount": 20,
+   "tau_upper": 20
+  },
+  {
+   "id": "front_k8_4",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     4
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     2,
+     6
+    ],
+    [
+     1,
+     2,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_11",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     2,
+     7
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_18",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     3
+    ],
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     4,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_25",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     0,
+     2,
+     3
+    ],
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_32",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     2,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_39",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     3
+    ],
+    [
+     0,
+     2,
+     3
+    ],
+    [
+     0,
+     5,
+     6
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     4,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_46",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     6
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     2,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_53",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     5
+    ],
+    [
+     0,
+     5,
+     7
+    ],
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     2,
+     5,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "row_k8_n24",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     4
+    ],
+    [
+     0,
+     3,
+     4
+    ],
+    [
+     1,
+     2,
+     6
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     2,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 20,
+   "N": 9,
+   "synthesis_weight": 20,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 22,
+   "floor": 17,
+   "ref_n": 24,
+   "ref_tcount": 22,
+   "tau_upper": 20
+  },
+  {
+   "id": "front_k8_5",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     2,
+     4,
+     7
+    ],
+    [
+     2,
+     6,
+     7
+    ],
+    [
+     3,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_12",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     3,
+     6
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     3,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_19",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     0,
+     6,
+     7
+    ],
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     2,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_26",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     0,
+     4,
+     7
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     5
+    ],
+    [
+     1,
+     3,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_33",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     3,
+     7
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     1,
+     5,
+     6
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     2,
+     4,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_40",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     7
+    ],
+    [
+     3,
+     5,
+     6
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_47",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     1,
+     4,
+     6
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     3,
+     4,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 18,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  },
+  {
+   "id": "front_k8_54",
+   "k": 8,
+   "ccz": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     0,
+     1,
+     6
+    ],
+    [
+     0,
+     2,
+     5
+    ],
+    [
+     0,
+     2,
+     6
+    ],
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     1,
+     6,
+     7
+    ],
+    [
+     3,
+     6,
+     7
+    ]
+   ],
+   "factory_n": 18,
+   "N": 9,
+   "synthesis_weight": 17,
+   "synthesis_ok_poly": true,
+   "synthesis_ok_coset": true,
+   "compile_bound": 17,
+   "floor": 17,
+   "ref_n": 18,
+   "ref_tcount": 17,
+   "tau_upper": 17
+  }
+ ]
+}

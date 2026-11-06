@@ -1,0 +1,402 @@
+[
+{
+"G": "S4",
+"H": "H:S1",
+"r": 1,
+"bits": 4,
+"outputs": 2,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.41
+},
+{
+"G": "S4",
+"H": "H:S2",
+"r": 2,
+"bits": 7,
+"outputs": 4,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S1xS1",
+"r": 2,
+"bits": 10,
+"outputs": 4,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S3",
+"r": 3,
+"bits": 9,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.01
+},
+{
+"G": "S4",
+"H": "H:S2xS1",
+"r": 3,
+"bits": 14,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.01
+},
+{
+"G": "S4",
+"H": "H:S1xS1xS1",
+"r": 3,
+"bits": 19,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.05,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S4",
+"r": 4,
+"bits": 9,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S3xS1",
+"r": 4,
+"bits": 15,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S2xS2",
+"r": 4,
+"bits": 17,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.01,
+"c_s": 0.02
+},
+{
+"G": "S4",
+"H": "H:S2xS1xS1",
+"r": 4,
+"bits": 23,
+"outputs": 8,
+"same": true,
+"numpy_s": 1.17,
+"c_s": 0.18
+},
+{
+"G": "S4",
+"H": "H:C4",
+"r": 4,
+"bits": 11,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S3xS1",
+"H": "H:S1",
+"r": 1,
+"bits": 7,
+"outputs": 4,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "S3xS1",
+"H": "H:S2",
+"r": 2,
+"bits": 12,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S3xS1",
+"H": "H:S1xS1",
+"r": 2,
+"bits": 17,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.01,
+"c_s": 0.02
+},
+{
+"G": "S3xS1",
+"H": "H:S3",
+"r": 3,
+"bits": 15,
+"outputs": 64,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S3xS1",
+"H": "H:S2xS1",
+"r": 3,
+"bits": 23,
+"outputs": 64,
+"same": true,
+"numpy_s": 0.93,
+"c_s": 0.14
+},
+{
+"G": "S3xS1",
+"H": "H:S4",
+"r": 4,
+"bits": 15,
+"outputs": 64,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "S3xS1",
+"H": "H:S3xS1",
+"r": 4,
+"bits": 24,
+"outputs": 64,
+"same": true,
+"numpy_s": 3.01,
+"c_s": 0.36
+},
+{
+"G": "S3xS1",
+"H": "H:C4",
+"r": 4,
+"bits": 18,
+"outputs": 64,
+"same": true,
+"numpy_s": 0.03,
+"c_s": 0.03
+},
+{
+"G": "S2xS2",
+"H": "H:S1",
+"r": 1,
+"bits": 8,
+"outputs": 4,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "S2xS2",
+"H": "H:S2",
+"r": 2,
+"bits": 14,
+"outputs": 32,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "S2xS2",
+"H": "H:S1xS1",
+"r": 2,
+"bits": 20,
+"outputs": 32,
+"same": true,
+"numpy_s": 0.09,
+"c_s": 0.04
+},
+{
+"G": "S2xS2",
+"H": "H:S3",
+"r": 3,
+"bits": 17,
+"outputs": 128,
+"same": true,
+"numpy_s": 0.01,
+"c_s": 0.03
+},
+{
+"G": "S2xS2",
+"H": "H:S4",
+"r": 4,
+"bits": 17,
+"outputs": 128,
+"same": true,
+"numpy_s": 0.01,
+"c_s": 0.02
+},
+{
+"G": "S2xS2",
+"H": "H:C4",
+"r": 4,
+"bits": 20,
+"outputs": 128,
+"same": true,
+"numpy_s": 0.12,
+"c_s": 0.04
+},
+{
+"G": "S2xS1xS1",
+"H": "H:S1",
+"r": 1,
+"bits": 11,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "S2xS1xS1",
+"H": "H:S2",
+"r": 2,
+"bits": 19,
+"outputs": 128,
+"same": true,
+"numpy_s": 0.04,
+"c_s": 0.03
+},
+{
+"G": "S2xS1xS1",
+"H": "H:S3",
+"r": 3,
+"bits": 23,
+"outputs": 1024,
+"same": true,
+"numpy_s": 0.87,
+"c_s": 0.14
+},
+{
+"G": "S2xS1xS1",
+"H": "H:S4",
+"r": 4,
+"bits": 23,
+"outputs": 1024,
+"same": true,
+"numpy_s": 1.06,
+"c_s": 0.16
+},
+{
+"G": "S1xS1xS1xS1",
+"H": "H:S1",
+"r": 1,
+"bits": 15,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "C4",
+"H": "H:S1",
+"r": 1,
+"bits": 5,
+"outputs": 2,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "C4",
+"H": "H:S2",
+"r": 2,
+"bits": 9,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "C4",
+"H": "H:S1xS1",
+"r": 2,
+"bits": 13,
+"outputs": 8,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "C4",
+"H": "H:S3",
+"r": 3,
+"bits": 11,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.02
+},
+{
+"G": "C4",
+"H": "H:S2xS1",
+"r": 3,
+"bits": 17,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.01,
+"c_s": 0.02
+},
+{
+"G": "C4",
+"H": "H:S1xS1xS1",
+"r": 3,
+"bits": 23,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.96,
+"c_s": 0.16
+},
+{
+"G": "C4",
+"H": "H:S4",
+"r": 4,
+"bits": 11,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+},
+{
+"G": "C4",
+"H": "H:S3xS1",
+"r": 4,
+"bits": 18,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.03,
+"c_s": 0.03
+},
+{
+"G": "C4",
+"H": "H:S2xS2",
+"r": 4,
+"bits": 20,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.12,
+"c_s": 0.05
+},
+{
+"G": "C4",
+"H": "H:C4",
+"r": 4,
+"bits": 13,
+"outputs": 16,
+"same": true,
+"numpy_s": 0.0,
+"c_s": 0.03
+}
+]

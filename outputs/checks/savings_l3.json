@@ -1,0 +1,15 @@
+{
+ "classes": 766,
+ "fewer": 330,
+ "equal": 436,
+ "more": 0,
+ "syn_inputs_total": 22198,
+ "search_inputs_total": 21364,
+ "saving_total": 834,
+ "saving_pct_of_total": 3.757095233804847,
+ "per_class_pct_min": 5.88235294117647,
+ "per_class_pct_max": 14.285714285714285,
+ "per_class_pct_median": 6.666666666666667,
+ "fewer_at_k6": 308,
+ "fewer_at_k5": 22
+}

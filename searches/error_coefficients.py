@@ -6,7 +6,7 @@ returns the trivial X outcome, i.e. when the check parts of the faults cancel. A
 distance 2, so acceptance is 1 - n p + O(p^2) and the probability that the accepted output state is wrong is
 c p^2 + O(p^3), where c counts the pairs of faults whose check parts cancel and whose output parts do not.
 For "distil the parts separately" the targets' parts come from independent factories, so n and c add.
-Writes outputs/error_coefficients.json. Run: python3 searches/error_coefficients.py
+Library: coefficients(gates, k, L) -> (n, c), used by staged_best.py and check_A.py.
 """
 import csv, json, math, os, sys, urllib.parse
 from itertools import combinations
@@ -70,104 +70,3 @@ def set_partitions(items):
         yield [[first]] + p
         for i in range(len(p)):
             yield p[:i] + [[first] + p[i]] + p[i + 1:]
-
-
-if __name__ == "__main__":
-    from symfree_search import solve_binding
-    rows = list(csv.DictReader(open(os.path.join(ROOT, "outputs", "smallest_per_class.csv"))))
-    k78 = list(csv.DictReader(open(os.path.join(ROOT, "outputs", "l3_k78_targets.csv"))))
-    SIZE = {"T": 1, "CS": 2, "CCZ": 3, "sT": 1, "CT": 2, "CCS": 3}
-    NAME = {"T": r"\mathrm{T}", "CS": r"\mathrm{CS}", "CCZ": r"\mathrm{CCZ}", "sT": r"\mathrm{\sqrt{T}}", "CT": r"\mathrm{CT}", "CCS": r"\mathrm{CCS}"}
-    def label(parts):
-        """Canonical reduced label of a product of parts on consecutive qubits, larger gates first (as fmt_poly)."""
-        out, q = [], 1
-        for p in sorted(parts, key=lambda p: -SIZE[p]):
-            out.append(NAME[p] + "_{" + "".join(str(q + i) for i in range(SIZE[p])) + "}"); q += SIZE[p]
-        return "".join(out)
-    def best_factory(L, parts):
-        k = sum(SIZE[p] for p in parts); red = label(parts)
-        if L == 3 and k >= 7:
-            c = [r for r in k78 if r["k"] == str(k) and r["reduced"] == red]
-            if not c: return None
-            r = min(c, key=lambda r: int(r["n"])); blocks = [int(b) for b in r["params"].split("=")[1].split("+")]
-            sol = solve_binding(blocks, int(r["N"]) - k, L)
-            return k, [(frozenset(S), c % 8) for S, c in sol["gates"]]
-        c = [r for r in rows if r["l"] == str(L) and r["k"] == str(k) and r["reduced"] == red]
-        if not c: return None
-        r = min(c, key=lambda r: int(r["n"]))
-        return k, gates_of(r)
-    def prior_parts(L, parts):
-        """Cheapest way to distil the target as independent factories for groups of its parts: (n, c)."""
-        best = None
-        for P in set_partitions(list(range(len(parts)))):
-            if len(P) == 1:
-                continue                                  # the whole target in one factory is the new factory itself
-            tot_n = tot_c = 0; ok = True
-            for grp in P:
-                fac = best_factory(L, [parts[i] for i in grp])
-                if fac is None: ok = False; break
-                a, b = coefficients(fac[1], fac[0], L); tot_n += a; tot_c += b
-            if ok and (best is None or (tot_n, tot_c) < best): best = (tot_n, tot_c)
-        return best
-    # (label, level, parts, prior kind, synthillation spec, prior n in Fig. 1)
-    FIG1 = [("CS12 T3", 3, ["CS", "T"], "parts", None, 26), ("CS12 CS34 CS56", 3, ["CS"] * 3, "syn", (["CS"] * 3, 7), 26),
-            ("CS12 CS34 T5", 3, ["CS", "CS", "T"], "syn", (["CS", "CS", "T"], 5), 28), ("CCZ123 CS45 T6", 3, ["CCZ", "CS", "T"], "parts", None, 34),
-            ("CS12 T3 T4 T5", 3, ["CS", "T", "T", "T"], "parts", None, 32), ("CS12 T3...T7", 3, ["CS"] + ["T"] * 5, "parts", None, 38),
-            ("CS12 CS34 CS56 T7", 3, ["CS"] * 3 + ["T"], "parts", None, 50), ("CT12 sT3", 4, ["CT", "sT"], "parts", None, 58),
-            ("CCS123 sT4", 4, ["CCS", "sT"], "parts", None, 54), ("CT12 sT3 sT4", 4, ["CT", "sT", "sT"], "parts", None, 58),
-            ("CT12 CT34 sT5", 4, ["CT", "CT", "sT"], "parts", None, 78), ("CCS123 CT45 sT6", 4, ["CCS", "CT", "sT"], "parts", None, 82),
-            ("CT12 CT34 sT5 sT6", 4, ["CT", "CT", "sT", "sT"], "parts", None, 78)]
-    def by_type(L, parts):
-        """Distil the parts of each gate type together, with the smallest factory for that same-type product."""
-        tn = tc = 0
-        for t in dict.fromkeys(parts):
-            fac = best_factory(L, [p for p in parts if p == t])
-            if fac is None:
-                return None
-            a, b = coefficients(fac[1], fac[0], L); tn += a; tc += b
-        return tn, tc
-    import synthillation_compare as sc
-    MU = {tuple(sorted(n)): mu for n, mu in sc.TARGETS}
-    SYN = {"T": "T", "CS": "CS", "CCZ": "CCZ"}
-    def syn_cost(grp):
-        key = tuple(sorted(SYN[p] for p in grp))
-        if key not in MU:
-            return None
-        try:
-            kk, gg = syn_gates(list(key), MU[key])
-        except AssertionError:
-            return None                                   # the template gives no valid factory for this group
-        return coefficients(gg, kk, 3)
-    def type_cost(L, grp):
-        fac = best_factory(L, grp) if len(set(grp)) == 1 else None
-        return None if fac is None else coefficients(fac[1], fac[0], L)
-    def prior(L, parts):
-        """Best prior construction: split the parts into groups; distil each group either with the smallest factory
-        for that single gate type, or (l=3) with the synthillation construction. A target of one gate type is
-        compared with synthillation only, since its smallest factory is the factory itself."""
-        best = None
-        for P in set_partitions(list(range(len(parts)))):
-            if len(P) == 1 and len(set(parts)) > 1 and L == 4:
-                continue
-            tot = [0, 0]; ok = True; how = []
-            for grp in P:
-                g = [parts[i] for i in grp]
-                opts = []
-                if not (len(P) == 1 and len(set(parts)) == 1):
-                    t = type_cost(L, g)
-                    if t: opts.append((t, "factory(" + "".join(g) + ")"))
-                if L == 3:
-                    sy = syn_cost(g)
-                    if sy: opts.append((sy, "synth(" + "".join(g) + ")"))
-                if not opts: ok = False; break
-                (a_, b_), h = min(opts)
-                tot[0] += a_; tot[1] += b_; how.append(h)
-            if ok and (best is None or tuple(tot) < best[0]): best = (tuple(tot), " + ".join(how))
-        return best
-    out = []
-    for lab, L, parts, kind, syn, fig_prior in FIG1:
-        k, g = best_factory(L, parts); n, c = coefficients(g, k, L)
-        (pn, pc), how = prior(L, parts)
-        out.append(dict(target=lab, l=L, k=k, n=n, c=c, prior_n=pn, prior_c=pc, prior=how, fig1_prior_n=fig_prior))
-        print(f"l={L} {lab:18s} ours n={n:3d} c={c:4d} | best prior n={pn:3d} c={pc:4d} via {how}  (Fig.1: {fig_prior})", flush=True)
-    json.dump(out, open(os.path.join(ROOT, "outputs", "error_coefficients.json"), "w"), indent=1)

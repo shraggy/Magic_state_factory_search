@@ -1,0 +1,24 @@
+{
+ "l3_catalogue_k6": {
+  "checked": 766,
+  "violate": 0,
+  "equality": 5
+ },
+ "large_unified_factories": {
+  "checked": 1668,
+  "violate": 0,
+  "equality": 10,
+  "by_level": {
+   "2": 627,
+   "3": 713,
+   "4": 328
+  },
+  "by_distance": {
+   "2": 1567,
+   ">=3": 101
+  },
+  "equality_distances": [
+   "2"
+  ]
+ }
+}

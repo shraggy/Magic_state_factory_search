@@ -1,0 +1,31 @@
+{
+ "iii_xs_None_2e6": {
+  "lowered": 305,
+  "inputs_saved": 918,
+  "cpu_s": 118330.8
+ },
+ "iii_xs_6_2e6": {
+  "lowered": 8,
+  "inputs_saved": 16,
+  "cpu_s": 62649.5
+ },
+ "iii_x_5_2e6": {
+  "lowered": 79,
+  "inputs_saved": 168,
+  "cpu_s": 118874.9
+ },
+ "iii_x_6_2e6": {
+  "lowered": 9,
+  "inputs_saved": 18,
+  "cpu_s": 129684.5
+ },
+ "iii_x_None_2e6": {
+  "lowered": 0,
+  "inputs_saved": 0,
+  "cpu_s": 152484.1
+ },
+ "iii_syn (not in the pipeline)": {
+  "lowered": 0,
+  "cpu_s": 614634.1
+ }
+}

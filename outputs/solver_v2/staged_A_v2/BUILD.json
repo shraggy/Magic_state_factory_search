@@ -1,0 +1,28 @@
+{
+ "xordir": "outputs/solver_v2/full",
+ "variants": [
+  "x_w5_c2e5",
+  "x_w5_c2e6",
+  "x_w6_c2e5",
+  "x_w6_c2e6",
+  "x_wNone_c2e5",
+  "x_wNone_c2e6"
+ ],
+ "cells": [
+  "l3_k1",
+  "l3_k2",
+  "l3_k3",
+  "l3_k4",
+  "l3_k5",
+  "l3_k6"
+ ],
+ "copied": [
+  "i_tg",
+  "i_gs",
+  "i_gh",
+  "ii_dj",
+  "ii_eg",
+  "iii_r"
+ ],
+ "note": "iii_f = xor_merge over the variants; earlier passes copied unchanged"
+}

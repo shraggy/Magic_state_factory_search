@@ -1,0 +1,12 @@
+{
+ "tuples": 7203,
+ "sign_patterns": 107940,
+ "valid_configurations": 21920,
+ "valid_per_l": {
+  "2": 15600,
+  "3": 4678,
+  "4": 1642
+ },
+ "groups_l_k_N_d_output": 689,
+ "groups_nontrivial": 535
+}

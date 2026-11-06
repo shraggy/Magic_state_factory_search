@@ -1,0 +1,17 @@
+{
+ "2": {
+  "circuits": 4000,
+  "factories": 1194,
+  "agree": 4000
+ },
+ "3": {
+  "circuits": 4000,
+  "factories": 1261,
+  "agree": 4000
+ },
+ "4": {
+  "circuits": 2500,
+  "factories": 656,
+  "agree": 2500
+ }
+}

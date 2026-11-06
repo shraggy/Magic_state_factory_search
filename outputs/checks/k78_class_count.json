@@ -1,0 +1,49 @@
+{
+ "orbits_including_zero": {
+  "3": 2,
+  "4": 2,
+  "5": 3,
+  "6": 6,
+  "7": 12,
+  "8": 32
+ },
+ "conjugacy_classes": {
+  "3": 6,
+  "4": 14,
+  "5": 27,
+  "6": 60,
+  "7": 117,
+  "8": 246
+ },
+ "classes_needing_all_k_outputs": {
+  "3": 1,
+  "4": 0,
+  "5": 1,
+  "6": 3,
+  "7": 6,
+  "8": 20
+ },
+ "known_answer_k_le_6": {
+  "3": 1,
+  "5": 1,
+  "6": 3
+ },
+ "target_lists": {
+  "7": {
+   "layers": 142,
+   "non_genuine": 0,
+   "fingerprints": 6,
+   "stored_fingerprint_labels": 6,
+   "classes": 6,
+   "list_has_every_class": true
+  },
+  "8": {
+   "layers": 4043,
+   "non_genuine": 0,
+   "fingerprints": 20,
+   "stored_fingerprint_labels": 20,
+   "classes": 20,
+   "list_has_every_class": true
+  }
+ }
+}

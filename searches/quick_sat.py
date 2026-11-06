@@ -19,7 +19,8 @@ TD = os.path.join(ROOT, "outputs", "targets")
 def solve_target(args):
     from coset_certify import parse_target
     from sat_certify import certify
-    L, k, spec, budget, span, wmax, seed = args
+    L, k, spec, budget, span, wmax, seed = args[:7]
+    rl = args[7] if len(args) > 7 else None          # deterministic z3 step limit per query (overrides budget)
     tgt = parse_target(spec, L)
     # seed = best n stages (i)-(ii) reached for this class: every query then asks only for something they did not
     # find (a smaller factory), so stage (iv) never re-finds a factory an earlier stage already has
@@ -32,7 +33,7 @@ def solve_target(args):
         q, t1, last = 0, time.time(), None
         for w in caps:
             while True:
-                r, nf, g = certify(tgt, k, NN, L, cap, budget, max_weight=w); q += 1
+                r, nf, g = certify(tgt, k, NN, L, cap, budget if rl is None else None, max_weight=w, rlimit=rl); q += 1
                 if r == "sat":
                     best, cap = dict(n=nf, N=NN, gates=[[sorted(S), c] for S, c in g]), nf
                 else:

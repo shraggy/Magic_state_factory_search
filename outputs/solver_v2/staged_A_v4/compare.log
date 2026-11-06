@@ -1,0 +1,106 @@
+{
+ "classes": 766,
+ "v4_vs_staged_best": {
+  "lower": 144,
+  "equal": 615,
+  "higher": 7
+ },
+ "inputs_saved_vs_staged_best": 316,
+ "below_tau_plus_1": 0,
+ "at_tau_plus_1": 5,
+ "v4_vs_A_v2": {
+  "lower": 42,
+  "equal": 715,
+  "higher": 9
+ },
+ "v4_vs_v3": {
+  "lower": 21,
+  "equal": 711,
+  "higher": 34
+ },
+ "smaller_elsewhere": 43,
+ "nine": [
+  {
+   "k": 5,
+   "orbit": "1892",
+   "staged_best": 28,
+   "A_v2": 26,
+   "v3": 26,
+   "v4": 26,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:3224",
+   "staged_best": 32,
+   "A_v2": 30,
+   "v3": 30,
+   "v4": 30,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:771",
+   "staged_best": 30,
+   "A_v2": 28,
+   "v3": 28,
+   "v4": 28,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:82457",
+   "staged_best": 34,
+   "A_v2": 32,
+   "v3": 32,
+   "v4": 32,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:82505",
+   "staged_best": 34,
+   "A_v2": 34,
+   "v3": 32,
+   "v4": 32,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:82512",
+   "staged_best": 32,
+   "A_v2": 32,
+   "v3": 30,
+   "v4": 32,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:9752",
+   "staged_best": 32,
+   "A_v2": 30,
+   "v3": 30,
+   "v4": 30,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "41984:4228",
+   "staged_best": 28,
+   "A_v2": 26,
+   "v3": 26,
+   "v4": 26,
+   "catalogue": null
+  },
+  {
+   "k": 6,
+   "orbit": "2320:16992",
+   "staged_best": 32,
+   "A_v2": 32,
+   "v3": 30,
+   "v4": 30,
+   "catalogue": null
+  }
+ ]
+}
+smaller elsewhere: [(6, '2320:19009', 'A_v2', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:19009', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:19024', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:19265', 'v3', 32, 34, {'valid': True, 'brute': True, 'd': '2', 'n': 32, 'label_ok': True}), (6, '2320:3240', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:3332', 'A_v2', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:3332', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:4864', 'A_v2', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:4864', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:82512', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:82689', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:82761', 'v3', 32, 34, {'valid': True, 'brute': True, 'd': '2', 'n': 32, 'label_ok': True}), (6, '2320:8360', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:8512', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:8713', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:8960', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:8976', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:9024', 'A_v2', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:9024', 'v3', 28, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:9025', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:9041', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2352:1162', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2352:152', 'A_v2', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2352:1688', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:2217', 'A_v2', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:2217', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:25060', 'v3', 32, 34, {'valid': True, 'brute': True, 'd': '2', 'n': 32, 'label_ok': True}), (6, '2352:3224', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:3460', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2352:3740', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:665', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:8673', 'A_v2', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:8673', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:8691', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:8753', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2352:8864', 'v3', 32, 34, {'valid': True, 'brute': True, 'd': '2', 'n': 32, 'label_ok': True}), (6, '2320:10065', 'A_v2', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:10065', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:1284', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:13056', 'v3', 28, 30, {'valid': True, 'brute': True, 'd': '2', 'n': 28, 'label_ok': True}), (6, '2320:13064', 'A_v2', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:13064', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True}), (6, '2320:17184', 'v3', 30, 32, {'valid': True, 'brute': True, 'd': '2', 'n': 30, 'label_ok': True})]

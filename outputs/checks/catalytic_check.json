@@ -1,0 +1,183 @@
+{
+ "[[10,2,2]]": {
+  "inputs": 10,
+  "accept_prob_noiseless": 1.0,
+  "fidelity_noiseless": 1.0,
+  "single_faults": 10,
+  "caught": 10,
+  "harmless": 0,
+  "undetected_harmful": 0,
+  "rejection_first_order": "10p",
+  "fault_pairs": 45,
+  "pairs_accepted_and_harmful": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    0,
+    7
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    8,
+    9
+   ]
+  ],
+  "output_error_p2": {
+   "output_q2": 9.0,
+   "output_q3": 9.0,
+   "joint": 13.0,
+   "pairs_accepted_prob_1": 5,
+   "pairs_accepted_prob_half": 16
+  }
+ },
+ "[[11,1,2]]": {
+  "inputs": 11,
+  "accept_prob_noiseless": 1.0,
+  "fidelity_noiseless": 1.0,
+  "single_faults": 11,
+  "caught": 11,
+  "harmless": 0,
+  "undetected_harmful": 0,
+  "rejection_first_order": "11p",
+  "fault_pairs": 55,
+  "pairs_accepted_and_harmful": [
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    4,
+    9
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    5,
+    8
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    5,
+    10
+   ]
+  ]
+ }
+}

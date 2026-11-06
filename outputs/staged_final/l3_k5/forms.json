@@ -1,0 +1,31 @@
+{
+ "iii_xs_None_2e6": {
+  "lowered": 19,
+  "inputs_saved": 44,
+  "cpu_s": 5439.2
+ },
+ "iii_xs_6_2e6": {
+  "lowered": 0,
+  "inputs_saved": 0,
+  "cpu_s": 3583.6
+ },
+ "iii_x_5_2e6": {
+  "lowered": 5,
+  "inputs_saved": 10,
+  "cpu_s": 9164.1
+ },
+ "iii_x_6_2e6": {
+  "lowered": 0,
+  "inputs_saved": 0,
+  "cpu_s": 9959.3
+ },
+ "iii_x_None_2e6": {
+  "lowered": 0,
+  "inputs_saved": 0,
+  "cpu_s": 10681.0
+ },
+ "iii_syn (not in the pipeline)": {
+  "lowered": 0,
+  "cpu_s": 47607.5
+ }
+}

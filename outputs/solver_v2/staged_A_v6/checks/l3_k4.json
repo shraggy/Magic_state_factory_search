@@ -1,0 +1,175 @@
+{
+"summary": {
+"source": "outputs/solver_v2/staged_A_v6/l3_k4/iii_f.json",
+"factories": 13,
+"valid": 13,
+"brute_checked": 13,
+"brute_ok": 13,
+"class_ok": 13,
+"n_ok": 13,
+"d_ge2": 13,
+"d_dist": {
+"2": 13
+},
+"c_computed": 13,
+"seconds": 0.0
+},
+"rows": {
+"1032": {
+"spec": "T3,CCZ012",
+"n": 20,
+"n_filed": 20,
+"N": 7,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 34
+},
+"112": {
+"spec": "CS03,CCZ012",
+"n": 16,
+"n_filed": 16,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 40
+},
+"113": {
+"spec": "T0,CS03,CCZ012",
+"n": 18,
+"n_filed": 18,
+"N": 7,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 21
+},
+"15": {
+"spec": "T0,T1,T2,T3",
+"n": 20,
+"n_filed": 20,
+"N": 7,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 22
+},
+"191": {
+"spec": "T0,T3,CCZ012",
+"n": 20,
+"n_filed": 20,
+"N": 7,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 34
+},
+"192": {
+"spec": "CS03,CS12",
+"n": 18,
+"n_filed": 18,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 45
+},
+"208": {
+"spec": "CS01,CS03,CS12",
+"n": 18,
+"n_filed": 18,
+"N": 6,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 45
+},
+"209": {
+"spec": "T0,CS01,CS03,CS12",
+"n": 22,
+"n_filed": 22,
+"N": 7,
+"stage": "i_gh:S3xS1xS2xS1",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 31
+},
+"211": {
+"spec": "T0,T1,CS01,CS03,CS12",
+"n": 24,
+"n_filed": 24,
+"N": 7,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 36
+},
+"246": {
+"spec": "T1,CS03,CCZ012",
+"n": 24,
+"n_filed": 24,
+"N": 7,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 36
+},
+"28": {
+"spec": "T2,T3,CS01",
+"n": 22,
+"n_filed": 22,
+"N": 7,
+"stage": "i_gh:S3xS1xS2xS1",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 31
+},
+"56": {
+"spec": "T3,CS01,CS02",
+"n": 22,
+"n_filed": 22,
+"N": 7,
+"stage": "i_gh:S3xS1xS2xS1",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 31
+},
+"57": {
+"spec": "T0,T3,CS01,CS02",
+"n": 22,
+"n_filed": 22,
+"N": 7,
+"stage": "ii_eg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 31
+}
+}
+}

@@ -1,0 +1,510 @@
+{
+ "summary": {
+  "l": 2,
+  "k": 6,
+  "classes": 2,
+  "reached_i_ii": 2,
+  "iv_new": 0,
+  "iv_smaller": 0,
+  "reached_total": 2,
+  "seconds": {
+   "iii_enumerate": 5.3,
+   "verification": 0.0,
+   "classification": 0.1,
+   "i_two_group": -0.0,
+   "ii_gluing": 0.1,
+   "iv_quick_sat": 225.6
+  },
+  "best": {
+   "41984": {
+    "n": 8,
+    "N": 7,
+    "stage": "two-group",
+    "spec": "CZ05,CZ14,CZ23"
+   },
+   "63": {
+    "n": 10,
+    "N": 8,
+    "stage": "two-group",
+    "spec": "S4,S5,CZ03,CZ12"
+   }
+  },
+  "params": {
+   "nmax": 11,
+   "smax": 7,
+   "rmax": 4,
+   "glue": true,
+   "sat": true,
+   "budget": 25.0,
+   "span": 3,
+   "wmax": 6,
+   "jobs": 12
+  }
+ },
+ "rows": [
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 64,
+   "N": 7,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 8,
+   "N": 7,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 32,
+   "N": 7,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 16,
+   "N": 7,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 192,
+   "N": 8,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 66,
+   "N": 8,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 24,
+   "N": 8,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 96,
+   "N": 8,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 10,
+   "N": 8,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 52,
+   "N": 8,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 32,
+   "N": 8,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 10,
+   "N": 8,
+   "params": "s_total=6,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 448,
+   "N": 9,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 231,
+   "N": 9,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 154,
+   "N": 9,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 91,
+   "N": 9,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 56,
+   "N": 9,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 49,
+   "N": 9,
+   "params": "s_total=1,s_O=6"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 224,
+   "N": 9,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 82,
+   "N": 9,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 26,
+   "N": 9,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 12,
+   "N": 9,
+   "params": "s_total=3,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 124,
+   "N": 9,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 48,
+   "N": 9,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 960,
+   "N": 10,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 495,
+   "N": 10,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 330,
+   "N": 10,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 195,
+   "N": 10,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 120,
+   "N": 10,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 105,
+   "N": 10,
+   "params": "s_total=1,s_O=6"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 480,
+   "N": 10,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 232,
+   "N": 10,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 170,
+   "N": 10,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 92,
+   "N": 10,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 58,
+   "N": 10,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 50,
+   "N": 10,
+   "params": "s_total=2,s_O=6"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 260,
+   "N": 10,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 14,
+   "N": 10,
+   "params": "s_total=4,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 64,
+   "N": 10,
+   "params": "s_total=6,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 1984,
+   "N": 11,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 1023,
+   "N": 11,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 682,
+   "N": 11,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 403,
+   "N": 11,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 248,
+   "N": 11,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 217,
+   "N": 11,
+   "params": "s_total=1,s_O=6"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 992,
+   "N": 11,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 496,
+   "N": 11,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 346,
+   "N": 11,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 196,
+   "N": 11,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 122,
+   "N": 11,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 106,
+   "N": 11,
+   "params": "s_total=2,s_O=6"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 516,
+   "N": 11,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 126,
+   "N": 11,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 63,
+   "genuine": true,
+   "n": 46,
+   "N": 11,
+   "params": "s_total=4,s_O=5"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 41984,
+   "genuine": true,
+   "n": 8,
+   "N": 7,
+   "params": "blocks=2+2+2"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 63,
+   "genuine": true,
+   "n": 10,
+   "N": 8,
+   "params": "blocks=2+2+1+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 63,
+   "genuine": true,
+   "n": 10,
+   "N": 8,
+   "params": "blocks=2+1+1+1+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 63,
+   "genuine": true,
+   "n": 18,
+   "N": 8,
+   "params": "blocks=1+1+1+1+1+1"
+  }
+ ]
+}

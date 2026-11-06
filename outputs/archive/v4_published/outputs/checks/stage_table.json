@@ -1,0 +1,277 @@
+{
+ "rows": [
+  {
+   "l": 2,
+   "k": 1,
+   "classes": 1,
+   "after": {
+    "i": 1,
+    "ii": 1,
+    "iii": 1
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.0
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k1"
+  },
+  {
+   "l": 2,
+   "k": 2,
+   "classes": 2,
+   "after": {
+    "i": 2,
+    "ii": 2,
+    "iii": 2
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.0
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k2"
+  },
+  {
+   "l": 2,
+   "k": 3,
+   "classes": 1,
+   "after": {
+    "i": 1,
+    "ii": 1,
+    "iii": 1
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.01
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k3"
+  },
+  {
+   "l": 2,
+   "k": 4,
+   "classes": 2,
+   "after": {
+    "i": 2,
+    "ii": 2,
+    "iii": 2
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.33
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k4"
+  },
+  {
+   "l": 2,
+   "k": 5,
+   "classes": 1,
+   "after": {
+    "i": 1,
+    "ii": 1,
+    "iii": 1
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.38
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k5"
+  },
+  {
+   "l": 2,
+   "k": 6,
+   "classes": 2,
+   "after": {
+    "i": 2,
+    "ii": 2,
+    "iii": 2
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.02,
+    "iii": 0.52
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l2_k6"
+  },
+  {
+   "l": 3,
+   "k": 1,
+   "classes": 1,
+   "after": {
+    "i": 1,
+    "ii": 1,
+    "iii": 1
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.01
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k1"
+  },
+  {
+   "l": 3,
+   "k": 2,
+   "classes": 2,
+   "after": {
+    "i": 2,
+    "ii": 2,
+    "iii": 2
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.01
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k2"
+  },
+  {
+   "l": 3,
+   "k": 3,
+   "classes": 6,
+   "after": {
+    "i": 6,
+    "ii": 6,
+    "iii": 6
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.01
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k3"
+  },
+  {
+   "l": 3,
+   "k": 4,
+   "classes": 13,
+   "after": {
+    "i": 13,
+    "ii": 13,
+    "iii": 13
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 1.41
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k4"
+  },
+  {
+   "l": 3,
+   "k": 5,
+   "classes": 65,
+   "after": {
+    "i": 65,
+    "ii": 65,
+    "iii": 65
+   },
+   "cpu_hours": {
+    "i": 0.72,
+    "ii": 0.02,
+    "iii": 10.79
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k5"
+  },
+  {
+   "l": 3,
+   "k": 6,
+   "classes": 679,
+   "after": {
+    "i": 679,
+    "ii": 679,
+    "iii": 679
+   },
+   "cpu_hours": {
+    "i": 14.27,
+    "ii": 2.67,
+    "iii": 161.67
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_final/l3_k6"
+  },
+  {
+   "l": 4,
+   "k": 1,
+   "classes": 2,
+   "after": {
+    "i": 1,
+    "ii": 2,
+    "iii": 2
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.0
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l4_k1"
+  },
+  {
+   "l": 4,
+   "k": 2,
+   "classes": 8,
+   "after": {
+    "i": 3,
+    "ii": 8,
+    "iii": 8
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.0
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_small/l4_k2"
+  },
+  {
+   "l": 4,
+   "k": 3,
+   "classes": 75,
+   "after": {
+    "i": 4,
+    "ii": 75,
+    "iii": 75
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.0,
+    "iii": 0.09
+   },
+   "cpu_sum": false,
+   "source": "outputs/staged_l4fix/l4_k3"
+  },
+  {
+   "l": 4,
+   "k": 4,
+   "classes": 4082,
+   "after": {
+    "i": 5,
+    "ii": 4082,
+    "iii": null
+   },
+   "cpu_hours": {
+    "i": 0.0,
+    "ii": 0.81,
+    "iii": 0.0
+   },
+   "cpu_sum": true,
+   "source": "outputs/staged_A/l4_k4"
+  }
+ ],
+ "source": "outputs/staged_best.json"
+}

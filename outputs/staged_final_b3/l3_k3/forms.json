@@ -1,0 +1,103 @@
+{
+ "v4": {
+  "xs:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.5
+  },
+  "xs:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.3
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 8.6
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.2
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.3
+  }
+ },
+ "v5": {
+  "xsb:8:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 11.0
+  },
+  "xsb:8:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.9
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.3
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 10.4
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 10.0
+  }
+ },
+ "v6": {
+  "xs:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 10.6
+  },
+  "xs:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.2
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 8.5
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.9
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.7
+  },
+  "xsb:8:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.5
+  },
+  "x2:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 8.2
+  },
+  "x2:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 8.5
+  },
+  "x2:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 9.1
+  }
+ }
+}

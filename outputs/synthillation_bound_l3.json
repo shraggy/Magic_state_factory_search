@@ -1,0 +1,120 @@
+{
+ "mu_equals_lempel_rank": "766 of 766",
+ "validity_by_case": {
+  "1": {
+   "valid": 989
+  },
+  "2": {
+   "invalid": 1019
+  },
+  "3": {
+   "valid": 989
+  },
+  "4": {
+   "valid": 1019
+  },
+  "5": {
+   "valid": 157
+  },
+  "6": {
+   "valid": 84
+  },
+  "7": {
+   "valid": 157
+  },
+  "8": {
+   "valid": 84
+  },
+  "9": {
+   "valid": 5
+  },
+  "11": {
+   "valid": 5
+  }
+ },
+ "case2_row2_weight": "2 col(B) + 5 (odd for every target)",
+ "case2_valid_instances": 0,
+ "benchmark_minus_realised_thm1": {
+  "0": 766
+ },
+ "generous_bound": {
+  "benchmark_minus_bound": {
+   "0": 369,
+   "1": 397
+  },
+  "classes_fewer_than_syn": 330,
+  "cascade_below_bound_by": {
+   "1": 147,
+   "2": 96,
+   "3": 59,
+   "4": 28
+  },
+  "cascade_below_bound_on": 330
+ },
+ "paper_instances": {
+  "CCZ012": {
+   "paper": 8,
+   "benchmark": 8
+  },
+  "CCZ045,CCZ123": {
+   "paper": 14,
+   "benchmark": 14
+  },
+  "CCZ014,CCZ023": {
+   "paper": 12,
+   "benchmark": 12
+  },
+  "CS01": {
+   "paper": 12,
+   "benchmark": 12
+  },
+  "CS03,CS12": {
+   "paper": 18,
+   "benchmark": 18
+  },
+  "CS05,CS14,CS23": {
+   "paper": 26,
+   "benchmark": 26
+  }
+ },
+ "paper_instances_reproduced": "6 of 6",
+ "coset_minima": {
+  "T_1 CCZ_123": {
+   "case2_formula": 17,
+   "exact_min_n_by_N": {
+    "4": null,
+    "5": null,
+    "6": 18
+   }
+  },
+  "T_3 CS_12": {
+   "case2_formula": 19,
+   "exact_min_n_by_N": {
+    "4": null,
+    "5": null,
+    "6": 20
+   }
+  }
+ },
+ "case2_classes": {
+  "classes": 160,
+  "best_variant": {
+   "A,B+0,case 1": 160
+  },
+  "unpadded_invalid_all_classes": 160,
+  "benchmark_minus_formula": {
+   "1": 160
+  },
+  "cascade_minus_formula": {
+   "-3": 12,
+   "-1": 57,
+   "1": 91
+  },
+  "by_k": {
+   "3": 2,
+   "4": 1,
+   "5": 16,
+   "6": 141
+  }
+ }
+}

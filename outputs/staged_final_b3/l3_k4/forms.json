@@ -1,0 +1,103 @@
+{
+ "v4": {
+  "xs:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 268.8
+  },
+  "xs:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 245.3
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1267.5
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1665.0
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1641.0
+  }
+ },
+ "v5": {
+  "xsb:8:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 777.7
+  },
+  "xsb:8:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 669.4
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1149.2
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1716.7
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1456.6
+  }
+ },
+ "v6": {
+  "xs:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 275.5
+  },
+  "xs:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 238.8
+  },
+  "x:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1236.1
+  },
+  "x:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1519.5
+  },
+  "x:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1596.2
+  },
+  "xsb:8:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 971.1
+  },
+  "x2:5:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1215.4
+  },
+  "x2:6:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1450.3
+  },
+  "x2:None:2e6": {
+   "lowered": 0,
+   "inputs_saved": 0,
+   "cpu_s": 1633.4
+  }
+ }
+}

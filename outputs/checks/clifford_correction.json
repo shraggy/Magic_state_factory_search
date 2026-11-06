@@ -1,0 +1,50 @@
+{
+ "source": "outputs/staged_best.json",
+ "per_level": {
+  "l2": {
+   "rows": 9,
+   "not_factory": 0,
+   "D_trivial": 7,
+   "D_nontrivial": 2,
+   "D_only_PauliZ_on_checks": 2,
+   "D_needs_Clifford_correction": 0,
+   "CZ_terms": {
+    "median": 0,
+    "max": 0,
+    "total": 0
+   }
+  },
+  "l3": {
+   "rows": 766,
+   "not_factory": 0,
+   "D_trivial": 56,
+   "D_nontrivial": 710,
+   "D_CZ_check_check": 347,
+   "D_CZ_check_output": 673,
+   "D_S_on_check": 385,
+   "D_only_PauliZ_on_checks": 3,
+   "D_needs_Clifford_correction": 707,
+   "CZ_terms": {
+    "median": 5.0,
+    "max": 28,
+    "total": 4164
+   }
+  },
+  "l4": {
+   "rows": 4167,
+   "not_factory": 0,
+   "D_trivial": 1315,
+   "D_nontrivial": 2852,
+   "D_CZ_check_check": 1735,
+   "D_S_on_check": 1420,
+   "D_CZ_check_output": 2200,
+   "D_only_PauliZ_on_checks": 18,
+   "D_needs_Clifford_correction": 2834,
+   "CZ_terms": {
+    "median": 1,
+    "max": 10,
+    "total": 7450
+   }
+  }
+ }
+}

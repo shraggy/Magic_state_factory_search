@@ -1,0 +1,91 @@
+{
+"summary": {
+"source": "outputs/solver_v2/staged_A_v4/l3_k3/iii_f.json",
+"factories": 6,
+"valid": 6,
+"brute_checked": 6,
+"brute_ok": 6,
+"class_ok": 6,
+"n_ok": 6,
+"d_ge2": 6,
+"d_dist": {
+"2": 6
+},
+"c_computed": 6,
+"seconds": 0.0
+},
+"rows": {
+"12": {
+"spec": "T2,CS01",
+"n": 20,
+"n_filed": 20,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 22
+},
+"24": {
+"spec": "CS01,CS02",
+"n": 12,
+"n_filed": 12,
+"N": 5,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 18
+},
+"25": {
+"spec": "T0,CS01,CS02",
+"n": 18,
+"n_filed": 18,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 21
+},
+"63": {
+"spec": "T0,CCZ012",
+"n": 18,
+"n_filed": 18,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 21
+},
+"64": {
+"spec": "CCZ012",
+"n": 8,
+"n_filed": 8,
+"N": 4,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 28
+},
+"7": {
+"spec": "T0,T1,T2",
+"n": 20,
+"n_filed": 20,
+"N": 6,
+"stage": "i_gs:sweep",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 22
+}
+}
+}

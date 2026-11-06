@@ -1,0 +1,772 @@
+{
+ "summary": {
+  "l": 4,
+  "k": 2,
+  "classes": 8,
+  "reached_i_ii": 2,
+  "iv_new": 3,
+  "iv_smaller": 0,
+  "reached_total": 5,
+  "seconds": {
+   "iii_enumerate": 0.0,
+   "verification": 0.2,
+   "classification": 0.0,
+   "i_two_group": 0.1,
+   "ii_gluing": 0.0,
+   "iv_quick_sat": 0.7
+  },
+  "best": {
+   "16": {
+    "n": 28,
+    "N": 5,
+    "stage": "two-group",
+    "spec": "CT01"
+   },
+   "5": {
+    "n": 30,
+    "N": 6,
+    "stage": "two-group",
+    "spec": "sT0,sT1"
+   },
+   "10": {
+    "n": 28,
+    "N": 5,
+    "stage": "quick-sat",
+    "spec": "sT0,sT0,sT1,sT1"
+   },
+   "18": {
+    "n": 28,
+    "N": 5,
+    "stage": "quick-sat",
+    "spec": "sT0,sT0,CT01"
+   },
+   "32": {
+    "n": 24,
+    "N": 4,
+    "stage": "quick-sat",
+    "spec": "CT01,CT01"
+   }
+  },
+  "params": {
+   "nmax": 11,
+   "smax": 7,
+   "rmax": 4,
+   "glue": true,
+   "sat": true,
+   "budget": 25.0,
+   "span": 3,
+   "wmax": 6,
+   "jobs": 12
+  }
+ },
+ "rows": [
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 28,
+   "N": 5,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 60,
+   "N": 6,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 30,
+   "N": 6,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 124,
+   "N": 7,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 93,
+   "N": 7,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 62,
+   "N": 7,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 252,
+   "N": 8,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 189,
+   "N": 8,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 126,
+   "N": 8,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 94,
+   "N": 8,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 508,
+   "N": 9,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 381,
+   "N": 9,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 254,
+   "N": 9,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 190,
+   "N": 9,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 1020,
+   "N": 10,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 765,
+   "N": 10,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 510,
+   "N": 10,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 382,
+   "N": 10,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 16,
+   "genuine": true,
+   "n": 2044,
+   "N": 11,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 1533,
+   "N": 11,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 1022,
+   "N": 11,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 766,
+   "N": 11,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 5,
+   "genuine": true,
+   "n": 526,
+   "N": 11,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 5,
+   "genuine": true,
+   "n": 30,
+   "N": 6,
+   "params": "blocks=1+1"
+  },
+  {
+   "stage": "quick-sat",
+   "orbit": 10,
+   "genuine": true,
+   "n": 28,
+   "N": 5,
+   "params": "sT0,sT0,sT1,sT1",
+   "gates": [
+    [
+     [
+      2
+     ],
+     2
+    ],
+    [
+     [
+      3
+     ],
+     8
+    ],
+    [
+     [
+      4
+     ],
+     8
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     4
+    ],
+    [
+     [
+      0,
+      3
+     ],
+     2
+    ],
+    [
+     [
+      0,
+      4
+     ],
+     10
+    ],
+    [
+     [
+      1,
+      2
+     ],
+     4
+    ],
+    [
+     [
+      1,
+      3
+     ],
+     10
+    ],
+    [
+     [
+      1,
+      4
+     ],
+     14
+    ],
+    [
+     [
+      2,
+      3
+     ],
+     2
+    ],
+    [
+     [
+      2,
+      4
+     ],
+     2
+    ],
+    [
+     [
+      3,
+      4
+     ],
+     8
+    ],
+    [
+     [
+      0,
+      1,
+      2
+     ],
+     2
+    ],
+    [
+     [
+      0,
+      1,
+      3
+     ],
+     8
+    ],
+    [
+     [
+      0,
+      1,
+      4
+     ],
+     8
+    ],
+    [
+     [
+      0,
+      2,
+      3
+     ],
+     4
+    ],
+    [
+     [
+      0,
+      2,
+      4
+     ],
+     4
+    ],
+    [
+     [
+      0,
+      3,
+      4
+     ],
+     10
+    ],
+    [
+     [
+      1,
+      3,
+      4
+     ],
+     2
+    ],
+    [
+     [
+      2,
+      3,
+      4
+     ],
+     2
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     14
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      4
+     ],
+     10
+    ],
+    [
+     [
+      0,
+      1,
+      3,
+      4
+     ],
+     4
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     2
+    ]
+   ]
+  },
+  {
+   "stage": "quick-sat",
+   "orbit": 18,
+   "genuine": true,
+   "n": 28,
+   "N": 5,
+   "params": "sT0,sT0,CT01",
+   "gates": [
+    [
+     [
+      2
+     ],
+     3
+    ],
+    [
+     [
+      3
+     ],
+     5
+    ],
+    [
+     [
+      4
+     ],
+     11
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     9
+    ],
+    [
+     [
+      0,
+      3
+     ],
+     3
+    ],
+    [
+     [
+      0,
+      4
+     ],
+     1
+    ],
+    [
+     [
+      1,
+      2
+     ],
+     7
+    ],
+    [
+     [
+      1,
+      3
+     ],
+     5
+    ],
+    [
+     [
+      1,
+      4
+     ],
+     11
+    ],
+    [
+     [
+      2,
+      3
+     ],
+     5
+    ],
+    [
+     [
+      2,
+      4
+     ],
+     11
+    ],
+    [
+     [
+      3,
+      4
+     ],
+     9
+    ],
+    [
+     [
+      0,
+      1,
+      2
+     ],
+     5
+    ],
+    [
+     [
+      0,
+      1,
+      3
+     ],
+     3
+    ],
+    [
+     [
+      0,
+      1,
+      4
+     ],
+     1
+    ],
+    [
+     [
+      0,
+      2,
+      3
+     ],
+     7
+    ],
+    [
+     [
+      0,
+      2,
+      4
+     ],
+     13
+    ],
+    [
+     [
+      0,
+      3,
+      4
+     ],
+     11
+    ],
+    [
+     [
+      1,
+      2,
+      3
+     ],
+     5
+    ],
+    [
+     [
+      1,
+      2,
+      4
+     ],
+     11
+    ],
+    [
+     [
+      1,
+      3,
+      4
+     ],
+     9
+    ],
+    [
+     [
+      2,
+      3,
+      4
+     ],
+     1
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     11
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      4
+     ],
+     9
+    ],
+    [
+     [
+      0,
+      1,
+      3,
+      4
+     ],
+     3
+    ],
+    [
+     [
+      0,
+      2,
+      3,
+      4
+     ],
+     3
+    ],
+    [
+     [
+      1,
+      2,
+      3,
+      4
+     ],
+     1
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     3
+    ]
+   ]
+  },
+  {
+   "stage": "quick-sat",
+   "orbit": 32,
+   "genuine": true,
+   "n": 24,
+   "N": 4,
+   "params": "CT01,CT01",
+   "gates": [
+    [
+     [
+      2
+     ],
+     6
+    ],
+    [
+     [
+      3
+     ],
+     10
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     6
+    ],
+    [
+     [
+      0,
+      3
+     ],
+     10
+    ],
+    [
+     [
+      1,
+      2
+     ],
+     6
+    ],
+    [
+     [
+      1,
+      3
+     ],
+     10
+    ],
+    [
+     [
+      2,
+      3
+     ],
+     2
+    ],
+    [
+     [
+      0,
+      1,
+      2
+     ],
+     14
+    ],
+    [
+     [
+      0,
+      1,
+      3
+     ],
+     10
+    ],
+    [
+     [
+      0,
+      2,
+      3
+     ],
+     2
+    ],
+    [
+     [
+      1,
+      2,
+      3
+     ],
+     2
+    ],
+    [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     2
+    ]
+   ]
+  }
+ ]
+}

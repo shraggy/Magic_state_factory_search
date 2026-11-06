@@ -1,0 +1,6 @@
+l=3 k=4 112 CS03,CCZ012: seed 16 -> 16 {'i_gs': 0.5, 'ii_eg': 0.2, 'iii_r': 204.5}
+l=3 k=4 15 T0,T1,T2,T3: seed 20 -> 20 {'i_gs': 0.2, 'ii_eg': 0.1, 'iii_r': 32.7}
+l=3 k=4 192 CS03,CS12: seed 18 -> 18 {'i_gs': 0.2, 'ii_eg': 0.1, 'iii_r': 488.3}
+l=3 k=4 209 T0,CS01,CS03,CS12: seed 22 -> 22 {'i_gs': 0.4, 'ii_eg': 0.1, 'iii_r': 487.6}
+l=3 k=4 246 T1,CS03,CCZ012: seed 24 -> 24 {'i_gs': 0.4, 'ii_eg': 0.1, 'iii_r': 395.3}
+l=3 k=4 56 T3,CS01,CS02: seed 22 -> 22 {'i_gs': 0.5, 'ii_eg': 0.1, 'iii_r': 443.2}

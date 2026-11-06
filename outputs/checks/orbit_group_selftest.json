@@ -1,0 +1,10 @@
+{
+ "trials": 1000,
+ "seed": 7,
+ "circuits": 717,
+ "agree": 717,
+ "factories": 298,
+ "digits_agree": 717,
+ "dp_solutions": 205,
+ "dp_verified": 205
+}

@@ -1,0 +1,56 @@
+{
+ "rows": 3351,
+ "padded": 493,
+ "per_level": {
+  "2": {
+   "circuits": 1178,
+   "d2": 1131,
+   "d_ge3": 47,
+   "d_ge3_single_output": 47,
+   "by_stage": {
+    "two-group": 1151,
+    "gluing": 27
+   },
+   "distinct_n_k_output": 1116
+  },
+  "3": {
+   "circuits": 1143,
+   "d2": 1106,
+   "d_ge3": 37,
+   "d_ge3_single_output": 37,
+   "by_stage": {
+    "two-group": 1094,
+    "gluing": 49
+   },
+   "distinct_n_k_output": 1117
+  },
+  "4": {
+   "circuits": 537,
+   "d2": 520,
+   "d_ge3": 17,
+   "d_ge3_single_output": 17,
+   "by_stage": {
+    "two-group": 471,
+    "gluing": 66
+   },
+   "distinct_n_k_output": 528
+  }
+ },
+ "largest": {
+  "l": 2,
+  "n": 262142,
+  "k": 1,
+  "d": "2",
+  "c": 131071
+ },
+ "k8": {
+  "classes": 20,
+  "on_bound": 2,
+  "n_hist_off_bound": {
+   "20": 6,
+   "22": 9,
+   "24": 2,
+   "26": 1
+  }
+ }
+}

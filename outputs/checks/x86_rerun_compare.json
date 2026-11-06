@@ -1,0 +1,90 @@
+{
+ "same": 116,
+ "total": 116,
+ "cells": [
+  {
+   "cell": "staged_small/l2_k1",
+   "classes": 1,
+   "same": 1,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l2_k2",
+   "classes": 2,
+   "same": 2,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l2_k3",
+   "classes": 1,
+   "same": 1,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l2_k4",
+   "classes": 2,
+   "same": 2,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l2_k5",
+   "classes": 1,
+   "same": 1,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l2_k6",
+   "classes": 2,
+   "same": 2,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l4_k1",
+   "classes": 2,
+   "same": 2,
+   "differ": []
+  },
+  {
+   "cell": "staged_small/l4_k2",
+   "classes": 8,
+   "same": 8,
+   "differ": []
+  },
+  {
+   "cell": "staged_l4fix/l4_k3",
+   "classes": 75,
+   "same": 75,
+   "differ": []
+  },
+  {
+   "cell": "staged_pc/l3_k1",
+   "classes": 1,
+   "same": 1,
+   "differ": []
+  },
+  {
+   "cell": "staged_pc/l3_k2",
+   "classes": 2,
+   "same": 2,
+   "differ": []
+  },
+  {
+   "cell": "staged_pc/l3_k3",
+   "classes": 6,
+   "same": 6,
+   "differ": []
+  },
+  {
+   "cell": "staged_pc/l3_k4",
+   "classes": 13,
+   "same": 13,
+   "differ": []
+  }
+ ],
+ "jobs": [
+  2246916,
+  2246917,
+  2246918
+ ],
+ "host": "ccc4, x86_64, z3 5.3.2"
+}

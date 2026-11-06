@@ -1,0 +1,38 @@
+{
+ "1": {
+  "classes": 1,
+  "equal": 1,
+  "better": 0,
+  "worse": 0,
+  "missing": 0,
+  "last_pass": "iii_f",
+  "worse_list": []
+ },
+ "2": {
+  "classes": 2,
+  "equal": 2,
+  "better": 0,
+  "worse": 0,
+  "missing": 0,
+  "last_pass": "iii_f",
+  "worse_list": []
+ },
+ "3": {
+  "classes": 6,
+  "equal": 6,
+  "better": 0,
+  "worse": 0,
+  "missing": 0,
+  "last_pass": "iii_f",
+  "worse_list": []
+ },
+ "4": {
+  "classes": 13,
+  "equal": 13,
+  "better": 0,
+  "worse": 0,
+  "missing": 0,
+  "last_pass": "iii_f",
+  "worse_list": []
+ }
+}

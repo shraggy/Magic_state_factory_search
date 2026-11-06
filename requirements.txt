@@ -1,0 +1,13 @@
+# Exact environment of the cluster runs (sweep A large cells, the solver_v2 and k78_pipeline runs): x86_64 Linux,
+# CPython 3.11.17. Install with:  uv venv --python 3.11 && uv pip install -r requirements.txt
+absl-py==2.5.1
+immutabledict==4.3.1
+numpy==2.4.6
+ortools==9.15.6755
+pandas==3.1.0
+protobuf==6.33.6
+pycryptosat==5.17.0
+python-dateutil==4.0.0
+typing-extensions==4.16.0
+tzdata==2026.6
+z3-solver==5.3.2.0

@@ -1,0 +1,35 @@
+{
+ "cells": [
+  {
+   "l": 2,
+   "N": 3,
+   "circuits": 16384,
+   "borrowed_identities": 32,
+   "agree": 16384
+  },
+  {
+   "l": 3,
+   "N": 2,
+   "circuits": 512,
+   "borrowed_identities": 2,
+   "agree": 512
+  },
+  {
+   "l": 3,
+   "N": 3,
+   "circuits": 2097152,
+   "borrowed_identities": 32,
+   "agree": 2097152
+  },
+  {
+   "l": 4,
+   "N": 2,
+   "circuits": 4096,
+   "borrowed_identities": 2,
+   "agree": 4096
+  }
+ ],
+ "circuits": 2118144,
+ "agree": 2118144,
+ "borrowed_identities": 68
+}

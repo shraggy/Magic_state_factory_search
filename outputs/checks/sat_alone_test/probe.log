@@ -1,0 +1,3 @@
+{'conflicts': '2e6', 'found': [], 'seconds': 641.2, 'machine': 'arm64'}
+{'conflicts': '4e6', 'found': [], 'seconds': 1305.6, 'machine': 'arm64'}
+{'conflicts': '8e6', 'found': [], 'seconds': 2415.7, 'machine': 'arm64'}

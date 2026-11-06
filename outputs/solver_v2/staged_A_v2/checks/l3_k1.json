@@ -1,0 +1,31 @@
+{
+"summary": {
+"source": "outputs/solver_v2/staged_A_v2/l3_k1/iii_f.json",
+"factories": 1,
+"valid": 1,
+"brute_checked": 1,
+"brute_ok": 1,
+"class_ok": 1,
+"n_ok": 1,
+"d_ge2": 1,
+"d_dist": {
+"2": 1
+},
+"c_computed": 1,
+"seconds": 0.0
+},
+"rows": {
+"1": {
+"spec": "T0",
+"n": 14,
+"n_filed": 14,
+"N": 4,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 7
+}
+}
+}

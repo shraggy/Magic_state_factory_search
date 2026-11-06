@@ -1,0 +1,1 @@
+{"spec": "T4,CS03,CS12,CCZ015,CCZ023,CCZ034,CCZ123,CCZ124", "best": null, "steps": [{"N": 7, "queries": 3, "last": "unsat", "seconds": 0.32}, {"N": 8, "queries": 3, "last": "unknown", "seconds": 1790.36}, {"N": 9, "queries": 3, "last": "unknown", "seconds": 738.1}], "seconds": 2528.78, "orbit": "2320:3224", "cap": 32}

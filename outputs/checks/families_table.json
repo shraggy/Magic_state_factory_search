@@ -1,0 +1,497 @@
+[
+ {
+  "stage": "two-group",
+  "family": "Reed--Muller, all weights",
+  "members": [
+   {
+    "l": 2,
+    "n": 6,
+    "k": 1,
+    "N": 3,
+    "d": 2,
+    "reduced": "\\mathrm{S}_{1}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 14,
+    "k": 1,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{T}_{1}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 30,
+    "k": 1,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{\\sqrt{T}}_{1}",
+    "params": "s_total=1,s_O=1"
+   }
+  ],
+  "asked": 3
+ },
+ {
+  "stage": "two-group",
+  "family": "Reed--Muller, odd weights",
+  "members": [
+   {
+    "l": 2,
+    "n": 7,
+    "k": 1,
+    "N": 4,
+    "d": 3,
+    "reduced": "\\mathrm{S}_{1}",
+    "params": "s_total=2,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 15,
+    "k": 1,
+    "N": 5,
+    "d": 3,
+    "reduced": "\\mathrm{T}_{1}",
+    "params": "s_total=2,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 31,
+    "k": 1,
+    "N": 6,
+    "d": 3,
+    "reduced": "\\mathrm{\\sqrt{T}}_{1}",
+    "params": "s_total=2,s_O=1"
+   }
+  ],
+  "asked": 3
+ },
+ {
+  "stage": "two-group",
+  "family": "hypercube $[[2^l,l,2]]$",
+  "members": [
+   {
+    "l": 2,
+    "n": 4,
+    "k": 2,
+    "N": 3,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 8,
+    "k": 3,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 16,
+    "k": 4,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   }
+  ],
+  "asked": 3
+ },
+ {
+  "stage": "two-group",
+  "family": "chain, two outputs $[[2^{l+1}-4,2,2]]$",
+  "members": [
+   {
+    "l": 2,
+    "n": 4,
+    "k": 2,
+    "N": 3,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 12,
+    "k": 2,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{CS}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 28,
+    "k": 2,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CT}_{12}",
+    "params": "s_total=1,s_O=1"
+   }
+  ],
+  "asked": 3
+ },
+ {
+  "stage": "two-group",
+  "family": "chain, three outputs $[[2^{l+1}-8,3,2]]$",
+  "members": [
+   {
+    "l": 3,
+    "n": 8,
+    "k": 3,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 24,
+    "k": 3,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CCS}_{123}",
+    "params": "s_total=1,s_O=1"
+   }
+  ],
+  "asked": 2
+ },
+ {
+  "stage": "two-group",
+  "family": "$[[(2^{l-1}-1)k+2^l,k,2]]$, $k$ even",
+  "members": [
+   {
+    "l": 2,
+    "n": 6,
+    "k": 2,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{S}_{1}\\mathrm{S}_{2}",
+    "params": "s_total=2,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 8,
+    "k": 4,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{S}_{1}\\mathrm{S}_{2}\\mathrm{S}_{3}\\mathrm{S}_{4}",
+    "params": "s_total=2,s_O=3"
+   },
+   {
+    "l": 2,
+    "n": 10,
+    "k": 6,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{S}_{1}\\mathrm{S}_{2}\\mathrm{S}_{3}\\mathrm{S}_{4}\\mathrm{S}_{5}\\mathrm{S}_{6}",
+    "params": "s_total=2,s_O=5"
+   },
+   {
+    "l": 3,
+    "n": 14,
+    "k": 2,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{T}_{1}\\mathrm{T}_{2}",
+    "params": "s_total=2,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 20,
+    "k": 4,
+    "N": 7,
+    "d": 2,
+    "reduced": "\\mathrm{T}_{1}\\mathrm{T}_{2}\\mathrm{T}_{3}\\mathrm{T}_{4}",
+    "params": "s_total=2,s_O=3"
+   },
+   {
+    "l": 3,
+    "n": 26,
+    "k": 6,
+    "N": 9,
+    "d": 2,
+    "reduced": "\\mathrm{T}_{1}\\mathrm{T}_{2}\\mathrm{T}_{3}\\mathrm{T}_{4}\\mathrm{T}_{5}\\mathrm{T}_{6}",
+    "params": "s_total=2,s_O=5"
+   },
+   {
+    "l": 4,
+    "n": 30,
+    "k": 2,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}",
+    "params": "s_total=2,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 44,
+    "k": 4,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}",
+    "params": "s_total=2,s_O=3"
+   },
+   {
+    "l": 4,
+    "n": 58,
+    "k": 6,
+    "N": 10,
+    "d": 2,
+    "reduced": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}\\mathrm{\\sqrt{T}}_{6}",
+    "params": "s_total=2,s_O=5"
+   }
+  ],
+  "asked": 9
+ },
+ {
+  "stage": "two-group",
+  "family": "$\\\\CkZ{l-1}$, $[[2^N-2^l,l,2]]_N$",
+  "members": [
+   {
+    "l": 2,
+    "n": 4,
+    "k": 2,
+    "N": 3,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 12,
+    "k": 2,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 28,
+    "k": 2,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 60,
+    "k": 2,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 124,
+    "k": 2,
+    "N": 7,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 252,
+    "k": 2,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 2,
+    "n": 508,
+    "k": 2,
+    "N": 9,
+    "d": 2,
+    "reduced": "\\mathrm{CZ}_{12}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 8,
+    "k": 3,
+    "N": 4,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 24,
+    "k": 3,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 56,
+    "k": 3,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 120,
+    "k": 3,
+    "N": 7,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 248,
+    "k": 3,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 504,
+    "k": 3,
+    "N": 9,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 3,
+    "n": 1016,
+    "k": 3,
+    "N": 10,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 16,
+    "k": 4,
+    "N": 5,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 48,
+    "k": 4,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 112,
+    "k": 4,
+    "N": 7,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 240,
+    "k": 4,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 496,
+    "k": 4,
+    "N": 9,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 1008,
+    "k": 4,
+    "N": 10,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   },
+   {
+    "l": 4,
+    "n": 2032,
+    "k": 4,
+    "N": 11,
+    "d": 2,
+    "reduced": "\\mathrm{CCCZ}_{1234}",
+    "params": "s_total=1,s_O=1"
+   }
+  ],
+  "asked": 21
+ },
+ {
+  "stage": "gluing",
+  "family": "$m$ CCZ, $[[6m+2,3m,2]]$",
+  "members": [
+   {
+    "l": 3,
+    "n": 14,
+    "k": 6,
+    "N": 7,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}\\mathrm{CCZ}_{456}",
+    "params": "blocks=3+3"
+   },
+   {
+    "l": 3,
+    "n": 20,
+    "k": 9,
+    "N": 10,
+    "d": 2,
+    "reduced": "\\mathrm{CCZ}_{123}\\mathrm{CCZ}_{456}\\mathrm{CCZ}_{789}",
+    "params": "blocks=3+3+3"
+   }
+  ],
+  "asked": 2
+ },
+ {
+  "stage": "gluing",
+  "family": "$m$ CS, $[[6m+6,2m,2]]$",
+  "members": [
+   {
+    "l": 3,
+    "n": 18,
+    "k": 4,
+    "N": 6,
+    "d": 2,
+    "reduced": "\\mathrm{CS}_{12}\\mathrm{CS}_{34}",
+    "params": "blocks=2+2"
+   },
+   {
+    "l": 3,
+    "n": 24,
+    "k": 6,
+    "N": 8,
+    "d": 2,
+    "reduced": "\\mathrm{CS}_{12}\\mathrm{CS}_{34}\\mathrm{CS}_{56}",
+    "params": "blocks=2+2+2"
+   }
+  ],
+  "asked": 2
+ }
+]

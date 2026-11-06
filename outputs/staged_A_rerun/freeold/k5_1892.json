@@ -1,0 +1,1 @@
+{"spec": "T2,CS01,CS02,CS04,CS12,CS13", "best": null, "steps": [{"N": 6, "queries": 2, "last": "unsat", "seconds": 0.08}, {"N": 7, "queries": 3, "last": "unknown", "seconds": 32048.36}, {"N": 8, "queries": 3, "last": "unknown", "seconds": 468.2}], "seconds": 32516.63, "orbit": "1892", "cap": 30}

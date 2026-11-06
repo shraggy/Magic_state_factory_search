@@ -1,0 +1,9 @@
+{
+ "trials": 20000,
+ "agree": 20000,
+ "ch_lemma1_true": 839,
+ "seed": 1,
+ "factory_832_ch": true,
+ "factory_832_eq4": true,
+ "note": "k=1..3 outputs, s=1..3 checks, random sets of rotations that each touch a check"
+}

@@ -1,0 +1,82 @@
+{
+ "table": [
+  {
+   "form": "i_tg",
+   "label": "(i) two-group",
+   "reached": 13,
+   "matches_final": 9,
+   "best": 9,
+   "fewer": 0
+  },
+  {
+   "form": "i_gs",
+   "label": "(i) group-symmetric",
+   "reached": 766,
+   "matches_final": 137,
+   "best": 128,
+   "fewer": 4
+  },
+  {
+   "form": "i_gh",
+   "label": "(i) check groups",
+   "reached": 150,
+   "matches_final": 116,
+   "best": 39,
+   "fewer": 5
+  },
+  {
+   "form": "ii_dj",
+   "label": "(ii) disjoint",
+   "reached": 19,
+   "matches_final": 16,
+   "best": 1,
+   "fewer": 1
+  },
+  {
+   "form": "ii_eg",
+   "label": "(ii) entangled",
+   "reached": 766,
+   "matches_final": 334,
+   "best": 187,
+   "fewer": 54
+  },
+  {
+   "form": "iii_r",
+   "label": "(iii) restricted",
+   "reached": 761,
+   "matches_final": 760,
+   "best": 321,
+   "fewer": 185
+  },
+  {
+   "form": "iii_f",
+   "label": "(iii) free",
+   "reached": 761,
+   "matches_final": 761,
+   "best": 81,
+   "fewer": 81
+  }
+ ],
+ "totals": {
+  "classes": 766,
+  "fewer": 330,
+  "same": 436,
+  "more": 0,
+  "at_bound": 5,
+  "fewer_by": {
+   "2": 243,
+   "4": 87
+  },
+  "fewer_by_k": {
+   "5": 22,
+   "6": 308
+  },
+  "gap_ge17": 320
+ },
+ "source": "outputs/staged_best.json",
+ "iii_runs": [
+  "v4",
+  "v5",
+  "v6"
+ ]
+}

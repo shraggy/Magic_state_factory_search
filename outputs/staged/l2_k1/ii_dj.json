@@ -1,0 +1,1 @@
+{"L": 2, "k": 1, "pass_": "ii_dj", "settings": {"rmax": 4, "smax": 7}, "seconds": 0.0, "classes": 1, "reached": 1, "new": [], "lowered": {}, "inputs_saved": 0, "best": {"1": {"n": 6, "N": 3, "stage": "i_tg", "gates": [[[1], 1], [[2], 1], [[1, 2], 1], [[0, 1], 1], [[0, 2], 1], [[0, 1, 2], 1]]}}, "rows": [], "steps": null, "specs": {"1": "S0"}}

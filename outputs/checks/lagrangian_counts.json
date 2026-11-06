@@ -1,0 +1,48 @@
+{
+ "script": "searches/check_lagrangian_counts.py",
+ "rows": [
+  {
+   "k": 1,
+   "enumerated": 3,
+   "prod_2i_plus_1": 3,
+   "ok": true,
+   "seconds": 0.0
+  },
+  {
+   "k": 2,
+   "enumerated": 15,
+   "prod_2i_plus_1": 15,
+   "ok": true,
+   "seconds": 0.0
+  },
+  {
+   "k": 3,
+   "enumerated": 135,
+   "prod_2i_plus_1": 135,
+   "ok": true,
+   "seconds": 0.0
+  },
+  {
+   "k": 4,
+   "enumerated": 2295,
+   "prod_2i_plus_1": 2295,
+   "ok": true,
+   "seconds": 0.0
+  },
+  {
+   "k": 5,
+   "enumerated": 75735,
+   "prod_2i_plus_1": 75735,
+   "ok": true,
+   "seconds": 0.9
+  },
+  {
+   "k": 6,
+   "enumerated": 4922775,
+   "prod_2i_plus_1": 4922775,
+   "ok": true,
+   "seconds": 562.6
+  }
+ ],
+ "all_ok": true
+}

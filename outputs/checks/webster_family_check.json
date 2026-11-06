@@ -1,0 +1,15 @@
+{
+ "l=2": {
+  "n": 6,
+  "equal": true
+ },
+ "l=3": {
+  "n": 14,
+  "equal": true
+ },
+ "l=4": {
+  "n": 30,
+  "equal": true
+ },
+ "bh_14_2_2_one_output_kept_equals_14_1_2": true
+}

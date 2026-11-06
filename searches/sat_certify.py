@@ -18,19 +18,37 @@ sys.path.insert(0, HERE)
 from unified_search import cliff_exp, inputs  # noqa: E402
 
 
+def _rlimit_used():
+    """Steps the main z3 context has used so far (its 'rlimit count')."""
+    st = z3.Solver().statistics()
+    return int(st.get_key_value("rlimit count")) if "rlimit count" in st.keys() else 0
+
+
 def poly_coeffs(target):
     return {frozenset(T): c for T, c in target.items()}
 
 
-def certify(target, k, n, L, N_star, time_limit=600.0, max_weight=None, symmetry=True, lex_prefix=64):
-    """Return ('sat', N, gates) with N < N_star, 'unsat', or 'unknown' (timeout)."""
+def certify(target, k, n, L, N_star, time_limit=600.0, max_weight=None, symmetry=True, lex_prefix=64, rlimit=None,
+            output_parts=None):
+    """Return ('sat', N, gates) with N < N_star, 'unsat', or 'unknown' (limit reached).
+    rlimit: z3 resource limit (solver steps) per query. Unlike time_limit it does not depend on the machine or its
+    load, so a run is reproducible anywhere. time_limit=None sets no wall-clock limit; pass it whenever rlimit is
+    given, or the outcome can depend on the machine."""
     mod = 1 << L
     r = n - k
     out = frozenset(range(k))
     supports = [frozenset(S) for w in range(1, n + 1) for S in combinations(range(n), w)
-                if (max_weight is None or w <= max_weight) and not frozenset(S) <= out]
+                if (max_weight is None or w <= max_weight) and not frozenset(S) <= out
+                and (output_parts is None or frozenset(S) & out in output_parts)]
+    # output_parts: allowed output parts of a rotation (App. S4: with the checks fixed, the output parts of a
+    # factory's rotations form a circuit that prepares the target, so they can be drawn from a synthesis of it)
     s = z3.Solver()
-    s.set("timeout", int(time_limit * 1000))
+    if time_limit:
+        s.set("timeout", int(time_limit * 1000))
+    if rlimit:
+        # z3 counts steps per context and the count persists across queries; a limit relative to the current
+        # count gives every query the same budget, so its outcome does not depend on what ran before it
+        s.set("rlimit", int(rlimit) + _rlimit_used())
     c = {S: z3.BitVec("c_" + "_".join(map(str, sorted(S))), L) for S in supports}
     target = poly_coeffs(target)
 

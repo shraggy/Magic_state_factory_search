@@ -1,0 +1,122 @@
+{
+ "old": {
+  "file": "outputs/archive/v4_published/outputs/staged_best.json",
+  "classes": 766,
+  "fewer": 295,
+  "same": 471,
+  "more": 0,
+  "inputs_fewer_total": 694,
+  "fewer_entangled": 283,
+  "fewer_product": 12,
+  "fewer_product_specs": [
+   "CS05,CS14,CS23",
+   "T0,CS34,CCZ012",
+   "T0,T1,T4,CS01,CS03,CS12",
+   "T0,T4,CS01,CS03,CS12",
+   "T4,CS03,CS12",
+   "T4,CS03,CS12,CCZ012,CCZ035",
+   "T4,CS03,CS12,CCZ015,CCZ023,CCZ123",
+   "T4,CS03,CS12,CCZ035,CCZ045",
+   "T4,T5,CS03,CS12,CCZ013,CCZ034",
+   "T4,T5,CS03,CS12,CCZ014,CCZ034",
+   "T4,T5,CS03,CS12,CCZ024,CCZ134",
+   "T4,T5,CS03,CS12,CCZ045"
+  ],
+  "mixed_types": 748,
+  "N_8_or_9": 724,
+  "N_hist": {
+   "4": 3,
+   "5": 2,
+   "6": 8,
+   "7": 24,
+   "8": 115,
+   "9": 609,
+   "10": 5
+  },
+  "gap_ge17_of_761": 355,
+  "on_bound": 5,
+  "iii_r_lowered_below_ii_eg": 326,
+  "iii_r_lowered_and_fewer_than_syn": 139,
+  "iii_f_lowered_below_iii_r": 92,
+  "iii_f_lowered_all_fewer_than_syn": true,
+  "iii_f_lowered_fewer_than_syn": 92,
+  "iii_distinct_lowered": 385,
+  "smallest_on_own_N_by_free_coef": 11,
+  "proofs_N7": 680,
+  "proofs_N6": 83,
+  "examples": {
+   "CCZ156,CCZ234,CS12": [],
+   "CS01,CS23,CS45": [],
+   "CS01,CS23,T4": [],
+   "CCZ015,CCZ234,CS01": []
+  }
+ },
+ "b3": {
+  "file": "outputs/staged_best.json",
+  "classes": 766,
+  "fewer": 330,
+  "same": 436,
+  "more": 0,
+  "inputs_fewer_total": 834,
+  "fewer_entangled": 317,
+  "fewer_product": 13,
+  "fewer_product_specs": [
+   "CS05,CS14,CS23",
+   "T0,CS34,CCZ012",
+   "T0,T1,T4,CS01,CS03,CS12",
+   "T0,T4,CS01,CS03,CS12",
+   "T4,CS03,CS12",
+   "T4,CS03,CS12,CCZ012,CCZ035",
+   "T4,CS03,CS12,CCZ015,CCZ023,CCZ123",
+   "T4,CS03,CS12,CCZ035,CCZ045",
+   "T4,T5,CS03,CS12,CCZ013,CCZ034",
+   "T4,T5,CS03,CS12,CCZ014,CCZ034",
+   "T4,T5,CS03,CS12,CCZ024,CCZ134",
+   "T4,T5,CS03,CS12,CCZ034,CCZ124",
+   "T4,T5,CS03,CS12,CCZ045"
+  ],
+  "mixed_types": 748,
+  "N_8_or_9": 725,
+  "N_hist": {
+   "4": 3,
+   "5": 2,
+   "6": 8,
+   "7": 24,
+   "8": 115,
+   "9": 610,
+   "10": 4
+  },
+  "gap_ge17_of_761": 320,
+  "on_bound": 5,
+  "iii_r_lowered_below_ii_eg": 348,
+  "iii_r_lowered_and_fewer_than_syn": 194,
+  "iii_f_lowered_below_iii_r": 81,
+  "iii_f_lowered_all_fewer_than_syn": true,
+  "iii_f_lowered_fewer_than_syn": 81,
+  "iii_distinct_lowered": 402,
+  "smallest_on_own_N_by_free_coef": 11,
+  "proofs_N7": 680,
+  "proofs_N6": 83,
+  "examples": {
+   "CCZ156,CCZ234,CS12": [],
+   "CS01,CS23,CS45": [],
+   "CS01,CS23,T4": [],
+   "CCZ015,CCZ234,CS01": []
+  }
+ },
+ "old_extra": {
+  "equal_n_same_N": 465,
+  "equal_n_one_more_N": 6
+ },
+ "b3_extra": {
+  "equal_n_same_N": 431,
+  "equal_n_one_more_N": 5,
+  "form_restricted_lowered": 348,
+  "form_restricted_lowered_end_fewer": 212,
+  "form_free_lowered": 92,
+  "form_free_lowered_end_fewer": 92,
+  "form_lowered_union": 402,
+  "form_lowered_both": 38
+ },
+ "note": "entangled = support hypergraph of the class representative's gates is connected on all k outputs; pass counts are differences of consecutive cumulative pass files (for b3 see the limits in build_staged_best3.py)"
+}

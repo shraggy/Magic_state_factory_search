@@ -1,0 +1,1 @@
+{"L": 3, "k": 5, "chunk": [22, 65], "var": "bool:w5:d600", "classes": ["39422"], "host": "cccxc623", "per_class": {"39422": {"seconds": 823.3, "seed": 22, "steps": [{"N": 6, "status": "INFEASIBLE", "n": null}, {"N": 7, "status": "INFEASIBLE", "n": null}, {"N": 8, "status": "UNKNOWN", "n": null}]}}, "results": []}

@@ -1,0 +1,1 @@
+{"spec": "CS05,CS14,CS23,CCZ014,CCZ034,CCZ125", "best": null, "steps": [{"N": 7, "queries": 3, "last": "unsat", "seconds": 0.63}, {"N": 8, "queries": 3, "last": "unknown", "seconds": 1534.1}, {"N": 9, "queries": 3, "last": "unknown", "seconds": 1928.85}], "seconds": 3463.58, "orbit": "41984:4228", "cap": 28}

@@ -1,0 +1,42 @@
+{
+ "two-group": {
+  "reached": 13,
+  "best_first": 9,
+  "best_unique": 0,
+  "wins_first": 0,
+  "wins_unique": 0
+ },
+ "gluing": {
+  "reached": 18,
+  "best_first": 15,
+  "best_unique": 0,
+  "wins_first": 2,
+  "wins_unique": 0
+ },
+ "entangled-gluing": {
+  "reached": 766,
+  "best_first": 425,
+  "best_unique": 62,
+  "wins_first": 76,
+  "wins_unique": 62
+ },
+ "restricted-SAT": {
+  "reached": 675,
+  "best_first": 301,
+  "best_unique": 283,
+  "wins_first": 23,
+  "wins_unique": 22
+ },
+ "unrestricted-SAT": {
+  "reached": 742,
+  "best_first": 16,
+  "best_unique": 16,
+  "wins_first": 16,
+  "wins_unique": 16
+ },
+ "total": {
+  "classes": 766,
+  "wins": 117,
+  "at_bound": 5
+ }
+}

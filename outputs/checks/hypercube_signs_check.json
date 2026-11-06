@@ -1,0 +1,58 @@
+{
+ "2": {
+  "all+1": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": false
+  },
+  "alt": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": true
+  },
+  "T_free_old_lattice": false,
+  "T_free_true": false
+ },
+ "3": {
+  "all+1": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": false
+  },
+  "alt": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": true
+  },
+  "T_free_old_lattice": false,
+  "T_free_true": false
+ },
+ "4": {
+  "all+1": {
+   "free_true": false,
+   "free_old_lattice": true,
+   "exact": false
+  },
+  "alt": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": true
+  },
+  "T_free_old_lattice": true,
+  "T_free_true": false
+ },
+ "5": {
+  "all+1": {
+   "free_true": false,
+   "free_old_lattice": true,
+   "exact": false
+  },
+  "alt": {
+   "free_true": true,
+   "free_old_lattice": true,
+   "exact": true
+  },
+  "T_free_old_lattice": true,
+  "T_free_true": false
+ }
+}

@@ -1,132 +1,85 @@
 # Outputs
 
-## The catalogues
+Result files of the search and of the checks behind the paper. `n` is the number of input magic states, `N` the number
+of circuit qubits and `k` the number of outputs, as in `[[n,k,2]]`. Every factory here has distance at least 2, is built
+from `Z(pi/2^l)` parity rotations only, and was verified against the borrowed-identity condition. Every number quoted
+below was read from the file named on the same line.
 
-Two tables hold every factory. Every Quirk link is drawn the same way, using only multi-qubit `Z(pi/2^l)`
-parity rotations (no CNOTs or controlled gates): all qubits start in `|0>` and get `H`; each factory gate is one
-parity rotation; the Clifford corrections, also written as parity rotations, return the checks to `|+>` (first
-row of Bloch spheres); then the output decomposition is undone and a final `H` returns every qubit to `|0>`
-(second row of Bloch spheres).
+## Sweep A: the staged cascade on every cell with a class list
 
-| file | rows | what it lists |
+| path | from | contents |
 |---|---|---|
-| `smallest_per_class.csv` | 186 | the **smallest factory for each output class** (Clifford-reduced decomposition, per `k`), at `l=2,3,4`, with Quirk links. These are the factories quoted in the paper; the paper's Tables SII(a-c) give representatives. |
-| `all_factories.csv` | 1,564 | **every distinct factory**: the 591 the search finds (`search_stage` two-group, gluing or SAT) and 973 Clifford-padded variants (`search_stage = padding`), all `n`, at `l=2,3,4`, **without** the Quirk column so it opens directly on GitHub. |
-| `all_factories_with_quirk.csv.zip` | 1,564 | the same table **with** a Quirk link per row (about 70 MB unzipped, 1.8 MB zipped). |
-| `search_timing.json` | | wall-clock seconds of every stage, and the parameters of the run |
-| `literature_refs.json` | | literature references for the paper's table rows, keyed `l,k,n,N`; fills the `reference` column |
+| `staged_A/l{L}_k{k}/` (`l=3, k=5,6`; `l=4, k=4`) | `searches/staged_class.py` | the large cells, one task per class: `cell/` (sweeps), `cls/` (per-class passes, every factory found with its stage, `n`, `N`, gates, CPU seconds), `free_<form>/` (free SAT per form), and the merged pass files `i_tg.json ... iii_f.json` |
+| `staged_pc/l3_k{1..4}/` | `searches/staged_class.py` | the same for `l=3, k<=4` |
+| `staged_final_b3/l3_k{1..6}/` | `searches/build_staged_best3.py` | the `l=3` cells as the paper uses them: stages (i)-(ii) of sweep A, stage (iii) (`iii_r`, `iii_f`) per class the best of the three deterministic runs `solver_v2/staged_A_v4`, `_v5`, `_v6`; `attribution.json` (per class: run, layer, form), `forms.json` (per run and layer); `summary.json` (credit per form, its dependence on the tie-break between runs) |
+| `staged_final/l3_k{1..6}/` | `searches/build_staged_final.py` | the earlier `l=3` cells with stage (iii) from `staged_A_v4` alone (the v4-only pipeline; its derived outputs are in `archive/v4_published/`) |
+| `solver_v2/` | `searches/xor_*.py`, `chain_iii*.py` | stage-(iii) runs: `staged_A_v4`, `staged_A_v5`, `staged_A_v6` (the three deterministic runs whose per-class best is the final pipeline), earlier history-dependent runs `staged_A_v2`, `staged_A_v3`, coverage runs `cov/`, the synthillation recheck `optB_strongest*`; `REPORT.md` |
+| `outside_pipeline/` | `searches/outside_pipeline.py` | 4 smaller verified factories the pipeline does not reproduce (1 from an earlier run, 35 with the v4-only pipeline; 3 from the arm64 Test A), with how each was obtained (README) |
+| `staged_l4fix/l4_k3/`, `staged_small/l{2,4}_k*/` | `searches/staged.py` | `l=4, k=3`; `l=2, k<=6`; `l=4, k<=2` (one process per cell) |
+| `staged_*/_cache/` | `searches/cascade_class.py` | pickled exact class tables (gitignored; rebuilt on first use, up to ~1 h for `l=3, k=6` and `l=4, k=4`) |
+| `archive/v4_published/` | copies | the outputs of the v4-only pipeline that the per-class best of v4, v5, v6 replaced (README there) |
+| `staged_best.json` | `searches/staged_best.py` | **the smallest factory found for each of the 4,942 classes** (`l=3` from `staged_final_b3`) (`l=2`: 9, `l=3`: 766, `l=4`: 4,167), re-verified, with gates, exact `Z(pi/2^l)`-count `tau`, synthillation `n` at `l=3`, `c`, final stage and the first stage reaching its `n` |
+| `staged_A/compare_l3.json` | `searches/staged_compare.py` | per class against every earlier run: `l=3, k=5`: 57 equal, 7 better, 1 worse of 65; `k=6`: 605 equal, 66 better, 8 worse of 679 |
+| `staged_A_rerun/` | `searches/rerun_A_tasks.py` | rerun of the classes a limit may have touched; not merged (the verified smaller factories are in `outside_pipeline/`) |
+| `earlier_catalogues/` | earlier scripts (now in `trash/`) | the `l=3` catalogue and CSVs before sweep A, kept because they record the classes where an earlier SAT run is still smaller |
 
-`n` is always the number of input magic states and `N` the number of circuit qubits, as in the paper's `[[n,k,d]]`.
+Each pass file has `settings`, `seconds` (CPU seconds summed over tasks when `seconds_are_cpu_sum`), `classes`, `reached`,
+`new`, `lowered`, `inputs_saved`, and `best` (per class: `n`, `N`, `stage`, `gates`).
 
-### Clifford-equivalent factories are listed separately
+## Catalogues (from `staged_best.json`)
 
-In `all_factories.csv`, factories whose outputs are equivalent up to a Clifford circuit share the same
-`clifford_class` label (e.g. `L3-007`), and the file is sorted so that each class is contiguous. They are
-still **listed as separate rows**, because they are different factories: different `n`, `k` or circuit
-size `N`, and different output gates. Two columns tell them apart:
-
-- `raw` is the gate the factory actually deposits on its outputs; `reduced` is its Clifford-reduced class.
-- `clifford_padded = yes` means the output is Clifford-equivalent to a state on fewer than `k` qubits
-  (it delivers the same magic as a smaller factory, on more wires).
-
-A padded factory adds no distillation power: the smaller factory followed by a CNOT circuit does the same.
-It is worth having where that CNOT circuit is expensive, for instance in architectures where logical
-Clifford gates are synthesized from multi-step Pauli measurements (such as bivariate-bicycle codes). There
-the padded factory delivers the target state directly, spending only magic-state inputs it needs anyway. For
-that reason no Clifford-equivalent factory is dropped from `all_factories.csv`.
-
-Every row is distance `d=2` (the distance-3 Reed-Muller factories are not swept here), built only from
-`Z(pi/2^l)` parity rotations, and re-verified by brute-force simulation of its phase table.
-
-### How the files were generated (and how to regenerate them for any range)
-
-One command runs the search and writes **both** files, each row with its search stage and Quirk link, plus
-`search_timing.json` with the wall-clock time of every stage:
-
-```
-python3 searches/unified_search.py --levels 2 3 4 --kmax 6 --nmax 11 --rmax 4 --relabel 4 --sat --sat-time 60
-```
-
-Change any parameter and the same two CSVs are produced for that range (use `--out-dir` to keep them apart
-from the published ones). `--levels` picks `l`; `--kmax` the number of outputs; `--nmax` the circuit size in
-the two-group stage; `--rmax` the check qubits in the gluing stage; `--relabel` the extra output wires
-added by Clifford padding; `--sat` adds the optional SAT stage.
-
-The stages: (i) two-group circuits (`Two_group.py`, `s_total, s_O <= 7`; all signs `+1` at `l<=3`, every
-check-only sign pattern at `l=4`); (ii) shared-check gluing, output blocks sharing one check register
-(`symfree_search.py`'s 2-adic linear solve); (iii) Clifford padding, CNOT relabeling of the output block at
-the same `N`; (iv) optional SAT. Classifying each output (Clifford class, distance, z-count) is bookkeeping,
-timed separately in `search_timing.json`, and is not needed to find a factory.
-
-## Columns
-
-| column | meaning |
-|---|---|
-| `clifford_class` | output class label, e.g. `L3-007`; rows sharing it have Clifford-equivalent outputs |
-| `l`, `k`, `n`, `N`, `d` | level, output qubits, input magic states, circuit qubits, distance |
-| `search_stage` | the stage that found the factory: `two-group`, `gluing` (shared-check gluing), `padding` (Clifford padding) or `SAT` |
-| `padded_from` | for `padding` rows, the stage of the circuit that was relabeled (`two-group` or `gluing`) |
-| | for `padding` rows, `reduced`, `zcount` and `essential_dim` are those of the circuit that was relabeled: a CNOT relabeling preserves the Clifford class, and the parent's smaller frame is searched exactly. `raw` is the gate the padded factory itself deposits. |
-| `params` | stage parameters (`s_total,s_O` for two-group; block partition for gluing; target for SAT) |
-| `reduced` | the output up to Clifford equivalence, as a product of generators |
-| `raw` | the gate the circuit actually deposits on its outputs |
-| `zcount` | exact minimal number of `Z(pi/2^l)` rotations to prepare the output unitarily (blank where not computed) |
-| `essential_dim` | output qubits carrying genuine content after Clifford reduction |
-| `clifford_padded` | `yes` when `essential_dim < k` |
-| `masks` | for `padding` rows, the CNOT relabeling (one bit-mask per new output wire) |
-| `reference` | prior construction of the same factory, for the rows in the paper's tables (blank = none known to us) |
-| `quirk` | Quirk link of the circuit, drawn as described above (in `all_factories.csv` only inside the zip) |
-
-## Other files
-
-| file | from | what it is |
+| file | from | contents |
 |---|---|---|
-| `l3_k78_targets.csv` | `searches/large_k_sweep.py` | shared-check gluing for every `l=3` target on `k=7,8` outputs |
-| `landscape_l3.json`, `landscape_l4.json` | `searches/synthillation_compare.py` | per-target comparison with distilling parts separately and with synthillation (Fig. 1) |
-| `large_sweep.csv` | `searches/large_sweep.py` | two-group stage up to `N=16` circuit qubits, `k<=8`: 1,453 verified factories, one per `(l, k, n)`, `n` up to 65,534 (about 2.5 h) |
-| `large_sweep_with_quirk.csv.zip` | `searches/large_sweep.py` | the same table with Quirk links for circuits of up to 14 qubits |
-| `large_unified_factories.csv` | `searches/large_unified.py` + `merge_large_unified.py` | the unified search over a larger range: every distinct factory, `l=2,3,4`, no Quirk links (see "Larger unified search" below) |
-| `large_unified_factories_l3.csv` | same | the `l=3` rows alone |
-| `large_unified_with_quirk.csv.zip`, `large_unified_l{2,3,4}_with_quirk.csv.zip` | same | the same rows with a Quirk link for every circuit of up to 14 qubits |
-| `large_unified_smallest.csv` | same | the smallest factory for each output class, with its search stage and Quirk link |
-| `large_unified_l{2,3,4}_circuits.txt.zip` | same | explicit gate lists (see below) |
-| `stage_scaling.json` | `searches/stage_scaling.py` | wall-clock seconds of each stage at `l=3` for `k_max` in {4,6,8} and `N_max` from 6 to 16, with the number of factories per stage (Fig. S2) |
-| `error_coefficients.json` | `searches/error_coefficients.py` | for each Fig. 1 target: our `n` and output-error coefficient `c`, and those of the cheapest prior construction, with how it is built (Fig. 1) |
+| `smallest_per_class.csv.zip` | `searches/export_csv.py` | one row per class (4,942), the earlier column layout plus a Quirk link (`clifford_class = L{l}-k{k}-{class}`; padding columns empty) |
+| `all_factories.csv`, `all_factories_with_quirk.csv.zip` | same | the same rows without and with the Quirk column |
+| `l3_catalogue_k6.csv` | same | the 766 `l=3` rows: `k, spec, tcount, n, N, c, source, syn_strongest_n, gates, quirk, verified` |
 
-## Larger unified search
+Every Quirk link contains exactly its factory: 4,942 of 4,942 (`checks/quirk_check.json`). All 4,942 circuits have
+`N <= 14`, so every row has a link.
 
-`searches/large_unified.py` runs the two search stages (two-group and shared-check gluing; no Clifford padding)
-over a larger range, one `(l, k)` slice per process, resumable after an interruption:
+## Per-class tables at l=3
 
-| level | outputs `k` | circuit qubits `N` | stages |
-|---|---|---|---|
-| `l=2`, `l=3` | `k<=9` | `N<=18` | two-group + gluing |
-| `l=2`, `l=3` | `k=10..12` | `N<=18` | two-group only |
-| `l=4` | `k<=8` | `N<=16` | two-group + gluing |
+| file | from | contents |
+|---|---|---|
+| `class_table_l3.json` | `searches/class_table_l3.py` | per class: exact T-count, `mu`, staged `n`, synthillation with optimal matrices |
+| `synthillation_strongest_l3.json` | `searches/synthillation_strongest.py` | per class, every synthillation variant on its Table I case, checked, and the smallest valid one; valid for all 766 |
+| `stage_contributions_l3.json` | `searches/stage_contributions.py` | Table I, and totals: fewer than synthillation on 330 of 766 (243 by two, 87 by four), same on 436, more on 0; 5 at the bound (295, 52, 471 with stage (iii) from v4 alone) |
+| `checks/text_counts.json` | `searches/text_counts.py` | prose counts no other script writes: entangled / product classes among the fewer-than-synthillation ones, `N=8,9`, gap >= 17, equal `n` with equal `N`, per-form lowerings of stage (iii); `old` = archived v4-only build, `b3` = current |
+| `nullity_l3.json` | `searches/nullity_l3.py` | stabilizer nullity per class (`nu = k` for 766 of 766) and the bound on conversion routes (beaten on 1) |
+| `entangled_gluing_l3.json`, `entangled_gluing_l4_k*.json` | `searches/entangled_gluing.py`, `entangled_gluing_l4.py` | gluing on entangled support run on its own; the `l=4` files supply `tau` to `staged.py` |
+| `pattern_sat/`, `pattern_sat_local/`, `synthesis_sat/`, `cascade/`, `cascade_main_v3/`, `cascade_v4/` | earlier runs of the same stages | the reference runs that `staged_compare.py` compares sweep A against |
 
-Gluing stops at `k=9` (at `l=4`, `k=8`) because its linear solve grows exponentially with `k`; the two-group
-stage could be run further. Every factory is verified with the monomial form of the borrowed-identity condition
-(polynomial in `N`, and identical to brute-force evaluation of the phase table on every circuit tested). The
-`stages_run` column says which stages ran for that row's `k`, and `search_stage` which one found it.
+## Class lists and the regimes beyond them
 
-The output class (`reduced`) is exact for `k<=4`. For `5<=k<=10` it is the best of 4,000 random CNOT frames, an
-upper bound (`frame_exact = False`); for `k>=11` no frame search is done and the class is the output as
-deposited. Two rows with different labels at `k>=5` may therefore still be Clifford-equivalent.
+| path | from | contents |
+|---|---|---|
+| `targets/l{L}_k{k}.json`, `target_classes_l{2,3,4}.json` | `searches/enumerate_targets*.py`, `searches/target_classes.py` | one representative per class; class counts (`l=3`: 1, 2, 6, 13, 65, 679; `l=4`: 2, 8, 75, 4,082; `l=2`: 1, 2, 1, 2, 1, 2) |
+| `k7_candidates/`, `k8_candidates/` | `searches/k7_candidates.py` (`best.json`, `exact2_20_22.json` inline) | CCZ-layer candidates at `k=7, 8`, among the targets of `k78_pipeline/targets_all.json` |
+| `large_unified/`, `large_unified_*` | `searches/large_unified.py`, `merge_large_unified.py` | the wider range: the cheap forms of stages (i) and (ii) (two-group, disjoint gluing), to `N=18` (`l=4`: 16) |
+| `staged_B/` | `searches/b_stage_i.py` | stage (i) at `l=3`, `k=7..9`, one file per combination (`k=8,9` partial) |
+| `k78_pipeline/` | `searches/k789_ii_dj.py`, `k78_*.py` | stage (ii) disjoint gluing at `k=7..9`; the cascade on a target list of `CCZ` layers at `k=7, 8` (`full/`, `all_isd/`, `REPORT.md`) |
+| `beyond_class_lists_with_quirk.csv.zip` | `searches/export_beyond_csv.py` | every factory of the regimes beyond the class lists, with Quirk links (7,832 rows) |
+| `literature_refs.json` | `searches/unified_search.py` | literature references keyed `l,k,n,N` (read by `unified_search.py`) |
 
-**Quirk links and gate lists for large circuits.** A Quirk link holds one column per rotation, so a large circuit
-gives a URL of megabytes that Quirk cannot display: the 18-qubit factories have up to 88,063 rotations. Quirk
-links are therefore given for every circuit of up to 14 qubits. The gate-list files
-`large_unified_l{2,3,4}_circuits.txt.zip` store every gluing circuit and every two-group circuit of up to 14
-qubits, one block per row: a `#` line with the row's parameters, then one line `q,q,...:c` per rotation,
-meaning `Z(c*pi/2^l)` on those qubits (outputs are qubits `0..k-1`). Larger two-group circuits are not stored:
-they are fixed by `(k, N, s_total, s_O)`, which are in the `k`, `N` and `params` columns, and are regenerated
-exactly by
+## Checks (`checks/`)
 
-```python
-import sys; sys.path.insert(0, "searches")
-from merge_large_unified import regenerate_circuit
-gates = regenerate_circuit(l=3, k=6, N=18, params="s_total=2,s_O=3")   # list of (support, coefficient)
-```
+| file | from | contents |
+|---|---|---|
+| `check_A/` | `searches/check_A.py` | after-A check of sweep A's own files (`staged_A`: `l=3`, `k=5,6`; `l=4`, `k=4`): 4,826 of 4,826 pass, 4,819 also by brute force; the final `l=3` stage (iii) is checked by `searches/check_A2.py` in `solver_v2/staged_A_v4/checks/`: 766 of 766, 761 by brute force |
+| `quirk_check.json` | `searches/quirk_check.py` | 4,942 of 4,942 Quirk links contain exactly their factory |
+| `stage_table.json`, `.tex` | `searches/stage_contributions.py` | Table SII |
+| `table_sv.json`, `.tex` | `searches/table_sv.py` | Tables SIV(a-c), 70 rows, each re-verified |
+| `families_table.json` | `searches/families_table.py` | Table SI: 9 families, 48 members |
+| `lostv1_checks.json` | `searches/lostv1_checks.py` (+ `searches/lostv1/*.py`) | first-submission material restored in the SM: v1 Table V entries re-verified (21 of 21), $(2,k-1)$ family 16 of 16, C^{l-1}Z family 16/15/12 of 16/15/12, six-qubit parent cuts, padded [[8,4,2]], [[8,3,2]] output phase, small-N brute force, even weights, relabelling, symmetric distance (244 of 244), CCZ Clifford orbit, catalyst split |
+| `v1_two_group_sweep.json` | `searches/v1_two_group_sweep.py` | v1 two-group sweep statistics quoted in the response letter: 7,203 tuples, 107,940 sign patterns, 21,920 valid, 689 groups, 535 non-trivial |
+| `catalytic_check.json` | `searches/catalytic_check.py` | `[[10,2,2]]` and `[[11,1,2]]` by statevector simulation; `[[10,2,2]]` output error `9p^2` per output, `13p^2` joint |
+| `syn_c_compare.json` | `searches/syn_c_compare.py` | `n`, `c` of the factory and of every valid synthillation variant, per `l=3` class |
+| `clifford_correction.json` | `searches/clifford_correction.py` | the free diagonal gate `D` each factory leaves on checks and outputs, per level |
+| `route_compare_l3.json` | `searches/route_compare_l3.py` | distil-then-synthesize routes (`4 tau` catalysed; per-gate teleportation) against the factory |
+| `k78_class_count.json` | `searches/k78_class_count.py` | Burnside count of `CCZ`-layer classes at `k<=8`; fingerprints of the `k=7,8` target list |
+| `class_invariants_l3.json` | `searches/class_invariants_l3.py` | per `l=3` class: single gate type, product on disjoint qubits |
+| `closed_forms.json`, `two_group_check.json`, `two_group_distance.json`, `sequential_check.json`, `bi_condition_check.json`, `catalogue_bound_check.json`, `syndrome_rank_check.json`, `best_symmetry_l3.json`, `orbit_group_l3.json` | the scripts of the same names | the condition and distance checks of the paper (see the root README table) |
 
-At `l=4`, where the two-group stage enumerates sign patterns, one pattern is kept per circuit: signs only change
-rotations on the check qubits, and every valid pattern was checked to give the same output and input count.
+Large circuits: the `large_unified_l{2,3,4}_circuits.txt.zip` files hold gate lists (`q,q,...:c` means `Z(c*pi/2^l)` on
+those qubits); two-group circuits are fixed by `(k, N, s_total, s_O)` and rebuilt exactly by
+`merge_large_unified.regenerate_circuit(l, k, N, params)`.

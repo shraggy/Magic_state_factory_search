@@ -1,0 +1,1 @@
+{"L": 3, "k": 5, "chunk": [10, 65], "classes": ["1888"], "host": "cccxc552", "per_class": {"1888": {"seconds": 5280.0, "seed": 22, "log": [[6, 22, "unsat"], [7, 22, "unsat"], [8, 22, "unknown"]]}}, "results": []}

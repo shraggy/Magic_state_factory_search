@@ -1,0 +1,1 @@
+{"k": 6, "spec": "T4,CS03,CS12,CCZ012,CCZ024,CCZ035,CCZ134", "orbit": "2320:8481", "cap": 32, "rlimit": 3000000000, "best": null, "log": [[7, 32, "unsat"], [8, 32, "unsat"], [9, 32, "unknown"]]}

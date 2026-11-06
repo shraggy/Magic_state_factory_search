@@ -1,0 +1,99 @@
+{
+ "odd_parent_rotations": 16,
+ "odd_parent_distinct_phases": 1,
+ "odd_parent_cuts": {
+  "[[8,4]]": {
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 2,
+   "reduced": "\\mathrm{CCZ}_{123}",
+   "zcount": 7
+  },
+  "[[12,3]]": {
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 2,
+   "reduced": "\\mathrm{CS}_{12}\\mathrm{CS}_{13}",
+   "zcount": 4
+  },
+  "[[14,2]]": {
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 2,
+   "reduced": "\\mathrm{T}_{1}\\mathrm{T}_{2}",
+   "zcount": 2
+  },
+  "[[15,1]]": {
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 3,
+   "reduced": "\\mathrm{T}_{1}",
+   "zcount": 1
+  }
+ },
+ "out12_equals_Tdag2_Tdag3_Tdag4_Tdag234": true,
+ "staged_best_CS01,CS02": {
+  "n": 12,
+  "tau": 4,
+  "k": 3
+ },
+ "catalytic_split_gives_T^3": true,
+ "parity_T234_then_S_gives_T^3": true,
+ "parity_T234_alone_gives_Tdag^3": true,
+ "n_single_qubit_cliffords": 24,
+ "842_reduction_deterministic": {
+  "I": {
+   "accept": 1.0,
+   "equals_out12": false,
+   "equals_conj_out12": false
+  },
+  "HSH": {
+   "accept": 1.0,
+   "equals_out12": false,
+   "equals_conj_out12": true
+  },
+  "SHS": {
+   "accept": 1.0,
+   "equals_out12": true,
+   "equals_conj_out12": false
+  },
+  "HSSH": {
+   "accept": 1.0,
+   "equals_out12": false,
+   "equals_conj_out12": false
+  }
+ },
+ "842_to_out12_named": {
+  "sqrtX": {
+   "accept": 1.0,
+   "equals_out12": false,
+   "then_split_gives_T3": false
+  },
+  "sqrtX_dag": {
+   "accept": 1.0,
+   "equals_out12": true,
+   "then_split_gives_T3": true
+  }
+ },
+ "six_distinct_phases": 4,
+ "six_full_is_BI_brute": false,
+ "six_cuts": {
+  "[0]": {
+   "n": 8,
+   "k": 5,
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 2,
+   "reduced": "\\mathrm{CCZ}_{135}"
+  },
+  "[0, 1, 2]": {
+   "n": 12,
+   "k": 3,
+   "accept_prob": 1.0,
+   "is_factory_brute": true,
+   "d": 2,
+   "reduced": "\\mathrm{CS}_{12}\\mathrm{CS}_{13}",
+   "output_equals_odd_parent_12_3_2_output": true
+  }
+ }
+}

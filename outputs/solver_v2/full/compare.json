@@ -1,0 +1,426 @@
+{
+ "k5/xor_x_w5_c2e5": {
+  "classes_done": 65,
+  "searched": 64,
+  "skipped": 1,
+  "cpu_seconds": 800.8,
+  "cpsat_bool_seconds_same_classes": 62651.7,
+  "z3_coef_seconds_same_classes": 551784.6,
+  "max_class_seconds": 25.04,
+  "lowered": 2,
+  "equal": 2,
+  "final_above_ref": 1,
+  "final_above_ref_list": {
+   "1893": [
+    26,
+    28
+   ]
+  },
+  "seed_above_ref_not_recovered": 1,
+  "lowered_list": {
+   "1863": [
+    28,
+    26,
+    8
+   ],
+   "7100": [
+    30,
+    28,
+    8
+   ]
+  }
+ },
+ "k5/xor_x_w5_c2e6": {
+  "classes_done": 26,
+  "searched": 25,
+  "skipped": 1,
+  "cpu_seconds": 3274.7,
+  "cpsat_bool_seconds_same_classes": 24398.7,
+  "z3_coef_seconds_same_classes": 219798.4,
+  "max_class_seconds": 175.72,
+  "lowered": 0,
+  "equal": 1,
+  "final_above_ref": 0,
+  "final_above_ref_list": {},
+  "seed_above_ref_not_recovered": 0,
+  "lowered_list": {}
+ },
+ "k5/xor_x_w6_c2e5": {
+  "classes_done": 65,
+  "searched": 64,
+  "skipped": 1,
+  "cpu_seconds": 852.5,
+  "cpsat_bool_seconds_same_classes": 62651.7,
+  "z3_coef_seconds_same_classes": 551784.6,
+  "max_class_seconds": 30.17,
+  "lowered": 1,
+  "equal": 2,
+  "final_above_ref": 1,
+  "final_above_ref_list": {
+   "1893": [
+    26,
+    28
+   ]
+  },
+  "seed_above_ref_not_recovered": 1,
+  "lowered_list": {
+   "1892": [
+    28,
+    26,
+    8
+   ]
+  }
+ },
+ "k5/xor_x_w6_c2e6": {
+  "classes_done": 10,
+  "searched": 9,
+  "skipped": 1,
+  "cpu_seconds": 1317.1,
+  "cpsat_bool_seconds_same_classes": 8593.0,
+  "z3_coef_seconds_same_classes": 69616.0,
+  "max_class_seconds": 221.47,
+  "lowered": 0,
+  "equal": 0,
+  "final_above_ref": 0,
+  "final_above_ref_list": {},
+  "seed_above_ref_not_recovered": 0,
+  "lowered_list": {}
+ },
+ "k5/xor_x_wNone_c2e5": {
+  "classes_done": 65,
+  "searched": 64,
+  "skipped": 1,
+  "cpu_seconds": 852.6,
+  "cpsat_bool_seconds_same_classes": 62651.7,
+  "z3_coef_seconds_same_classes": 551784.6,
+  "max_class_seconds": 21.74,
+  "lowered": 0,
+  "equal": 1,
+  "final_above_ref": 2,
+  "final_above_ref_list": {
+   "1893": [
+    26,
+    28
+   ],
+   "7071": [
+    28,
+    30
+   ]
+  },
+  "seed_above_ref_not_recovered": 2,
+  "lowered_list": {}
+ },
+ "k6/xor_x_w5_c2e5": {
+  "classes_done": 679,
+  "searched": 676,
+  "skipped": 3,
+  "cpu_seconds": 11392.9,
+  "cpsat_bool_seconds_same_classes": 656648.9,
+  "z3_coef_seconds_same_classes": 4920180.3,
+  "max_class_seconds": 89.41,
+  "lowered": 26,
+  "equal": 10,
+  "final_above_ref": 2,
+  "final_above_ref_list": {
+   "41984:4150": [
+    26,
+    28
+   ],
+   "41984:5": [
+    24,
+    26
+   ]
+  },
+  "seed_above_ref_not_recovered": 2,
+  "lowered_list": {
+   "2320:10048": [
+    32,
+    30,
+    9
+   ],
+   "2320:12816": [
+    34,
+    32,
+    9
+   ],
+   "2320:12864": [
+    34,
+    32,
+    9
+   ],
+   "2320:13120": [
+    34,
+    32,
+    9
+   ],
+   "2320:17008": [
+    32,
+    30,
+    9
+   ],
+   "2320:19232": [
+    34,
+    32,
+    9
+   ],
+   "2320:261": [
+    30,
+    28,
+    9
+   ],
+   "2320:3224": [
+    32,
+    30,
+    9
+   ],
+   "2320:3240": [
+    34,
+    32,
+    9
+   ],
+   "2320:82440": [
+    34,
+    32,
+    9
+   ],
+   "2320:82441": [
+    34,
+    32,
+    9
+   ],
+   "2320:82457": [
+    34,
+    32,
+    9
+   ],
+   "2320:8512": [
+    32,
+    30,
+    9
+   ],
+   "2320:8977": [
+    34,
+    32,
+    9
+   ],
+   "2352:12": [
+    32,
+    30,
+    9
+   ],
+   "2352:130": [
+    30,
+    28,
+    9
+   ],
+   "2352:1556": [
+    32,
+    30,
+    9
+   ],
+   "2352:2433": [
+    30,
+    28,
+    9
+   ],
+   "2352:3348": [
+    34,
+    32,
+    9
+   ],
+   "2352:3714": [
+    32,
+    30,
+    9
+   ],
+   "2352:8689": [
+    34,
+    32,
+    9
+   ],
+   "2352:8944": [
+    34,
+    32,
+    9
+   ],
+   "2352:8976": [
+    34,
+    32,
+    9
+   ],
+   "2352:9880": [
+    34,
+    30,
+    9
+   ],
+   "68:1064": [
+    28,
+    26,
+    9
+   ],
+   "76:10560": [
+    30,
+    28,
+    9
+   ]
+  }
+ },
+ "k6/xor_x_w5_c2e6": {
+  "classes_done": 23,
+  "searched": 20,
+  "skipped": 3,
+  "cpu_seconds": 2863.1,
+  "cpsat_bool_seconds_same_classes": 17278.9,
+  "z3_coef_seconds_same_classes": 150604.0,
+  "max_class_seconds": 178.06,
+  "lowered": 1,
+  "equal": 0,
+  "final_above_ref": 0,
+  "final_above_ref_list": {},
+  "seed_above_ref_not_recovered": 0,
+  "lowered_list": {
+   "2352:385": [
+    30,
+    28,
+    9
+   ]
+  }
+ },
+ "k6/xor_x_w6_c2e5": {
+  "classes_done": 679,
+  "searched": 676,
+  "skipped": 3,
+  "cpu_seconds": 14619.3,
+  "cpsat_bool_seconds_same_classes": 656648.9,
+  "z3_coef_seconds_same_classes": 4920180.3,
+  "max_class_seconds": 184.54,
+  "lowered": 5,
+  "equal": 5,
+  "final_above_ref": 6,
+  "final_above_ref_list": {
+   "2304:40": [
+    24,
+    26
+   ],
+   "41984:1": [
+    24,
+    26
+   ],
+   "41984:34386": [
+    26,
+    28
+   ],
+   "41984:4150": [
+    26,
+    28
+   ],
+   "41984:5": [
+    24,
+    26
+   ],
+   "41984:54": [
+    26,
+    28
+   ]
+  },
+  "seed_above_ref_not_recovered": 6,
+  "lowered_list": {
+   "2320:13120": [
+    34,
+    32,
+    9
+   ],
+   "2320:4356": [
+    30,
+    28,
+    9
+   ],
+   "2320:8512": [
+    32,
+    30,
+    9
+   ],
+   "41984:38": [
+    26,
+    24,
+    8
+   ],
+   "68:65730": [
+    30,
+    28,
+    9
+   ]
+  }
+ },
+ "k6/xor_x_w6_c2e6": {
+  "classes_done": 4,
+  "searched": 3,
+  "skipped": 1,
+  "cpu_seconds": 431.4,
+  "cpsat_bool_seconds_same_classes": 2682.5,
+  "z3_coef_seconds_same_classes": 24425.1,
+  "max_class_seconds": 144.86,
+  "lowered": 0,
+  "equal": 0,
+  "final_above_ref": 0,
+  "final_above_ref_list": {},
+  "seed_above_ref_not_recovered": 0,
+  "lowered_list": {}
+ },
+ "k6/xor_x_wNone_c2e5": {
+  "classes_done": 679,
+  "searched": 676,
+  "skipped": 3,
+  "cpu_seconds": 17034.7,
+  "cpsat_bool_seconds_same_classes": 656648.9,
+  "z3_coef_seconds_same_classes": 4920180.3,
+  "max_class_seconds": 62.2,
+  "lowered": 3,
+  "equal": 6,
+  "final_above_ref": 6,
+  "final_above_ref_list": {
+   "2304:1064": [
+    24,
+    26
+   ],
+   "2304:136": [
+    22,
+    24
+   ],
+   "2304:40": [
+    24,
+    26
+   ],
+   "41984:1": [
+    24,
+    26
+   ],
+   "41984:38": [
+    26,
+    28
+   ],
+   "41984:4150": [
+    26,
+    28
+   ]
+  },
+  "seed_above_ref_not_recovered": 6,
+  "lowered_list": {
+   "2304:2216": [
+    26,
+    24,
+    8
+   ],
+   "2320:4872": [
+    32,
+    30,
+    9
+   ],
+   "2320:8360": [
+    34,
+    32,
+    9
+   ]
+  }
+ }
+}

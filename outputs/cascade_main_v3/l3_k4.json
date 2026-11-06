@@ -1,0 +1,645 @@
+{
+ "summary": {
+  "l": 3,
+  "k": 4,
+  "classes": 13,
+  "reached_i_ii": 5,
+  "reached_iip": 13,
+  "reached_iv": 13,
+  "v_new": 0,
+  "v_smaller": 0,
+  "reached_total": 13,
+  "seconds": {
+   "iii_enumerate": 0.2,
+   "verification": 0.2,
+   "classification": 0.0,
+   "i_two_group": 0.1,
+   "ii_gluing": 0.1,
+   "ii_entangled_gluing": 0.4,
+   "iv_pattern_sat": 606.8,
+   "v_quick_sat": 1011.8
+  },
+  "best": {
+   "208": {
+    "n": 18,
+    "N": 6,
+    "stage": "two-group",
+    "spec": "CS01,CS03,CS12"
+   },
+   "15": {
+    "n": 20,
+    "N": 7,
+    "stage": "two-group",
+    "spec": "T0,T1,T2,T3"
+   },
+   "1032": {
+    "n": 20,
+    "N": 7,
+    "stage": "gluing",
+    "spec": "T3,CCZ012"
+   },
+   "192": {
+    "n": 18,
+    "N": 6,
+    "stage": "gluing",
+    "spec": "CS03,CS12"
+   },
+   "28": {
+    "n": 22,
+    "N": 7,
+    "stage": "gluing",
+    "spec": "T2,T3,CS01"
+   },
+   "56": {
+    "n": 22,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T3,CS01,CS02"
+   },
+   "57": {
+    "n": 22,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T0,T3,CS01,CS02"
+   },
+   "112": {
+    "n": 16,
+    "N": 6,
+    "stage": "entangled-gluing",
+    "spec": "CS03,CCZ012"
+   },
+   "113": {
+    "n": 18,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T0,CS03,CCZ012"
+   },
+   "191": {
+    "n": 20,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T0,T3,CCZ012"
+   },
+   "209": {
+    "n": 22,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T0,CS01,CS03,CS12"
+   },
+   "211": {
+    "n": 24,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T0,T1,CS01,CS03,CS12"
+   },
+   "246": {
+    "n": 24,
+    "N": 7,
+    "stage": "entangled-gluing",
+    "spec": "T1,CS03,CCZ012"
+   }
+  },
+  "params": {
+   "nmax": 11,
+   "smax": 7,
+   "rmax": 4,
+   "glue": true,
+   "sat": true,
+   "budget": 25.0,
+   "span": 3,
+   "wmax": 6,
+   "jobs": 16,
+   "rlimit": 600000000.0
+  }
+ },
+ "rows": [
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 16,
+   "N": 5,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 8,
+   "N": 5,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 48,
+   "N": 6,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 18,
+   "N": 6,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 24,
+   "N": 6,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 112,
+   "N": 7,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 42,
+   "N": 7,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 56,
+   "N": 7,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 20,
+   "N": 7,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 24,
+   "N": 7,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 240,
+   "N": 8,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 135,
+   "N": 8,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 90,
+   "N": 8,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 75,
+   "N": 8,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 120,
+   "N": 8,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 44,
+   "N": 8,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 60,
+   "N": 8,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 496,
+   "N": 9,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 279,
+   "N": 9,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 186,
+   "N": 9,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 155,
+   "N": 9,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 248,
+   "N": 9,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 136,
+   "N": 9,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 92,
+   "N": 9,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 76,
+   "N": 9,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 132,
+   "N": 9,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 32,
+   "N": 9,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 1008,
+   "N": 10,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 567,
+   "N": 10,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 378,
+   "N": 10,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 315,
+   "N": 10,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 504,
+   "N": 10,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 280,
+   "N": 10,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 188,
+   "N": 10,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 156,
+   "N": 10,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 268,
+   "N": 10,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 84,
+   "N": 10,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 0,
+   "genuine": false,
+   "n": 2032,
+   "N": 11,
+   "params": "s_total=1,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 1143,
+   "N": 11,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 208,
+   "genuine": true,
+   "n": 762,
+   "N": 11,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 635,
+   "N": 11,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 1016,
+   "N": 11,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 1024,
+   "genuine": false,
+   "n": 568,
+   "N": 11,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 380,
+   "N": 11,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 316,
+   "N": 11,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 524,
+   "N": 11,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 280,
+   "N": 11,
+   "params": "s_total=4,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 196,
+   "N": 11,
+   "params": "s_total=4,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": 15,
+   "genuine": true,
+   "n": 168,
+   "N": 11,
+   "params": "s_total=4,s_O=4"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 1032,
+   "genuine": true,
+   "n": 20,
+   "N": 7,
+   "params": "blocks=3+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 192,
+   "genuine": true,
+   "n": 18,
+   "N": 6,
+   "params": "blocks=2+2"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 28,
+   "genuine": true,
+   "n": 22,
+   "N": 7,
+   "params": "blocks=2+1+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": 15,
+   "genuine": true,
+   "n": 28,
+   "N": 7,
+   "params": "blocks=1+1+1+1"
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 15,
+   "genuine": true,
+   "n": 28,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 28,
+   "genuine": true,
+   "n": 22,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 56,
+   "genuine": true,
+   "n": 22,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 57,
+   "genuine": true,
+   "n": 22,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 112,
+   "genuine": true,
+   "n": 16,
+   "N": 6,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 113,
+   "genuine": true,
+   "n": 18,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 191,
+   "genuine": true,
+   "n": 20,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 192,
+   "genuine": true,
+   "n": 18,
+   "N": 6,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 208,
+   "genuine": true,
+   "n": 18,
+   "N": 6,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 209,
+   "genuine": true,
+   "n": 22,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 211,
+   "genuine": true,
+   "n": 24,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 246,
+   "genuine": true,
+   "n": 24,
+   "N": 7,
+   "params": ""
+  },
+  {
+   "stage": "entangled-gluing",
+   "orbit": 1032,
+   "genuine": true,
+   "n": 20,
+   "N": 7,
+   "params": ""
+  }
+ ]
+}

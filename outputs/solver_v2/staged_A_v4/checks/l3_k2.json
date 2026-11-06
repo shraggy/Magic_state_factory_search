@@ -1,0 +1,43 @@
+{
+"summary": {
+"source": "outputs/solver_v2/staged_A_v4/l3_k2/iii_f.json",
+"factories": 2,
+"valid": 2,
+"brute_checked": 2,
+"brute_ok": 2,
+"class_ok": 2,
+"n_ok": 2,
+"d_ge2": 2,
+"d_dist": {
+"2": 2
+},
+"c_computed": 2,
+"seconds": 0.0
+},
+"rows": {
+"3": {
+"spec": "T0,T1",
+"n": 14,
+"n_filed": 14,
+"N": 5,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 7
+},
+"4": {
+"spec": "CS01",
+"n": 12,
+"n_filed": 12,
+"N": 4,
+"stage": "i_tg",
+"valid": true,
+"brute": true,
+"class_ok": true,
+"d": "2",
+"c": 18
+}
+}
+}

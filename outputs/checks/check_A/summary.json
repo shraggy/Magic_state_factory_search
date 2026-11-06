@@ -1,0 +1,51 @@
+{
+ "cells": {
+  "l3_k5": {
+   "factories": 65,
+   "valid": 65,
+   "brute_checked": 65,
+   "brute_ok": 65,
+   "class_ok": 65,
+   "n_ok": 65,
+   "d2": 65,
+   "classes": 65,
+   "c_min": 31,
+   "c_max": 96
+  },
+  "l3_k6": {
+   "factories": 679,
+   "valid": 679,
+   "brute_checked": 672,
+   "brute_ok": 672,
+   "class_ok": 679,
+   "n_ok": 679,
+   "d2": 679,
+   "classes": 679,
+   "c_min": 36,
+   "c_max": 153
+  },
+  "l4_k4": {
+   "factories": 4082,
+   "valid": 4082,
+   "brute_checked": 4082,
+   "brute_ok": 4082,
+   "class_ok": 4082,
+   "n_ok": 4082,
+   "d2": 4082,
+   "classes": 4082,
+   "c_min": 50,
+   "c_max": 380
+  }
+ },
+ "total": {
+  "factories": 4826,
+  "valid": 4826,
+  "brute_checked": 4819,
+  "brute_ok": 4819,
+  "class_ok": 4826,
+  "n_ok": 4826,
+  "d2": 4826,
+  "classes": 4826
+ },
+ "note": "after-A check: every A factory (outputs/staged_A, final pass) re-verified by searches/check_A.py"
+}

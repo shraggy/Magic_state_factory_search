@@ -1,0 +1,21 @@
+{
+ "1": {
+  "run": "v6",
+  "layer": null,
+  "form": null,
+  "n": 14,
+  "N": 4,
+  "seed": 14,
+  "spec": "T0",
+  "saved_restricted": 0,
+  "saved_free": 0,
+  "forms_tied": {
+   "v4": null,
+   "v5": null,
+   "v6": null
+  },
+  "n_v4": 14,
+  "n_v5": 14,
+  "n_v6": 14
+ }
+}

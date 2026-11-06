@@ -1,0 +1,30 @@
+{
+ "classes": 766,
+ "credit_winner": {
+  "no SAT lowering": 364,
+  "restricted": 321,
+  "free": 81
+ },
+ "restricted_every_tied": 320,
+ "restricted_some_tied": 361,
+ "free_every_tied": 41,
+ "free_some_tied": 82,
+ "tie_dependent": 41,
+ "form_lowered": {
+  "restricted": 348,
+  "free": 92
+ },
+ "form_inputs_saved": {
+  "restricted": 1116,
+  "free": 198
+ },
+ "pass_lowered": {
+  "iii_r": 348,
+  "iii_f": 81
+ },
+ "pass_inputs_saved": {
+  "iii_r": 1138,
+  "iii_f": 176
+ },
+ "tie_break": "n, then N, then v6, v4, v5"
+}

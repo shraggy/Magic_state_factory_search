@@ -1,0 +1,303 @@
+{
+ "summary": {
+  "l": 4,
+  "k": 5,
+  "classes": null,
+  "reached_i_ii": 8,
+  "reached_iip": 8,
+  "reached_iv": 8,
+  "v_new": 0,
+  "v_smaller": 0,
+  "reached_total": 8,
+  "seconds": {
+   "iii_enumerate": 0.0,
+   "verification": 0.3,
+   "classification": 14.2,
+   "i_two_group": 0.0,
+   "ii_gluing": 3.0,
+   "ii_entangled_gluing": 0.0,
+   "iv_pattern_sat": 0.0,
+   "v_quick_sat": 0.0
+  },
+  "best": {
+   "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}": {
+    "n": 66,
+    "N": 9,
+    "stage": "gluing",
+    "spec": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}"
+   },
+   "8\\ \\text{terms}": {
+    "n": 341,
+    "N": 10,
+    "stage": "two-group",
+    "spec": "8\\ \\text{terms}"
+   },
+   "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}": {
+    "n": 217,
+    "N": 10,
+    "stage": "two-group",
+    "spec": "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}"
+   },
+   "25\\ \\text{terms}": {
+    "n": 44,
+    "N": 9,
+    "stage": "gluing",
+    "spec": "25\\ \\text{terms}"
+   },
+   "\\mathrm{CCS}_{123}\\mathrm{CT}_{45}": {
+    "n": 48,
+    "N": 8,
+    "stage": "gluing",
+    "spec": "\\mathrm{CCS}_{123}\\mathrm{CT}_{45}"
+   },
+   "\\mathrm{CCS}_{123}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}": {
+    "n": 50,
+    "N": 9,
+    "stage": "gluing",
+    "spec": "\\mathrm{CCS}_{123}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}"
+   },
+   "\\mathrm{CT}_{12}\\mathrm{CT}_{34}\\mathrm{\\sqrt{T}}_{5}": {
+    "n": 68,
+    "N": 9,
+    "stage": "gluing",
+    "spec": "\\mathrm{CT}_{12}\\mathrm{CT}_{34}\\mathrm{\\sqrt{T}}_{5}"
+   },
+   "\\mathrm{CT}_{12}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}": {
+    "n": 68,
+    "N": 9,
+    "stage": "gluing",
+    "spec": "\\mathrm{CT}_{12}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}"
+   }
+  },
+  "params": {
+   "nmax": 11,
+   "smax": 7,
+   "rmax": 4,
+   "glue": true,
+   "sat": false,
+   "budget": 25.0,
+   "span": 3,
+   "wmax": 6,
+   "jobs": 16,
+   "rlimit": 600000000.0
+  }
+ },
+ "rows": [
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 16,
+   "N": 6,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 48,
+   "N": 7,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 112,
+   "N": 8,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 90,
+   "N": 9,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 240,
+   "N": 9,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 527,
+   "N": 10,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "8\\ \\text{terms}",
+   "genuine": true,
+   "n": 341,
+   "N": 10,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}",
+   "genuine": true,
+   "n": 217,
+   "N": 10,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 186,
+   "N": 10,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 496,
+   "N": 10,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 91,
+   "N": 10,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 1071,
+   "N": 11,
+   "params": "s_total=1,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "8\\ \\text{terms}",
+   "genuine": true,
+   "n": 693,
+   "N": 11,
+   "params": "s_total=1,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}",
+   "genuine": true,
+   "n": 441,
+   "N": 11,
+   "params": "s_total=1,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 378,
+   "N": 11,
+   "params": "s_total=1,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 1008,
+   "N": 11,
+   "params": "s_total=2,s_O=1"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CCCZ}_{1345}",
+   "genuine": false,
+   "n": 528,
+   "N": 11,
+   "params": "s_total=2,s_O=2"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 347,
+   "N": 11,
+   "params": "s_total=2,s_O=3"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}",
+   "genuine": true,
+   "n": 218,
+   "N": 11,
+   "params": "s_total=2,s_O=4"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 187,
+   "N": 11,
+   "params": "s_total=2,s_O=5"
+  },
+  {
+   "stage": "two-group",
+   "orbit": "\\mathrm{CT}_{13}\\mathrm{CT}_{14}\\mathrm{CT}_{24}\\mathrm{CT}_{35}",
+   "genuine": true,
+   "n": 522,
+   "N": 11,
+   "params": "s_total=4,s_O=1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "25\\ \\text{terms}",
+   "genuine": true,
+   "n": 44,
+   "N": 9,
+   "params": "blocks=4+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "\\mathrm{CCS}_{123}\\mathrm{CT}_{45}",
+   "genuine": true,
+   "n": 48,
+   "N": 8,
+   "params": "blocks=3+2"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "\\mathrm{CCS}_{123}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 50,
+   "N": 9,
+   "params": "blocks=3+1+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "\\mathrm{CT}_{12}\\mathrm{CT}_{34}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 68,
+   "N": 9,
+   "params": "blocks=2+2+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "\\mathrm{CT}_{12}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 68,
+   "N": 9,
+   "params": "blocks=2+1+1+1"
+  },
+  {
+   "stage": "gluing",
+   "orbit": "\\mathrm{\\sqrt{T}}_{1}\\mathrm{\\sqrt{T}}_{2}\\mathrm{\\sqrt{T}}_{3}\\mathrm{\\sqrt{T}}_{4}\\mathrm{\\sqrt{T}}_{5}",
+   "genuine": true,
+   "n": 66,
+   "N": 9,
+   "params": "blocks=1+1+1+1+1"
+  }
+ ]
+}
