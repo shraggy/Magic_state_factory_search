@@ -18,6 +18,8 @@ fewer inputs than synthillation are orange, the other main-sweep sizes, where th
   Nezami--Haah T-only entries (n, k) = (20,3), (26,5)    output T^{otimes k}.
 Each member is checked here against the files (two-group circuits rebuilt with merge_large_unified.regenerate_circuit
 and their output polynomial read off); a member not found raises an error.
+The 22 l=4 classes flagged third_level_target in staged_best.json (third-level targets, covered at l=3) are left out
+of the main sweep unless --with-third-level-targets is given.
     python searches/plot_literature.py   -> figures/literature_recovered.png (+ manuscript copy), counts printed
 """
 import os, glob, sys, re, csv, json, collections, matplotlib, matplotlib.patches
@@ -29,7 +31,9 @@ sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "classification"
 import argparse as _ap
 _p = _ap.ArgumentParser(); _p.add_argument("--sb", default="staged_best.json", help="staged-best file under outputs/")
 _p.add_argument("--out-dir", default=None, help="write every output here instead of outputs/ (and the manuscript)")
-_A = _p.parse_args(); SB_FILE = _A.sb; OUTD = _A.out_dir
+_p.add_argument("--with-third-level-targets", action="store_true",
+                help="keep the 22 l=4 classes whose target is a level-3 gate (default: left out)")
+_A = _p.parse_args(); SB_FILE = _A.sb; OUTD = _A.out_dir; WITH_T3 = _A.with_third_level_targets
 _p2 = None
 ALL_FOUND = os.path.join(OUTD, "all_found_l3.json") if OUTD and os.path.exists(os.path.join(OUTD, "all_found_l3.json")) else os.path.join(O, "checks", "all_found_l3.json")
 FS = 8
@@ -119,7 +123,7 @@ def proved_on_N(SB):
     return {(b["l"], b["n"], b["k"]) for key, b in best.items() if mx.get(key, 0) >= b["N"]}
 
 def main():
-    SB = json.load(open(os.path.join(O, SB_FILE)))["rows"]
+    SB = [r for r in json.load(open(os.path.join(O, SB_FILE)))["rows"] if WITH_T3 or not r.get("third_level_target")]
     LU = list(csv.DictReader(open(os.path.join(O, "large_unified_factories.csv"))))
     K78 = []                                                   # l=3, k=7..9 beyond the class lists: stage (i), both gluing forms
     for K in (7, 8, 9):                                        # (outputs/staged_B, outputs/k78_pipeline/full; every factory verified there)

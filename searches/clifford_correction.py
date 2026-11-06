@@ -37,8 +37,10 @@ def free(L, Q, v):
 def main():
     rows = json.load(open(os.path.join(ROOT, "outputs", "staged_best.json")))["rows"]
     out = {}
-    for L in (2, 3, 4):
-        R = [r for r in rows if r["l"] == L]; M = 1 << L; st = collections.Counter(); cz = []
+    for L in (2, 3, 4, "4_genuine"):               # 4_genuine: l=4 without the 22 third-level targets (staged_best.py)
+        R = [r for r in rows if r["l"] == L] if L != "4_genuine" else [r for r in rows if r["l"] == 4 and not r["third_level_target"]]
+        L = 4 if L == "4_genuine" else L; tag = f"l{L}" + ("_genuine" if len(R) and R is not None and L == 4 and len(R) < sum(r["l"] == 4 for r in rows) else "")
+        M = 1 << L; st = collections.Counter(); cz = []
         for r in R:
             k = r["k"]; D = d_terms(r)
             if any(not free(L, Q, v) for Q, v in D.items()):
@@ -56,7 +58,7 @@ def main():
             if any(len(Q) == 1 and v % (M // 2) for Q, v in D.items()):
                 st["D_S_on_check"] += 1
         st["D_needs_Clifford_correction"] = st["D_nontrivial"] - st["D_only_PauliZ_on_checks"]
-        out[f"l{L}"] = dict(rows=len(R), not_factory=st["not_factory"], **{k: v for k, v in st.items() if k != "not_factory"},
+        out[tag] = dict(rows=len(R), not_factory=st["not_factory"], **{k: v for k, v in st.items() if k != "not_factory"},
                            CZ_terms=dict(median=statistics.median(cz), max=max(cz), total=sum(cz)) if cz else None)
         assert st["not_factory"] == 0, (L, st)
     r832 = next(r for r in rows if r["l"] == 3 and r["spec"] == "CCZ012")

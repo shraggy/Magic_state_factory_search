@@ -95,5 +95,19 @@
    "reduced": "\\mathrm{CS}_{12}\\mathrm{CS}_{13}",
    "output_equals_odd_parent_12_3_2_output": true
   }
+ },
+ "exact_outputs_and_chain": {
+  "odd_cut1_equals_inverse_of_rotations_right": true,
+  "odd_cut2_equals_inverse_of_rotations_right": true,
+  "odd_cut3_equals_inverse_of_rotations_right": true,
+  "odd_cut4_equals_inverse_of_rotations_right": true,
+  "six_852_equals_T12_T34_T45_T35_T1234_T1235_T1245": true,
+  "six_1232_equals_Tdag3_Tdag4_Tdag5_Tdag345": true,
+  "852_cnots_q1q2_q3q2_give_plus1_x_842_output_of_odd_parent": true,
+  "852_cnots_q1q2_q3q4_q3q5_give_plus1_plus3_x_CCZclass_on_q2q4q5": true,
+  "CCZclass_equals_CCZ_CZ12_CZ13_CZ23_Z1_Z2_Z3": true,
+  "chain_Xmeas_q2_accept_prob": 1.0,
+  "chain_after_Xmeas_equals_plus1_x_1232_output": true,
+  "chain_T345_then_S_gives_T^3": true
  }
 }

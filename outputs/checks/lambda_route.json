@@ -1,5 +1,5 @@
 {
- "doc": "The lambda(U) route at l=3, k <= 6: distil T (or CS, CCZ) states with the distance-2 factories of the catalogue, then\nconvert them into the target with Clifford gates, Pauli measurements and feedforward, no catalysts; against our factory.\n\nlambda(U) = fewest |T> states from which stabilizer operations (Cliffords, Pauli measurements, feedforward) make |U>,\nwithout catalysts. lambda(U) <= tau(U) (CNOT+T synthesis). What we use from Beverland, Campbell, Howard, Kliuchnikov,\narXiv:1904.01124 (text read: /Users/shraddhasingh/msf_scratch/dl_bev/bev.txt):\n  (a) stabilizer nullity nu is monotone under stabilizer operations, measurements included, and additive (Sec. 2.1,\n      Prop. 4.1), so lambda(U) >= nu(U). We compute nu exactly (Pauli spectrum, searches/full_clifford_classes.py).\n  (b) stabilizer extent xi is monotone under stabilizer operations (Sec. 1.1, 2.2) and multiplicative on products of\n      states of at most three qubits (Lemma 2.7(1)). Hence m T states make |psi> only if\n      m >= log xi(psi) / log xi(T); Table 1 gives this ratio as 2.96818 for CS and 3.63356 for CCZ (W3: 3.63356,\n      W4: 4.99907, W5: 5.93637). For a product of T, CS, CCZ on disjoint qubits, xi multiplies (each factor has <= 3\n      qubits), so lambda >= ceil(a + 2.96818 b + 3.63356 c). The asterisk of Table 1 (\"not known to hold for arbitrary\n      catalysts\") does not apply: we exclude catalysts, and the inputs T^m are products of 1-qubit states. For W4, W5 the\n      extent itself is \"computed to eight digits and reconstructed\", not proved (App. A.4); those rows are flagged.\n  (c) upper bounds without catalysts: tau(U) (exact T-count, staged_best 'tau'), minimized over the full-Clifford class\n      (outputs/checks/full_clifford_classes.json): Clifford gates are free on this route. 4 T -> CCZ (Jones, [32] of\n      Table 1) is tau of CS01,CS02, a member of the CCZ class, so it is covered by this minimum. For products of\n      T, CS, CCZ on disjoint qubits also a + 3b + 4c (one T, three T for CS, four for CCZ, each without catalyst).\nlambda is called known for a class when the best lower bound equals the best upper bound. Route cost at distance 2: the\nfewest inputs for lambda T states from the cheapest distance-2 T^m factories of the catalogue\n(outputs/large_unified_factories.csv, rows d=2 whose output is a product of T gates), batched; for products, also any\nmix of directly distilled CS and CCZ states (pure CS^m, CCZ^m factories of the same catalogue) and T states for the\nrest. To first order the error of the route is the sum over the distilled states, so it is a distance-2 route.\nT supply, strongest distance-2 alternative we know besides the catalogue: Meier, Eastin, Knill, arXiv:1204.4221 (text\nread: /Users/shraddhasingh/msf_scratch/dl_mek/p.txt, Sec. II-III): the four-qubit-code routine takes ten |H> states to\ntwo, accepts with a(p) = 1 - 10p + O(p^2), output error u(p) = 9p^2 + O(p^3) per output (every single error detected),\nno catalyst. |H> = cos(pi/8)|0> + sin(pi/8)|1> is Clifford-equivalent to |T> = T|+> (checked numerically below), so it\nis a T^2 factory with n = 10 for this route. Every T count below is the cheapest batching of the catalogue T^m factories\nand MEK (10 inputs per 2 T states, surplus discarded). The CS and CCZ pieces use the cheaper of the catalogue pure\nfactories and T states (3 T per CS, 4 T per CCZ) from that supply.\nFull-Clifford groups are read from outputs/checks/full_clifford_classes.json; member labels are 'k:orbit:spec' and the\nk=6 orbit labels contain colons ('6:0:1536:CCZ045,CCZ123'), so the orbit is everything between the first and last colon.\nInvariants reported for the full-Clifford classes (all exact Clifford invariants, see invariants()): Pauli spectrum\n(multiset of |<P>|), the number of Lagrangians inside the zero set, and the multiset of per-label Lagrangian counts.\nAlso recounted for every class: the nullity floor LB(nu) of outputs/nullity_l3.json (cheapest T/CS/CCZ supply of total\nnullity >= nu; a lower bound for every such route, measurements included).\n\n    python searches/lambda_route.py      -> outputs/checks/lambda_route.{json,md}\n",
+ "doc": "The lambda(U) route at l=3, k <= 6: distil T (or CS, CCZ) states with the distance-2 factories of the catalogue, then\nconvert them into the target with Clifford gates, Pauli measurements and feedforward, no catalysts; against our factory.\n\nlambda(U) = fewest |T> states from which stabilizer operations (Cliffords, Pauli measurements, feedforward) make |U>,\nwithout catalysts. lambda(U) <= tau(U) (CNOT+T synthesis). What we use from Beverland, Campbell, Howard, Kliuchnikov,\narXiv:1904.01124 (full text read):\n  (a) stabilizer nullity nu is monotone under stabilizer operations, measurements included, and additive (Sec. 2.1,\n      Prop. 4.1), so lambda(U) >= nu(U). We compute nu exactly (Pauli spectrum, searches/full_clifford_classes.py).\n  (b) stabilizer extent xi is monotone under stabilizer operations (Sec. 1.1, 2.2) and multiplicative on products of\n      states of at most three qubits (Lemma 2.7(1)). Hence m T states make |psi> only if\n      m >= log xi(psi) / log xi(T); Table 1 gives this ratio as 2.96818 for CS and 3.63356 for CCZ (W3: 3.63356,\n      W4: 4.99907, W5: 5.93637). For a product of T, CS, CCZ on disjoint qubits, xi multiplies (each factor has <= 3\n      qubits), so lambda >= ceil(a + 2.96818 b + 3.63356 c). The asterisk of Table 1 (\"not known to hold for arbitrary\n      catalysts\") does not apply: we exclude catalysts, and the inputs T^m are products of 1-qubit states. For W4, W5 the\n      extent itself is \"computed to eight digits and reconstructed\", not proved (App. A.4); those rows are flagged.\n  (c) upper bounds without catalysts: tau(U) (exact T-count, staged_best 'tau'), minimized over the full-Clifford class\n      (outputs/checks/full_clifford_classes.json): Clifford gates are free on this route. 4 T -> CCZ (Jones, [32] of\n      Table 1) is tau of CS01,CS02, a member of the CCZ class, so it is covered by this minimum. For products of\n      T, CS, CCZ on disjoint qubits also a + 3b + 4c (one T, three T for CS, four for CCZ, each without catalyst).\nlambda is called known for a class when the best lower bound equals the best upper bound. Route cost at distance 2: the\nfewest inputs for lambda T states from the cheapest distance-2 T^m factories of the catalogue\n(outputs/large_unified_factories.csv, rows d=2 whose output is a product of T gates), batched; for products, also any\nmix of directly distilled CS and CCZ states (pure CS^m, CCZ^m factories of the same catalogue) and T states for the\nrest. To first order the error of the route is the sum over the distilled states, so it is a distance-2 route.\nT supply, strongest distance-2 alternative we know besides the catalogue: Meier, Eastin, Knill, arXiv:1204.4221 (full\ntext read, Sec. II-III): the four-qubit-code routine takes ten |H> states to\ntwo, accepts with a(p) = 1 - 10p + O(p^2), output error u(p) = 9p^2 + O(p^3) per output (every single error detected),\nno catalyst. |H> = cos(pi/8)|0> + sin(pi/8)|1> is Clifford-equivalent to |T> = T|+> (checked numerically below), so it\nis a T^2 factory with n = 10 for this route. Every T count below is the cheapest batching of the catalogue T^m factories\nand MEK (10 inputs per 2 T states, surplus discarded). The CS and CCZ pieces use the cheaper of the catalogue pure\nfactories and T states (3 T per CS, 4 T per CCZ) from that supply.\nAdded 2026-11-06 (referee round 4), from Balada Gaggioli and Marecek, arXiv:2610.31115 (full text\nread): (i) Prop. 7 and Table I, a nine-input distance-2 factory for one T\nstate (acceptance 1/128, error 27/2 p^2), and Prop. 5, no stabilizer protocol does it with eight, so T^1 costs 9 here\nper run; per accepted output it costs more (that paper, Discussion: \"per accepted output, the nine-input T factory\nconsumes more inputs than the ten-input protocol\"), while the other factories used accept with 1 - n p + O(p^2). The\ntallies are therefore also reported without it (tally_without_BGM, tally_full_clifford_without_BGM);\n(ii) Prop. 10 (= Beverland et al. Prop. A.4): projecting one qubit of |CCZ> onto (|0> +- i|1>)/sqrt2 leaves CS|++> up\nto a Clifford, so m CS states cost at most what m CCZ states cost (8 for one, [[8,3,2]]; Table I: n_min(CS,2) = 8).\nBoth are measurement routes without catalysts and are used for the T and CS pieces below (checked: cs_from_ccz_check);\nthe CS and CCZ pieces may also be drawn together from one batch of CCZ states (CCZ^m factories of the catalogue).\nFull-Clifford groups are read from outputs/checks/full_clifford_classes.json; member labels are 'k:orbit:spec' and the\nk=6 orbit labels contain colons ('6:0:1536:CCZ045,CCZ123'), so the orbit is everything between the first and last colon.\nInvariants reported for the full-Clifford classes (all exact Clifford invariants, see invariants()): Pauli spectrum\n(multiset of |<P>|), the number of Lagrangians inside the zero set, and the multiset of per-label Lagrangian counts.\nAlso recounted for every class: the nullity floor LB(nu) of outputs/nullity_l3.json (cheapest T/CS/CCZ supply of total\nnullity >= nu; a lower bound for every such route, measurements included).\n\n    python searches/lambda_route.py      -> outputs/checks/lambda_route.{json,md}\n",
  "known_answers": {
   "lambda(CCZ)=4": true,
   "lambda(CS)=3": true,
@@ -28,30 +28,92 @@
  "of_full_clifford_classes": 622,
  "tally_full_clifford": {
   "paper_v4": {
-   "same": 13,
-   "route fewer": 4,
-   "factory fewer": 7
+   "factory fewer": 3,
+   "route fewer": 14,
+   "same": 7
   },
   "current": {
-   "same": 13,
-   "route fewer": 4,
-   "factory fewer": 7
+   "factory fewer": 3,
+   "route fewer": 14,
+   "same": 7
+  }
+ },
+ "tally_full_clifford_without_BGM": {
+  "paper_v4": {
+   "factory fewer": 3,
+   "route fewer": 13,
+   "same": 8
+  },
+  "current": {
+   "factory fewer": 3,
+   "route fewer": 13,
+   "same": 8
+  }
+ },
+ "route_vs_synthillation_full_clifford": {
+  "paper_v4": {
+   "with_BGM": {
+    "route fewer than synthillation": 14,
+    "same": 7,
+    "synthillation fewer": 3
+   },
+   "without_BGM": {
+    "route fewer than synthillation": 13,
+    "same": 8,
+    "synthillation fewer": 3
+   }
+  },
+  "current": {
+   "with_BGM": {
+    "route fewer than synthillation": 14,
+    "same": 7,
+    "synthillation fewer": 3
+   },
+   "without_BGM": {
+    "route fewer than synthillation": 13,
+    "same": 8,
+    "synthillation fewer": 3
+   }
+  }
+ },
+ "tally_without_BGM": {
+  "paper_v4": {
+   "factory fewer": 3,
+   "route fewer": 20,
+   "same": 9
+  },
+  "current": {
+   "factory fewer": 3,
+   "route fewer": 20,
+   "same": 9
   }
  },
  "route_lowered_by_MEK": [
   "T0",
   "T0,T1",
+  "CS01",
+  "T2,CS01",
+  "T0,T1,T2",
   "T3,CCZ012",
+  "CS03,CS12",
   "T2,T3,CS01",
   "T3,CS01,CS02",
   "T3,T4,CS01,CS02",
   "T3,T4,CCZ012",
+  "CS34,CCZ012",
   "T4,CS03,CS12",
-  "T4,T5,CS03,CS12"
+  "CS03,CS04,CS12",
+  "T4,CS03,CS12,CCZ035,CCZ124",
+  "T4,CS03,CS12,CCZ035",
+  "T4,T5,CS03,CS12",
+  "T4,T5,CS03,CS12,CCZ034",
+  "CS05,CS14,CS23",
+  "T2,CS01,CCZ345",
+  "T2,CS01,CCZ012,CCZ345"
  ],
  "catalogue_pure_factories": {
   "T": {
-   "1": 14,
+   "1": 9,
    "2": 10,
    "3": 20,
    "4": 20,
@@ -59,9 +121,9 @@
    "6": 26
   },
   "CS": {
-   "1": 12,
-   "2": 18,
-   "3": 24,
+   "1": 8,
+   "2": 14,
+   "3": 20,
    "4": 36
   },
   "CCZ": {
@@ -79,23 +141,32 @@
   },
   "T_MEK": {
    "2": 10
+  },
+  "T_BGM": {
+   "1": 9
+  },
+  "CS_catalogue": {
+   "1": 12,
+   "2": 18,
+   "3": 24,
+   "4": 36
   }
  },
  "lambda_known": 32,
  "of": 766,
  "lambda_known_by_k": {
-  "6": 11,
-  "5": 8,
+  "1": 1,
+  "2": 2,
   "3": 4,
   "4": 6,
-  "2": 2,
-  "1": 1
+  "5": 8,
+  "6": 11
  },
  "lambda_known_reason": {
   "extent": 24,
-  "nullity": 6,
+  "extent of W4 (Table 1; extent value numerical": 1,
   "extent of W5 (Table 1; extent value numerical": 1,
-  "extent of W4 (Table 1; extent value numerical": 1
+  "nullity": 6
  },
  "lambda_gap_histogram": {
   "0": 32,
@@ -122,11 +193,12 @@
    "W": [],
    "product": "T0",
    "routes": {
-    "lambda T states (catalogue + MEK)": 10,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 10
+    "lambda T states (catalogue + MEK)": 9,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 9
    },
-   "route_n": 10,
+   "route_n": 9,
    "route_n_catalogue_only": 14,
+   "route_n_without_BGM": 10,
    "mek_lowers_route": true,
    "group": [
     "1:1:T0"
@@ -159,6 +231,7 @@
    },
    "route_n": 10,
    "route_n_catalogue_only": 14,
+   "route_n_without_BGM": 10,
    "mek_lowers_route": true,
    "group": [
     "2:3:T0,T1"
@@ -186,12 +259,13 @@
    "W": [],
    "product": "CS01",
    "routes": {
-    "lambda T states (catalogue + MEK)": 20,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 12
+    "lambda T states (catalogue + MEK)": 19,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 8
    },
-   "route_n": 12,
+   "route_n": 8,
    "route_n_catalogue_only": 12,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 8,
+   "mek_lowers_route": true,
    "group": [
     "2:4:CS01"
    ],
@@ -203,8 +277,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 12,
    "factory_n_current": 12,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 3,
@@ -219,11 +293,12 @@
    "product": "CS01,T2",
    "routes": {
     "lambda T states (catalogue + MEK)": 20,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 20
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 17
    },
-   "route_n": 20,
+   "route_n": 17,
    "route_n_catalogue_only": 20,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 18,
+   "mek_lowers_route": true,
    "group": [
     "3:12:T2,CS01"
    ],
@@ -235,8 +310,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 20,
    "factory_n_current": 20,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 3,
@@ -257,6 +332,7 @@
    },
    "route_n": 8,
    "route_n_catalogue_only": 8,
+   "route_n_without_BGM": 8,
    "mek_lowers_route": false,
    "group": [
     "3:24:CS01,CS02",
@@ -292,6 +368,7 @@
    },
    "route_n": 8,
    "route_n_catalogue_only": 8,
+   "route_n_without_BGM": 8,
    "mek_lowers_route": false,
    "group": [
     "3:24:CS01,CS02",
@@ -320,12 +397,13 @@
    "W": [],
    "product": "T0,T1,T2",
    "routes": {
-    "lambda T states (catalogue + MEK)": 20,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 20
+    "lambda T states (catalogue + MEK)": 19,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 19
    },
-   "route_n": 20,
+   "route_n": 19,
    "route_n_catalogue_only": 20,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 20,
+   "mek_lowers_route": true,
    "group": [
     "3:7:T0,T1,T2"
    ],
@@ -337,8 +415,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 20,
    "factory_n_current": 20,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 4,
@@ -353,10 +431,11 @@
    "product": "CCZ012,T3",
    "routes": {
     "lambda T states (catalogue + MEK)": 26,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 18
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 17
    },
-   "route_n": 18,
+   "route_n": 17,
    "route_n_catalogue_only": 22,
+   "route_n_without_BGM": 18,
    "mek_lowers_route": true,
    "group": [
     "4:1032:T3,CCZ012",
@@ -390,6 +469,7 @@
    },
    "route_n": 20,
    "route_n_catalogue_only": 20,
+   "route_n_without_BGM": 20,
    "mek_lowers_route": false,
    "group": [
     "4:15:T0,T1,T2,T3"
@@ -418,11 +498,12 @@
    "product": "CS01,CS23",
    "routes": {
     "lambda T states (catalogue + MEK)": 26,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 18
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 14
    },
-   "route_n": 18,
+   "route_n": 14,
    "route_n_catalogue_only": 18,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 14,
+   "mek_lowers_route": true,
    "group": [
     "4:192:CS03,CS12"
    ],
@@ -434,8 +515,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 18,
    "factory_n_current": 18,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 4,
@@ -455,6 +536,7 @@
    },
    "route_n": 26,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 26,
    "mek_lowers_route": false,
    "group": [
     "4:208:CS01,CS03,CS12"
@@ -483,10 +565,11 @@
    "product": "CS01,T2,T3",
    "routes": {
     "lambda T states (catalogue + MEK)": 26,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 22
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 18
    },
-   "route_n": 22,
+   "route_n": 18,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 18,
    "mek_lowers_route": true,
    "group": [
     "4:28:T2,T3,CS01"
@@ -499,8 +582,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 22,
    "factory_n_current": 22,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 4,
@@ -515,10 +598,11 @@
    "product": "CCZ012,T3",
    "routes": {
     "lambda T states (catalogue + MEK)": 26,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 18
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 17
    },
-   "route_n": 18,
+   "route_n": 17,
    "route_n_catalogue_only": 22,
+   "route_n_without_BGM": 18,
    "mek_lowers_route": true,
    "group": [
     "4:1032:T3,CCZ012",
@@ -552,6 +636,7 @@
    },
    "route_n": 18,
    "route_n_catalogue_only": 22,
+   "route_n_without_BGM": 18,
    "mek_lowers_route": true,
    "group": [
     "5:120:T3,T4,CS01,CS02",
@@ -586,6 +671,7 @@
    },
    "route_n": 26,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 26,
    "mek_lowers_route": false,
    "group": [
     "5:1856:CS02,CS04,CS12,CS13"
@@ -618,6 +704,7 @@
    },
    "route_n": 26,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 26,
    "mek_lowers_route": false,
    "group": [
     "5:31:T0,T1,T2,T3,T4"
@@ -650,6 +737,7 @@
    },
    "route_n": 18,
    "route_n_catalogue_only": 22,
+   "route_n_without_BGM": 18,
    "mek_lowers_route": true,
    "group": [
     "5:120:T3,T4,CS01,CS02",
@@ -678,12 +766,13 @@
    "W": [],
    "product": "CCZ012,CS34",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 20
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 14
    },
-   "route_n": 20,
+   "route_n": 14,
    "route_n_catalogue_only": 20,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 14,
+   "mek_lowers_route": true,
    "group": [
     "5:49152:CS34,CCZ012",
     "5:896:CS03,CS04,CS12"
@@ -696,8 +785,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 18,
    "factory_n_current": 18,
-   "result_paper": "factory fewer",
-   "result_current": "factory fewer"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 5,
@@ -716,6 +805,7 @@
    },
    "route_n": 26,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 26,
    "mek_lowers_route": false,
    "group": [
     "5:60:T2,T3,T4,CS01"
@@ -743,11 +833,12 @@
    "W": [],
    "product": "CS01,CS23,T4",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 23
    },
-   "route_n": 28,
+   "route_n": 23,
    "route_n_catalogue_only": 32,
+   "route_n_without_BGM": 24,
    "mek_lowers_route": true,
    "group": [
     "5:656:T4,CS03,CS12"
@@ -760,8 +851,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 26,
    "factory_n_current": 26,
-   "result_paper": "factory fewer",
-   "result_current": "factory fewer"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 5,
@@ -775,12 +866,13 @@
    "W": [],
    "product": "CCZ012,CS34",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 20
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 14
    },
-   "route_n": 20,
+   "route_n": 14,
    "route_n_catalogue_only": 20,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 14,
+   "mek_lowers_route": true,
    "group": [
     "5:49152:CS34,CCZ012",
     "5:896:CS03,CS04,CS12"
@@ -793,8 +885,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 20,
    "factory_n_current": 20,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -813,6 +905,7 @@
    },
    "route_n": 14,
    "route_n_catalogue_only": 14,
+   "route_n_without_BGM": 14,
    "mek_lowers_route": false,
    "group": [
     "6:0:1536:CCZ045,CCZ123",
@@ -847,6 +940,7 @@
    },
    "route_n": 14,
    "route_n_catalogue_only": 14,
+   "route_n_without_BGM": 14,
    "mek_lowers_route": false,
    "group": [
     "6:0:1536:CCZ045,CCZ123",
@@ -876,12 +970,13 @@
    "W": [],
    "product": "CCZ012,T3,T4,T5",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 27
    },
-   "route_n": 28,
+   "route_n": 27,
    "route_n_catalogue_only": 28,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 28,
+   "mek_lowers_route": true,
    "group": [
     "6:2320:2304:T4,CS03,CS12,CCZ035,CCZ124",
     "6:68:524289:T2,CS01,CCZ012,CCZ345"
@@ -894,8 +989,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 28,
    "factory_n_current": 28,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -910,11 +1005,12 @@
    "product": "CCZ012,CS34,T5",
    "routes": {
     "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 23
    },
-   "route_n": 28,
+   "route_n": 23,
    "route_n_catalogue_only": 28,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 24,
+   "mek_lowers_route": true,
    "group": [
     "6:2320:256:T4,CS03,CS12,CCZ035",
     "6:68:524288:T2,CS01,CCZ345"
@@ -927,8 +1023,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 28,
    "factory_n_current": 28,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -943,10 +1039,11 @@
    "product": "CS01,CS23,T4,T5",
    "routes": {
     "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 24
    },
-   "route_n": 28,
+   "route_n": 24,
    "route_n_catalogue_only": 32,
+   "route_n_without_BGM": 24,
    "mek_lowers_route": true,
    "group": [
     "6:2352:0:T4,T5,CS03,CS12"
@@ -959,8 +1056,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 28,
    "factory_n_current": 28,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -974,12 +1071,13 @@
    "W": [],
    "product": "CS01,T2,T3,T4,T5",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 32
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
    },
-   "route_n": 32,
+   "route_n": 28,
    "route_n_catalogue_only": 32,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 28,
+   "mek_lowers_route": true,
    "group": [
     "6:2352:128:T4,T5,CS03,CS12,CCZ034"
    ],
@@ -991,8 +1089,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 28,
    "factory_n_current": 28,
-   "result_paper": "factory fewer",
-   "result_current": "factory fewer"
+   "result_paper": "same",
+   "result_current": "same"
   },
   {
    "k": 6,
@@ -1011,6 +1109,7 @@
    },
    "route_n": 26,
    "route_n_catalogue_only": 26,
+   "route_n_without_BGM": 26,
    "mek_lowers_route": false,
    "group": [
     "6:2352:2177:T4,T5,CS03,CS12,CCZ035,CCZ124"
@@ -1038,12 +1137,13 @@
    "W": [],
    "product": "CS01,CS23,CS45",
    "routes": {
-    "lambda T states (catalogue + MEK)": 46,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 24
+    "lambda T states (catalogue + MEK)": 45,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 20
    },
-   "route_n": 24,
+   "route_n": 20,
    "route_n_catalogue_only": 24,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 20,
+   "mek_lowers_route": true,
    "group": [
     "6:41984:0:CS05,CS14,CS23"
    ],
@@ -1055,8 +1155,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 24,
    "factory_n_current": 24,
-   "result_paper": "same",
-   "result_current": "same"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -1075,6 +1175,7 @@
    },
    "route_n": 14,
    "route_n_catalogue_only": 14,
+   "route_n_without_BGM": 14,
    "mek_lowers_route": false,
    "group": [
     "6:0:1536:CCZ045,CCZ123",
@@ -1105,11 +1206,12 @@
    "product": "CCZ012,CS34,T5",
    "routes": {
     "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 23
    },
-   "route_n": 28,
+   "route_n": 23,
    "route_n_catalogue_only": 28,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 24,
+   "mek_lowers_route": true,
    "group": [
     "6:2320:256:T4,CS03,CS12,CCZ035",
     "6:68:524288:T2,CS01,CCZ345"
@@ -1122,8 +1224,8 @@
    "factory_below_extent_floor": false,
    "factory_n_paper": 26,
    "factory_n_current": 26,
-   "result_paper": "factory fewer",
-   "result_current": "factory fewer"
+   "result_paper": "route fewer",
+   "result_current": "route fewer"
   },
   {
    "k": 6,
@@ -1137,12 +1239,13 @@
    "W": [],
    "product": "CCZ012,T3,T4,T5",
    "routes": {
-    "lambda T states (catalogue + MEK)": 36,
-    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 28
+    "lambda T states (catalogue + MEK)": 35,
+    "pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest": 27
    },
-   "route_n": 28,
+   "route_n": 27,
    "route_n_catalogue_only": 28,
-   "mek_lowers_route": false,
+   "route_n_without_BGM": 28,
+   "mek_lowers_route": true,
    "group": [
     "6:2320:2304:T4,CS03,CS12,CCZ035,CCZ124",
     "6:68:524289:T2,CS01,CCZ012,CCZ345"
@@ -1161,14 +1264,14 @@
  ],
  "tally": {
   "paper_v4": {
-   "route fewer": 9,
-   "same": 16,
-   "factory fewer": 7
+   "factory fewer": 3,
+   "route fewer": 22,
+   "same": 7
   },
   "current": {
-   "route fewer": 9,
-   "same": 16,
-   "factory fewer": 7
+   "factory fewer": 3,
+   "route fewer": 22,
+   "same": 7
   }
  },
  "nullity_floor": {
@@ -8087,6 +8190,6 @@
   "full_clifford": "outputs/checks/full_clifford_classes.json",
   "nullity_floor": "outputs/nullity_l3.json",
   "factories": "outputs/large_unified_factories.csv",
-  "literature": "Beverland et al. arXiv:1904.01124, Sec. 2.1-2.2, Lemma 2.7, Prop. 4.1, Tables 1, 4; Meier, Eastin, Knill arXiv:1204.4221, Sec. II-III (10 -> 2, a(p), u(p))"
+  "literature": "Beverland et al. arXiv:1904.01124, Sec. 2.1-2.2, Lemma 2.7, Prop. 4.1, Tables 1, 4; Meier, Eastin, Knill arXiv:1204.4221, Sec. II-III (10 -> 2, a(p), u(p)); Balada Gaggioli, Marecek arXiv:2610.31115, Props. 5, 7, 10, Table I"
  }
 }

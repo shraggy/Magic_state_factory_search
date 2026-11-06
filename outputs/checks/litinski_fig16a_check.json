@@ -1,0 +1,7 @@
+{
+ "supports_equal": true,
+ "n_rotations": 15,
+ "litinski_identity": true,
+ "ours_identity": true,
+ "differ_only_on_odd_weight_signs": true
+}

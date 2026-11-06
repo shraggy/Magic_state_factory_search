@@ -1,0 +1,66 @@
+{
+ "T1": {
+  "l3": [
+   14,
+   4,
+   "i_tg"
+  ],
+  "l4": [
+   28,
+   4,
+   "ii_eg"
+  ],
+  "coefficients_1_and_2": true,
+  "identity_works": true,
+  "maps_found": 1344,
+  "equivalent": true
+ },
+ "CS12": {
+  "l3": [
+   12,
+   4,
+   "i_tg"
+  ],
+  "l4": [
+   24,
+   4,
+   "ii_eg"
+  ],
+  "coefficients_1_and_2": true,
+  "identity_works": true,
+  "maps_found": 96,
+  "equivalent": true
+ },
+ "T12": {
+  "l3": [
+   14,
+   5,
+   "i_tg"
+  ],
+  "l4": [
+   28,
+   5,
+   "ii_eg"
+  ],
+  "coefficients_1_and_2": true,
+  "identity_works": false,
+  "maps_found": 1344,
+  "equivalent": true
+ },
+ "CCZ123": {
+  "l3": [
+   8,
+   4,
+   "i_tg"
+  ],
+  "l4": [
+   16,
+   4,
+   "ii_eg"
+  ],
+  "coefficients_1_and_2": true,
+  "identity_works": true,
+  "maps_found": 8,
+  "equivalent": true
+ }
+}

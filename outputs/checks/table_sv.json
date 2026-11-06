@@ -8463,129 +8463,6 @@
 {
 "l": 4,
 "k": 1,
-"orbit": "2",
-"spec": "sT0,sT0",
-"n": 28,
-"N": 4,
-"stage": "ii_eg",
-"first": "ii_eg",
-"tau": 2,
-"syn_n": null,
-"c": 28,
-"gates": [
-[
-[
-1
-],
-2
-],
-[
-[
-2
-],
-2
-],
-[
-[
-3
-],
-2
-],
-[
-[
-0,
-1
-],
-2
-],
-[
-[
-0,
-2
-],
-2
-],
-[
-[
-0,
-3
-],
-2
-],
-[
-[
-1,
-2
-],
-2
-],
-[
-[
-1,
-3
-],
-2
-],
-[
-[
-2,
-3
-],
-2
-],
-[
-[
-0,
-1,
-2
-],
-2
-],
-[
-[
-0,
-1,
-3
-],
-2
-],
-[
-[
-0,
-2,
-3
-],
-2
-],
-[
-[
-1,
-2,
-3
-],
-2
-],
-[
-[
-0,
-1,
-2,
-3
-],
-2
-]
-],
-"macro": "qSIIIafa",
-"why": [
-"l=4, k<=2"
-],
-"stage_code": "GL-e",
-"ref": "x2:webster2023transversal",
-"proved": true
-},
-{
-"l": 4,
-"k": 1,
 "orbit": "1",
 "spec": "sT0",
 "n": 30,
@@ -8826,123 +8703,14 @@
 1
 ]
 ],
-"macro": "qSIIIafb",
+"third_level_target": false,
+"macro": "qSIIIafa",
 "why": [
 "l=4, k<=2"
 ],
 "stage_code": "TG",
 "ref": "webster2023transversal",
 "proved": false
-},
-{
-"l": 4,
-"k": 2,
-"orbit": "32",
-"spec": "CT01,CT01",
-"n": 24,
-"N": 4,
-"stage": "ii_eg",
-"first": "ii_eg",
-"tau": 6,
-"syn_n": null,
-"c": 72,
-"gates": [
-[
-[
-2
-],
-2
-],
-[
-[
-3
-],
-2
-],
-[
-[
-0,
-2
-],
-2
-],
-[
-[
-0,
-3
-],
-2
-],
-[
-[
-1,
-2
-],
-2
-],
-[
-[
-1,
-3
-],
-2
-],
-[
-[
-2,
-3
-],
-2
-],
-[
-[
-0,
-1,
-2
-],
-2
-],
-[
-[
-0,
-1,
-3
-],
-2
-],
-[
-[
-0,
-2,
-3
-],
-2
-],
-[
-[
-1,
-2,
-3
-],
-2
-],
-[
-[
-0,
-1,
-2,
-3
-],
-2
-]
-],
-"macro": "qSIIIafc",
-"why": [
-"l=4, k<=2"
-],
-"stage_code": "GL-e",
-"ref": "x2:webster2023transversal,anqi2026qec",
-"proved": true
 },
 {
 "l": 4,
@@ -9174,7 +8942,8 @@
 1
 ]
 ],
-"macro": "qSIIIafd",
+"third_level_target": false,
+"macro": "qSIIIafb",
 "why": [
 "l=4, k<=2"
 ],
@@ -9412,142 +9181,13 @@
 15
 ]
 ],
-"macro": "qSIIIafe",
+"third_level_target": false,
+"macro": "qSIIIafc",
 "why": [
 "l=4, k<=2"
 ],
 "stage_code": "TG",
 "ref": "new",
-"proved": true
-},
-{
-"l": 4,
-"k": 2,
-"orbit": "10",
-"spec": "sT0,sT0,sT1,sT1",
-"n": 28,
-"N": 5,
-"stage": "ii_eg",
-"first": "ii_eg",
-"tau": 4,
-"syn_n": null,
-"c": 28,
-"gates": [
-[
-[
-0,
-2
-],
-2
-],
-[
-[
-0,
-3
-],
-2
-],
-[
-[
-0,
-4
-],
-2
-],
-[
-[
-1,
-2
-],
-2
-],
-[
-[
-1,
-3
-],
-2
-],
-[
-[
-1,
-4
-],
-2
-],
-[
-[
-0,
-2,
-3
-],
-2
-],
-[
-[
-0,
-2,
-4
-],
-2
-],
-[
-[
-0,
-3,
-4
-],
-2
-],
-[
-[
-1,
-2,
-3
-],
-2
-],
-[
-[
-1,
-2,
-4
-],
-2
-],
-[
-[
-1,
-3,
-4
-],
-2
-],
-[
-[
-0,
-2,
-3,
-4
-],
-2
-],
-[
-[
-1,
-2,
-3,
-4
-],
-2
-]
-],
-"macro": "qSIIIaff",
-"why": [
-"l=4, k<=2"
-],
-"stage_code": "GL-e",
-"ref": "x2:bravyi2012magic",
 "proved": true
 },
 {
@@ -9808,7 +9448,8 @@
 1
 ]
 ],
-"macro": "qSIIIafg",
+"third_level_target": false,
+"macro": "qSIIIafd",
 "why": [
 "l=4, k<=2"
 ],
@@ -10114,7 +9755,8 @@
 1
 ]
 ],
-"macro": "qSIIIafh",
+"third_level_target": false,
+"macro": "qSIIIafe",
 "why": [
 "l=4, k<=2"
 ],
@@ -10424,7 +10066,8 @@
 1
 ]
 ],
-"macro": "qSIIIafi",
+"third_level_target": false,
+"macro": "qSIIIaff",
 "why": [
 "l=4, k<=2"
 ],
@@ -10729,7 +10372,8 @@
 1
 ]
 ],
-"macro": "qSIIIafj",
+"third_level_target": false,
+"macro": "qSIIIafg",
 "why": [
 "l=4, k<=2"
 ],
@@ -10740,42 +10384,100 @@
 {
 "l": 4,
 "k": 3,
-"orbit": "8192",
-"spec": "CCS012,CCS012",
-"n": 16,
-"N": 4,
-"stage": "ii_eg",
-"first": "ii_eg",
-"tau": 14,
+"orbit": "4096",
+"spec": "CCS012",
+"n": 24,
+"N": 5,
+"stage": "i_tg",
+"first": "i_tg",
+"tau": 7,
 "syn_n": null,
-"c": 112,
+"c": 84,
 "gates": [
 [
 [
 3
 ],
-2
+1
+],
+[
+[
+4
+],
+1
+],
+[
+[
+3,
+4
+],
+1
 ],
 [
 [
 0,
 3
 ],
-2
+1
+],
+[
+[
+0,
+4
+],
+1
 ],
 [
 [
 1,
 3
 ],
-2
+1
+],
+[
+[
+1,
+4
+],
+1
 ],
 [
 [
 2,
 3
 ],
-2
+1
+],
+[
+[
+2,
+4
+],
+1
+],
+[
+[
+0,
+3,
+4
+],
+1
+],
+[
+[
+1,
+3,
+4
+],
+1
+],
+[
+[
+2,
+3,
+4
+],
+1
 ],
 [
 [
@@ -10783,7 +10485,15 @@
 1,
 3
 ],
-2
+1
+],
+[
+[
+0,
+1,
+4
+],
+1
 ],
 [
 [
@@ -10791,7 +10501,15 @@
 2,
 3
 ],
-2
+1
+],
+[
+[
+0,
+2,
+4
+],
+1
 ],
 [
 [
@@ -10799,7 +10517,42 @@
 2,
 3
 ],
-2
+1
+],
+[
+[
+1,
+2,
+4
+],
+1
+],
+[
+[
+0,
+1,
+3,
+4
+],
+1
+],
+[
+[
+0,
+2,
+3,
+4
+],
+1
+],
+[
+[
+1,
+2,
+3,
+4
+],
+1
 ],
 [
 [
@@ -10808,15 +10561,35 @@
 2,
 3
 ],
-2
+1
+],
+[
+[
+0,
+1,
+2,
+4
+],
+1
+],
+[
+[
+0,
+1,
+2,
+3,
+4
+],
+1
 ]
 ],
-"macro": "qSIIIaga",
+"third_level_target": false,
+"macro": "qSIIIafh",
 "why": [
 "smallest n at this k"
 ],
-"stage_code": "GL-e",
-"ref": "x2:bombin2007exact,jones2013composite,eastin2013distilling",
+"stage_code": "TG",
+"ref": "new",
 "proved": true
 },
 {
@@ -11331,7 +11104,8 @@
 1
 ]
 ],
-"macro": "qSIIIagb",
+"third_level_target": false,
+"macro": "qSIIIafi",
 "why": [
 "largest n at this k"
 ],
@@ -11481,7 +11255,8 @@
 1
 ]
 ],
-"macro": "qSIIIagc",
+"third_level_target": false,
+"macro": "qSIIIafj",
 "why": [
 "smallest n at this k"
 ],
@@ -12221,7 +11996,8 @@
 15
 ]
 ],
-"macro": "qSIIIagd",
+"third_level_target": false,
+"macro": "qSIIIaga",
 "why": [
 "largest n at this k"
 ],
@@ -12381,7 +12157,7 @@
 ]
 ],
 "spec": "CCZ012,CCZ034,CCZ056,CCZ134,CCZ156,CCZ234,CCZ256",
-"macro": "qSIIIkage",
+"macro": "qSIIIkagb",
 "why": [
 "k=7, 8 CCZ layer"
 ],
@@ -12558,7 +12334,7 @@
 ]
 ],
 "spec": "CCZ012,CCZ013,CCZ123,CCZ125,CCZ136,CCZ145,CCZ156,CCZ234,CCZ235,CCZ236,CCZ245,CCZ246,CCZ345,CCZ346,CCZ456",
-"macro": "qSIIIkagf",
+"macro": "qSIIIkagc",
 "why": [
 "k=7, 8 CCZ layer"
 ],
@@ -12743,7 +12519,7 @@
 ]
 ],
 "spec": "CCZ012,CCZ016,CCZ056,CCZ123,CCZ234,CCZ345,CCZ456",
-"macro": "qSIIIkagg",
+"macro": "qSIIIkagd",
 "why": [
 "k=7, 8 CCZ layer"
 ],
@@ -12924,7 +12700,7 @@
 ]
 ],
 "spec": "CCZ015,CCZ016,CCZ017,CCZ025,CCZ026,CCZ027,CCZ035,CCZ036,CCZ037,CCZ045,CCZ046,CCZ047,CCZ056,CCZ057,CCZ067,CCZ125,CCZ126,CCZ127,CCZ135,CCZ136,CCZ137,CCZ145,CCZ146,CCZ147,CCZ156,CCZ157,CCZ167,CCZ235,CCZ236,CCZ237,CCZ245,CCZ246,CCZ247,CCZ256,CCZ257,CCZ267,CCZ345,CCZ346,CCZ347,CCZ356,CCZ357,CCZ367,CCZ456,CCZ457,CCZ467",
-"macro": "qSIIIkagh",
+"macro": "qSIIIkage",
 "why": [
 "k=7, 8 CCZ layer"
 ],
@@ -13111,7 +12887,7 @@
 ]
 ],
 "spec": "CCZ014,CCZ037,CCZ045,CCZ125,CCZ156,CCZ236,CCZ267,CCZ347",
-"macro": "qSIIIkagi",
+"macro": "qSIIIkagf",
 "why": [
 "k=7, 8 CCZ layer"
 ],
@@ -13336,7 +13112,7 @@
 ]
 ],
 "spec": "CCZ016,CCZ024,CCZ057,CCZ127,CCZ136,CCZ137,CCZ157,CCZ245,CCZ356,CCZ367",
-"macro": "qSIIIkagj",
+"macro": "qSIIIkagg",
 "why": [
 "k=7, 8 CCZ layer"
 ],

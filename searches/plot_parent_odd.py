@@ -1,11 +1,11 @@
 """Supplement figure (one column, Fig. 1 style): the odd-weight parent of the first submission's Fig. 6, redrawn.
 
 (a) l=3, five qubits, odd weights, every rotation pi/8: [[8,4,2]] -> [[12,3,2]] -> [[14,2,2]] -> [[15,1,3]];
-(b) conversions of its outputs: the [[8,4,2]] output on q1..q4 becomes the [[12,3,2]] output on q2q3q4 by
-    sqrt(X)^dag_1, C_1(X_2X_3X_4) and an X measurement of q1 whose outcome is + with probability 1; one further T
-    rotation on the parity q2q3q4 (the catalyst) and S on each wire then leave |T>^{x3};
-(c) the six-qubit circuit of the first submission (13 rotations), drawn with its two cuts [[8,5,2]] and [[12,3,2]] only:
-    it is not itself the identity, so its wires carry no |+> on the right.
+(b) the six-qubit circuit of the first submission (13 rotations), with its two cuts [[8,5,2]] and [[12,3,2]]; it is not
+    a borrowed identity, so the gates right of a cut do not synthesise its output: the labels give each EXACT output;
+(c) conversions on the wires q1..q5 of (b): CNOT(q1->q2) CNOT(q3->q2) turn the [[8,5,2]] output into |+>_1 and the
+    [[8,4,2]] output of (a) on q2..q5; sqrt(X)^dag_2, C_2(X_3X_4X_5) and an X measurement of q2 (outcome + with
+    probability 1) give the [[12,3,2]] output on q3q4q5; one catalytic T on the parity q3q4q5 and S on each wire give |T>^3.
 Every statement is checked by searches/lostv1/fig6_check.py -> outputs/checks/fig6_check.json (exact state vectors and
 unified_search.is_factory on the full phase table). Coordinates are in points; text at the caption size (8 pt).
     python searches/plot_parent_odd.py   -> figures/parent_odd.{pdf,png}, MSD_manuscript/FIGURES/parent_odd.pdf
@@ -34,7 +34,7 @@ def texth(s, **kw):
 Lw = textw(r"$q_0{:}\,|{+}\rangle$") + 2.5
 Rw = textw(r"$|{+}\rangle$") + 2.0
 
-def parent(ytop, x0, N, layers, cuts, letter, xright, p, plus_right=True, lgap=6.0, cutcol=CUTC):
+def parent(ytop, x0, N, layers, cuts, letter, xright, p, plus_right=True, lgap=6.0, cutcol=CUTC, labels=True):
     """layers: list of lists of supports; cuts: list of (after_layer_index, first output wire, factory, output)."""
     g = GAPF * p
     y = {q: ytop - 12.0 - DYW * q for q in range(N)}
@@ -77,7 +77,7 @@ def parent(ytop, x0, N, layers, cuts, letter, xright, p, plus_right=True, lgap=6
         for i in range(len(cx) - 2, -1, -1):
             cx[i] = min(cx[i], cx[i + 1] - (w[i] + w[i + 1]) / 2 - lgap)
     ylab = bot - 3.0
-    for (_, _, lab, outl), xc, x, col in zip(cuts, xcs, cx, cutcol):
+    for (_, _, lab, outl), xc, x, col in zip(cuts, xcs, cx, cutcol) if labels else ():
         if abs(x - xc) > 1:
             ax.plot([xc, x], [bot - 1.0, ylab + 0.3], color=col, lw=0.5, zorder=4)
         ax.text(x, ylab, outl, ha="center", va="top", color=col)
@@ -97,68 +97,96 @@ A = parent(0.0, 0.0, 5, La, [(1, 1, r"$[[8,4,2]]$", r"$\sim\!|\mathrm{CCZ}\rangl
                              (3, 3, r"$[[14,2,2]]$", r"$|T\rangle^{\otimes2}$"), (4, 4, r"$[[15,1,3]]$", r"$|T\rangle$")],
            "(a)", WIDTH, pa, lgap=7.0)
 
-# ---- second row: (b) conversion on the left, (c) six-qubit circuit on the right
+# ---- (b) six-qubit circuit of the first submission, full width; labels give the EXACT output of each cut
 six = [(0, 1, 3, 4, 5), (0, 2, 3, 4, 5), (0, 1, 5), (0, 2, 5), (0, 1, 4), (0, 2, 4), (0, 1, 3), (0, 2, 3),
        (1, 2, 3, 4, 5), (1, 2, 5), (1, 2, 4), (1, 2, 3), (3, 4, 5)]
-Lc = [six[:8], six[8:12], six[12:]]
-BW = 100.0                                                 # width given to (b); (c) takes the rest
-SEP = 4.0
-xc0 = BW + SEP
-pc = pitch(Lc, WIDTH - xc0, right=False)
+Lb = [six[:8], six[8:12], six[12:]]
+pb = pa                                                    # same pitch as (a); the labels use the space on the right
 ytop2 = A["bottom"] - ROWGAP
-C = parent(ytop2, xc0, 6, Lc, [(1, 1, r"$[[8,5,2]]$", r"$\sim\!|\mathrm{CCZ}\rangle$"),
-                               (2, 3, r"$[[12,3,2]]$", r"$\sim\!|\mathrm{CS}_{12}\mathrm{CS}_{13}\rangle$")],
-           "(c)", WIDTH, pc, plus_right=False, lgap=4.0, cutcol=[BLUE, ORANGE])
+B = parent(ytop2, 0.0, 6, Lb, [(1, 1, r"$[[8,5,2]]$", ""), (2, 3, r"$[[12,3,2]]$", "")],
+           "(b)", WIDTH, pb, plus_right=False, lgap=6.0, cutcol=[BLUE, ORANGE], labels=False)
+# exact outputs (fig6_check.json exact_outputs_and_chain): first label from the wire start, second flush right
+lb1 = r"$T_{12}T_{34}T_{35}T_{45}T_{1234}T_{1235}T_{1245}|{+}\rangle^{\otimes5}$"
+lb2 = r"$T^{\dagger}_{3}T^{\dagger}_{4}T^{\dagger}_{5}T^{\dagger}_{345}|{+}\rangle^{\otimes3}$"
+yb = B["bot"] - 5.0
+xl1 = Lw - 3.0; wl1 = textw(lb1); wl2 = textw(lb2); xr2 = WIDTH - 0.5
+assert xl1 + wl1 + 4.0 < xr2 - wl2, "(b) labels overlap"
+ax.text(xl1, yb, lb1, ha="left", va="top", color=BLUE)
+ax.text(xr2, yb, lb2, ha="right", va="top", color=ORANGE)
+ax.text(xl1 + wl1 / 2, yb - LINE - 2.5, r"$[[8,5,2]]$", ha="center", va="top", color=INK)
+ax.text(xr2 - wl2 / 2, yb - LINE - 2.5, r"$[[12,3,2]]$", ha="center", va="top", color=INK)
+for xc, xt_, col in ((B["xcs"][0], xl1 + wl1 / 2, BLUE), (B["xcs"][1], xr2 - wl2 / 2, ORANGE)):
+    ax.plot([xc, xt_], [B["bot"] - 1.0, yb + 0.2], color=col, lw=0.5, zorder=4)
+B["bottom"] = yb - 2 * LINE - 2.5
 
-ry = {q: C["y"][q] for q in (1, 2, 3, 4)}
-ax.text(0, ytop2, "(b)", ha="left", va="top", color=INK)
-qlw = textw(r"$q_4$") + 2.0
-x0 = qlw + 1.0
+# ---- (c) conversions, on the wires q1..q5 of (b)
+ytop3 = B["bottom"] - ROWGAP
+ry = {q: ytop3 - 12.0 - DYW * (q - 1) for q in range(1, 6)}
+ax.text(0, ytop3, "(c)", ha="left", va="top", color=INK)
+qlw = textw(r"$q_5$") + 2.0
+x0 = qlw + 6.0
 for q, yy in ry.items():
     ax.text(x0 - 1.5, yy, rf"$q_{q}$", ha="right", va="center", color=INK)
-TW = textw(r"$|T\rangle^{\otimes3}$")
-xe = BW - TW - 3.0
-w0 = textw(r"$\sqrt{X}^{\dagger}$", fontsize=6) + 2.4; w2 = textw(r"$\langle{+}|$", fontsize=6) + 2.4
-GX = [x0 + 1.0 + w0 / 2]; GX.append(GX[0] + w0 / 2 + 4.0); GX.append(GX[1] + 4.0 + w2 / 2)   # sqrtX^dag, fan-out, X meas.
-xm = GX[2] + w2 / 2 + 5.0                                           # the [[12,3,2]] output: dashed marker
-xs_ = xe - 5.5; xt = (xm + xs_ - 3.0) / 2                               # catalytic T parity rotation, S layer
 def box(x, w, yy, label, fc="white", ec=INK):
     w = max(w, textw(label, fontsize=6) + 2.4); h = max(7.2, texth(label, fontsize=6) + 2.0)
     ax.add_patch(Rectangle((x - w / 2, yy - h / 2), w, h, fc=fc, ec=ec, lw=0.5, zorder=3))
     ax.text(x, yy, label, ha="center", va="center", color=INK, zorder=4, fontsize=6)
     return x - w / 2, x + w / 2
+def cnot_draw(x, c, ts, col=INK):
+    ax.plot([x, x], [min(ry[t] for t in ts + [c]), max(ry[t] for t in ts + [c])], color=col, lw=0.5, zorder=2)
+    ax.scatter([x], [ry[c]], s=4.5, c=col, zorder=4, linewidths=0)
+    for t in ts:
+        ax.add_patch(Circle((x, ry[t]), 2.1, fc="white", ec=col, lw=0.5, zorder=3))
+        ax.plot([x - 2.1, x + 2.1], [ry[t], ry[t]], color=col, lw=0.5, zorder=4)
+        ax.plot([x, x], [ry[t] - 2.1, ry[t] + 2.1], color=col, lw=0.5, zorder=4)
+def marker(x, q1, col):
+    ax.plot([x, x], [ry[5] - 3.5, ry[q1] + 3.5], ls=(0, (2.0, 1.2)), lw=0.9, color=col, zorder=4)
+PW = textw(r"$|{+}\rangle$"); TW = textw(r"$|T\rangle^{\otimes3}$")
+w0 = textw(r"$\sqrt{X}^{\dagger}$", fontsize=6) + 2.4
+# x positions as offsets in units of sp (gate spacing) plus fixed widths; sp chosen to fill the column
+def layout(gp):                                            # one free gap gp between consecutive elements, edges included
+    X = {}; x = x0 + 3.0
+    X["m1"] = x; x += gp + 2.1; X["g1"] = x; x += 4.2 + gp; X["g2"] = x; x += 2.1 + gp / 2; X["e1"] = x; x += PW + gp
+    X["m2"] = x; x += gp + w0 / 2; X["g3"] = x; x += w0 / 2 + gp + 2.1; X["g4"] = x; x += 2.1 + gp / 2; X["e2"] = x
+    x += PW + gp; X["m3"] = x; x += gp; X["t"] = x; x += gp + 3.0; X["s"] = x; x += 3.0 + gp / 2; X["e"] = x
+    return X
+lo, hi = 4.0, 60.0
+for _ in range(50):
+    mid = (lo + hi) / 2
+    if layout(mid)["e"] + 2.3 + TW <= WIDTH - 1.0: lo = mid
+    else: hi = mid
+X = layout(lo)
+xm1, xg1, xg2, xe1, xm2, xg3, xg4, xe2, xm3, xt, xs_, xe = (X[k] for k in ("m1", "g1", "g2", "e1", "m2", "g3", "g4", "e2", "m3", "t", "s", "e"))
 for q, yy in ry.items():
-    xz = GX[2] if q == 1 else xe
+    xz = xe1 if q == 1 else xe2 if q == 2 else xe
     ax.plot([x0, xz], [yy, yy], color=WIRE, lw=0.5, zorder=1)
-l0, r0 = box(GX[0], 7.5, ry[1], r"$\sqrt{X}^{\dagger}$")
-ax.plot([GX[1], GX[1]], [ry[4], ry[1]], color=INK, lw=0.5, zorder=2)
-ax.scatter([GX[1]], [ry[1]], s=4.5, c=INK, zorder=4, linewidths=0)
-for t in (2, 3, 4):
-    ax.add_patch(Circle((GX[1], ry[t]), 2.1, fc="white", ec=INK, lw=0.5, zorder=3))
-    ax.plot([GX[1] - 2.1, GX[1] + 2.1], [ry[t], ry[t]], color=INK, lw=0.5, zorder=4)
-    ax.plot([GX[1], GX[1]], [ry[t] - 2.1, ry[t] + 2.1], color=INK, lw=0.5, zorder=4)
-l2, r2 = box(GX[2], 6.5, ry[1], r"$\langle{+}|$")
-assert l2 - (GX[1] + 2.1) > 1.0 and GX[1] - 2.1 - r0 > 1.0, "boxes touch the fan-out"
-ax.plot([xm, xm], [ry[4] - 3.5, ry[2] + 3.5], ls=(0, (2.0, 1.2)), lw=0.9, color=ORANGE, zorder=4)
-ax.plot([xt, xt], [ry[4], ry[2]], color=ORANGE, lw=0.8, zorder=3)
-ax.scatter([xt] * 3, [ry[2], ry[3], ry[4]], s=6.5, c=ORANGE, linewidths=0, zorder=4)
-for t in (2, 3, 4):
-    lS, _ = box(xs_, 6.0, ry[t], r"$S$")
-assert lS - xt > 2.0 and xt - xm > 2.0, "catalytic T touches its neighbours"
-ax.plot([xe + 0.5, xe + 1.5, xe + 1.5, xe + 0.5], [ry[2] + 2, ry[2] + 2, ry[4] - 2, ry[4] - 2], color=INK, lw=0.5)
-ax.text(xe + 2.3, ry[3], r"$|T\rangle^{\otimes3}$", ha="left", va="center", color=INK)
-# labels: the input above its wires (row of q0 in (c)), the [[12,3,2]] output and the catalyst under the wires
-ax.text(x0, C["y"][0], r"$\sim\!|\mathrm{CCZ}\rangle$ of $[[8,4,2]]$", ha="left", va="center", color=BLUE)
-xl = (xm + xt) / 2
-ax.plot([xm, xl], [ry[4] - 3.5, C["ylab"] + 0.3], color=ORANGE, lw=0.5, zorder=4)
-ax.text(xl, C["ylab"], r"$\sim\!|\mathrm{CS}_{12}\mathrm{CS}_{13}\rangle$", ha="center", va="top", color=ORANGE)
-ax.text(xl, C["ylab"] - LINE, r"$+$ one catalytic $T$", ha="center", va="top", color=INK)
-assert xe + 2.3 + TW <= BW + 0.5 and BW < C["xcs"][0], "(b) runs into (c)"
+for q, xz in ((1, xe1), (2, xe2)):
+    ax.text(xz + 0.8, ry[q], r"$|{+}\rangle$", ha="left", va="center", color=INK)
+cnot_draw(xg1, 1, [2]); cnot_draw(xg2, 3, [2])
+box(xg3, 7.5, ry[2], r"$\sqrt{X}^{\dagger}$")
+cnot_draw(xg4, 2, [3, 4, 5])
+ax.plot([xt, xt], [ry[5], ry[3]], color=ORANGE, lw=0.8, zorder=3)
+ax.scatter([xt] * 3, [ry[3], ry[4], ry[5]], s=6.5, c=ORANGE, linewidths=0, zorder=4)
+ax.text(xt, ry[2], r"catalytic $T$", ha="center", va="center", color=ORANGE)
+for t in (3, 4, 5):
+    box(xs_, 6.0, ry[t], r"$S$")
+ax.plot([xe + 0.5, xe + 1.5, xe + 1.5, xe + 0.5], [ry[3] + 2, ry[3] + 2, ry[5] - 2, ry[5] - 2], color=INK, lw=0.5)
+ax.text(xe + 2.3, ry[4], r"$|T\rangle^{\otimes3}$", ha="left", va="center", color=INK)
+marker(xm1, 1, BLUE); marker(xm2, 2, BLUE); marker(xm3, 3, ORANGE)
+ylab3 = ry[5] - 4.0
+labs = [(xm1, BLUE, r"(b) $[[8,5,2]]$"), (xm2, BLUE, r"(a) $[[8,4,2]]$"), (xm3, ORANGE, r"(a,b) $[[12,3,2]]$")]
+for x, col, t in labs:
+    ax.text(x - 1.5, ylab3, t, ha="left", va="top", color=col)
+wl = [textw(t) for _, _, t in labs]
+assert all(labs[i][0] + wl[i] + 3 < labs[i + 1][0] for i in range(2)) and labs[2][0] + wl[2] < WIDTH, "labels of (c) overlap"
+assert xt - textw(r"catalytic $T$") / 2 > xe2 + PW + 1.0, "catalytic label hits |+> of q2"
+assert xe + 2.3 + TW <= WIDTH, "(c) too wide"
+C = dict(bottom=ylab3 - LINE - 2.0)
 ytop, ybot = 0.5, C["bottom"] + 1.5
 H = ytop - ybot
 ax.set_xlim(0, WIDTH); ax.set_ylim(ybot, ytop)
 fig.set_size_inches(WIDTH / 72.27, H / 72.27)
-print(f"figure {WIDTH:.0f} x {H:.0f} pt; pitch (a) {pa:.2f}, (c) {pc:.2f} pt; (c) ends at {C['xend']:.0f} pt")
+print(f"figure {WIDTH:.0f} x {H:.0f} pt; pitch (a) {pa:.2f}, (b) {pb:.2f} pt; (c) ends at {xe + 2.3 + TW:.0f} pt")
 for out in (os.path.join(ROOT, "figures", "parent_odd.pdf"),
             os.path.join(ROOT, "Magic_State_Factories_tex", "MSD_manuscript", "FIGURES", "parent_odd.pdf"),
             os.path.join(ROOT, "figures", "parent_odd.png")):

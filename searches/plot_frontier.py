@@ -15,7 +15,7 @@ DATA.
     k <= 6 and 4,290 of the 4,354 targets at k = 7, 8 lie in the linear part. One glyph per (n, T-count, verdict,
     decided), standing for 1 to 60 classes / targets; the glyphs of one position sit side by side, centred on n (decided
     first, then upper-bound ones) and are moved apart along their row only as far as needed for no two to touch (the
-    script prints the largest distance from n, 1.56). Same encoding in (a) and (b): orange fewer, gray same, dark more
+    script prints the largest distance from n, 1.89). Same encoding in (a) and (b): orange fewer, gray same, dark more
     (triangle in (a)); filled / solid bar when the T-count is decided (lo = hi), hollow / dotted bar when the target is
     compared at its upper bound hi only (lo < hi: open, fewer_than_built, more). The 3,271 CCZ layers at k = 8 with
     n = hi + 1 and lo = 17 (asserted) are drawn as one hollow glyph per n at hi, 1.35 to the right of the line, with a
@@ -27,7 +27,8 @@ DATA.
     and the number with fewer inputs (inside the orange segment, or before the total where it is too narrow; with an
     asterisk when the comparison is with the construction built from the upper bound only, 'fewer_than_built').
     Segments under 2 % are drawn at 2 % (taken from the widest segment of the row). l = 4: classes with a factory, no
-    synthillation benchmark.
+    synthillation benchmark, counting only the 4,145 classes that need a fourth-level rotation (the 22 flagged
+    third_level_target in staged_best.json are third-level targets, covered at l = 3).
     python searches/plot_frontier.py                 # writes the paper's figure files (default, unchanged)
     python searches/plot_frontier.py --out PREFIX    # writes PREFIX.png and PREFIX.pdf only
 """
@@ -143,7 +144,7 @@ for n in labels:
     else:
         ax.scatter(n, n - 1, s=44, marker="D", c=BLUE, edgecolors=SURF, linewidths=0.8, zorder=7)
 for n, ks in labels.items():                                   # one 8 pt label per point: every k reaching it
-    t = n - 1; lab = rf"$[[{n},{'|'.join(map(str, sorted(ks)))},2]]$"
+    t = n - 1; lab = rf"$[[{n},{'/'.join(map(str, sorted(ks)))},2]]$"
     if n == 8:                                                 # right of and below the point
         ax.text(n + 0.8, t - 0.3, lab, ha="left", va="top", color=INK)
     else:                                                      # above-left, in the excluded triangle, stepping with the line
@@ -173,7 +174,7 @@ rows = [row_k6(r"$l=3$, $k\le4$", S4), row_k6(r"$l=3$, $k=5,6$", [r for r in R i
 TK = [r for r in T78 if r["k"] in (7, 8)]                  # 'more' split by whether the T-count is decided
 rows.append((r"$l=3$, $k=7,8$", len(TK),
              dict(collections.Counter(r["verdict"] + ("" if r["verdict"] != "more" or r["lo"] == r["hi"] else "_ub") for r in TK))))
-rows.append((r"$l=4$, $k\le4$", sum(r["l"] == 4 for r in SB), None))
+rows.append((r"$l=4$, $k\le4$", sum(r["l"] == 4 and not r["third_level_target"] for r in SB), None))   # the 22 third-level targets left out
 ORDER = [("same", GRAYBAR, None), ("open", GRAYBAR, "......"), ("more", MORE, None), ("more_ub", MORE, "......"),
          ("fewer_than_built", ORANGE, "......"), ("fewer", ORANGE, None)]
 WMIN = 2.0                                                 # segments below WMIN % drawn at WMIN %, the excess taken from the widest
@@ -218,7 +219,7 @@ HT = {tuple: HandlerTuple(ndivide=None, pad=0.3)}
 KW = dict(frameon=False, handler_map=HT, handlelength=2.0, handletextpad=0.35, labelspacing=0.12, borderaxespad=0.0,
           labelcolor=INK, title_fontsize=FS, alignment="left")
 k1 = ax.legend([(fil(ORANGE), Patch(fc=ORANGE)), (fil(GRAY), Patch(fc=GRAYBAR)), (fil(MORE, "^", 3.8), Patch(fc=MORE))],
-               ["fewer", "same", "more"], loc="lower left", bbox_to_anchor=(0.36, 0.0), title=r"decided", **KW)
+               ["fewer", "same", "more"], loc="lower left", bbox_to_anchor=(0.36, 0.0), title=r"exact", **KW)
 ax.add_artist(k1)
 k2 = ax.legend([(hol(ORANGE, ms=4.0), dot(ORANGE)), (hol(OPEN), dot(GRAYBAR)), (hol(MORE, "^", 3.8), dot(MORE))],
                ["fewer", "same", "more"], loc="lower right", bbox_to_anchor=(1.0, 0.0), title=r"upper bound", **KW)

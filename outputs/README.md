@@ -18,7 +18,7 @@ below was read from the file named on the same line.
 | `staged_l4fix/l4_k3/`, `staged_small/l{2,4}_k*/` | `searches/staged.py` | `l=4, k=3`; `l=2, k<=6`; `l=4, k<=2` (one process per cell) |
 | `staged_*/_cache/` | `searches/cascade_class.py` | pickled exact class tables (gitignored; rebuilt on first use, up to ~1 h for `l=3, k=6` and `l=4, k=4`) |
 | `archive/v4_published/` | copies | the outputs of the v4-only pipeline that the per-class best of v4, v5, v6 replaced (README there) |
-| `staged_best.json` | `searches/staged_best.py` | **the smallest factory found for each of the 4,942 classes** (`l=3` from `staged_final_b3`) (`l=2`: 9, `l=3`: 766, `l=4`: 4,167), re-verified, with gates, exact `Z(pi/2^l)`-count `tau`, synthillation `n` at `l=3`, `c`, final stage and the first stage reaching its `n` |
+| `staged_best.json` | `searches/staged_best.py` | **the smallest factory found for each of the 4,942 classes** (`l=3` from `staged_final_b3`) (`l=2`: 9, `l=3`: 766, `l=4`: 4,167, of which 22, flagged `third_level_target`, are third-level targets and 4,145 need a fourth-level rotation), re-verified, with gates, exact `Z(pi/2^l)`-count `tau`, synthillation `n` at `l=3`, `c`, final stage and the first stage reaching its `n` |
 | `staged_A/compare_l3.json` | `searches/staged_compare.py` | per class against every earlier run: `l=3, k=5`: 57 equal, 7 better, 1 worse of 65; `k=6`: 605 equal, 66 better, 8 worse of 679 |
 | `staged_A_rerun/` | `searches/rerun_A_tasks.py` | rerun of the classes a limit may have touched; not merged (the verified smaller factories are in `outside_pipeline/`) |
 | `earlier_catalogues/` | earlier scripts (now in `trash/`) | the `l=3` catalogue and CSVs before sweep A, kept because they record the classes where an earlier SAT run is still smaller |
@@ -75,7 +75,7 @@ Every Quirk link contains exactly its factory: 4,942 of 4,942 (`checks/quirk_che
 | `catalytic_check.json` | `searches/catalytic_check.py` | `[[10,2,2]]` and `[[11,1,2]]` by statevector simulation; `[[10,2,2]]` output error `9p^2` per output, `13p^2` joint |
 | `syn_c_compare.json` | `searches/syn_c_compare.py` | `n`, `c` of the factory and of every valid synthillation variant, per `l=3` class |
 | `clifford_correction.json` | `searches/clifford_correction.py` | the free diagonal gate `D` each factory leaves on checks and outputs, per level |
-| `route_compare_l3.json` | `searches/route_compare_l3.py` | distil-then-synthesize routes (`4 tau` catalysed; per-gate teleportation) against the factory |
+| `route_compare_l3.json` | `searches/route_compare_l3.py` | distil-then-synthesize routes (`4 tau` catalysed; per-gate teleportation; CS/CCZ batched through `[[6m+2,3m,2]]`) against the factory |
 | `k78_class_count.json` | `searches/k78_class_count.py` | Burnside count of `CCZ`-layer classes at `k<=8`; fingerprints of the `k=7,8` target list |
 | `class_invariants_l3.json` | `searches/class_invariants_l3.py` | per `l=3` class: single gate type, product on disjoint qubits |
 | `closed_forms.json`, `two_group_check.json`, `two_group_distance.json`, `sequential_check.json`, `bi_condition_check.json`, `catalogue_bound_check.json`, `syndrome_rank_check.json`, `best_symmetry_l3.json`, `orbit_group_l3.json` | the scripts of the same names | the condition and distance checks of the paper (see the root README table) |

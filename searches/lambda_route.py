@@ -3,7 +3,7 @@ convert them into the target with Clifford gates, Pauli measurements and feedfor
 
 lambda(U) = fewest |T> states from which stabilizer operations (Cliffords, Pauli measurements, feedforward) make |U>,
 without catalysts. lambda(U) <= tau(U) (CNOT+T synthesis). What we use from Beverland, Campbell, Howard, Kliuchnikov,
-arXiv:1904.01124 (text read: /Users/shraddhasingh/msf_scratch/dl_bev/bev.txt):
+arXiv:1904.01124 (full text read):
   (a) stabilizer nullity nu is monotone under stabilizer operations, measurements included, and additive (Sec. 2.1,
       Prop. 4.1), so lambda(U) >= nu(U). We compute nu exactly (Pauli spectrum, searches/full_clifford_classes.py).
   (b) stabilizer extent xi is monotone under stabilizer operations (Sec. 1.1, 2.2) and multiplicative on products of
@@ -22,13 +22,23 @@ fewest inputs for lambda T states from the cheapest distance-2 T^m factories of 
 (outputs/large_unified_factories.csv, rows d=2 whose output is a product of T gates), batched; for products, also any
 mix of directly distilled CS and CCZ states (pure CS^m, CCZ^m factories of the same catalogue) and T states for the
 rest. To first order the error of the route is the sum over the distilled states, so it is a distance-2 route.
-T supply, strongest distance-2 alternative we know besides the catalogue: Meier, Eastin, Knill, arXiv:1204.4221 (text
-read: /Users/shraddhasingh/msf_scratch/dl_mek/p.txt, Sec. II-III): the four-qubit-code routine takes ten |H> states to
+T supply, strongest distance-2 alternative we know besides the catalogue: Meier, Eastin, Knill, arXiv:1204.4221 (full
+text read, Sec. II-III): the four-qubit-code routine takes ten |H> states to
 two, accepts with a(p) = 1 - 10p + O(p^2), output error u(p) = 9p^2 + O(p^3) per output (every single error detected),
 no catalyst. |H> = cos(pi/8)|0> + sin(pi/8)|1> is Clifford-equivalent to |T> = T|+> (checked numerically below), so it
 is a T^2 factory with n = 10 for this route. Every T count below is the cheapest batching of the catalogue T^m factories
 and MEK (10 inputs per 2 T states, surplus discarded). The CS and CCZ pieces use the cheaper of the catalogue pure
 factories and T states (3 T per CS, 4 T per CCZ) from that supply.
+Added 2026-11-06 (referee round 4), from Balada Gaggioli and Marecek, arXiv:2610.31115 (full text
+read): (i) Prop. 7 and Table I, a nine-input distance-2 factory for one T
+state (acceptance 1/128, error 27/2 p^2), and Prop. 5, no stabilizer protocol does it with eight, so T^1 costs 9 here
+per run; per accepted output it costs more (that paper, Discussion: "per accepted output, the nine-input T factory
+consumes more inputs than the ten-input protocol"), while the other factories used accept with 1 - n p + O(p^2). The
+tallies are therefore also reported without it (tally_without_BGM, tally_full_clifford_without_BGM);
+(ii) Prop. 10 (= Beverland et al. Prop. A.4): projecting one qubit of |CCZ> onto (|0> +- i|1>)/sqrt2 leaves CS|++> up
+to a Clifford, so m CS states cost at most what m CCZ states cost (8 for one, [[8,3,2]]; Table I: n_min(CS,2) = 8).
+Both are measurement routes without catalysts and are used for the T and CS pieces below (checked: cs_from_ccz_check);
+the CS and CCZ pieces may also be drawn together from one batch of CCZ states (CCZ^m factories of the catalogue).
 Full-Clifford groups are read from outputs/checks/full_clifford_classes.json; member labels are 'k:orbit:spec' and the
 k=6 orbit labels contain colons ('6:0:1536:CCZ045,CCZ123'), so the orbit is everything between the first and last colon.
 Invariants reported for the full-Clifford classes (all exact Clifford invariants, see invariants()): Pauli spectrum
@@ -46,6 +56,15 @@ SB = {"paper_v4": "outputs/archive/v4_published/outputs/staged_best.json", "curr
 RATIO = {"T": 1.0, "CS": 2.96818, "CCZ": 3.63356}                 # Table 1, lower-bound column, log xi / log xi(T)
 W_RATIO = {3: 3.63356, 4: 4.99907, 5: 5.93637}                     # Table 1 rows W3, W4, W5
 MEK = {2: 10}                                                      # Meier-Eastin-Knill 10 -> 2 |H>, distance 2
+BGM = {1: 9}                                                       # Balada Gaggioli-Marecek Prop. 7: 9 -> 1 T, distance 2
+
+
+def cs_from_ccz_check():
+    """<c| = (<0| - i<1|)/sqrt2 on qubit 3 of |CCZ> leaves amplitudes (1-i)(1,1,1,i) on |ab>: CS|++> (Prop. A.4)."""
+    amp = {(a, b): 1 + (-1j) * (-1) ** (a * b) for a in (0, 1) for b in (0, 1)}
+    v = [amp[(a, b)] / amp[(0, 0)] for a in (0, 1) for b in (0, 1)]
+    assert max(abs(x - y) for x, y in zip(v, [1, 1, 1, 1j])) < 1e-12
+    return True
 
 
 def mek_check():
@@ -151,10 +170,16 @@ def main():
     floor = {(r["k"], r["spec"]): r for r in json.load(open(os.path.join(ROOT, "outputs", "nullity_l3.json")))}
     fac = catalogue_pure()
     fac["T_catalogue"] = dict(fac["T"]); fac["T_MEK"] = dict(MEK)
-    fac["T"] = {m: min(fac["T"].get(m, 10 ** 9), MEK.get(m, 10 ** 9)) for m in set(fac["T"]) | set(MEK)}
-    assert mek_check()
+    fac["T_BGM"] = dict(BGM); fac["CS_catalogue"] = dict(fac["CS"])
+    fac["T"] = {m: min(fac["T"].get(m, 10 ** 9), MEK.get(m, 10 ** 9), BGM.get(m, 10 ** 9))
+                for m in set(fac["T"]) | set(MEK) | set(BGM)}
+    fac["CS"] = {m: min(fac["CS"].get(m, 10 ** 9), fac["CCZ"].get(m, 10 ** 9)) for m in set(fac["CS"]) | set(fac["CCZ"])}
+    assert mek_check() and cs_from_ccz_check()
+    assert fac["T"][1] == 9 and fac["T"][2] == 10 and fac["CS"][1] == 8 and fac["CCZ"][1] == 8
     Tcat = lambda m: knap(m, fac["T_catalogue"])
     nT = lambda m: knap(m, fac["T"])
+    fT0 = {m: min(fac["T_catalogue"].get(m, 10 ** 9), MEK.get(m, 10 ** 9)) for m in set(fac["T_catalogue"]) | set(MEK)}
+    nT0 = lambda m: knap(m, fT0)                             # T supply without the nine-input BGM factory
     # lower bounds
     lower = {x: (per[x]["nullity"], "nullity") for x in per}
     note = collections.defaultdict(list)
@@ -190,23 +215,31 @@ def main():
     ka = {"lambda(CCZ)=4": ccz in known and upper[ccz] == 4, "lambda(CS)=3": cs in known and upper[cs] == 3,
           "lambda(T)=1": t in known and upper[t] == 1}
     assert all(ka.values()), ka
-    out_rows = []; tally = {nm: collections.Counter() for nm in SB}
+    out_rows = []; tally = {nm: collections.Counter() for nm in SB}; tally0 = {nm: collections.Counter() for nm in SB}
     for x in sorted(known):
         lam = upper[x]
         routes = {"lambda T states (catalogue + MEK)": nT(lam)}
+        rc0 = nT0(lam)
         routes_cat = {"lambda T states (catalogue only)": Tcat(lam)}
         if x in prod_of:
             a, b, c, _ = prod_of[x]
             best = None; bestc = None
             for bs, cs_ in itertools.product(range(b + 1), range(c + 1)):   # bs CS and cs_ CCZ distilled directly
                 m = a + 3 * (b - bs) + 4 * (c - cs_)
-                v = nT(m) + knap(bs, fac.get("CS", {})) + knap(cs_, fac.get("CCZ", {}))
-                vc = Tcat(m) + knap(bs, fac.get("CS", {})) + knap(cs_, fac.get("CCZ", {}))
+                v = nT(m) + min(knap(bs, fac.get("CS", {})) + knap(cs_, fac.get("CCZ", {})),
+                                knap(bs + cs_, fac.get("CCZ", {})))   # CS from a pooled CCZ batch by a Y measurement
+                vc = Tcat(m) + knap(bs, fac["CS_catalogue"]) + knap(cs_, fac.get("CCZ", {}))
+                v0 = nT0(m) + min(knap(bs, fac.get("CS", {})) + knap(cs_, fac.get("CCZ", {})),
+                                  knap(bs + cs_, fac.get("CCZ", {})))
+                rc0 = min(rc0, v0)
                 best = v if best is None else min(best, v); bestc = vc if bestc is None else min(bestc, vc)
             routes["pieces: direct CS/CCZ + T states (catalogue + MEK) for the rest"] = best
             routes_cat["pieces, catalogue only"] = bestc
         rc = min(routes.values()); rc_cat = min(routes_cat.values())
         ef = extent_floor(ratio_of[x][0], fac) if x in ratio_of else None
+        for nm in SB:
+            r0 = rows[nm][x]
+            tally0[nm]["factory fewer" if r0["n"] < rc0 else "same" if r0["n"] == rc0 else "route fewer"] += 1
         for nm in SB:
             r = rows[nm][x]
             res = "factory fewer" if r["n"] < rc else "same" if r["n"] == rc else "route fewer"
@@ -215,7 +248,7 @@ def main():
                 out_rows.append(dict(k=x[0], orbit=x[1], spec=per[x]["spec"], nu=per[x]["nullity"], tau=r["tau"],
                                      lambda_=lam, lambda_lower_from=lower[x][1], lambda_upper_from=upper_from[x], W=note.get(x, []),
                                      product=prod_of.get(x, (None,) * 4)[3], routes=routes, route_n=rc,
-                                     route_n_catalogue_only=rc_cat, mek_lowers_route=rc < rc_cat,
+                                     route_n_catalogue_only=rc_cat, route_n_without_BGM=rc0, mek_lowers_route=rc < rc_cat,
                                      group=[f"{y[0]}:{y[1]}:{per[y]['spec']}" for y in group[x]],
                                      extent_floor_any_TCSCCZ_supply=ef, extent_ratio=ratio_of.get(x),
                                      factory_below_extent_floor=(ef is not None and r["n"] < ef),
@@ -232,27 +265,39 @@ def main():
     inv = invariants(fcc, per, group)
     # route vs factory per full-Clifford class (lambda known for one member <=> for all: lambda is a Clifford invariant)
     fc_groups = {tuple(sorted(group[x])) for x in known}
-    fc_tally = {nm: collections.Counter() for nm in SB}
+    fc_tally = {nm: collections.Counter() for nm in SB}; fc_tally0 = {nm: collections.Counter() for nm in SB}
+    fc_syn = {nm: {"with_BGM": collections.Counter(), "without_BGM": collections.Counter()} for nm in SB}
     for G in fc_groups:
         rr = [r for r in out_rows if (r["k"], r["orbit"]) in G]
-        rc = min(r["route_n"] for r in rr)
+        rc = min(r["route_n"] for r in rr); rc0 = min(r["route_n_without_BGM"] for r in rr)
         for nm in SB:
             n = min(rows[nm][y]["n"] for y in G)
             fc_tally[nm]["factory fewer" if n < rc else "same" if n == rc else "route fewer"] += 1
+            fc_tally0[nm]["factory fewer" if n < rc0 else "same" if n == rc0 else "route fewer"] += 1
+            sy = [rows[nm][y].get("syn_n") for y in G if rows[nm][y].get("syn_n") is not None]
+            sy = min(sy) if sy else None                         # cheapest synthillation construction over the class
+            for key, v in (("with_BGM", rc), ("without_BGM", rc0)):
+                fc_syn[nm][key]["no construction" if sy is None else "route fewer than synthillation" if v < sy
+                                else "same" if v == sy else "synthillation fewer"] += 1
     res = dict(doc=__doc__, known_answers=ka, mek_H_clifford_equivalent_T=True, invariants=inv,
                lambda_known_full_clifford_classes=len(fc_groups), of_full_clifford_classes=len({tuple(sorted(v)) for v in group.values()}),
-               tally_full_clifford=({nm: dict(v) for nm, v in fc_tally.items()}),
+               tally_full_clifford=({nm: dict(sorted(v.items())) for nm, v in fc_tally.items()}),
+               tally_full_clifford_without_BGM=({nm: dict(sorted(v.items())) for nm, v in fc_tally0.items()}),
+               route_vs_synthillation_full_clifford={nm: {k: dict(sorted(c.items())) for k, c in v.items()}
+                                                     for nm, v in fc_syn.items()},
+               tally_without_BGM={nm: dict(sorted(v.items())) for nm, v in tally0.items()},
                route_lowered_by_MEK=[r["spec"] for r in out_rows if r["mek_lowers_route"]], catalogue_pure_factories=fac,
-               lambda_known=len(known), of=len(per), lambda_known_by_k=dict(collections.Counter(x[0] for x in known)),
-               lambda_known_reason=dict(collections.Counter(lower[x][1].split(",")[0] for x in known)),
-               lambda_gap_histogram=dict(sorted(gap.items())), rows=out_rows, tally={nm: dict(v) for nm, v in tally.items()},
-               nullity_floor={nm: dict(v) for nm, v in fl.items()},
+               lambda_known=len(known), of=len(per), lambda_known_by_k=dict(sorted(collections.Counter(x[0] for x in known).items())),
+               lambda_known_reason=dict(sorted(collections.Counter(lower[x][1].split(",")[0] for x in known).items())),
+               lambda_gap_histogram=dict(sorted(gap.items())), rows=out_rows, tally={nm: dict(sorted(v.items())) for nm, v in tally.items()},
+               nullity_floor={nm: dict(sorted(v.items())) for nm, v in fl.items()},
                per_class=[dict(k=x[0], orbit=x[1], spec=per[x]["spec"], lambda_lower=lower[x][0], lower_from=lower[x][1],
                                lambda_upper=upper[x], upper_from=upper_from[x]) for x in sorted(per)],
                sources=dict(staged_best=SB, full_clifford="outputs/checks/full_clifford_classes.json",
                             nullity_floor="outputs/nullity_l3.json", factories="outputs/large_unified_factories.csv",
                             literature="Beverland et al. arXiv:1904.01124, Sec. 2.1-2.2, Lemma 2.7, Prop. 4.1, Tables 1, 4; "
-                                       "Meier, Eastin, Knill arXiv:1204.4221, Sec. II-III (10 -> 2, a(p), u(p))"))
+                                       "Meier, Eastin, Knill arXiv:1204.4221, Sec. II-III (10 -> 2, a(p), u(p)); "
+                                       "Balada Gaggioli, Marecek arXiv:2610.31115, Props. 5, 7, 10, Table I"))
     json.dump(res, open(os.path.join(OUT, "lambda_route.json"), "w"), indent=1)
     write_md(res)
     print(json.dumps({k: v for k, v in res.items() if k not in ("doc", "rows", "per_class")}, indent=1))
@@ -300,7 +345,7 @@ def write_md(o):
           "- Rows where the route beats the factory (current table): "
           + (", ".join(f"{r['spec']} (route {r['route_n']}, factory {r['factory_n_current']}; full-Clifford group {r['group']})"
                        for r in o["rows"] if r["result_current"] == "route fewer") or "none") + ".",
-          f"- Rows whose route cost the Meier-Eastin-Knill 10 -> 2 T supply lowers (vs catalogue only): "
+          f"- Rows whose route cost the supplies outside the catalogue (MEK 10 -> 2 T, BGM 9 -> 1 T, CCZ + Y -> CS) lower: "
           f"{len(o['route_lowered_by_MEK'])} of {o['lambda_known']}: {o['route_lowered_by_MEK']}.",
           f"- Lower bound that closes lambda: {o['lambda_known_reason']} (W4, W5 extents are numerical, App. A.4 of "
           "Beverland et al.).",
@@ -314,6 +359,11 @@ def write_md(o):
     L += [f"- {o['invariants']['note']}.", ""]
     for nm, t in o["tally"].items():
         L.append(f"- Classes with lambda known, factory ({nm}) vs cheapest lambda route: {t} of {o['lambda_known']}.")
+        L.append(f"- Same, without the nine-input T factory of arXiv:2610.31115 (acceptance 1/128): "
+                 f"{o['tally_without_BGM'][nm]} of {o['lambda_known']}; per full-Clifford class: "
+                 f"{o['tally_full_clifford_without_BGM'][nm]} of {o['lambda_known_full_clifford_classes']}.")
+        L.append(f"- Route vs the cheapest synthillation construction over each full-Clifford class ({nm}): "
+                 f"{o['route_vs_synthillation_full_clifford'][nm]} of {o['lambda_known_full_clifford_classes']}.")
     for nm, t in o["nullity_floor"].items():
         L.append(f"- All {o['of']} classes, factory ({nm}) vs nullity floor of every T/CS/CCZ route: {t}.")
     L += ["", "## Classes with lambda known", "",

@@ -49,7 +49,9 @@ python searches/merge_A_v3.py outputs/solver_v2/staged_A_v4    # likewise _v5, _
 python searches/sat_variants.py          # -> outputs/checks/sat_variants.json (per run: layers, CPU-h per form, fewer, inputs fewer; best of three; without SAT)
 python searches/build_staged_best3.py    # -> outputs/staged_final_b3 (per class the best of v4, v5, v6; summary.json: credit and tie-break counts)
 python searches/staged_best.py           # -> outputs/staged_best.json
-python searches/stage_contributions.py   # -> outputs/stage_contributions_l3.json, Table I and Table SII
+python searches/stage_contributions.py   # -> outputs/stage_contributions_l3.json, Table I and Table SII (outputs/checks/stage_table.{json,tex}; also
+                                         #    Magic_State_Factories_tex/MSD_manuscript/stage_table.tex when that directory exists)
+python searches/stage_contributions.py --out-dir DIR   # -> the same three files in DIR only, nothing under outputs/ or the manuscript
 python searches/text_counts.py           # -> outputs/checks/text_counts.json (prose counts)
 ```
 
@@ -98,7 +100,7 @@ Commands for every regime are in the root README ("One search, three regimes").
 | `synthillation_strongest.py` | strongest synthillation per class, padded matrices included, each checked with the BI condition | `outputs/synthillation_strongest_l3.json` |
 | `error_coefficients.py` | output-error coefficient `c` (library, used by `staged_best.py` and `check_A.py`) | — |
 | `nullity_l3.py` | stabilizer nullity of every `l=3` class and the bound it gives on conversion routes | `outputs/nullity_l3.json` |
-| `route_compare_l3.py` | achievable distil-then-synthesize routes (catalysed `4 tau`; per-gate distillation and teleportation) against the factory | `outputs/checks/route_compare_l3.json` |
+| `route_compare_l3.py` | achievable distil-then-synthesize routes (catalysed `4 tau`; per-gate distillation and teleportation; CS/CCZ batched through `[[6m+2,3m,2]]`) against the factory | `outputs/checks/route_compare_l3.json` |
 | `syn_c_compare.py` | output-error coefficient `c` of the factory against every valid synthillation variant | `outputs/checks/syn_c_compare.json` |
 | `synthillation_bound.py` | the counts Theorem 1 of synthillation allows, case 2 of its Table I, margins of the cascade | `outputs/synthillation_bound_l3.json` |
 | `clifford_correction.py` | the free diagonal gate `D` (Clifford correction) each factory leaves before readout | `outputs/checks/clifford_correction.json` |

@@ -7,7 +7,8 @@ files so that readers of them keep working:
   outputs/all_factories_with_quirk.csv.zip  all_factories.csv with the Quirk column
   outputs/l3_catalogue_k6.csv             the 766 l=3 rows (k, spec, tcount, n, N, c, source, syn_strongest_n, gates, quirk, verified)
 Columns that described Clifford padding (padded_from, clifford_padded, masks) are left empty: the staged cascade does
-not pad. Every row's factory was re-verified by searches/staged_best.py; here n, N and the class are copied.
+not pad. third_level_target = yes on the 22 l=4 rows whose target is a level-3 gate (staged_best.py): third-level
+targets, kept for completeness and not counted as fourth-level classes. Every row's factory was re-verified by searches/staged_best.py; here n, N and the class are copied.
     python searches/export_csv.py
 """
 import os, sys, csv, json, zipfile
@@ -24,7 +25,7 @@ STAGE = {"i_tg": "two-group", "i_gs": "group-symmetric", "i_gh": "group-symmetri
          "ii_dj": "gluing", "ii_eg": "entangled-gluing", "iii_r": "restricted-SAT", "iii_f": "free-SAT",
          "iii_xs": "restricted-SAT", "iii_x": "free-SAT"}
 COLS = ["clifford_class", "l", "k", "n", "c", "N", "d", "search_stage", "padded_from", "params", "reduced", "raw",
-        "zcount", "essential_dim", "clifford_padded", "masks", "reference"]
+        "zcount", "essential_dim", "clifford_padded", "masks", "reference", "third_level_target"]
 
 
 def main():
@@ -37,7 +38,7 @@ def main():
                          c="" if r["c"] is None else r["c"], N=r["N"], d=2, search_stage=STAGE[r["first"]],
                          padded_from="", params=r["stage"], reduced=r["spec"], raw=r["spec"],
                          zcount="" if r["tau"] is None else r["tau"], essential_dim=r["k"], clifford_padded="",
-                         masks="", reference="", quirk=q, gates=json.dumps(r["gates"]), syn_n=r["syn_n"], first=r["first"]))
+                         masks="", reference="", third_level_target="yes" if r.get("third_level_target") else "", quirk=q, gates=json.dumps(r["gates"]), syn_n=r["syn_n"], first=r["first"]))
     def write(path, cols, rs):
         with open(path, "w", newline="") as f:
             w = csv.DictWriter(f, cols, extrasaction="ignore"); w.writeheader(); w.writerows(rs)

@@ -45,6 +45,22 @@
     "max": 10,
     "total": 7450
    }
+  },
+  "l4_genuine": {
+   "rows": 4145,
+   "not_factory": 0,
+   "D_trivial": 1301,
+   "D_nontrivial": 2844,
+   "D_CZ_check_check": 1730,
+   "D_S_on_check": 1418,
+   "D_CZ_check_output": 2198,
+   "D_only_PauliZ_on_checks": 18,
+   "D_needs_Clifford_correction": 2826,
+   "CZ_terms": {
+    "median": 1,
+    "max": 10,
+    "total": 7441
+   }
   }
  }
 }

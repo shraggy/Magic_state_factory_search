@@ -13,7 +13,8 @@ For each class: n, N, the stage that gave the final factory, the first pass whos
 (ties to the earliest pass, as in Table I), the gates, the exact Z(pi/2^l)-count tau (l=3 class_table_l3.json, else
 unified_search.zcount), the strongest synthillation n at l=3 (synthillation_strongest_l3.json) and the output-error
 coefficient c (error_coefficients.coefficients). Every factory is re-verified (us.is_factory, distance 2, and the
-exact class label of the cell's labeller) before it is written; a failure stops the script.
+exact class label of the cell's labeller) before it is written; a failure stops the script. Each l=4 row carries
+third_level_target: true for the 22 classes whose target is a level-3 gate (see third_level_target).
     python searches/staged_best.py [--extra outputs/staged_A_rerun] -> outputs/staged_best.json
     python searches/staged_best.py --final-dir staged_final --out staged_best_v4.json
         the earlier published version: l=3 stage (iii) from the v4 run alone (outputs/staged_final,
@@ -52,6 +53,14 @@ def cell(src, L, k, extra):
     return last["specs"], best, first, {p: P[p].get("seconds") for p in P}
 
 
+def third_level_target(spec, L=4):
+    """True if the level-L target is a level-(L-1) diagonal gate: the coefficient on every set S of qubits is a
+    multiple of 2^|S| (mod 2^L), i.e. the target is a product of squares of level-L gates (sT^2 = T, CT^2 = CS,
+    CCS^2 = CCZ). At l=4, k<=4 these are the 22 classes of l=3 with k<=4 (outputs/checks/doubled_l3_at_l4.json);
+    they are not fourth-level results, and the tables and figures leave them out of the l=4 counts."""
+    return all(c % (1 << len(S)) == 0 for S, c in parse_target(spec, L).items())
+
+
 def main(extra, final_dir="staged_final_b3", out="staged_best.json"):
     TAU3 = {(r["k"], r["spec"]): r["tcount"] for r in json.load(open(os.path.join(O, "class_table_l3.json")))}
     SYN = {(r["k"], r["spec"]): r["best_n"] for r in json.load(open(os.path.join(O, "synthillation_strongest_l3.json")))}
@@ -73,12 +82,17 @@ def main(extra, final_dir="staged_final_b3", out="staged_best.json"):
                 c = coefficients(g, k, L)[1]
             except AssertionError:
                 c = None
-            rows.append(dict(l=L, k=k, orbit=o, spec=spec, n=n, N=b["N"], stage=b["stage"], first=first[o], tau=tau,
-                             syn_n=SYN.get((k, spec)) if L == 3 else None, c=c, gates=b["gates"]))
+            row = dict(l=L, k=k, orbit=o, spec=spec, n=n, N=b["N"], stage=b["stage"], first=first[o], tau=tau,
+                       syn_n=SYN.get((k, spec)) if L == 3 else None, c=c, gates=b["gates"])
+            if L == 4:
+                row["third_level_target"] = third_level_target(spec)
+            rows.append(row)
         meta[f"l{L}_k{k}"] = dict(source=f"outputs/{src}/l{L}_k{k}", classes=len(classes), pass_seconds=secs)
         print(f"l={L} k={k}: {len(best)} classes from {src}", flush=True)
     json.dump(dict(cells=meta, extra=extra, rows=rows), open(os.path.join(O, out), "w"))
-    print(f"{len(rows)} classes -> {os.path.relpath(os.path.join(O, out), ROOT)}")
+    t4 = sum(r.get("third_level_target", False) for r in rows); n4 = sum(r["l"] == 4 for r in rows)
+    print(f"{len(rows)} classes -> {os.path.relpath(os.path.join(O, out), ROOT)}; l=4: {n4} listed, "
+          f"{t4} third-level targets, {n4 - t4} genuine fourth-level")
 
 
 if __name__ == "__main__":
