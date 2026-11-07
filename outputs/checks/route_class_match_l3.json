@@ -1,0 +1,20 @@
+{
+ "classes": 766,
+ "factory_matches_orbit": 766,
+ "label_matches_orbit": 766,
+ "both": 766,
+ "mismatches": [],
+ "by_k": {
+  "1": "1 of 1",
+  "2": "2 of 2",
+  "3": "6 of 6",
+  "4": "13 of 13",
+  "5": "65 of 65",
+  "6": "679 of 679"
+ },
+ "known_answer_checks": {
+  "T0": true,
+  "CCZ012": true,
+  "CCZ012*T0_differs": true
+ }
+}

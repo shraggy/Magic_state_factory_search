@@ -1,0 +1,159 @@
+{
+ "source": "outputs/checks/route_kappa_l3.json, outputs/checks/full_clifford_classes.json, outputs/checks/lambda_route.json",
+ "note": "inputs only; route = route_table_l3.json full_clifford route; 'lower' = left item needs fewer inputs",
+ "factory_vs_route": {
+  "higher": 96,
+  "equal": 62,
+  "lower": 608
+ },
+ "per_diagonal_class": {
+  "synthillation": "syn_n per diagonal class",
+  "syn_vs_route": {
+   "higher": 122,
+   "equal": 53,
+   "lower": 591
+  },
+  "joint_factory_vs_route__syn_vs_route": {
+   "equal|equal": 39,
+   "equal|higher": 23,
+   "higher|higher": 96,
+   "lower|equal": 14,
+   "lower|higher": 3,
+   "lower|lower": 591
+  },
+  "totals": {
+   "factory": 21364,
+   "synthillation": 22198,
+   "route": 27130
+  },
+  "net_saving": {
+   "factory": 5766,
+   "synthillation": 4932,
+   "share_by_synthillation": 0.8554
+  },
+  "saving_on_classes_where_lower": {
+   "factory": 6192,
+   "synthillation": 5450,
+   "share_by_synthillation": 0.8802
+  },
+  "factory_below_synthillation": {
+   "classes": 330,
+   "inputs_saved": 834,
+   "syn_vs_route_there": {
+    "equal": 14,
+    "lower": 274,
+    "higher": 42
+   }
+  },
+  "factory_beats_route_only": [
+   "CS03,CS12,CCZ015,CCZ024",
+   "CS03,CS12,CCZ024,CCZ035,CCZ134",
+   "CS03,CS12,CCZ025,CCZ034,CCZ134",
+   "CS05,CS14,CS23,CCZ012",
+   "T0,CS13,CS24,CCZ014,CCZ023",
+   "T0,T2,CS04,CS13,CCZ012",
+   "T0,T4,CS01,CS03,CS12",
+   "T2,CS01,CCZ013,CCZ045,CCZ123",
+   "T2,CS01,CCZ025,CCZ034,CCZ123",
+   "T2,CS01,CS04,CS13,CCZ012",
+   "T2,CS02,CS04,CS12,CS13",
+   "T2,T3,CS01,CCZ015,CCZ024,CCZ234",
+   "T2,T3,CS01,CCZ045,CCZ123",
+   "T4,CS03,CS12,CCZ012,CCZ014,CCZ035",
+   "T4,CS03,CS12,CCZ012,CCZ035,CCZ124",
+   "T4,CS03,CS12,CCZ014,CCZ035,CCZ123",
+   "T4,CS03,CS12,CCZ014,CCZ035,CCZ124"
+  ],
+  "factory_beats_route_only_count": 17
+ },
+ "full_clifford_min": {
+  "synthillation": "syn_n minimised over the full-Clifford group, as the route is",
+  "syn_vs_route": {
+   "higher": 98,
+   "equal": 55,
+   "lower": 613
+  },
+  "joint_factory_vs_route__syn_vs_route": {
+   "equal|equal": 40,
+   "equal|higher": 10,
+   "equal|lower": 12,
+   "higher|equal": 8,
+   "higher|higher": 87,
+   "higher|lower": 1,
+   "lower|equal": 7,
+   "lower|higher": 1,
+   "lower|lower": 600
+  },
+  "totals": {
+   "factory": 21364,
+   "synthillation": 21860,
+   "route": 27130
+  },
+  "net_saving": {
+   "factory": 5766,
+   "synthillation": 5270,
+   "share_by_synthillation": 0.914
+  },
+  "saving_on_classes_where_lower": {
+   "factory": 6192,
+   "synthillation": 5664,
+   "share_by_synthillation": 0.9147
+  },
+  "factory_below_synthillation": {
+   "classes": 330,
+   "inputs_saved": 834,
+   "syn_vs_route_there": {
+    "equal": 16,
+    "lower": 291,
+    "higher": 23
+   }
+  },
+  "factory_beats_route_only": [
+   "CS03,CS12,CCZ015,CCZ024",
+   "CS05,CS14,CS23,CCZ012",
+   "T0,CS13,CS24,CCZ014,CCZ023",
+   "T0,T2,CS04,CS13,CCZ012",
+   "T0,T4,CS01,CS03,CS12",
+   "T2,CS01,CCZ025,CCZ034,CCZ123",
+   "T2,CS01,CS04,CS13,CCZ012",
+   "T2,CS02,CS04,CS12,CS13"
+  ],
+  "factory_beats_route_only_count": 8
+ },
+ "per_full_clifford_class_all_minimised": {
+  "classes": 622,
+  "note": "factory, synthillation and route each minimised over the full-Clifford class",
+  "factory_vs_route": {
+   "higher": 55,
+   "equal": 38,
+   "lower": 529
+  },
+  "syn_vs_route": {
+   "higher": 64,
+   "equal": 37,
+   "lower": 521
+  },
+  "factory_vs_syn": {
+   "equal": 366,
+   "lower": 256
+  },
+  "joint_factory_vs_route__syn_vs_route": {
+   "equal|equal": 30,
+   "equal|higher": 8,
+   "higher|higher": 55,
+   "lower|equal": 7,
+   "lower|higher": 1,
+   "lower|lower": 521
+  },
+  "totals": {
+   "factory": 17556,
+   "synthillation": 18192,
+   "route": 22986
+  },
+  "net_saving": {
+   "factory": 5430,
+   "synthillation": 4794,
+   "share_by_synthillation": 0.8829
+  }
+ }
+}

@@ -44,6 +44,7 @@ REFS = {(3, 1, "T0", 14): "webster2023transversal", (3, 2, "T0,T1", 14): "bravyi
         (3, 4, "CS03,CS12", 18): "anqi2026qec", (3, 6, "CS05,CS14,CS23", 24): "anqi2026qec",            # (2m+2)CS -> mCS, m=2,3
         (4, 4, "CCCZ0123", 16): "11096910,webster2022xp",
         (4, 1, "sT0", 30): "webster2023transversal",          # Example 4.1 at level t = 4 (outputs/checks/webster_family_check.json)
+        (4, 2, "sT0,sT1", 30): "hu2025climbing",  # [[2^(l+2)-2,2,2]] punctured RM family, [[30,2,2]] named in Hu-Liang-Calderbank Sec. V
         # l=3 factories with every coefficient doubled (each T rotation from two sqrt(T)); outputs/checks/doubled_l3_at_l4.json
         (4, 1, "sT0,sT0", 28): "x2:webster2023transversal", (4, 2, "CT01,CT01", 24): "x2:webster2023transversal,anqi2026qec",
         (4, 2, "sT0,sT0,sT1,sT1", 28): "x2:bravyi2012magic",

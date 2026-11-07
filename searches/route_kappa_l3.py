@@ -36,11 +36,25 @@ Routes (input counts as in route_compare_l3.py):
             unless it misses every used T state; kappa is independent of the synthesis.
   lab       per gate of the class representative: CCZ, CS each from its own [[8,3,2]] (8 inputs), T gates in C2T
             blocks (4 each); n_tel = min(n_lab, n_cat), ties broken by the lower kappa.
-  batch     all m CS and CCZ gates from one [[6m+2,3m,2]] (block j to gate j), T gates as in lab; n_tel_batch =
-            min(n_batch, n_tel), ties by the lower kappa. kappa minimised over 6 variants (which output of a block
-            the CS Y measurement takes, gate-to-block order forward or reversed), not over all assignments.
+  batch     all m CS and CCZ gates from one [[6m+2,3m,2]], T gates as in lab; n_tel_batch = min(n_batch, n_tel), ties
+            by the lower kappa. kappa is the lowest found by batch_search over which block feeds which gate (m!) and
+            how each block is wired (CCZ: block output to gate qubit; CS: which output is Y-measured and the order of
+            the other two): exhaustive over assignments x Y qubit for m <= 4 (177 of the 602 distinct CS/CCZ gate lists;
+            counts in known_answer_checks.batch_search), then best-improvement local search over the whole space
+            for every class. It is therefore an upper bound on the minimum kappa of this construction (exact minimum
+            not proved for m > 4), and the construction is one of size 6m+2. (Before 2026-11-06 13:08 only 6
+            variants were tried; kappa_6variants keeps that value; the wider search lowers it on 510 of the 602 gate
+            lists, e.g. 336 -> 332 for T2,T3,CS01,CCZ012,CCZ023,CCZ045, the value an independent check found; no
+            factory-versus-route verdict changed.)
             One pair here can corrupt several gates on overlapping qubits; the target fidelity is computed exactly
             on the 2^k basis, averaged over the Y outcomes and the teleportation outcomes.
+  min_kappa the route among cat, lab, batch with the lowest kappa, at any input count (ties by inputs). 'best' is the
+            cheapest by inputs, not the lowest kappa; a claim of lower kappa than every route must use min_kappa.
+Catalyst models favour the route: both start every target with a perfect catalyst and neither costs a poisoned
+catalyst carried across targets (Gidney-Fowler Sec. 3: a Theta(n) chance over n outputs) nor re-bootstrapping after a
+detected fault (Sec. 5), so kappa_cat and the T parts of lab and batch are lower bounds on a running C2T factory.
+Class match: the factory's noiseless output and the label the routes synthesize lie in the same class (same orbit
+under CNOT circuits, Pauli X and diagonal Cliffords) on 766 of 766, checked by searches/route_class_match_l3.py.
 Acceptance, first order: a factory of n inputs accepts with 1 - n p, and its expected inputs per accepted output are
 n + n^2 p + O(p^2). For a route, rej = sum of the inputs of the sub-factory runs it uses (P[some run rejects] = rej p),
 and the expected inputs are n_route + ov p with ov = sum_j w_j n_j^2 (w_j = share of run j the target uses, 1/2 for the
@@ -49,10 +63,14 @@ Known-answer checks (asserted, recorded): [[8,3,2]] kappa 28 = C(8,2) by stateve
 (Meier-Eastin-Knill arXiv:1204.4221; the circuit of searches/catalytic_check.py rebuilt on this engine); [[15,1,3]] no
 accepted harmful single or pair, 35 harmful triples; statevector pair counts = error_coefficients.coefficients on 5
 classes; noiseless C2T gives |T>^3 with fidelity 1; the Z-pattern computation equals the statevector one for m=1.
-Deterministic, single process.
-    python searches/route_kappa_l3.py   -> outputs/checks/route_kappa_l3.json
+Clifford merging: the counts in this file's summary are per diagonal class (route on the class representative only).
+The paper's counts take each route as the cheapest over the class's full-Clifford group; see searches/route_table_l3.py,
+section full_clifford of outputs/checks/route_table_l3.json (e.g. CS01,CS02: 14 here, 8 there via [[8,3,2]]).
+Deterministic (results independent of the worker count); WORKERS = 2 (plus the parent: 3 processes), under nice -n 19 on the laptop.
+    nice -n 19 python searches/route_kappa_l3.py   -> outputs/checks/route_kappa_l3.json
 """
-import os, sys, json, csv, glob, itertools, statistics as st
+import os, sys, json, csv, glob, itertools, math, statistics as st
+import multiprocessing as mp
 from fractions import Fraction
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -289,6 +307,91 @@ def target_fidelity(k, items):
     return F
 
 
+# ------------------------------------------------------------------ batch kappa: search over assignments
+WORKERS = 2                                                # 2 workers + the parent = 3 processes (laptop limit)
+EXHAUSTIVE_CAP = 4                                         # m <= 4: every gate-to-block assignment x every Y qubit
+_B = {}
+
+
+def _init_batch():
+    if _B: return
+    ccz_tab = ccz_err_table(); _B["cs"] = {qm: cs_err_table(qm) for qm in range(3)}
+    _B["ccz"] = lambda a: [(1.0, {y: ccz_tab[a][0][1](y) for y in itertools.product((0, 1), repeat=3)})]
+    _B["PAIRS"] = {m: batch_pairs(m) for m in range(1, 10)}
+    _B["PAT"] = {m: {} for m in _B["PAIRS"]}
+    for m, P in _B["PAIRS"].items():
+        for o in P:
+            if o: _B["PAT"][m][o] = _B["PAT"][m].get(o, 0) + 1
+
+
+def _worker_init():
+    _init_batch()
+
+
+def _orients(nm, sup):
+    """Ways to wire one block into a gate: CCZ, which block output goes to which qubit of the gate (6);
+    CS, which block output is Y-measured (3) times the order of the other two on the gate's qubits (2)."""
+    if nm == "CCZ": return [(p, -1) for p in itertools.permutations(sup)]
+    return [(p, qm) for qm in range(3) for p in itertools.permutations(sup)]
+
+
+def kappa_assignment(k, gl):
+    """gl[j] = (name, ordered support, Y qubit) of the gate fed by block j; exact kappa over the accepted pairs."""
+    m = len(gl); tot = 0.0
+    for o, mult in _B["PAT"][m].items():
+        items = []
+        for j, (nm, sup, qm) in enumerate(gl):
+            a = tuple(1 if 3 * j + q in o else 0 for q in range(3))
+            if not any(a): continue
+            key = (k, nm, sup, qm, a)
+            if key not in _ALT:
+                _ALT[key] = gate_alts(k, sup, _B["ccz"](a) if nm == "CCZ" else _B["cs"][qm][a])
+            items.append(_ALT[key])
+        tot += mult * (1 - target_fidelity(k, items))
+    return tot
+
+
+def batch_search(job):
+    """Lowest kappa found for one class's CS/CCZ gates through [[6m+2,3m,2]]. Variables: the block that feeds each
+    gate (m!) and each gate's orientation (_orients). Steps, deterministic: (a) the 6 variants of the first version
+    (one Y qubit for every CS, order forward or reversed, sorted supports), recorded; (b) for m <= EXHAUSTIVE_CAP,
+    every assignment x every per-CS Y qubit (sorted supports); (c) best-improvement local search from the best point
+    over block swaps and single-gate orientation changes, until no neighbour is lower. Returns the minimum found."""
+    _init_batch()
+    k, cc = job; cc = list(cc); m = len(cc); R9 = lambda x: round(x, 9)
+    def ev(perm, ori):                                      # perm[j] = gate fed by block j; ori[g] = (sup, qm)
+        return R9(kappa_assignment(k, [(cc[g][0],) + tuple(ori[g]) for g in perm]))
+    base = [(tuple(sorted(sup)), -1 if nm == "CCZ" else 0) for nm, sup in cc]
+    six = []
+    for qm in range(3):
+        ori = [(s_, -1 if nm == "CCZ" else qm) for (nm, _), (s_, _) in zip(cc, base)]
+        for perm in (tuple(range(m)), tuple(range(m))[::-1]):
+            six.append((ev(perm, ori), perm, tuple(ori)))
+    k6 = min(x[0] for x in six); best = min(six)
+    exhaustive = m <= EXHAUSTIVE_CAP
+    if exhaustive:
+        cs_idx = [g for g, (nm, _) in enumerate(cc) if nm == "CS"]
+        for perm in itertools.permutations(range(m)):
+            for qms in itertools.product(range(3), repeat=len(cs_idx)):
+                ori = list(base)
+                for g, qm in zip(cs_idx, qms): ori[g] = (base[g][0], qm)
+                cand = (ev(perm, ori), perm, tuple(ori))
+                if cand < best: best = cand
+    val, perm, ori = best
+    while True:
+        nb = []
+        for i, j in itertools.combinations(range(m), 2):
+            p2 = list(perm); p2[i], p2[j] = p2[j], p2[i]; nb.append((tuple(p2), ori))
+        for g, (nm, sup) in enumerate(cc):
+            for o in _orients(nm, sup):
+                if o != ori[g]: nb.append((perm, ori[:g] + (o,) + ori[g + 1:]))
+        cand = min((ev(p_, o_), p_, o_) for p_, o_ in nb) if nb else best
+        if cand[0] < val: best = cand; val, perm, ori = cand
+        else: break
+    return dict(kappa=frac(val), kappa_6variants=frac(k6), exhaustive=exhaustive,
+                assignment=[[cc[g][0], list(ori[g][0]), ori[g][1]] for g in perm])
+
+
 # ------------------------------------------------------------------ main
 def parse(spec):
     out = []
@@ -409,24 +512,22 @@ def main():
     checks["batch_6m2"] = {m: dict(n=6 * m + 2, accepted_pairs=len(PAIRS[m]), harmful_pairs_on_outputs=sum(1 for o in PAIRS[m] if o))
                            for m in PAIRS}
 
-    PAT = {m: {} for m in PAIRS}
-    for m in PAIRS:
-        for o in PAIRS[m]:
-            if o: PAT[m][o] = PAT[m].get(o, 0) + 1
-
-    def kappa_batch(k, gates_cc, qm, order):
-        m = len(gates_cc); gl = gates_cc if order == 0 else gates_cc[::-1]; tot = 0.0
-        for o, mult in PAT[m].items():
-            items = []
-            for j, (nm, sup) in enumerate(gl):
-                a = tuple(1 if 3 * j + q in o else 0 for q in range(3))
-                if not any(a): continue
-                key = (k, nm, sup, qm if nm == "CS" else -1, a)
-                if key not in _ALT:
-                    _ALT[key] = gate_alts(k, sup, br_ccz(a) if nm == "CCZ" else cs_tab[qm][a])
-                items.append(_ALT[key])
-            tot += mult * (1 - target_fidelity(k, items))
-        return frac(tot)
+    _init_batch()
+    assert all(len(_B["PAIRS"][m]) == len(PAIRS[m]) for m in PAIRS)
+    jobs = []
+    for r in rows:
+        cc_ = [(nm, s_) for nm, s_ in parse(r["spec"]) if nm != "T"]
+        if cc_: jobs.append((r["k"], tuple(cc_)))
+    with mp.Pool(WORKERS, initializer=_worker_init) as pool:
+        BATCH = dict(zip(jobs, pool.map(batch_search, jobs, chunksize=1)))
+    checks["batch_search"] = dict(
+        classes_with_cs_or_ccz=len(BATCH),
+        exhaustive_over_orders_and_Y_qubit=sum(v["exhaustive"] for v in BATCH.values()),
+        lowered_below_6_variants=sum(v["kappa"] < v["kappa_6variants"] for v in BATCH.values()),
+        note="kappa of the batch is the minimum found over gate-to-block assignments and per-gate block orientations "
+             "(CCZ: which block output feeds which qubit; CS: which output is Y-measured and the order of the other two), "
+             "exhaustive over assignments x Y qubit when m <= 4, then best-improvement local search over the full space; "
+             "an upper bound on the minimum of this construction, which is itself one construction of [[6m+2,3m,2]]")
 
     out = []
     for r in rows:
@@ -442,7 +543,7 @@ def main():
         rT, oT = acc_T(nt); rej_lab, ov_lab = 8 * m + rT, Fraction(64 * m) + oT
         # batch
         if m:
-            kb = min(kappa_batch(k, cc, qm, od) for qm in range(3) for od in (0, 1))
+            bres = BATCH[(k, tuple(cc))]; kb = bres["kappa"]
             n_b = 6 * m + 2 + 4 * nt; k_b = kb + kT(nt, False); k_b_c = kb + kT(nt, True)
             rej_b, ov_b = 6 * m + 2 + rT, Fraction((6 * m + 2) ** 2) + oT
         else:
@@ -452,11 +553,14 @@ def main():
         pick = lambda names: min(((cands[x][0], cands[x][1], x) for x in names if x in cands))[2]
         routes = {"cat": "cat", "tel": pick(["lab", "cat"]), "tel_batch": pick(["batch", "lab", "cat"])}
         routes["best"] = routes["tel_batch"]                 # cheapest of the three by inputs (route_margin.py), ties by kappa
+        routes["min_kappa"] = min(((cands[x][1], cands[x][0], x) for x in cands))[2]   # lowest kappa, any input count
         row = dict(k=k, orbit=r["orbit"], spec=r["spec"], n=n, tau=tau, syn_n=r.get("syn_n"), kappa_factory=c_c,
                    rej_factory=n, ov_factory=n * n)
         for rn, cn in routes.items():
             nn, kk, kc, rj, ov = cands[cn]
             row[rn] = dict(construction=cn, n=nn, kappa=str(kk), kappa_carried=str(kc), rej=rj, ov=str(ov))
+        if m: row["batch_search"] = dict(kappa_6variants=str(bres["kappa_6variants"]), kappa=str(bres["kappa"]),
+                                         exhaustive=bres["exhaustive"], assignment=bres["assignment"])
         out.append(row)
 
     rc = {r["spec"]: r for r in json.load(open(os.path.join(ROOT, "outputs", "checks", "route_compare_l3.json")))["rows"]}
@@ -487,7 +591,7 @@ def main():
     summary = {}
     for nm_, rr in subsets.items():
         summary[nm_] = dict(classes=len(rr))
-        for rn in ("cat", "tel", "tel_batch", "best"):
+        for rn in ("cat", "tel", "tel_batch", "best", "min_kappa"):
             summary[nm_][rn] = dict(kappa_ideal_catalyst=cmp(rr, rn), kappa_carried_catalyst=cmp(rr, rn, "kappa_carried"),
                                     acceptance=cmp_acc(rr, rn))
     assert summary["all"]["classes"] == 766 and summary["below_synthillation"]["classes"] == 330

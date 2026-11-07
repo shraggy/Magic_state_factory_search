@@ -16,8 +16,11 @@ unitary form of Corollary 3 and are not bounded by it):
          factory [[6m+2,3m,2]] (m CCZ states; a CS from one of them by the Y measurement), T gates as in tel:
          n_batch = min(6m+2 [m>0] + 4 #T, n_tel). The strongest of the three; reported in the End Matter beside tel
          (computed, unchecked against a second method).
-Leading-order output error of the catalysed route: about 14 p^2 per T state (28 p^2 per CCZ->2T block, catalyst
-errors neglected), so c_cat ~ 14 tau; this estimate is computed, unchecked.
+Leading-order output error: superseded. The rough estimate c_cat_est = 14 tau kept in the rows and the count
+c_below_14tau are NOT the exact values; the exact kappa of all three routes, by fault enumeration, is in
+searches/route_kappa_l3.py -> outputs/checks/route_kappa_l3.json (catalysed block: 24 p^2 for its two delivered T
+states and 16 p^2 for one, with an ideal catalyst; 28 p^2 when the passed-on catalyst must also be right). Quote
+output-error numbers from that file only.
 Counts, against n of outputs/staged_best.json: route < n, = n, > n, over all 766 and over the classes with
 n < n_syn (fewer inputs than the synthillation construction); c < 14 tau.
 Deterministic; reads outputs/staged_best.json only.
