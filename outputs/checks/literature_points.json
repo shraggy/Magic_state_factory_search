@@ -13,11 +13,11 @@
 "literature": {
 "Reed--Muller": 6,
 "Hypercube": 3,
-"Iceberg ($\\gamma\\to0$)": 3,
+"Iceberg": 3,
 "Nezami--Haah": 19,
 "$\\mathrm{CCZ}$ layers": 3,
 "Bravyi--Haah": 6,
-"H codes ($\\gamma\\to0$)": 6,
+"H codes": 6,
 "$\\mathrm{CS}$ layers (AG codes)": 3
 },
 "lit_nmax": 44,
@@ -95,7 +95,7 @@
 "k": 2,
 "families": [
 "Hypercube",
-"Iceberg ($\\gamma\\to0$)"
+"Iceberg"
 ]
 },
 {
@@ -111,7 +111,7 @@
 "n": 6,
 "k": 2,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {
@@ -119,7 +119,7 @@
 "n": 6,
 "k": 4,
 "families": [
-"Iceberg ($\\gamma\\to0$)"
+"Iceberg"
 ]
 },
 {
@@ -135,7 +135,7 @@
 "n": 8,
 "k": 4,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {
@@ -143,7 +143,7 @@
 "n": 8,
 "k": 6,
 "families": [
-"Iceberg ($\\gamma\\to0$)"
+"Iceberg"
 ]
 },
 {
@@ -151,7 +151,7 @@
 "n": 10,
 "k": 6,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {
@@ -159,7 +159,7 @@
 "n": 12,
 "k": 8,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {
@@ -167,7 +167,7 @@
 "n": 14,
 "k": 10,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {
@@ -175,7 +175,7 @@
 "n": 16,
 "k": 12,
 "families": [
-"H codes ($\\gamma\\to0$)"
+"H codes"
 ]
 },
 {

@@ -43,7 +43,7 @@ plt.rcParams.update({"text.usetex": True, "font.family": "serif", "font.size": F
 INK, MUTED, GRAY, ORANGE, BAND = "#0b0b0b", "#52514e", "#b9b8b3", "#eb6834", "#eef3fb"
 FAM = {  # family -> (color, marker); slots of the repo palette, one marker each
     "Reed--Muller": ("#2a78d6", "o"), "Hypercube": ("#7a4fc9", "s"), "Bravyi--Haah": ("#1baf7a", "^"),
-    r"H codes ($\gamma\to0$)": ("#c2185b", "v"), r"Iceberg ($\gamma\to0$)": ("#8d6e00", "D"), r"$\mathrm{CS}$ layers (AG codes)": ("#0097a7", "P"),
+    r"H codes": ("#c2185b", "v"), r"Iceberg": ("#8d6e00", "D"), r"$\mathrm{CS}$ layers (AG codes)": ("#0097a7", "P"),
     r"$\mathrm{CCZ}$ layers": ("#37474f", "X"), "Nezami--Haah": ("#e0a800", "*")}
 SYN = "#2e7d32"                                        # l=3 main-sweep sizes where the factory ties synthillation
 
@@ -86,10 +86,10 @@ def literature(LU, SB):
         put("Hypercube", (l, 2 ** l, l), find(l, 2 ** l, l, lambda _: True))
     for k in range(2, 13, 2):
         put("Bravyi--Haah", (3, 3 * k + 8, k), find(3, 3 * k + 8, k, single))
-        put(r"H codes ($\gamma\to0$)", (2, k + 4, k), find(2, k + 4, k, single))
+        put(r"H codes", (2, k + 4, k), find(2, k + 4, k, single))
     for k in range(2, 13, 2):
         r = find(2, k + 2, k, lambda r: layer(r["reduced"], "CZ", k, 2))
-        if r: out[(2, k + 2, k)].append(r"Iceberg ($\gamma\to0$)")
+        if r: out[(2, k + 2, k)].append(r"Iceberg")
     for m in range(1, 7):
         r = find(3, 6 * m + 6, 2 * m, lambda r, m=m: layer(r["reduced"], "CS", 2 * m, 2))
         if r: out[(3, 6 * m + 6, 2 * m)].append(r"$\mathrm{CS}$ layers (AG codes)")
