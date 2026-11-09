@@ -1,0 +1,358 @@
+{
+ "job": "ccc LSF 1230451",
+ "summary": {
+  "known_answer_match": "2 of 2",
+  "three_classes_x86_final_32": "7 of 7",
+  "three_classes_arm64_final_30": "7 of 7",
+  "seeded_rows_match_v6": "5 of 5"
+ },
+ "rows": [
+  {
+   "orbit": "2304:136",
+   "mode": "seed",
+   "machine": "x86_64",
+   "host": "cccxc515",
+   "x86_layers": [
+    24,
+    24,
+    22,
+    22,
+    22,
+    22,
+    22
+   ],
+   "x86_final": 22,
+   "arm64_layers": [
+    22,
+    22,
+    22,
+    22,
+    22,
+    22,
+    22
+   ],
+   "arm64_final": 22,
+   "v6_layers": [
+    24,
+    24,
+    22,
+    22,
+    22,
+    22,
+    22
+   ],
+   "pipeline_n": 22,
+   "syn_n": 24,
+   "cpu_s": 1353.0,
+   "matches_v6_per_layer": true
+  },
+  {
+   "orbit": "2320:9041",
+   "mode": "seed",
+   "machine": "x86_64",
+   "host": "cccxc561",
+   "x86_layers": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    28,
+    28
+   ],
+   "x86_final": 28,
+   "arm64_layers": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    28,
+    28
+   ],
+   "pipeline_n": 28,
+   "syn_n": 32,
+   "cpu_s": 1721.5,
+   "matches_v6_per_layer": true
+  },
+  {
+   "orbit": "2352:1674",
+   "mode": "none",
+   "machine": "x86_64",
+   "host": "cccxc714",
+   "x86_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 32,
+   "cpu_s": 1531.4
+  },
+  {
+   "orbit": "2352:1674",
+   "mode": "seed",
+   "machine": "x86_64",
+   "host": "cccxc424",
+   "x86_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 32,
+   "cpu_s": 2787.3,
+   "matches_v6_per_layer": true
+  },
+  {
+   "orbit": "2352:3240",
+   "mode": "none",
+   "machine": "x86_64",
+   "host": "cccxc573",
+   "x86_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 34,
+   "cpu_s": 1732.9
+  },
+  {
+   "orbit": "2352:3240",
+   "mode": "seed",
+   "machine": "x86_64",
+   "host": "cccxc514",
+   "x86_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 34,
+   "cpu_s": 2587.6,
+   "matches_v6_per_layer": true
+  },
+  {
+   "orbit": "2352:3240",
+   "mode": "syn",
+   "machine": "x86_64",
+   "host": "cccxc412",
+   "x86_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 34,
+   "cpu_s": 2637.9
+  },
+  {
+   "orbit": "2352:8944",
+   "mode": "none",
+   "machine": "x86_64",
+   "host": "cccxc504",
+   "x86_layers": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    34,
+    34,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 34,
+   "cpu_s": 2523.7
+  },
+  {
+   "orbit": "2352:8944",
+   "mode": "seed",
+   "machine": "x86_64",
+   "host": "cccxc714",
+   "x86_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "x86_final": 32,
+   "arm64_layers": [
+    34,
+    34,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "arm64_final": 30,
+   "v6_layers": [
+    34,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ],
+   "pipeline_n": 32,
+   "syn_n": 34,
+   "cpu_s": 1370.7,
+   "matches_v6_per_layer": true
+  }
+ ]
+}
