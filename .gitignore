@@ -22,3 +22,6 @@ trash/
 
 # exact class tables, rebuilt on first use (cascade_class.classes_of)
 outputs/staged*/_cache/
+
+# OneDrive sync-conflict copies
+*Shraddha’s MacBook Pro*

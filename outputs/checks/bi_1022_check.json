@@ -1,0 +1,16 @@
+{
+ "script": "searches/bi_1022_check.py",
+ "bi_overlap_abs": 0.9999999999999998,
+ "factory_output_overlap_abs": 0.9999999999999994,
+ "B_is_identity_operator": false,
+ "B_is_diagonal": false,
+ "non_clifford_rotations_in_B": 12,
+ "removed": [
+  "T^dag_2",
+  "T^dag_3"
+ ],
+ "inputs_after_removal": 10,
+ "distance_check": "outputs/checks/catalytic_check.json: 10 of 10 single faults caught",
+ "is_borrowed_identity": true,
+ "output_is_T_T": true
+}
