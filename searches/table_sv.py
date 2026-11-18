@@ -243,7 +243,7 @@ def tables(rows):
            r"\stepcounter{table}\edef\tabVInum{S\Roman{table}}\addtocounter{table}{-1}"]
     cap = {2: r"Smallest distance-2 factory found for each output class at $l=2$ (generators $\mathrm{S}$, $\CZ$), $k\le6$. "
               r"Output: the class, qubits labelled from $1$, linked to its circuit; $\tau$: its $Z(\pi/2^l)$-count, the least "
-              r"number of $Z(\pi/2^l)$ rotations that prepare it (Corollary~\ref{cor:bound}; ``--'': not computed); stage: the "
+              r"number of $Z(\pi/2^l)$ rotations that prepare it (Proposition~\ref{prop:bound}; ``--'': not computed); stage: the "
               r"first stage reaching this $n$ (App.~\ref{app:cascade}): TG two-group, GS group-symmetric, GS-c with a group on "
               r"the checks, GL-d gluing on disjoint blocks, GL-e gluing on entangled support, SAT-r restricted SAT, SAT-f free "
               r"SAT; ref.: an earlier paper that gives this factory, or, where none does, ``syn'' if a synthillation construction~\cite{campbell2017unified} has the same $n$ and ``new'' if none does (at $l=2$, where every output is a stabilizer state, ``--''). $^\circ$: free SAT over all coefficients is unsatisfiable below this $n$ on $N$ qubits, so $n$ is smallest on $N$ or fewer qubits. Bold: on the bound $n=\tau+1$, so smallest at any $N$. Every class is in the "
